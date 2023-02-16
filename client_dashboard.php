@@ -67,10 +67,10 @@
 
     <header class="d-flex align-items-center py-2 bg-success text-light" style=" position: absolute; top: 20px; right:40px; padding-inline: 20px;  border-radius: 10px;">
             <span id='profileIconHeader'>
-                <?php if(empty($fetchUserInfo['picture'])){ ?>
+                <?php if(empty($data['picture'])){ ?>
                     <i class="fa-solid fa-user fs-4 mt-1"></i>
                 <?php }else{ ?>
-                    <img src="<?php echo $fetchUserInfo['picture'] ?>" alt="" style='width:30px;height:30px;border: 3px solid white ;border-radius: 100vmax; margin-right: 7px;'>
+                    <img src="<?php echo $data['picture'] ?>" alt="" style='width:30px;height:30px;border: 3px solid white ;border-radius: 100vmax; margin-right: 7px;'>
                 <?php } ?>
             </span>
             <div class="dropdown">
