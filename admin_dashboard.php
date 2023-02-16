@@ -265,48 +265,53 @@
             </div>
             <div class="modal-body">
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="inputSchoolName" placeholder="School Name">
-                    <label for="floatingInput">School Name</label>
+                    <input type="text" class="form-control" id="inputName" placeholder="Name">
+                    <label for="floatingInput">Name</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="inputSchoolID" placeholder="School ID">
-                    <label for="floatingInput">School ID</label>
+                    <input type="text" class="form-control" id="inputBirthDay" placeholder="Name">
+                    <label for="floatingInput">Birthday</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="inputContactPerson" placeholder="Contact Person">
-                    <label for="floatingInput">Contact Person</label>
+                    <input type="text" class="form-control" id="inputAddress" placeholder="Name">
+                    <label for="floatingInput">Address</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="inputContactNo" placeholder="Contact No">
-                    <label for="floatingInput">Contact No</label>
+                    <input type="text" class="form-control" id="inputEmail" placeholder="Name">
+                    <label for="floatingInput">Deped Email</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="inputEmail" placeholder="Email">
-                    <label for="floatingInput">Email</label>
+                    <input type="text" class="form-control" id="inputContact" placeholder="Name">
+                    <label for="floatingInput">Contact No.</label>
                 </div>
-                <label class='mt-2 mb-2 ps-2'>Division</label>
-                <select class="form-select" aria-label="Default select example" id='inputDivision'>
-                    <option value="DCS-Valenzuela">DCS-Valenzuela</option>
-                </select>
-                <label class='mt-3 mb-2 ps-2'>School Type</label>
-                <select class="form-select" aria-label="Default select example" id='inputSchoolType'>
-                    <option value="Public">Public</option>
-                    <option value="Private">Private</option>
-                </select>
-                <label class='mt-3 mb-2 ps-2'>Grade/Level</label>
-                <select class="form-select" aria-label="Default select example" id='inputSchoolLevel'>
-                    <option value="Elementary School">Elementary School</option>
-                    <option value="High School">High School</option>
-                </select>
-                <label class='mt-3 mb-2 ps-2'>District</label>
-                <select class="form-select" aria-label="Default select example" id='inputDistrict'>
-                    <option value="Congressional I">Congressional I</option>
-                    <option value="Congressional II">Congressional II</option>
-                    <option value="South">South</option>
-                    <option value="North">North</option>
-                    <option value="East">East</option>
-                    <option value="Central">Central</option>
-                </select>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="inputSex" placeholder="Name">
+                    <label for="floatingInput">Sex</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="inputYearAsSchoolHead" placeholder="Name">
+                    <label for="floatingInput">Year as Schoolhead</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="inputDurationYear" placeholder="Name">
+                    <label for="floatingInput">Duration year of stay</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="inputLearningPerformance" placeholder="Name">
+                    <label for="floatingInput">Learners Performance</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="inputTeacherPerformance" placeholder="Name">
+                    <label for="floatingInput">Teacher Performance</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="inputFinancialMng" placeholder="Name">
+                    <label for="floatingInput">Financial Management</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="inputComplaints" placeholder="Name">
+                    <label for="floatingInput">Complaints</label>
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -479,10 +484,9 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <div class="mb-3">
-                    <!-- <label for="formFile" class="form-label">Upload profile picture</label> -->
-                    <input type="hidden" value='<?php echo $fetchUserInfo['id'] ?>' id='profilePictureId'>
-                    <input class="form-control" type="file" id="profileUploadedPicture">
+                <div class="mb-3" id='uploadProfileModalUpdate'>
+                    <!-- <input type="hidden" value='<?php echo $fetchUserInfo['id'] ?>' id='profilePictureId'>
+                    <input class="form-control" type="file" id="profileUploadedPicture"> -->
                 </div>
             </div>
             <div class="modal-footer">
@@ -593,55 +597,73 @@
             // ADD SCHOOL
             $("#addSchoolBtn").click(function(){
                 
-                const schoolName = $("#inputSchoolName").val();
-                const schoolID = $("#inputSchoolID").val();
-                const contactPerson = $("#inputContactPerson").val();
-                const contactNo = $("#inputContactNo").val();
+                const name = $("#inputName").val();
+                const bday = $("#inputBirthDay").val();
+                const address = $("#inputAddress").val();
                 const email = $("#inputEmail").val();
-                const division = $("#inputDivision").val();
-                const schoolType = $("#inputSchoolType").val();
-                const district = $("#inputDistrict").val();
-                const schoolLevel = $("#inputSchoolLevel").val();
+                const contact = $("#inputContact").val();
+                const sex = $("#inputSex").val();
+                const yearSchoolHead = $("#inputYearAsSchoolHead").val();
+                const durationYear = $("#inputDurationYear").val();
+                const inputLearningPerformance = $("#inputLearningPerformance").val();
+                const inputTeacherPerformance = $("#inputTeacherPerformance").val();
+                const inputFinancialMng = $("#inputFinancialMng").val();
+                const inputComplaints = $("#inputComplaints").val();
+                
 
-
-
-                if(schoolName && schoolID && contactPerson && contactNo && email && division && schoolType && district){
+                // alert(bday)
+                if(name && bday && address && email && contact && sex && yearSchoolHead && durationYear && inputLearningPerformance && inputTeacherPerformance && inputFinancialMng && inputComplaints){
                     $.ajax({
-                        url : "addSchool.php",
+                        url : "addProfileNew.php",
                         method : "post",
                         data : {
-                            schoolName : schoolName,
-                            schoolID : schoolID,
-                            contactPerson : contactPerson,
-                            contactNo : contactNo,
+                            name : name,
+                            bday : bday,
+                            address : address,
                             email : email,
-                            division : division,
-                            schoolType : schoolType,
-                            district : district,
-                            schoolLevel : schoolLevel
+                            contact : contact,
+                            sex : sex,
+                            yearSchoolHead : yearSchoolHead,
+                            durationYear : durationYear,
+                            inputLearningPerformance : inputLearningPerformance,
+                            inputTeacherPerformance : inputTeacherPerformance,
+                            inputFinancialMng : inputFinancialMng,
+                            inputComplaints : inputComplaints
                         },
                         success(){
                             $('#dashBoardBody').load("table.php");
                             // $('#dashBoardBody').html(e);
     
-                            $("#inputSchoolName").val("");
-                            $("#inputSchoolID").val("");
-                            $("#inputContactPerson").val("");
-                            $("#inputContactNo").val("");
+                            $("#inputName").val("");
+                            $("#inputBirthDay").val("");
+                            $("#inputAddress").val("");
                             $("#inputEmail").val("");
-                            $("#inputDivision").val("");
-                            $("#inputSchoolType").val("");
-                            $("#inputDistrict").val("");
-                            $("#inputSchoolLevel").val("");
+                            $("#inputContact").val("");
+                            $("#inputSex").val("");
+                            $("#inputYearAsSchoolHead").val("");
+                            $("#inputDurationYear").val("");
+                            $("#inputLearningPerformance").val("");
+                            $("#inputTeacherPerformance").val("");
+                            $("#inputFinancialMng").val("");
+                            $("#inputComplaints").val("");
                         }
                     })
+                    // alert("success")
                 }else{
                     confirm(`Please fill up all the field!`)
 
-                    $("#inputSchoolName").val("");
-                    $("#inputPrincipal").val("");
+                    $("#inputName").val("");
+                    $("#inputBirthDay").val("");
                     $("#inputAddress").val("");
+                    $("#inputEmail").val("");
                     $("#inputContact").val("");
+                    $("#inputSex").val("");
+                    $("#inputYearAsSchoolHead").val("");
+                    $("#inputDurationYear").val("");
+                    $("#inputLearningPerformance").val("");
+                    $("#inputTeacherPerformance").val("");
+                    $("#inputFinancialMng").val("");
+                    $("#inputComplaints").val("");
                 }
 
 
@@ -746,18 +768,18 @@
             // VIEW EQUIPMENT
             $("#dashBoardBody").on("click","#viewBtn",function(){
 
-                const schoolName = $(this).val().toLowerCase();
+                const id = $(this).val();
 
-                $("#insertSchoolName").val(schoolName);
+                // alert(id)
 
                 $.ajax({
-                    url: "schools_equipment/equipment.php",
-                    method: "post",
+                    url:"profile.php",
+                    method:"post",
                     data:{
-                        schoolName : schoolName
+                        id : id
                     },
-                    success(data){
-                        $("#dashBoardBody").html(data);
+                    success(e){
+                        $("#dashBoardBody").html(e)
                     }
                 })
             })
@@ -1142,46 +1164,57 @@
 
             // PROFILE UPDATE (DATABASE)
             $("#profileUpdateBtnDatabase").click(function(){
-                const id = $("#profileId").val();
-                const email = $("#profileEmailModal").val();
-                const newPass = $("#profileNewPassModal").val();
-                const reTypePass = $("#ProfileRetypePassModal").val();
 
-                if(email && newPass && reTypePass){
-                    
-                    if(newPass === reTypePass){
+                const id = $("#idEditSchool").val();
+                const name = $("#inputNameEdited").val();
+                const bday = $("#inputBirthDayEdited").val();
+                const address = $("#inputAddressEdited").val();
+                const email = $("#inputEmailEdited").val();
+                const contact = $("#inputContactEdited").val();
+                const sex = $("#inputSexEdited").val();
+                const yearSchoolHead = $("#inputYearAsSchoolHeadEdited").val();
+                const durationYear = $("#inputDurationYearEdited").val();
+                const inputLearningPerformance = $("#inputLearningPerformanceEdited").val();
+                const inputTeacherPerformance = $("#inputTeacherPerformanceEdited").val();
+                const inputFinancialMng = $("#inputFinancialMngEdited").val();
+                const inputComplaints = $("#inputComplaintsEdited").val();
+                
                         
+                $.ajax({
+                    url:"profileUpdateDb.php",
+                    method:"post",
+                    data:{
+                        id : id,
+                        name : name,
+                        bday : bday,
+                        address : address,
+                        email : email,
+                        contact : contact,
+                        sex : sex,
+                        yearSchoolHead : yearSchoolHead,
+                        durationYear : durationYear,
+                        inputLearningPerformance : inputLearningPerformance,
+                        inputTeacherPerformance : inputTeacherPerformance,
+                        inputFinancialMng : inputFinancialMng,
+                        inputComplaints : inputComplaints
+                    },
+                    success(){
+
                         $.ajax({
-                            url:"profileUpdateDb.php",
+                            url:"profile.php",
                             method:"post",
                             data:{
-                                id:id,
-                                email : email,
-                                newPass : newPass
+                                id : id
                             },
-                            success(){
-
-                                $.ajax({
-                                    url:"profile.php",
-                                    method:"post",
-                                    data:{
-                                        id : id
-                                    },
-                                    success(e){
-                                        confirm("Update profile successful!");
-                                        $("#dashBoardBody").html(e)
-                                    }
-                                })
+                            success(e){
+                                confirm("Update profile successful!");
+                                $("#dashBoardBody").html(e)
                             }
                         })
-
-                    }else{
-                        confirm('Password not match')
                     }
+                })
 
-                }else{
-                    confirm('Please fill up all field!')
-                }
+
             })
 
             // SELECTED ROLE
@@ -1393,6 +1426,21 @@
                 })
             })
 
+
+            $("#dashBoardBody").on("click","#uploadHereButton",function(){
+                const id = $(this).val()
+
+                $.ajax({
+                    url:"updateModalProfile.php",
+                    method:"post",
+                    data:{
+                        id : id
+                    },
+                    success(e){
+                        $("#uploadProfileModalUpdate").html(e)
+                    }
+                })
+            })
         })
 
         function exportToExcel() {
