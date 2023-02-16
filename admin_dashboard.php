@@ -117,10 +117,10 @@
     <!-- <span class="position-absolute" style="left: 300px; top: 30px;"><i id="menuBtn" class="fa-solid fa-bars text-dark fs-3"></i></span> -->
         <div class='nav_wrapper'>
             <nav>
-                <div class="d-flex flex-column flex-shrink-0 p-3 bg-dark text-light" style="min-width: 280px; height:100vh; position-relative">
+                <div class="d-flex flex-column flex-shrink-0 p-3 bg-dark text-light" style="min-width: 280px; max-width: 290px; height:100vh; position-relative">
                     <a href="admin_dashboard.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
                     <img class="bi me-2" width="50" height="50" src="https://sdovalenzuelacity.deped.gov.ph/wp-content/uploads/2021/04/New-DO-Logo.png" alt="logo">
-                    <span class="fs-4 text-light">Inventory System</span>
+                    <span class="fs-5 text-light">DepEd Valenzuela Management Profile</span>
                     </a>
                     <!-- lagyan mo id at tawagin mo addevent para lumabas or hindi ang navbar -->
                     <hr>
@@ -131,15 +131,27 @@
                                 Dashboard
                             </a>
                         </li>
+                        <li id='chiefHeadBtn'>
+                            <a id='' href="#" class="nav-link link-light">
+                                <span class="bi me-2" width="16" height="16"><i class="fa-solid fa-clipboard-user"></i></span>
+                                Chief Head
+                            </a>
+                        </li>
                         <li id='schoolBtn'>
                             <a id="navBtn2" href="#" class="nav-link link-light">
-                                <span class="bi me-2" width="16" height="16"><i class="fa-solid fa-school"></i></span>
-                                School
+                                <span class="bi me-2" width="16" height="16"><i class="fa-solid fa-user-tie"></i></span>
+                                School Head
                             </a>
                             <ul id='levelBtnDashboard' style='display:none; padding-left: 13px;'>
                                 <li><button class='ms-n4 bg-dark text-light' value='High School' style="border:none;" id='navHighSchoolBtn'><i class="fa-solid fa-minus text-secondary me-2"></i>High School</button></li>
                                 <li><button class='bg-dark text-light' value='Elementary School' style="border:none;" id='navElemSchoolBtn'><i class="fa-solid fa-minus text-secondary me-2"></i>Elementary School</button></li>
                             </ul>
+                        </li>
+                        <li id=''>
+                            <a id='' href="#" class="nav-link link-light">
+                                <span class="bi me-2" width="16" height="16"><i class="fa-solid fa-user"></i></span>
+                                Unit Head
+                            </a>
                         </li>
                         <li id='manageUserBtn'>
                             <a id='navBtn3' href="#" class="nav-link link-light">
@@ -147,7 +159,7 @@
                                 Manage Users
                             </a>
                         </li>
-                        <li id='requestBtn'>
+                        <!-- <li id='requestBtn'>
                             <a id='navBtn4' href="#" class="nav-link link-light">
                                 <span class="bi me-2" width="16" height="16"><i class="fa-solid fa-calendar-plus"></i></span>
                                 Request Approval 
@@ -159,7 +171,7 @@
                                 </span>
 
                             </a>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
                 <!-- <ul>
@@ -187,7 +199,7 @@
                     <div class="card w-100" style="border: none; max-width: 310px">
                         <div class="card-body bg-success" style="border-radius: 20px;">
                             <!-- Title -->
-                            <h4 class="card-title"><i class="fa-solid fa-school me-3"></i><?php echo $schoolCount ?> <br> <p class="mt-2">Schools</p></h4>
+                            <h4 class="card-title"><i class="fa-solid fa-user-tie me-3"></i><?php echo $schoolCount ?> <br> <p class="mt-2">School Head</p></h4>
                             <hr>
                             <!-- Text -->
                             <p class="card-text">Number of registered School.</p>
@@ -227,28 +239,28 @@
                         </div>
                     </div>
                 </div>
-                <div class="d-flex flex-row gap-5">
+                <!-- <div class="d-flex flex-row gap-5">
                     <div class="card w-100" style=" border: none; max-width: 310px">
-                        <div class="card-body" style="border-radius: 20px; background-color: #87194C">
+                        <div class="card-body" style="border-radius: 20px; background-color: #87194C"> -->
                             <!-- Title -->
-                            <h4 class="card-title"><i class="fa-solid fa-bullhorn me-3"></i><?php echo $adminCount ?> <br> <p class="mt-2">Announcement</p></h4>
-                            <hr>
+                            <!-- <h4 class="card-title"><i class="fa-solid fa-bullhorn me-3"></i><?php echo $adminCount ?> <br> <p class="mt-2">Announcement</p></h4>
+                            <hr> -->
                             <!-- Text -->
-                            <p class="card-text">Number of Announcement.</p>
+                            <!-- <p class="card-text">Number of Announcement.</p> -->
                             <!-- <button class="btn btn-rounded text-light px-4 btn-md toManageUser" style="background-color: rgba(0, 0, 0, 0.3);">See more<i class="fa-solid fa-arrow-up-right-from-square ms-2"></i></button> -->
-                        </div>
+                        <!-- </div>
                     </div>
                     <div class="card w-100" style="border: none; max-width: 310px">
-                        <div class="card-body" style="border-radius: 20px; background-color: #35DCCC;">
+                        <div class="card-body" style="border-radius: 20px; background-color: #35DCCC;"> -->
                             <!-- Title -->
-                            <h4 class="card-title"><i class="fa-solid fa-calendar-plus me-3"></i><?php echo $schoolCount ?> <br> <p class="mt-2">Request</p></h4>
-                            <hr>
+                            <!-- <h4 class="card-title"><i class="fa-solid fa-calendar-plus me-3"></i><?php echo $schoolCount ?> <br> <p class="mt-2">Request</p></h4>
+                            <hr> -->
                             <!-- Text -->
-                            <p class="card-text">Number of request that need to approve.</p>
+                            <!-- <p class="card-text">Number of request that need to approve.</p> -->
                             <!-- <button id="toSchoolList" class="btn btn-rounded text-light px-4 btn-md" style="background-color: rgba(0, 0, 0, 0.3);">See more<i class="fa-solid fa-arrow-up-right-from-square ms-2"></i></button> -->
-                        </div>
+                        <!-- </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
