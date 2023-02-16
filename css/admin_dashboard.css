@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+ul{
+    list-style: none;
+}
+.nav_wrapper{
+    /* border: 1px solid red; */
+    /* width: fit-content; */
+    /* min-height: 1000px; */
+    transition: all 0.6s ease;
+}
+.nav_wrapper li{
+    /* border: 1px solid; */
+    margin: 5px;
+    padding: 5px;
+    cursor: pointer;
+}
+/* .container{
+    border: 1px solid red;
+    display: flex;
+} */
+
+/* classlist */
+
+.translate{
+   transform: translateX(-100%);
+   display: none;
+}
+.widthChange{
+    width: 14%;
+}
+.showLevel{
+    display: block !important;
+}

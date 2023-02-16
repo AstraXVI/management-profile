@@ -1,0 +1,27 @@
+body{
+    display: flex;
+    min-height: 90vh;
+    align-items: center;
+    justify-content: center;
+    background-color: whitesmoke;
+}
+form{
+    width: 76%;
+    margin-inline: auto;
+}
+.login {
+    width: 520px;
+    background-color: #ffffff;
+    box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
+    margin: 100px auto;
+    padding: 40px;
+}
+.login form span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 56px;
+    height: 58px;
+    background-color: #1f4087;
+    color: #ffffff;
+}
