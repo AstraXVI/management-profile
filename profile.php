@@ -142,12 +142,12 @@
     </style>
 </head>
 <body style="background: url(https://cdn.pixabay.com/photo/2017/07/01/19/48/background-2462431_960_720.jpg) no-repeat; background-size: cover; background-color: #e5e5e5; background-blend-mode: overlay;">
-    <h2 class="text-secondary fw-bold mb-3">Personal Info</h2>
+    <h2 class="text-secondary fw-bold mb-3">Personal Information</h2>
 
 
 
 
-    <div class="wrapper d-flex align-items-center justify-content-center gap-3 px-3 position-relative" style=" padding-block: 70px; background-color: #e2f8fb">
+    <div class="wrapper d-flex align-items-center justify-content-center gap-3 px-3 position-relative" style=" padding-block: 40px; background-color: #e2f8fb">
         
     <!-- <div class="profile-container">
         <p class="profile-title">Change Profile</p>
@@ -174,7 +174,7 @@
             </div>
         </div>
         <!-- <div class="divider"></div> -->
-        <div class="card mb-3 w-50">
+        <div class="card mb-3 w-50" style="max-height: 420px; overflow-y: scroll;">
             <div class="card-body">
                 <div class="row">
                     <div class="col-sm-3"><h6 class="mb-0">Name</h6></div>
@@ -195,34 +195,42 @@
                     <div class="col-sm-3"><h6 class="mb-0">Deped Email</h6></div>
                     <div class="col-sm-9 text-secondary"><?php echo $info['email'] ?></div>
                 </div>
+                <hr>
                 <div class="row">
                     <div class="col-sm-3"><h6 class="mb-0">Contact</h6></div>
                     <div class="col-sm-9 text-secondary"><?php echo $info['contactNo'] ?></div>
                 </div>
+                <hr>
                 <div class="row">
                     <div class="col-sm-3"><h6 class="mb-0">Sex</h6></div>
                     <div class="col-sm-9 text-secondary"><?php echo $info['sex'] ?></div>
                 </div>
+                <hr>
                 <div class="row">
                     <div class="col-sm-3"><h6 class="mb-0">Year as School Head</h6></div>
                     <div class="col-sm-9 text-secondary"><?php echo $info['yearAsSchoolHead'] ?></div>
                 </div>
+                <hr>
                 <div class="row">
                     <div class="col-sm-3"><h6 class="mb-0">Duration year of stay</h6></div>
                     <div class="col-sm-9 text-secondary"><?php echo $info['duration'] ?></div>
                 </div>
+                <hr>
                 <div class="row">
                     <div class="col-sm-3"><h6 class="mb-0">Learners Performance</h6></div>
                     <div class="col-sm-9 text-secondary"><?php echo $info['learnersPerf'] ?></div>
                 </div>
+                <hr>
                 <div class="row">
                     <div class="col-sm-3"><h6 class="mb-0">Teacher Performance</h6></div>
                     <div class="col-sm-9 text-secondary"><?php echo $info['teacherPerf'] ?></div>
                 </div>
+                <hr>
                 <div class="row">
                     <div class="col-sm-3"><h6 class="mb-0">Financial Management</h6></div>
                     <div class="col-sm-9 text-secondary"><?php echo $info['financialMng'] ?></div>
                 </div>
+                <hr>
                 <div class="row">
                     <div class="col-sm-3"><h6 class="mb-0">Complaints</h6></div>
                     <div class="col-sm-9 text-secondary"><?php echo $info['complaints'] ?></div>
