@@ -202,7 +202,7 @@
                             <h4 class="card-title"><i class="fa-solid fa-user-tie me-3"></i><?php echo $schoolCount ?> <br> <p class="mt-2">School Head</p></h4>
                             <hr>
                             <!-- Text -->
-                            <p class="card-text">Number of registered School.</p>
+                            <p class="card-text">Number of registered School head.</p>
                             <!-- <button id="toSchoolList" class="btn btn-rounded text-light px-4 btn-md" style="background-color: rgba(0, 0, 0, 0.3);">See more<i class="fa-solid fa-arrow-up-right-from-square ms-2"></i></button> -->
                         </div>
                     </div>

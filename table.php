@@ -20,7 +20,7 @@
     <div class=" text-secondary fw-bold p-2 ps-0 mb-3 w-25 h3">Registered School</div>
     <div class="d-flex align-items-center justify-content-between mb-3 mt-4 position-relative">
         <div class="d-flex align-items-center gap-4">
-            <input id='searchBar' class="form-control form-control-sm fs-17 py-2 ps-5" style="border: 2px solid grey; border-radius: 100vmax; width: 350px;" type="text" placeholder='Search School'
+            <input id='searchBar' class="form-control form-control-sm fs-17 py-2 ps-5" style="border: 2px solid grey; border-radius: 100vmax; width: 350px;" type="text" placeholder='Search School Head'
             aria-label="Search">
             <div style="position: absolute; top: 8px; left: 15px; z-index: 1;">
                 <i class="fas fa-search fs-5 text-secondary" aria-hidden="true"></i>
@@ -39,7 +39,7 @@
         </div>
         <div class="d-flex gap-3">
             <button id='excelBtn' class='btn btn-success '><i class="fa-solid fa-file-arrow-down pe-2"></i>Download Excel</button>
-            <button type="button" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#addSchool"><i class="fa-solid fa-plus pe-2"></i>Add School</button>
+            <button type="button" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#addSchool"><i class="fa-solid fa-plus pe-2"></i>Add School Head</button>
         </div>
     </div>
     <div class="table-responsive md" style="max-height: 480px;">
