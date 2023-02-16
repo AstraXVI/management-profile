@@ -4,7 +4,7 @@
 
     $id = $_POST['id'];
 
-    $q = "SELECT * from users where id='$id'";
+    $q = "SELECT * from profile where id='$id'";
     $list = $con->query($q);
     $info = $list->fetch_assoc();
 ?>
@@ -144,21 +144,7 @@
 <body style="background: url(https://cdn.pixabay.com/photo/2017/07/01/19/48/background-2462431_960_720.jpg) no-repeat; background-size: cover; background-color: #e5e5e5; background-blend-mode: overlay;">
     <h2 class="text-secondary fw-bold mb-3">My Profile</h2>
 
-    <!-- user id -->
-    <!-- <input type="hidden" value='<?php echo $info['id'] ?>' id='profileUserId'> -->
-    <!--  -->
-    <!-- <label>Email</label>
-    <input type="text" value='<?php echo $info['email'] ?>' disabled>
-    <label>Role</label>
-    <input type="text" value='<?php echo $info['role'] ?>' disabled>
-    <label>School</label>
-    <input type="text" value='<?php echo $info['school'] ?>' disabled>
-    <label>Password</label>
-    <input type="text" value='<?php echo $info['pass'] ?>' disabled>
-    <input type="text" id='profileNewPassword' placeholder='New password'>
-    <input type="text" id='profileNewpassValidation' placeholder='Retype new password'> -->
-    <!-- <button>BACK</button> -->
-    <!-- <button id='updateUserInfoProfile'>UPDATE</button> -->
+
 
 
     <div class="wrapper d-flex align-items-center justify-content-center gap-3 px-3 position-relative" style=" padding-block: 70px; background-color: #e2f8fb">
@@ -183,7 +169,7 @@
             <hr> -->
                 <div class="file btn btn-lg btn-primary">
                 <i class="fa-solid fa-rotate me-2"></i>Change Photo
-                    <div class="profile-button"><button class='btn text-light w-100' data-bs-toggle="modal" data-bs-target="#uploadProfileModal">Upload here</button></div>
+                    <div class="profile-button"><button class='btn text-light w-100' data-bs-toggle="modal" data-bs-target="#uploadProfileModal" id='uploadHereButton' value="<?php echo $info['id'] ?>">Upload here</button></div>
                 </div>
             </div>
         </div>
@@ -191,24 +177,57 @@
         <div class="card mb-3 w-50">
             <div class="card-body">
                 <div class="row">
-                    <div class="col-sm-3"><h6 class="mb-0">Email</h6></div>
+                    <div class="col-sm-3"><h6 class="mb-0">Name</h6></div>
+                    <div class="col-sm-9 text-secondary"><?php echo $info['name'] ?></div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-3"><h6 class="mb-0">Birthday</h6></div>
+                    <div class="col-sm-9 text-secondary"><?php echo $info['bday'] ?></div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-3"><h6 class="mb-0">Address</h6></div>
+                    <div class="col-sm-9 text-secondary"><?php echo $info['address'] ?></div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-3"><h6 class="mb-0">Deped Email</h6></div>
                     <div class="col-sm-9 text-secondary"><?php echo $info['email'] ?></div>
                 </div>
-                <hr>
                 <div class="row">
-                    <div class="col-sm-3"><h6 class="mb-0">Role</h6></div>
-                    <div class="col-sm-9 text-secondary"><?php echo $info['role'] ?></div>
+                    <div class="col-sm-3"><h6 class="mb-0">Contact</h6></div>
+                    <div class="col-sm-9 text-secondary"><?php echo $info['contactNo'] ?></div>
                 </div>
-                <hr>
                 <div class="row">
-                    <div class="col-sm-3"><h6 class="mb-0">School</h6></div>
-                    <div class="col-sm-9 text-secondary"><?php echo $info['school'] ?></div>
+                    <div class="col-sm-3"><h6 class="mb-0">Sex</h6></div>
+                    <div class="col-sm-9 text-secondary"><?php echo $info['sex'] ?></div>
                 </div>
-                <hr>
                 <div class="row">
-                    <div class="col-sm-3"><h6 class="mb-0">Password</h6></div>
-                    <div class="col-sm-9 text-secondary"><?php echo $info['pass'] ?></div>
+                    <div class="col-sm-3"><h6 class="mb-0">Year as School Head</h6></div>
+                    <div class="col-sm-9 text-secondary"><?php echo $info['yearAsSchoolHead'] ?></div>
                 </div>
+                <div class="row">
+                    <div class="col-sm-3"><h6 class="mb-0">Duration year of stay</h6></div>
+                    <div class="col-sm-9 text-secondary"><?php echo $info['duration'] ?></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3"><h6 class="mb-0">Learners Performance</h6></div>
+                    <div class="col-sm-9 text-secondary"><?php echo $info['learnersPerf'] ?></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3"><h6 class="mb-0">Teacher Performance</h6></div>
+                    <div class="col-sm-9 text-secondary"><?php echo $info['teacherPerf'] ?></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3"><h6 class="mb-0">Financial Management</h6></div>
+                    <div class="col-sm-9 text-secondary"><?php echo $info['financialMng'] ?></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3"><h6 class="mb-0">Complaints</h6></div>
+                    <div class="col-sm-9 text-secondary"><?php echo $info['complaints'] ?></div>
+                </div>
+
                 <hr>
                 <!-- <div class="row">
                     <div class="col-sm-3"><h6 class="mb-0">Address</h6></div>

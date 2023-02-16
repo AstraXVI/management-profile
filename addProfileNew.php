@@ -1,7 +1,6 @@
 <?php
     require "db.php";
 
-    $id = $_POST['id'];
     $name = $_POST['name'];
     $bday = $_POST['bday'];
     $address = $_POST['address'];
@@ -15,7 +14,8 @@
     $inputFinancialMng = $_POST['inputFinancialMng'];
     $inputComplaints = $_POST['inputComplaints'];
 
-    $q = "UPDATE `profile` SET `name`='$name',`bday`='$bday',`address`='$address',`email`='$email',`contactNo`='$contact',`sex`='$sex',`yearAsSchoolHead`='$yearSchoolHead',`duration`='$durationYear',`learnersPerf`='$inputLearningPerformance',`teacherPerf`='$inputTeacherPerformance',`financialMng`='$inputFinancialMng',`complaints`='$inputComplaints' WHERE id='$id'";
+    $q = "INSERT INTO `profile`(`name`, `bday`, `address`, `email`, `contactNo`, `sex`, `yearAsSchoolHead`, `duration`, `learnersPerf`, `teacherPerf`, `financialMng`, `complaints`) VALUES ('$name','$bday','$address','$email','$contact','$sex','$yearSchoolHead','$durationYear','$inputLearningPerformance','$inputTeacherPerformance','$inputFinancialMng','$inputComplaints')";
 
     $con->query($q);
+
 ?>

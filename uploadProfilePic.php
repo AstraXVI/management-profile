@@ -10,7 +10,7 @@ if(!empty($_FILES["file"]["name"])){
     
     move_uploaded_file($_FILES["file"]["tmp_name"], $target_file);
 
-    $q = "UPDATE `users` SET `picture`='$target_file' WHERE id='$id'";
+    $q = "UPDATE `profile` SET `picture`='$target_file' WHERE id='$id'";
     
     $con->query($q);
 

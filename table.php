@@ -1,7 +1,7 @@
 <?php
     require "db.php";
 
-    $q = "SELECT * FROM `schools` ORDER BY id DESC";
+    $q = "SELECT * FROM `profile`";
 
     $list = $con->query($q);
     $fetch = $list->fetch_assoc();
@@ -27,7 +27,7 @@
             </div>
 
 
-            <select class="form-select w-50" style="border: 2px solid grey" aria-label="Default select example" id='selectDisctrictFilter'>
+            <!-- <select class="form-select w-50" style="border: 2px solid grey" aria-label="Default select example" id='selectDisctrictFilter'>
                 <option value="Default">Select District</option>
                 <option value="Congressional I">Congressional I</option>
                 <option value="Congressional II">Congressional II</option>
@@ -35,7 +35,7 @@
                 <option value="North">North</option>
                 <option value="East">East</option>
                 <option value="Central">Central</option>
-            </select>
+            </select> -->
         </div>
         <div class="d-flex gap-3">
             <button id='excelBtn' class='btn btn-success '><i class="fa-solid fa-file-arrow-down pe-2"></i>Download Excel</button>
@@ -47,16 +47,9 @@
             <thead>
                 <tr>
                     <th>Id</th>
-                    <th>School Name</th>
+                    <th>School Head</th>
                     <th>School ID</th>
-                    <th>Division</th>
-                    <th>School type</th>
-                    <th>Contact Person</th>
-                    <th>Contact No.</th>
-                    <th>Email</th>
-                    <th>District</th>
-                    <th>School Level</th>
-                    <th>DOR</th>
+                    <th>Address</th>
                     <th colspan='3'>Action</th>
                 </tr>
 
@@ -66,23 +59,14 @@
                     <?php do{ ?>
                         <tr>
                             <td><?php echo $fetch['id'] ?></td>
-                            <td><?php echo $fetch['school_name'] ?></td>
-                            <td><?php echo $fetch['school_id'] ?></td>
-                            <td><?php echo $fetch['division'] ?></td>
-                            <td><?php echo $fetch['school_type'] ?></td>
-                            <td><?php echo $fetch['contact_person'] ?></td>
-                            <td><?php echo $fetch['contact_no'] ?></td>
-                            <td><?php echo $fetch['email'] ?></td>
-                            <td><?php echo $fetch['district'] ?></td>
-                            <td><?php echo $fetch['level'] ?></td>
-                            <td>
-                                <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#fileUplaodsDorModal" id='dorButtonModal' value='<?php echo $fetch['school_name'] ?>'><i class="fa-regular fa-folder-open text-light"></i></button>
-                            </td>
+                            <td><?php echo $fetch['name'] ?></td>
+                            <td><?php echo $fetch['contactNo'] ?></td>
+                            <td><?php echo $fetch['address'] ?></td>
                             <td>
                                 <div class="d-flex gap-1 justify-content-center">
-                                    <button title="edit" type="button" id='editBtn' value='<?php echo $fetch['id'] ?>' class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editSchool"><i class="fa-solid fa-pen"></i></button>
+                                    <!-- <button title="edit" type="button" id='editBtn' value='<?php echo $fetch['id'] ?>' class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editSchool"><i class="fa-solid fa-pen"></i></button> -->
                                     <button title="Delete" class="btn btn-danger btn-sm" id='deleteBtn' value='<?php echo $fetch['id'] ?>'><i class="fa-solid fa-trash"></i></button>
-                                    <button title="View Equipment" class="btn btn-success btn-sm" id="viewBtn" value='<?php echo $fetch['school_name'] ?>'><i class="fa-solid fa-eye"></i></button>
+                                    <button title="View Equipment" class="btn btn-success btn-sm" id="viewBtn" value='<?php echo $fetch['id'] ?>'><i class="fa-solid fa-eye"></i></button>
                                 </div>
                             </td>
                         </tr>

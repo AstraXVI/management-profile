@@ -3,15 +3,7 @@
 
     $id = $_POST['id'];
 
-    // TO GET THE SCHOOL OF THE DELETED SCHOOL
-    $q = "SELECT * FROM `schools` WHERE id='$id'";
-    $list = $con->query($q);
-    $fetch = $list->fetch_assoc();
-    $schoolName = $fetch['school_name'];
+    $q = "DELETE FROM `profile` WHERE id='$id'";
 
-    // DELETE ALL EQUIPMENT OF THAT SCHOOL
-    $con->query("DELETE FROM `equipment` WHERE school='$schoolName'");
-
-    // DELETE SCHOOL
-    $con->query("DELETE FROM `schools` WHERE id='$id'");
+    $con->query($q);
 ?>
