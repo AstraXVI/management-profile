@@ -24,7 +24,7 @@
                 <td><?php echo $fetcUserInfo['email'] ?></td>
                 <td><?php echo $fetcUserInfo['pass'] ?></td>
                 <td><?php echo $fetcUserInfo['role'] ?></td>
-                <td><?php echo $fetcUserInfo['school'] ?></td>
+                <!-- <td><?php echo $fetcUserInfo['school'] ?></td> -->
                 <td class="d-flex gap-1 justify-content-center">
                     <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#EditUserManageUser" value='<?php echo $fetcUserInfo['id'] ?>' id='editUserManageUser'><i class="fa-solid fa-pen"></i></button>          
                     <button class='btn btn-danger btn-sm' id='deleteUserManageUser' value='<?php echo $fetcUserInfo['id'] ?>' ><i class="fa-solid fa-trash"></i></button>

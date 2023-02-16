@@ -7,6 +7,7 @@
     $q = "SELECT * from profile where id='$id'";
     $list = $con->query($q);
     $info = $list->fetch_assoc();
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">

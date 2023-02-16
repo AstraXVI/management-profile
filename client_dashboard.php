@@ -37,6 +37,14 @@
     $userInfo = $con->query($getUserInfo);
     $fetchUserInfo = $userInfo->fetch_assoc();
 
+    $emailNew = $fetchUserInfo['email'];
+
+    $getDataUser = "SELECT * FROM `profile` WHERE email='$emailNew'";
+    $userLists = $con->query($getDataUser);
+    $data = $userLists->fetch_assoc();
+
+    // echo $emailNew;
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -101,7 +109,7 @@
                             Dashboard
                             </a>
                         </li>
-                        <li id="profileBtn" value='<?php echo $fetchUserInfo['id'] ?>'>
+                        <li id="profileBtn" value='<?php echo $data['id']  ?>'>
                             <a id="navBtn2" href="#" class="nav-link link-light">
                             <span class="bi me-2" width="16" height="16"><i class="fa-solid fa-user"></i></span>
                             My Profile
@@ -605,46 +613,54 @@
 
             // PROFILE UPDATE (DATABASE)
             $("#profileUpdateBtnDatabase").click(function(){
-                const id = $("#profileId").val();
-                const email = $("#profileEmailModal").val();
-                const newPass = $("#profileNewPassModal").val();
-                const reTypePass = $("#ProfileRetypePassModal").val();
-
-                if(email && newPass && reTypePass){
-                    
-                    if(newPass === reTypePass){
+                const id = $("#idEditSchool").val();
+                const name = $("#inputNameEdited").val();
+                const bday = $("#inputBirthDayEdited").val();
+                const address = $("#inputAddressEdited").val();
+                const email = $("#inputEmailEdited").val();
+                const contact = $("#inputContactEdited").val();
+                const sex = $("#inputSexEdited").val();
+                const yearSchoolHead = $("#inputYearAsSchoolHeadEdited").val();
+                const durationYear = $("#inputDurationYearEdited").val();
+                const inputLearningPerformance = $("#inputLearningPerformanceEdited").val();
+                const inputTeacherPerformance = $("#inputTeacherPerformanceEdited").val();
+                const inputFinancialMng = $("#inputFinancialMngEdited").val();
+                const inputComplaints = $("#inputComplaintsEdited").val();
+                
                         
+                $.ajax({
+                    url:"profileUpdateDb.php",
+                    method:"post",
+                    data:{
+                        id : id,
+                        name : name,
+                        bday : bday,
+                        address : address,
+                        email : email,
+                        contact : contact,
+                        sex : sex,
+                        yearSchoolHead : yearSchoolHead,
+                        durationYear : durationYear,
+                        inputLearningPerformance : inputLearningPerformance,
+                        inputTeacherPerformance : inputTeacherPerformance,
+                        inputFinancialMng : inputFinancialMng,
+                        inputComplaints : inputComplaints
+                    },
+                    success(){
+
                         $.ajax({
-                            url:"profileUpdateDb.php",
+                            url:"profile.php",
                             method:"post",
                             data:{
-                                id:id,
-                                email : email,
-                                newPass : newPass
+                                id : id
                             },
-                            success(){
-
-                                $.ajax({
-                                    url:"profile.php",
-                                    method:"post",
-                                    data:{
-                                        id : id
-                                    },
-                                    success(e){
-                                        confirm("Update profile successful!");
-                                        $("#dashBoardBody").html(e)
-                                    }
-                                })
+                            success(e){
+                                confirm("Update profile successful!");
+                                $("#dashBoardBody").html(e)
                             }
                         })
-
-                    }else{
-                        confirm('Password not match')
                     }
-
-                }else{
-                    confirm('Please fill up all field!')
-                }
+                })
             })
 
 
@@ -740,6 +756,21 @@
                 }
                 
                 
+            })
+
+            $("#dashBoardBody").on("click","#uploadHereButton",function(){
+                const id = $(this).val()
+
+                $.ajax({
+                    url:"updateModalProfile.php",
+                    method:"post",
+                    data:{
+                        id : id
+                    },
+                    success(e){
+                        $("#uploadProfileModalUpdate").html(e)
+                    }
+                })
             })
         })
 

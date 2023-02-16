@@ -1018,7 +1018,7 @@
                 const email = $("#inputEmailUser").val();
                 const pass = $("#inputPassword").val();
                 const role = $("#inputRole").val();
-                const school = $("#inputSchool").val();
+                const school = '';
 
                 if(email && pass){
                     $.ajax({
