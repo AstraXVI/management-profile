@@ -48,7 +48,7 @@
                 <tr>
                     <th>Id</th>
                     <th>School Head</th>
-                    <th>School ID</th>
+                    <th>Contact No.</th>
                     <th>Address</th>
                     <th colspan='3'>Action</th>
                 </tr>
