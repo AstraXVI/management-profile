@@ -132,7 +132,7 @@
                             </a>
                         </li>
                         <li id='chiefHeadBtn'>
-                            <a id='' href="#" class="nav-link link-light">
+                            <a id='navBtn4' href="#" class="nav-link link-light">
                                 <span class="bi me-2" width="16" height="16"><i class="fa-solid fa-clipboard-user"></i></span>
                                 Chief Head
                             </a>
@@ -147,8 +147,8 @@
                                 <li><button class='bg-dark text-light' value='Elementary School' style="border:none;" id='navElemSchoolBtn'><i class="fa-solid fa-minus text-secondary me-2"></i>Elementary School</button></li>
                             </ul>
                         </li>
-                        <li id=''>
-                            <a id='' href="#" class="nav-link link-light">
+                        <li id='unitHeadBtn'>
+                            <a id='navBtn5' href="#" class="nav-link link-light">
                                 <span class="bi me-2" width="16" height="16"><i class="fa-solid fa-user"></i></span>
                                 Unit Head
                             </a>
@@ -587,6 +587,38 @@
                 $("#levelBtnDashboard").toggleClass("showLevel");
 
             })
+
+            $('#chiefHeadBtn').click(function(){
+                $('#dashBoardBody').load("chief_head.php");
+
+                $('#navBtn1').removeClass('active');
+                $('#navBtn2').removeClass('active');
+                $('#navBtn3').removeClass('active');
+                $('#navBtn4').addClass('active');
+                $('#navBtn5').removeClass('active');
+
+                // // TOGGLE LVL SCHOOL
+                // $("#levelBtnDashboard").toggleClass("showLevel");
+
+            })
+
+            $('#unitHeadBtn').click(function(){
+                $('#dashBoardBody').load("unit_head.php");
+
+                $('#navBtn1').removeClass('active');
+                $('#navBtn2').removeClass('active');
+                $('#navBtn3').removeClass('active');
+                $('#navBtn4').removeClass('active');
+                $('#navBtn5').addClass('active');
+
+                // // TOGGLE LVL SCHOOL
+                // $("#levelBtnDashboard").toggleClass("showLevel");
+
+            })
+
+
+
+            
             $('#navHighSchoolBtn').click(function(){
 
                 $('#navBtn1').removeClass('active');
@@ -1004,6 +1036,7 @@
                 $('#navBtn2').removeClass('active');
                 $('#navBtn3').addClass('active');
                 $('#navBtn4').removeClass('active');
+                $('#navBtn5').removeClass('active');
 
                 $("#dashBoardBody").load("manage_user/manageUser.php")
             })
