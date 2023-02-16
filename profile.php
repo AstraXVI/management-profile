@@ -142,7 +142,7 @@
     </style>
 </head>
 <body style="background: url(https://cdn.pixabay.com/photo/2017/07/01/19/48/background-2462431_960_720.jpg) no-repeat; background-size: cover; background-color: #e5e5e5; background-blend-mode: overlay;">
-    <h2 class="text-secondary fw-bold mb-3">My Profile</h2>
+    <h2 class="text-secondary fw-bold mb-3">Personal Info</h2>
 
     <!-- user id -->
     <!-- <input type="hidden" value='<?php echo $info['id'] ?>' id='profileUserId'> -->

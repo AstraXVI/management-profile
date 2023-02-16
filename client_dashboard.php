@@ -49,6 +49,11 @@
     <script src="https://code.jquery.com/jquery-3.6.2.min.js" integrity="sha256-2krYZKh//PcchRtd+H+VyyQoZ/e3EcrkxhM8ycwASPA=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/admin_dashboard.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .dropdown-menu:hover{
+            background-color: #f5f5f5;
+        }
+    </style>
 </head>
 <body style="background: url(https://cdn.pixabay.com/photo/2017/07/01/19/48/background-2462431_960_720.jpg) no-repeat; background-size: cover; background-color: #e5e5e5; background-blend-mode: overlay;">
 
@@ -65,15 +70,15 @@
                 <?php echo $fetchUserInfo['email'] ?>
                 </a>
 
-                <ul class="dropdown-menu">
-                    <li id="profileBtn" value='<?php echo $fetchUserInfo['id'] ?>' ><button class="dropdown-item py-2">My Profile</button></li>
+                <ul class="dropdown-menu mt-2">
+                    <!-- <li id="profileBtn" value='<?php echo $fetchUserInfo['id'] ?>' ><button class="dropdown-item py-2">My Profile</button></li> -->
                     <li>
                         <!-- <a class="dropdown-item" href="#">
                             <form action="" method="post">
                                 <span class="d-flex align-items-center"><i class="fa-solid fa-right-from-bracket text-danger"></i><input type="submit" class="btn btn-sm" name="logoutBtn" value="LOGOUT"></span>
                             </form>
                         </a> -->
-                        <button class='btn' data-bs-toggle="modal" data-bs-target="#LogoutModal">Logout</button>
+                        <a class="ps-2 logout-client text-danger" style="cursor: pointer; text-decoration: none; color: black; padding-right: 35%" data-bs-toggle="modal" data-bs-target="#LogoutModal"><i class="fa-solid fa-arrow-right-from-bracket me-2"></i>Logout</a>
                     </li>
                 </ul>
             </div>
@@ -84,9 +89,9 @@
         <div class='nav_wrapper'>
             <nav>
                 <div class="d-flex flex-column flex-shrink-0 p-3 bg-dark text-light" style="width: 280px; height:100vh; ">
-                    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+                    <a href="" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
                     <img class="bi me-2" width="50" height="50" src="https://sdovalenzuelacity.deped.gov.ph/wp-content/uploads/2021/04/New-DO-Logo.png" alt="logo">
-                    <span class="fs-4 text-light">Inventory System</span>
+                    <span class="fs-4 text-light">Management Profile</span>
                     </a>
                     <hr>
                     <ul class="nav nav-pills flex-column mb-auto">
@@ -96,17 +101,18 @@
                             Dashboard
                             </a>
                         </li>
-                        <li id='equipmentListBtn'>
+                        <li id="profileBtn" value='<?php echo $fetchUserInfo['id'] ?>'>
                             <a id="navBtn2" href="#" class="nav-link link-light">
-                            <span class="bi me-2" width="16" height="16"><i class="fa-solid fa-computer"></i></span>
-                            Equipment List
+                            <span class="bi me-2" width="16" height="16"><i class="fa-solid fa-user"></i></span>
+                            My Profile
+                            <!-- <li ><button class="dropdown-item py-2"></button></li> -->
                             </a>
                         </li>
-                        <li>
+                        <!-- <li>
 
                             <button type="button" class=" btn-sm text-light bg-transparent" style="border: none; padding-right: 130px;" data-bs-toggle="modal" data-bs-target="#fileUplaodsDorModal" id='dorButtonModal' value='<?php echo $fetchUserInfo['school'] ?>'><i class="fa-regular fa-folder-open text-light fs-6 ms-2 me-3"></i>DOR</button>
                     
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
                 <!-- <ul>
@@ -123,11 +129,11 @@
                 <div class="card w-75" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; max-width: 350px">
                     <div class="card-body bg-primary rounded-1">
                         <!-- Title -->
-                        <h4 class="card-title"><i class="fa-solid fa-computer me-3"></i><?php echo $numOfRow ?> <br> <p class="mt-2">Equipments</p></h4>
+                        <h4 class="card-title"><i class="fa-solid fa-user me-3"></i>1 <br> <p class="mt-2">My Profile</p></h4>
                         <hr>
                         <!-- Text -->
-                        <p class="card-text">Count of all the equipment that you borrowed will appear here.</p>
-                        <button id="toEquipment" class="btn btn-rounded text-light px-4 btn-md" style="background-color: rgba(0, 0, 0, 0.3);">See List<i class="fa-solid fa-arrow-up-right-from-square ms-2"></i></button>
+                        <p class="card-text">Count of all the equipment that you borrowed.</p>
+                        <!-- <button id="toEquipment" class="btn btn-rounded text-light px-4 btn-md" style="background-color: rgba(0, 0, 0, 0.3);">See Profile<i class="fa-solid fa-arrow-up-right-from-square ms-2"></i></button> -->
                     </div>
                 </div>
             </div>
@@ -307,18 +313,18 @@
             })
 
             $('#toEquipment').click(function(){
-                $('#dashBoardBody').load("clientEquipment.php");
+                $('#dashBoardBody').load("profile.php");
 
             });
 
             // NAV
-            $('#equipmentListBtn').click(function(){
-                $('#dashBoardBody').load("clientEquipment.php");
+            $('#profileBtn').click(function(){
+                // $('#dashBoardBody').load("profile.php");
 
                 $('#navBtn1').removeClass('active');
                 $('#navBtn2').addClass('active');
-                $('#navBtn3').removeClass('active');
-                $('#navBtn4').removeClass('active');
+                // $('#navBtn3').removeClass('active');
+                // $('#navBtn4').removeClass('active');
             })
 
             // ADD EQUIPMENT ON DB
@@ -529,7 +535,7 @@
 
             // PROFILE BUTTON
             $("#profileBtn").click(function(){
-                $('.dropdown-menu').toggleClass('d-block');
+                // $('.dropdown-menu').toggleClass('d-block');
                 const userId = $(this).val()
 
                 $.ajax({
