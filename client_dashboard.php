@@ -273,11 +273,11 @@
                 <h5 class="modal-title" id="exampleModalLabel">Update profile picture</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" id='uploadProfileModalUpdate'>
                 <div class="mb-3">
                     <!-- <label for="formFile" class="form-label">Upload profile picture</label> -->
-                    <input type="hidden" value='<?php echo $fetchUserInfo['id'] ?>' id='profilePictureId'>
-                    <input class="form-control" type="file" id="profileUploadedPicture">
+                    <!-- <input type="hidden" value='<?php echo $fetchUserInfo['id'] ?>' id='profilePictureId'>
+                    <input class="form-control" type="file" id="profileUploadedPicture"> -->
                 </div>
             </div>
             <div class="modal-footer">
