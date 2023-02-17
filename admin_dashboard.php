@@ -55,6 +55,11 @@
     $listRequest = $con->query($getRequest);
     $requestCount = $listRequest->num_rows;
 
+    // 
+    $y = "SELECT * FROM `profile`";
+    $x = $con->query($y);
+    $p = $x->num_rows;
+
 
 ?>
 <!DOCTYPE html>
@@ -131,12 +136,12 @@
                                 Dashboard
                             </a>
                         </li>
-                        <li id='chiefHeadBtn'>
+                        <!-- <li id='chiefHeadBtn'>
                             <a id='navBtn4' href="#" class="nav-link link-light">
                                 <span class="bi me-2" width="16" height="16"><i class="fa-solid fa-clipboard-user"></i></span>
                                 Chief Head
                             </a>
-                        </li>
+                        </li> -->
                         <li id='schoolBtn'>
                             <a id="navBtn2" href="#" class="nav-link link-light">
                                 <span class="bi me-2" width="16" height="16"><i class="fa-solid fa-user-tie"></i></span>
@@ -147,12 +152,12 @@
                                 <li><button class='bg-dark text-light' value='Elementary School' style="border:none;" id='navElemSchoolBtn'><i class="fa-solid fa-minus text-secondary me-2"></i>Elementary School</button></li>
                             </ul>
                         </li>
-                        <li id='unitHeadBtn'>
+                        <!-- <li id='unitHeadBtn'>
                             <a id='navBtn5' href="#" class="nav-link link-light">
                                 <span class="bi me-2" width="16" height="16"><i class="fa-solid fa-user"></i></span>
                                 Unit Head
                             </a>
-                        </li>
+                        </li> -->
                         <li id='manageUserBtn'>
                             <a id='navBtn3' href="#" class="nav-link link-light">
                                 <span class="bi me-2" width="16" height="16"><i class="fa-solid fa-users"></i></span>
@@ -199,7 +204,7 @@
                     <div class="card w-100" style="border: none; max-width: 310px">
                         <div class="card-body bg-success" style="border-radius: 20px;">
                             <!-- Title -->
-                            <h4 class="card-title"><i class="fa-solid fa-user-tie me-3"></i><?php echo $schoolCount ?> <br> <p class="mt-2">School Head</p></h4>
+                            <h4 class="card-title"><i class="fa-solid fa-user-tie me-3"></i><?php echo $p ?> <br> <p class="mt-2">School Head</p></h4>
                             <hr>
                             <!-- Text -->
                             <p class="card-text">Number of registered School head.</p>

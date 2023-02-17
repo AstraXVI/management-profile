@@ -52,19 +52,19 @@
         <label for="floatingInput">Duration year of stay</label>
     </div>
     <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="inputLearningPerformanceEdited" placeholder="Name" value="<?php echo $fetchUserInfo['learnersPerf'] ?>">
+        <input type="text" class="form-control" id="inputLearningPerformanceEdited" placeholder="Name" value="<?php echo $fetchUserInfo['learnersPerf'] ?>" >
         <label for="floatingInput">Learners Performance</label>
     </div>
     <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="inputTeacherPerformanceEdited" placeholder="Name" value="<?php echo $fetchUserInfo['teacherPerf'] ?>">
+        <input type="text" class="form-control" id="inputTeacherPerformanceEdited" placeholder="Name" value="<?php echo $fetchUserInfo['teacherPerf'] ?>" >
         <label for="floatingInput">Teacher Performance</label>
     </div>
     <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="inputFinancialMngEdited" placeholder="Name" value="<?php echo $fetchUserInfo['financialMng'] ?>">
-        <label for="floatingInput">Financial Management</label>
+        <input type="text" class="form-control" id="inputFinancialMngEdited" placeholder="Name" value="<?php echo $fetchUserInfo['financialMng'] ?>" >
+        <label for="floatingInput" >Financial Management</label>
     </div>
     <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="inputComplaintsEdited" placeholder="Name" value="<?php echo $fetchUserInfo['complaints'] ?>">
+        <input type="text" class="form-control" id="inputComplaintsEdited" placeholder="Name" value="<?php echo $fetchUserInfo['complaints'] ?>" >
         <label for="floatingInput">Complaints</label>
     </div>
 </body>

@@ -17,7 +17,7 @@
     <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
 </head>
 <body>
-    <div class=" text-secondary fw-bold p-2 ps-0 mb-3 w-25 h3">Registered School</div>
+    <div class=" text-secondary fw-bold p-2 ps-0 mb-3 w-50 h3">Registered School Head</div>
     <div class="d-flex align-items-center justify-content-between mb-3 mt-4 position-relative">
         <div class="d-flex align-items-center gap-4">
             <input id='searchBar' class="form-control form-control-sm fs-17 py-2 ps-5" style="border: 2px solid grey; border-radius: 100vmax; width: 350px;" type="text" placeholder='Search School Head'
