@@ -26,9 +26,6 @@
     $_SESSION['status'];
     $school = $_SESSION['school'];
 
-    $q = "SELECT * FROM `equipment` WHERE school='$school'";
-    $list = $con->query($q);
-    $numOfRow = $list->num_rows;
 
     // GET USER INFO
     $userId = $_SESSION['id'];
@@ -39,9 +36,15 @@
 
     $emailNew = $fetchUserInfo['email'];
 
+    //  get user info profile
     $getDataUser = "SELECT * FROM `profile` WHERE email='$emailNew'";
     $userLists = $con->query($getDataUser);
     $data = $userLists->fetch_assoc();
+
+    // GET EDUCATION UPDATE INFO
+    $q = "SELECT * FROM `educationalbg` WHERE email='$emailNew'";
+    $list = $con->query($q);
+    $educInfo = $list->fetch_assoc();
 
     // echo $emailNew;
 
@@ -92,6 +95,11 @@
             </div>
             </div>
         </header>
+
+
+        <!-- get user email -->
+        <input type="hidden" value="<?php echo $emailNew ?>" id='userEmailProfile'>
+        <!--  -->
 
     <div class='container-fluid m-0 p-0 m-0 flex-grow-1 d-flex'>
         <div class='nav_wrapper'>
@@ -307,6 +315,59 @@
             </div>
             </div>
         </div>
+    </div>
+
+    <!-- update education -->
+    <div class="modal fade "  id="updateEducationModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content" >
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" >
+        <table class='table text-center'>
+        <thead>
+            <tr>
+                <th>Level</th>
+                <th>Name of School</th>
+                <th>Basic Education/Degree/Course</th>
+                <th colspan='2'>Period of attendance</th>
+                <th>Highest Level/Unit Earned</th>
+                <th>Year Graduate</th>
+                <th>Scholarship/Academic Honors Received</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>College</th>
+                <td><input value='<?php echo $educInfo['schoolCollege'] ?>' type="text" id='Cschool'></td>
+                <td><input value='<?php echo $educInfo['collegeCourse'] ?>' type="text" id='CCourse'></td>
+                <td><input value='<?php echo $educInfo['collegeFrom'] ?>' type="text" id='CFrom'></td>
+                <td><input value='<?php echo $educInfo['collegeTo'] ?>' type="text" id='CTo'></td>
+                <td><input value='<?php echo $educInfo['collegeHigh'] ?>' type="text" id='CHigh'></td>
+                <td><input value='<?php echo $educInfo['collegeYear'] ?>' type="text" id='CYear'></td>
+                <td><input value='<?php echo $educInfo['collegeScholar'] ?>' type="text" id='CScholar'></td>
+            </tr>
+            <tr>
+                <th>Graduate Studies</th>
+                <td><input type="text" value='<?php echo $educInfo['graduateStudies'] ?>' id='Gschool'></td>
+                <td><input value='<?php echo $educInfo['graduateCourse'] ?>' type="text" id='GCourse'></td>
+                <td><input value='<?php echo $educInfo['graduateFrom'] ?>' type="text" id='GFrom'></td>
+                <td><input value='<?php echo $educInfo['graduateTo'] ?>' type="text" id='GTo'></td>
+                <td><input value='<?php echo $educInfo['graduateHigh'] ?>' type="text" id='GHigh'></td>
+                <td><input value='<?php echo $educInfo['graduateYear'] ?>' type="text" id='GYear'></td>
+                <td><input value='<?php echo $educInfo['graduateScholar'] ?>' type="text" id='GScholar'></td>
+            </tr>
+        </tbody>
+    </table>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" id='profileSaveButtonEducation' data-bs-dismiss="modal" >Save changes</button>
+        </div>
+        </div>
+    </div>
     </div>
 
 
@@ -769,6 +830,102 @@
                     },
                     success(e){
                         $("#uploadProfileModalUpdate").html(e)
+                    }
+                })
+            })
+
+
+            // PROFILE MAIN
+            $("#dashBoardBody").on("click","#profileProfileButton",function(){
+                const email = $("#profileUserEmail").val();
+
+                $.ajax({
+                    url:"profile.php",
+                    method:"post",
+                    data:{
+                        id : email
+                    },
+                    success(e){
+                        $("#dashBoardBody").html(e)
+
+                    }
+                })
+            })
+
+            // PROFILE EDUCATION BG
+            $("#dashBoardBody").on("click","#profileEducationButton",function(){
+                const email = $("#profileUserEmail").val();
+
+                $.ajax({
+                    url:"profileInfo/education.php",
+                    method:"post",
+                    data:{
+                        id : email
+                    },
+                    success(e){
+                        $("#dashBoardBody").html(e)
+
+                    }
+                })
+            })
+
+            // Save Education button Database
+            $("#profileSaveButtonEducation").click(function(){
+
+                
+                const email = $("#userEmailProfile").val();
+                
+                const cs =  $("#Cschool").val()
+                const cc = $("#CCourse").val()
+                const cf = $("#CFrom").val()
+                const ct = $("#CTo").val()
+                const ch =$("#CHigh").val()
+                const cy = $("#CYear").val()
+                const cSc = $("#CScholar").val()
+                
+                const gs =  $("#Gschool").val()
+                const gc = $("#GCourse").val()
+                const gf = $("#GFrom").val()
+                const gt = $("#GTo").val()
+                const gh =$("#GHigh").val()
+                const gy = $("#GYear").val()
+                const gSc = $("#GScholar").val()
+
+                // alert(cSc)
+
+                $.ajax({
+                    url:"profileInfo/updateEducation.php",
+                    method:"post",
+                    data:{
+                        email : email,
+                        cs : cs,
+                        cc : cc,
+                        cf : cf,
+                        ct : ct,
+                        ch : ch,
+                        cy : cy,
+                        cSc : cSc,
+                        gs : gs,
+                        gc : gc,
+                        gf : gf,
+                        gt : gt,
+                        gh : gh,
+                        gy : gy,
+                        gSc : gSc
+                    },
+                    success(e){
+                        
+                        $.ajax({
+                            url:"profileInfo/education.php",
+                            method:"post",
+                            data:{
+                                id : email
+                            },
+                            success(e){
+                                $("#dashBoardBody").html(e)
+
+                            }
+                        })
                     }
                 })
             })

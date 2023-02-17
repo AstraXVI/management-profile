@@ -151,13 +151,16 @@
 <body style="background: url(https://cdn.pixabay.com/photo/2017/07/01/19/48/background-2462431_960_720.jpg) no-repeat; background-size: cover; background-color: #e5e5e5; background-blend-mode: overlay;">
     <h2 class="text-secondary fw-bold mb-3">Profile</h2>
 
+        <!-- get email profile -->
+        <input type="hidden" value='<?php echo $info['email'] ?>' id='profileUserEmail'>
+        <!--  -->
 
         <!-- Tabs navs -->
     <ul class="nav nav-tabs tabsss mb-3" id="ex1" style="font-size: 14px;" role="tablist">
         <li class="nav-item" role="presentation">
             <a class="nav-link active" id="ex1-tab-1" data-mdb-toggle="tab" href="#ex1-tabs-1" role="tab" aria-controls="ex1-tabs-1" aria-selected="true">Personal Information</a>
         </li>
-        <li class="nav-item" role="presentation">
+        <li class="nav-item" role="presentation" id='profileEducationButton'>
             <a class="nav-link" id="ex1-tab-2" data-mdb-toggle="tab" href="#ex1-tabs-2" role="tab" aria-controls="ex1-tabs-2" aria-selected="false">Educational Background</a>
         </li>
         <li class="nav-item" role="presentation">
@@ -290,6 +293,6 @@
     </div>
 
 <!-- MDB -->
-<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.js"></script>  -->
+
 </body>
 </html>
