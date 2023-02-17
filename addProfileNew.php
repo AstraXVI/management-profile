@@ -13,9 +13,14 @@
     $inputTeacherPerformance = $_POST['inputTeacherPerformance'];
     $inputFinancialMng = $_POST['inputFinancialMng'];
     $inputComplaints = $_POST['inputComplaints'];
+    $school = $_POST['school'];
 
-    $q = "INSERT INTO `profile`(`name`, `bday`, `address`, `email`, `contactNo`, `sex`, `yearAsSchoolHead`, `duration`, `learnersPerf`, `teacherPerf`, `financialMng`, `complaints`) VALUES ('$name','$bday','$address','$email','$contact','$sex','$yearSchoolHead','$durationYear','$inputLearningPerformance','$inputTeacherPerformance','$inputFinancialMng','$inputComplaints')";
+    $q = "INSERT INTO `profile`(`name`, `bday`, `address`, `email`, `contactNo`, `sex`, `yearAsSchoolHead`, `duration`, `learnersPerf`, `teacherPerf`, `financialMng`, `complaints`, `school`) VALUES ('$name','$bday','$address','$email','$contact','$sex','$yearSchoolHead','$durationYear','$inputLearningPerformance','$inputTeacherPerformance','$inputFinancialMng','$inputComplaints','$school')";
 
     $con->query($q);
+
+    // ADD EDUCATION EMAIL
+    $w = "INSERT INTO `educationalbg`(`email`) VALUES ('$email')";
+    $con->query($w)
 
 ?>
