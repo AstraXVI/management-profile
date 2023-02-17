@@ -140,114 +140,156 @@
         opacity: 1;
         } */
 
+        /* .tabsss.nav-link, .tabsss.nav-link.active {
+            color: #f5f5f5;
+            background-color: rgba(13, 109, 253, 0.521);
+            border-color: #dee2e6;
+        } */
+
     </style>
 </head>
 <body style="background: url(https://cdn.pixabay.com/photo/2017/07/01/19/48/background-2462431_960_720.jpg) no-repeat; background-size: cover; background-color: #e5e5e5; background-blend-mode: overlay;">
-    <h2 class="text-secondary fw-bold mb-3">Personal Information</h2>
+    <h2 class="text-secondary fw-bold mb-3">Profile</h2>
 
 
+        <!-- Tabs navs -->
+    <ul class="nav nav-tabs tabsss mb-3" id="ex1" style="font-size: 14px;" role="tablist">
+        <li class="nav-item" role="presentation">
+            <a class="nav-link active" id="ex1-tab-1" data-mdb-toggle="tab" href="#ex1-tabs-1" role="tab" aria-controls="ex1-tabs-1" aria-selected="true">Personal Information</a>
+        </li>
+        <li class="nav-item" role="presentation">
+            <a class="nav-link" id="ex1-tab-2" data-mdb-toggle="tab" href="#ex1-tabs-2" role="tab" aria-controls="ex1-tabs-2" aria-selected="false">Educational Background</a>
+        </li>
+        <li class="nav-item" role="presentation">
+            <a class="nav-link" id="ex1-tab-3" data-mdb-toggle="tab" href="#ex1-tabs-3" role="tab" aria-controls="ex1-tabs-3" aria-selected="false">Civil Service Eligibility</a>
+        </li>
+        <li class="nav-item" role="presentation">
+            <a class="nav-link" id="ex1-tab-4" data-mdb-toggle="tab" href="#ex1-tabs-4" role="tab" aria-controls="ex1-tabs-4" aria-selected="false">Work Experience</a>
+        </li>
+        <li class="nav-item" role="presentation">
+            <a class="nav-link" id="ex1-tab-5" data-mdb-toggle="tab" href="#ex1-tabs-5" role="tab" aria-controls="ex1-tabs-5" aria-selected="false">Voluntary Work</a>
+        </li>
+        <li class="nav-item" role="presentation">
+            <a class="nav-link" id="ex1-tab-6" data-mdb-toggle="tab" href="#ex1-tabs-6" role="tab" aria-controls="ex1-tabs-6" aria-selected="false">Learning and Development</a>
+        </li>
+    </ul>
 
-
-    <div class="wrapper d-flex align-items-center justify-content-center gap-3 px-3 position-relative" style=" padding-block: 40px; background-color: #e2f8fb">
+    <!-- Tabs content -->
+    <div class="tab-content" id="ex1-content">
+        <div class="tab-pane fade show active" id="ex1-tabs-1" role="tabpanel" aria-labelledby="ex1-tab-1">
+            
+        <div class="wrapper d-flex align-items-center justify-content-center gap-3 px-3 position-relative" style=" padding-block: 40px; background-color: #e2f8fb">
         
-    <!-- <div class="profile-container">
-        <p class="profile-title">Change Profile</p>
-        <div class="profile-overlay" ></div>
-        <div class="profile-button"><button class='btn text-light' data-bs-toggle="modal" data-bs-target="#uploadProfileModal">Upload here</button></div>
-    </div> -->
+        <!-- <div class="profile-container">
+            <p class="profile-title">Change Profile</p>
+            <div class="profile-overlay" ></div>
+            <div class="profile-button"><button class='btn text-light' data-bs-toggle="modal" data-bs-target="#uploadProfileModal">Upload here</button></div>
+        </div> -->
+        
+        
+        <div class="col-md-4">
+                <div class="profile-img">
+                    <!-- <img src="https://cdn.pixabay.com/photo/2016/08/31/11/54/icon-1633249_960_720.png" alt=""> -->
+                    <?php if(empty($info['picture'])){ ?>
+                        <img src="https://cdn.pixabay.com/photo/2016/08/31/11/54/icon-1633249_960_720.png" alt="" />
+                    <?php }else{ ?>
+                        <img src="<?php echo $info['picture'] ?>" alt="" />
+                    <?php } ?>
     
+                <!-- <span class="px-5 pb-1"><i class="fa-solid fa-user fs-1"></i></span>
+                <hr> -->
+                    <div class="file btn btn-lg btn-primary">
+                    <i class="fa-solid fa-rotate me-2"></i>Change Photo
+                        <div class="profile-button"><button class='btn text-light w-100' data-bs-toggle="modal" data-bs-target="#uploadProfileModal" id='uploadHereButton' value="<?php echo $info['id'] ?>">Upload here</button></div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="divider"></div> -->
+            <div class="card mb-3 w-50" style="max-height: 420px; overflow-y: scroll;">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-3"><h6 class="mb-0">Name</h6></div>
+                        <div class="col-sm-9 text-secondary"><?php echo $info['name'] ?></div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3"><h6 class="mb-0">Birthday</h6></div>
+                        <div class="col-sm-9 text-secondary"><?php echo $info['bday'] ?></div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3"><h6 class="mb-0">Address</h6></div>
+                        <div class="col-sm-9 text-secondary"><?php echo $info['address'] ?></div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3"><h6 class="mb-0">Deped Email</h6></div>
+                        <div class="col-sm-9 text-secondary"><?php echo $info['email'] ?></div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3"><h6 class="mb-0">Contact</h6></div>
+                        <div class="col-sm-9 text-secondary"><?php echo $info['contactNo'] ?></div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3"><h6 class="mb-0">Sex</h6></div>
+                        <div class="col-sm-9 text-secondary"><?php echo $info['sex'] ?></div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3"><h6 class="mb-0">Year as School Head</h6></div>
+                        <div class="col-sm-9 text-secondary"><?php echo $info['yearAsSchoolHead'] ?></div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3"><h6 class="mb-0">Duration year of stay</h6></div>
+                        <div class="col-sm-9 text-secondary"><?php echo $info['duration'] ?></div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3"><h6 class="mb-0">Learners Performance</h6></div>
+                        <div class="col-sm-9 text-secondary"><?php echo $info['learnersPerf'] ?></div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3"><h6 class="mb-0">Teacher Performance</h6></div>
+                        <div class="col-sm-9 text-secondary"><?php echo $info['teacherPerf'] ?></div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3"><h6 class="mb-0">Financial Management</h6></div>
+                        <div class="col-sm-9 text-secondary"><?php echo $info['financialMng'] ?></div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3"><h6 class="mb-0">Complaints</h6></div>
+                        <div class="col-sm-9 text-secondary"><?php echo $info['complaints'] ?></div>
+                    </div>
     
-    <div class="col-md-4">
-            <div class="profile-img">
-                <!-- <img src="https://cdn.pixabay.com/photo/2016/08/31/11/54/icon-1633249_960_720.png" alt=""> -->
-                <?php if(empty($info['picture'])){ ?>
-                    <img src="https://cdn.pixabay.com/photo/2016/08/31/11/54/icon-1633249_960_720.png" alt="" />
-                <?php }else{ ?>
-                    <img src="<?php echo $info['picture'] ?>" alt="" />
-                <?php } ?>
-
-            <!-- <span class="px-5 pb-1"><i class="fa-solid fa-user fs-1"></i></span>
-            <hr> -->
-                <div class="file btn btn-lg btn-primary">
-                <i class="fa-solid fa-rotate me-2"></i>Change Photo
-                    <div class="profile-button"><button class='btn text-light w-100' data-bs-toggle="modal" data-bs-target="#uploadProfileModal" id='uploadHereButton' value="<?php echo $info['id'] ?>">Upload here</button></div>
+                    <hr>
+                    <!-- <div class="row">
+                        <div class="col-sm-3"><h6 class="mb-0">Address</h6></div>
+                        <div class="col-sm-9 text-secondary">Bay Area, San Francisco, CA</div>
+                    </div>
+                    <hr> -->
+                    <div class="row">
+                        <div class="col-sm-12"><button type="button" class="btn btn-info d-block mx-auto" data-bs-toggle="modal" data-bs-target="#EditUserProfile" id='editProfileBtnDb' value='<?php echo $info['id'] ?>'>Update Profile</button></div>
+                    </div>
                 </div>
             </div>
         </div>
-        <!-- <div class="divider"></div> -->
-        <div class="card mb-3 w-50" style="max-height: 420px; overflow-y: scroll;">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-sm-3"><h6 class="mb-0">Name</h6></div>
-                    <div class="col-sm-9 text-secondary"><?php echo $info['name'] ?></div>
-                </div>
-                <hr>
-                <div class="row">
-                    <div class="col-sm-3"><h6 class="mb-0">Birthday</h6></div>
-                    <div class="col-sm-9 text-secondary"><?php echo $info['bday'] ?></div>
-                </div>
-                <hr>
-                <div class="row">
-                    <div class="col-sm-3"><h6 class="mb-0">Address</h6></div>
-                    <div class="col-sm-9 text-secondary"><?php echo $info['address'] ?></div>
-                </div>
-                <hr>
-                <div class="row">
-                    <div class="col-sm-3"><h6 class="mb-0">Deped Email</h6></div>
-                    <div class="col-sm-9 text-secondary"><?php echo $info['email'] ?></div>
-                </div>
-                <hr>
-                <div class="row">
-                    <div class="col-sm-3"><h6 class="mb-0">Contact</h6></div>
-                    <div class="col-sm-9 text-secondary"><?php echo $info['contactNo'] ?></div>
-                </div>
-                <hr>
-                <div class="row">
-                    <div class="col-sm-3"><h6 class="mb-0">Sex</h6></div>
-                    <div class="col-sm-9 text-secondary"><?php echo $info['sex'] ?></div>
-                </div>
-                <hr>
-                <div class="row">
-                    <div class="col-sm-3"><h6 class="mb-0">Year as School Head</h6></div>
-                    <div class="col-sm-9 text-secondary"><?php echo $info['yearAsSchoolHead'] ?></div>
-                </div>
-                <hr>
-                <div class="row">
-                    <div class="col-sm-3"><h6 class="mb-0">Duration year of stay</h6></div>
-                    <div class="col-sm-9 text-secondary"><?php echo $info['duration'] ?></div>
-                </div>
-                <hr>
-                <div class="row">
-                    <div class="col-sm-3"><h6 class="mb-0">Learners Performance</h6></div>
-                    <div class="col-sm-9 text-secondary"><?php echo $info['learnersPerf'] ?></div>
-                </div>
-                <hr>
-                <div class="row">
-                    <div class="col-sm-3"><h6 class="mb-0">Teacher Performance</h6></div>
-                    <div class="col-sm-9 text-secondary"><?php echo $info['teacherPerf'] ?></div>
-                </div>
-                <hr>
-                <div class="row">
-                    <div class="col-sm-3"><h6 class="mb-0">Financial Management</h6></div>
-                    <div class="col-sm-9 text-secondary"><?php echo $info['financialMng'] ?></div>
-                </div>
-                <hr>
-                <div class="row">
-                    <div class="col-sm-3"><h6 class="mb-0">Complaints</h6></div>
-                    <div class="col-sm-9 text-secondary"><?php echo $info['complaints'] ?></div>
-                </div>
 
-                <hr>
-                <!-- <div class="row">
-                    <div class="col-sm-3"><h6 class="mb-0">Address</h6></div>
-                    <div class="col-sm-9 text-secondary">Bay Area, San Francisco, CA</div>
-                </div>
-                <hr> -->
-                <div class="row">
-                    <div class="col-sm-12"><button type="button" class="btn btn-info d-block mx-auto" data-bs-toggle="modal" data-bs-target="#EditUserProfile" id='editProfileBtnDb' value='<?php echo $info['id'] ?>'>Update Profile</button></div>
-                </div>
-            </div>
+        </div>
+        <div class="tab-pane fade" id="ex1-tabs-2" role="tabpanel" aria-labelledby="ex1-tab-2">
+            Tab 2 content
+        </div>
+        <div class="tab-pane fade" id="ex1-tabs-3" role="tabpanel" aria-labelledby="ex1-tab-3">
+            Tab 3 content
         </div>
     </div>
+
+<!-- MDB -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.js"></script>
 </body>
 </html>
