@@ -3,7 +3,7 @@
 
     $id = $_POST['id'];
 
-    $q = "SELECT * from users where id='$id'";
+    $q = "SELECT * from profile where id='$id'";
     $list = $con->query($q);
     $info = $list->fetch_assoc();
 ?>

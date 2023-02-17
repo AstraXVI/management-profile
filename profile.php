@@ -4,7 +4,7 @@
 
     $id = $_POST['id'];
 
-    $q = "SELECT * from profile where id='$id'";
+    $q = "SELECT * from profile where email='$id' OR id='$id'";
     $list = $con->query($q);
     $info = $list->fetch_assoc();
     

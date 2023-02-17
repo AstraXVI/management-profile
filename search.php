@@ -3,14 +3,16 @@
 
     $searchValue = $_POST['searchValue'];
 
-    if(empty($_POST['level'])){
-        $q = "SELECT * FROM schools WHERE id LIKE '%$searchValue%' OR  school_name LIKE '%$searchValue%' OR school_id LIKE '%$searchValue%' OR division LIKE '%$searchValue%' OR school_type LIKE '%$searchValue%' OR  contact_person LIKE '%$searchValue%' OR  contact_no LIKE '%$searchValue%' OR email LIKE '%$searchValue%' OR  district LIKE '%$searchValue%' OR  level LIKE '%$searchValue%' ORDER BY id DESC";
-    }else{
-        $level = $_POST['level'];
+    // if(empty($_POST['level'])){
+    //     $q = "SELECT * FROM schools WHERE id LIKE '%$searchValue%' OR  school_name LIKE '%$searchValue%' OR school_id LIKE '%$searchValue%' OR division LIKE '%$searchValue%' OR school_type LIKE '%$searchValue%' OR  contact_person LIKE '%$searchValue%' OR  contact_no LIKE '%$searchValue%' OR email LIKE '%$searchValue%' OR  district LIKE '%$searchValue%' OR  level LIKE '%$searchValue%' ORDER BY id DESC";
+    // }else{
+    //     $level = $_POST['level'];
 
-        $q = "SELECT * FROM schools WHERE level='$level' AND ( id LIKE '%$searchValue%' OR  school_name LIKE '%$searchValue%' OR school_id LIKE '%$searchValue%' OR division LIKE '%$searchValue%' OR school_type LIKE '%$searchValue%' OR  contact_person LIKE '%$searchValue%' OR  contact_no LIKE '%$searchValue%' OR email LIKE '%$searchValue%' OR  district LIKE '%$searchValue%' OR  level LIKE '%$searchValue%' ) ORDER BY id DESC";
+    //     $q = "SELECT * FROM schools WHERE level='$level' AND ( id LIKE '%$searchValue%' OR  school_name LIKE '%$searchValue%' OR school_id LIKE '%$searchValue%' OR division LIKE '%$searchValue%' OR school_type LIKE '%$searchValue%' OR  contact_person LIKE '%$searchValue%' OR  contact_no LIKE '%$searchValue%' OR email LIKE '%$searchValue%' OR  district LIKE '%$searchValue%' OR  level LIKE '%$searchValue%' ) ORDER BY id DESC";
 
-    }
+    // }
+
+    $q = "SELECT * FROM profile WHERE name LIKE '%$searchValue%'";
 
     $list = $con->query($q);
     $fetch = $list->fetch_assoc();
@@ -28,23 +30,15 @@
     <?php do{ ?>
         <tr>
             <td><?php echo $fetch['id'] ?></td>
-            <td><?php echo $fetch['school_name'] ?></td>
-            <td><?php echo $fetch['school_id'] ?></td>
-            <td><?php echo $fetch['division'] ?></td>
-            <td><?php echo $fetch['school_type'] ?></td>
-            <td><?php echo $fetch['contact_person'] ?></td>
-            <td><?php echo $fetch['contact_no'] ?></td>
-            <td><?php echo $fetch['email'] ?></td>
-            <td><?php echo $fetch['district'] ?></td>
-            <td><?php echo $fetch['level'] ?></td>
-            <td>
-                <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#fileUplaodsDorModal" id='dorButtonModal' value='<?php echo $fetch['school_name'] ?>'><i class="fa-regular fa-folder-open text-light"></i></button>
-            </td>
+            <td><?php echo $fetch['name'] ?></td>
+            <td><?php echo $fetch['contactNo'] ?></td>
+            <td><?php echo $fetch['address'] ?></td>
+            <td><?php echo $fetch['school'] ?></td>
             <td>
                 <div class="d-flex gap-1 justify-content-center">
-                    <button type="button" id='editBtn' value='<?php echo $fetch['id'] ?>' class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editSchool"><i class="fa-solid fa-pen"></i></button>
-                    <button class="btn btn-danger btn-sm" id='deleteBtn' value='<?php echo $fetch['id'] ?>'><i class="fa-solid fa-trash"></i></button>
-                    <button class="btn btn-success btn-sm" id="viewBtn" value='<?php echo $fetch['school_name'] ?>'><i class="fa-solid fa-eye"></i></button>
+                    <!-- <button title="edit" type="button" id='editBtn' value='<?php echo $fetch['id'] ?>' class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editSchool"><i class="fa-solid fa-pen"></i></button> -->
+                    <button title="Delete" class="btn btn-danger btn-sm" id='deleteBtn' value='<?php echo $fetch['id'] ?>'><i class="fa-solid fa-trash"></i></button>
+                    <button title="View Equipment" class="btn btn-success btn-sm" id="viewBtn" value='<?php echo $fetch['id'] ?>'><i class="fa-solid fa-eye"></i></button>
                 </div>
             </td>
         </tr>

@@ -37,15 +37,15 @@
     $listClient = $con->query($countClient);
     $clientCount = $listClient->num_rows;
     // SCHOOL
-    $countSchool = "SELECT * FROM `schools`";
+    $countSchool = "SELECT * FROM `profile`";
     $listSchool = $con->query($countSchool);
     $schoolCount = $listSchool->num_rows;
     // Elementary School
-    $countElemSchool = "SELECT * FROM `schools` WHERE level='Elementary School'";
+    $countElemSchool = "SELECT * FROM `profile` WHERE school='Elementary School'";
     $listElemSchool = $con->query($countElemSchool);
     $elemSchoolCount = $listElemSchool->num_rows;
     // High School
-    $countHighSchool = "SELECT * FROM `schools` WHERE level='High School'";
+    $countHighSchool = "SELECT * FROM `profile` WHERE school='High School'";
     $listHighSchool = $con->query($countHighSchool);
     $highSchoolCount = $listHighSchool->num_rows;
 
@@ -58,6 +58,7 @@
     // 
     $y = "SELECT * FROM `profile`";
     $x = $con->query($y);
+    $fetchProfileInfoNew = $x->fetch_assoc();
     $p = $x->num_rows;
 
 
@@ -93,10 +94,10 @@
 <body style="background: url(https://cdn.pixabay.com/photo/2017/07/01/19/48/background-2462431_960_720.jpg) no-repeat; background-size: cover; background-color: #e5e5e5; background-blend-mode: overlay; ">
     <header class="d-flex align-items-center py-2 bg-success text-light" style=" position: absolute; top: 20px; right:40px; padding-inline: 20px;  border-radius: 10px;">
         <span id='profileIconHeader'>
-            <?php if(empty($fetchUserInfo['picture'])){ ?>
+            <?php if(empty($fetchProfileInfoNew['picture'])){ ?>
                 <i class="fa-solid fa-user fs-4 mt-1"></i>
             <?php }else{ ?>
-                <img src="<?php echo $fetchUserInfo['picture'] ?>" alt="" style='width:30px;height:30px;border: 3px solid white ;border-radius: 100vmax; margin-right: 7px;'>
+                <img src="<?php echo $fetchProfileInfoNew['picture'] ?>" alt="" style='width:30px;height:30px;border: 3px solid white ;border-radius: 100vmax; margin-right: 7px;'>
             <?php } ?>
         </span>
         <div class="dropdown">
@@ -297,6 +298,15 @@
                     <input type="text" class="form-control" id="inputEmail" placeholder="Name">
                     <label for="floatingInput">Deped Email</label>
                 </div>
+                <!-- <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="inputSchoolProfileLvl" placeholder="Name">
+                    <label for="floatingInput">School</label>
+                </div> -->
+                <label class='ps-1'>School Level</label>
+                <select id="inputSchoolProfileLvl" class="form-select mb-3" aria-label="Default select example">
+                    <option value="High School">High School</option>
+                    <option value="Elementary School">Elementary School</option>
+                </select>
                 <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="inputContact" placeholder="Name">
                     <label for="floatingInput">Contact No.</label>
@@ -332,7 +342,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id='addSchoolBtn'>Add School Head</button>
+                <button type="button" class="btn btn-primary" id='addSchoolBtn'>Add School Head</button>
             </div>
             </div>
         </div>
@@ -658,10 +668,11 @@
                 const inputTeacherPerformance = $("#inputTeacherPerformance").val();
                 const inputFinancialMng = $("#inputFinancialMng").val();
                 const inputComplaints = $("#inputComplaints").val();
+                const schoolLvl = $("#inputSchoolProfileLvl").val();
                 
 
                 // alert(bday)
-                if(name && bday && address && email && contact && sex && yearSchoolHead && durationYear && inputLearningPerformance && inputTeacherPerformance && inputFinancialMng && inputComplaints){
+                if(name && email){
                     $.ajax({
                         url : "addProfileNew.php",
                         method : "post",
@@ -677,7 +688,8 @@
                             inputLearningPerformance : inputLearningPerformance,
                             inputTeacherPerformance : inputTeacherPerformance,
                             inputFinancialMng : inputFinancialMng,
-                            inputComplaints : inputComplaints
+                            inputComplaints : inputComplaints,
+                            school : schoolLvl
                         },
                         success(){
                             $('#dashBoardBody').load("table.php");
@@ -699,20 +711,8 @@
                     })
                     // alert("success")
                 }else{
-                    confirm(`Please fill up all the field!`)
+                    confirm(`Please fill up Name , Email and Year Level!`)
 
-                    $("#inputName").val("");
-                    $("#inputBirthDay").val("");
-                    $("#inputAddress").val("");
-                    $("#inputEmail").val("");
-                    $("#inputContact").val("");
-                    $("#inputSex").val("");
-                    $("#inputYearAsSchoolHead").val("");
-                    $("#inputDurationYear").val("");
-                    $("#inputLearningPerformance").val("");
-                    $("#inputTeacherPerformance").val("");
-                    $("#inputFinancialMng").val("");
-                    $("#inputComplaints").val("");
                 }
 
 
