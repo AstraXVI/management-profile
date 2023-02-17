@@ -187,7 +187,7 @@
             </nav>
         </div>
     
-        <div id='dashBoardBody' class="mx-auto w-75" style=" margin-top: 100px;">
+        <div id='dashBoardBody' class="mx-auto w-75" style=" margin-top: 70px;">
             <!-- Ilagay dito ang dashboard -->
             <div class=" text-secondary fw-bold p-2 ps-0 mb-3 w-25 h3">Dashboard</div>
             <div class="d-flex flex-column py-5 px-5 text-light" style="gap: 30px; background-color: white; height: 65vh; overflow-y: scroll;">
@@ -568,9 +568,37 @@
     </div>
     </div>
 
+    <div class="modal fade" id="myModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header bg-warning">
+                <h5 class="modal-title">PRIVACY NOTICE</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>The Department of Education Valenzuela recognizes its responsibility under the <i>Republic Act No. 10173</i>, also known as the <i>Data Privacy Act of 2012</i>, to handle appropriately collected, recorded, organized, updated, used, and consolidated information from its personnel. 
+
+</br></br> Data obtained from this form is entered and stored within the organization's authorized information and communications system and is only accessible to authorized personnel. The administrative team has instituted appropriate organizational, technical, and physical security measures to protect personal data. 
+
+</br></br>Furthermore, all information will be subject to strict confidentiality. <b>DepEd SDO Valenzuela</b> will not disclose any information without consent.
+</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-bs-dismiss="modal">OK</button>
+                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+            </div>
+            </div>
+        </div>
+    </div>
+
     <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
     <script>
         $(document).ready(function(){
+
+            //load privacy notice
+            $(window).on('load', function() {
+                $('#myModal').modal('show');
+            });
 
             // dashboard see more
             $('.toManageUser').click(function(){

@@ -29,7 +29,7 @@
         .profile-img .file {
             position: relative;
             overflow: hidden;
-            margin-top: -20%;
+            margin-top: -7%;
             width: 90%;
             border: none;
             border-radius: 0;
@@ -293,6 +293,6 @@
     </div>
 
 <!-- MDB -->
-<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.js"></script> -->
+
 </body>
 </html>
