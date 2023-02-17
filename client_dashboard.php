@@ -140,8 +140,8 @@
                         <h4 class="card-title"><i class="fa-solid fa-user me-3"></i>1 <br> <p class="mt-2">My Profile</p></h4>
                         <hr>
                         <!-- Text -->
-                        <p class="card-text">Count of all the equipment that you borrowed.</p>
-                        <!-- <button id="toEquipment" class="btn btn-rounded text-light px-4 btn-md" style="background-color: rgba(0, 0, 0, 0.3);">See Profile<i class="fa-solid fa-arrow-up-right-from-square ms-2"></i></button> -->
+                        <p class="card-text">Overview.</p>
+                        <button id="toEquipment" class="btn btn-rounded text-light px-4 btn-md" style="background-color: rgba(0, 0, 0, 0.3);">See Profile<i class="fa-solid fa-arrow-up-right-from-square ms-2"></i></button>
                     </div>
                 </div>
             </div>

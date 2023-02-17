@@ -11,7 +11,7 @@
 </head>
 <body>
 
-    <label class='mt-3 mb-2'>School</label>
+    <label class='mt-3 mb-2'>Email</label>
     <select id="inputEmailUser" class="form-select mb-3" aria-label="Default select example">
 
         <?php
