@@ -1491,6 +1491,23 @@
                     }
                 })
             })
+
+            // PROFILE EDUCATION BG
+            $("#dashBoardBody").on("click","#profileEducationButton",function(){
+                const email = $("#profileUserEmail").val();
+
+                $.ajax({
+                    url:"profileInfo/education.php",
+                    method:"post",
+                    data:{
+                        id : email
+                    },
+                    success(e){
+                        $("#dashBoardBody").html(e)
+
+                    }
+                })
+            })
         })
 
         function exportToExcel() {
