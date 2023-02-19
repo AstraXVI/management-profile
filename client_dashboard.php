@@ -319,55 +319,74 @@
 
     <!-- update education -->
     <div class="modal fade "  id="updateEducationModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-fullscreen">
-        <div class="modal-content" >
-        <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body" >
-        <table class='table text-center'>
-        <thead>
-            <tr>
-                <th>Level</th>
-                <th>Name of School</th>
-                <th>Basic Education/Degree/Course</th>
-                <th colspan='2'>Period of attendance</th>
-                <th>Highest Level/Unit Earned</th>
-                <th>Year Graduate</th>
-                <th>Scholarship/Academic Honors Received</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th>College</th>
-                <td><input value='<?php echo $educInfo['schoolCollege'] ?>' type="text" id='Cschool'></td>
-                <td><input value='<?php echo $educInfo['collegeCourse'] ?>' type="text" id='CCourse'></td>
-                <td><input value='<?php echo $educInfo['collegeFrom'] ?>' type="text" id='CFrom'></td>
-                <td><input value='<?php echo $educInfo['collegeTo'] ?>' type="text" id='CTo'></td>
-                <td><input value='<?php echo $educInfo['collegeHigh'] ?>' type="text" id='CHigh'></td>
-                <td><input value='<?php echo $educInfo['collegeYear'] ?>' type="text" id='CYear'></td>
-                <td><input value='<?php echo $educInfo['collegeScholar'] ?>' type="text" id='CScholar'></td>
-            </tr>
-            <tr>
-                <th>Graduate Studies</th>
-                <td><input type="text" value='<?php echo $educInfo['graduateStudies'] ?>' id='Gschool'></td>
-                <td><input value='<?php echo $educInfo['graduateCourse'] ?>' type="text" id='GCourse'></td>
-                <td><input value='<?php echo $educInfo['graduateFrom'] ?>' type="text" id='GFrom'></td>
-                <td><input value='<?php echo $educInfo['graduateTo'] ?>' type="text" id='GTo'></td>
-                <td><input value='<?php echo $educInfo['graduateHigh'] ?>' type="text" id='GHigh'></td>
-                <td><input value='<?php echo $educInfo['graduateYear'] ?>' type="text" id='GYear'></td>
-                <td><input value='<?php echo $educInfo['graduateScholar'] ?>' type="text" id='GScholar'></td>
-            </tr>
-        </tbody>
-    </table>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" id='profileSaveButtonEducation' data-bs-dismiss="modal" >Save changes</button>
-        </div>
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content" >
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+            <div class="modal-body" >
+            <table class='table text-center'>
+            <thead>
+                <tr>
+                    <th>Level</th>
+                    <th>Name of School</th>
+                    <th>Basic Education/Degree/Course</th>
+                    <th colspan='2'>Period of attendance</th>
+                    <th>Highest Level/Unit Earned</th>
+                    <th>Year Graduate</th>
+                    <th>Scholarship/Academic Honors Received</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>College</th>
+                    <td><input value='<?php echo $educInfo['schoolCollege'] ?>' type="text" id='Cschool'></td>
+                    <td><input value='<?php echo $educInfo['collegeCourse'] ?>' type="text" id='CCourse'></td>
+                    <td><input value='<?php echo $educInfo['collegeFrom'] ?>' type="text" id='CFrom'></td>
+                    <td><input value='<?php echo $educInfo['collegeTo'] ?>' type="text" id='CTo'></td>
+                    <td><input value='<?php echo $educInfo['collegeHigh'] ?>' type="text" id='CHigh'></td>
+                    <td><input value='<?php echo $educInfo['collegeYear'] ?>' type="text" id='CYear'></td>
+                    <td><input value='<?php echo $educInfo['collegeScholar'] ?>' type="text" id='CScholar'></td>
+                </tr>
+                <tr>
+                    <th>Graduate Studies</th>
+                    <td><input type="text" value='<?php echo $educInfo['graduateStudies'] ?>' id='Gschool'></td>
+                    <td><input value='<?php echo $educInfo['graduateCourse'] ?>' type="text" id='GCourse'></td>
+                    <td><input value='<?php echo $educInfo['graduateFrom'] ?>' type="text" id='GFrom'></td>
+                    <td><input value='<?php echo $educInfo['graduateTo'] ?>' type="text" id='GTo'></td>
+                    <td><input value='<?php echo $educInfo['graduateHigh'] ?>' type="text" id='GHigh'></td>
+                    <td><input value='<?php echo $educInfo['graduateYear'] ?>' type="text" id='GYear'></td>
+                    <td><input value='<?php echo $educInfo['graduateScholar'] ?>' type="text" id='GScholar'></td>
+                </tr>
+            </tbody>
+            </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id='profileSaveButtonEducation' data-bs-dismiss="modal" >Save changes</button>
+            </div>
+            </div>
         </div>
     </div>
+
+     <!-- update civil modal -->
+     <div class="modal fade "  id="updateCivilModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content" >
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Update Civil</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+            <div class="modal-body" >
+            
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id='profileSaveButtonEducation' data-bs-dismiss="modal" >Save changes</button>
+            </div>
+            </div>
+        </div>
     </div>
 
 
@@ -926,6 +945,25 @@
 
                             }
                         })
+                    }
+                })
+            })
+
+            // CIVIL BUTTON
+            $("#dashBoardBody").on("click","#profileCivilButton",function(){
+                const email = $("#profileUserEmail").val();
+
+                // alert(email)
+
+                $.ajax({
+                    url:"profileInfo/civil.php",
+                    method:"post",
+                    data:{
+                        email : email
+                    },
+                    success(e){
+                        $("#dashBoardBody").html(e)
+
                     }
                 })
             })

@@ -35,7 +35,7 @@
     <li class="nav-item" role="presentation" id='profileEducationButton'>
         <a class="nav-link active" id="ex1-tab-2" data-mdb-toggle="tab" href="#ex1-tabs-2" role="tab" aria-controls="ex1-tabs-2" aria-selected="false">Educational Background</a>
     </li>
-    <li class="nav-item" role="presentation">
+    <li class="nav-item" role="presentation" id='profileCivilButton'>
         <a class="nav-link" id="ex1-tab-3" data-mdb-toggle="tab" href="#ex1-tabs-3" role="tab" aria-controls="ex1-tabs-3" aria-selected="false">Civil Service Eligibility</a>
     </li>
     <li class="nav-item" role="presentation">
