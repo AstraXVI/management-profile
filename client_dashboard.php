@@ -370,23 +370,91 @@
         </div>
     </div>
 
-     <!-- update civil modal -->
-     <div class="modal fade "  id="updateCivilModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-fullscreen">
-            <div class="modal-content" >
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Update Civil</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-            <div class="modal-body" >
-            
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" id='profileSaveButtonEducation' data-bs-dismiss="modal" >Save changes</button>
-            </div>
-            </div>
+     <!-- ADD CIVIL MODAL-->
+    <div class="modal fade" id="civilAddData" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Add Civil Service Eligibility</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
+        <div class="modal-body">
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="civilInputCareer" placeholder="Career Service">
+                <label>Career Service</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="civilInputRating" placeholder="School Name">
+                <label>Rating</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="civilDateExam" placeholder="Date of Examination">
+                <label>Date of Examination</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="civilPlaceExam" placeholder="Place of Examination">
+                <label>Place of Examination</label>
+            </div>
+            <label>License (if applicable)</label>
+            <br>
+            <input type="text" id='civilDate' placeholder='Number'>
+            <input type="text" id='civilNumber' placeholder='Date of Validity'>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" id='addCivilServiceButtonDb'>Add Civil Service</button>
+        </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- ADD WORK MODAL -->
+    <div class="modal fade" id="workAddData" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Add Work Experience</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <label>INCLUSIVE DATES (mm/dd/yyy)</label>
+            <br>
+            <input type="date" id='civilDate' placeholder='From'>
+            <input type="date" id='civilNumber' placeholder='To'>
+
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="civilInputCareer" placeholder="Career Service">
+                <label>Position Title (Write in full/ Do not abbreviate)</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="civilInputRating" placeholder="School Name">
+                <label>Department/Agency/Office/Company (Write in full/ Do not abbreviate)</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="civilDateExam" placeholder="Date of Examination">
+                <label>Monthly Salary</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="civilPlaceExam" placeholder="Place of Examination">
+                <label>Salary/Job/Pay Grade (if applicable)</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="civilPlaceExam" placeholder="Place of Examination">
+                <label>Status of Appointment</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="civilPlaceExam" placeholder="Place of Examination">
+                <label>Gov't Service (Y/N)</label>
+            </div>
+            
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" id='addCivilServiceButtonDb'>Add Civil Service</button>
+        </div>
+        </div>
+    </div>
     </div>
 
 
@@ -957,6 +1025,70 @@
 
                 $.ajax({
                     url:"profileInfo/civil.php",
+                    method:"post",
+                    data:{
+                        email : email
+                    },
+                    success(e){
+                        $("#dashBoardBody").html(e)
+
+                    }
+                })
+            })
+
+            // ADD CIVIL BUTTON DB
+            $("#addCivilServiceButtonDb").click(function(){
+                const email = $("#profileUserEmail").val();
+                const career = $("#civilInputCareer").val();
+                const rating = $("#civilInputRating").val();
+                const dateExam = $("#civilDateExam").val();
+                const placeExam = $("#civilPlaceExam").val();
+                const Ldate = $("#civilDate").val();
+                const Lnumber = $("#civilNumber").val();
+
+                if(career){
+                    $.ajax({
+                        url:"profileInfo/addCivilDb.php",
+                        method:"post",
+                        data:{
+                            email : email,
+                            career : career,
+                            rating : rating,
+                            dateExam : dateExam,
+                            placeExam : placeExam,
+                            Ldate : Ldate,
+                            Lnumber : Lnumber
+                        },
+                        success(){
+                            $.ajax({
+                                url:"profileInfo/civil.php",
+                                method:"post",
+                                data:{
+                                    email : email
+                                },
+                                success(e){
+                                    $("#dashBoardBody").html(e)
+
+                                    confirm("Add Success!")
+
+                                }
+                            })
+                        }
+                    })
+                }else{
+                    confirm("Please add career service!")
+                }
+                
+            })
+
+            // WORK EXPERIENCE BUTTON
+            $("#dashBoardBody").on("click","#profileWorkExpBtn",function(){
+                const email = $("#profileUserEmail").val();
+
+                // alert(email)
+
+                $.ajax({
+                    url:"profileInfo/workExp.php",
                     method:"post",
                     data:{
                         email : email

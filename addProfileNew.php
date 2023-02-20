@@ -23,8 +23,8 @@
     $w = "INSERT INTO `educationalbg`(`email`) VALUES ('$email')";
     $con->query($w);
 
-    // ADD CIVIL
-    $c = "INSERT INTO `civil`(`email`) VALUES ('$email')";
-    $con->query($c);
+    // // ADD CIVIL
+    // $c = "INSERT INTO `civil`(`email`) VALUES ('$email')";
+    // $con->query($c);
 
 ?>

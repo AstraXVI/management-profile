@@ -4,7 +4,7 @@
 
     $email = $_POST['email'];
 
-    $q = "SELECT * from civil where email='$email'";
+    $q = "SELECT * from work where email='$email'";
     $list = $con->query($q);
     $info = $list->fetch_assoc();
 
@@ -20,7 +20,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h2 class="text-secondary fw-bold mb-3">Civil Service Eligibility</h2>
+    <h2 class="text-secondary fw-bold mb-3">Work Experience</h2>
 
 
      <!-- get email profile -->
@@ -36,10 +36,10 @@
         <a class="nav-link" id="ex1-tab-2" data-mdb-toggle="tab" href="#ex1-tabs-2" role="tab" aria-controls="ex1-tabs-2" aria-selected="false">Educational Background</a>
     </li>
     <li class="nav-item" role="presentation" id='profileCivilButton'>
-        <a class="nav-link active" id="ex1-tab-3" data-mdb-toggle="tab" href="#ex1-tabs-3" role="tab" aria-controls="ex1-tabs-3" aria-selected="false">Civil Service Eligibility</a>
+        <a class="nav-link" id="ex1-tab-3" data-mdb-toggle="tab" href="#ex1-tabs-3" role="tab" aria-controls="ex1-tabs-3" aria-selected="false">Civil Service Eligibility</a>
     </li>
     <li class="nav-item" role="presentation" id='profileWorkExpBtn'>
-        <a class="nav-link" id="ex1-tab-4" data-mdb-toggle="tab" href="#ex1-tabs-4" role="tab" aria-controls="ex1-tabs-4" aria-selected="false">Work Experience</a>
+        <a class="nav-link active" id="ex1-tab-4" data-mdb-toggle="tab" href="#ex1-tabs-4" role="tab" aria-controls="ex1-tabs-4" aria-selected="false">Work Experience</a>
     </li>
     <li class="nav-item" role="presentation">
         <a class="nav-link" id="ex1-tab-5" data-mdb-toggle="tab" href="#ex1-tabs-5" role="tab" aria-controls="ex1-tabs-5" aria-selected="false">Voluntary Work</a>
@@ -49,29 +49,33 @@
     </li>
     </ul>
 
-    <button class="btn btn-primary my-3" data-bs-toggle="modal" data-bs-target="#civilAddData">Add Civil Service Eligibility</button>
+    <button class="btn btn-primary my-3" data-bs-toggle="modal" data-bs-target="#workAddData">Add Work Experience</button>
 
     <table class='table text-center'>
         <thead>
             <tr>
-                <th>Career Service/RA 1080(Board/Bar) Under special Laws/CES/CSEE Barangay Eligibility / Driver License</th>
-                <th>Rating (if applicable)</th>
-                <th>Date of examination/Conferment</th>
-                <th>Place of Examination/Conferment</th>
-                <th colspan='2'>License (if applicable)</th>
-                <th>Action</th>
+               <th colspan='2'>Inclusive Dates (mm/dd/yyyy)</th>
+               <th>Position Title (Write in full/ Do not abbreviate)</th>
+               <th>Department/Agency/Office/Company (Write in full/ Do not abbreviate)</th>
+               <th>Monthly Salary</th>
+               <th>Salary/Job/Pay Grade</th>
+               <th>Status of appointment</th>
+               <th>Gov't Service (Y/N)</th>
+               <th>Action</th>
             </tr>
         </thead>
         <tbody>
             <?php if($list->num_rows){ ?>
                 <?php do{ ?>
                     <tr>
-                        <td><?php echo $info['careerService'] ?></td>
-                        <td><?php echo $info['rating'] ?></td>
-                        <td><?php echo $info['dateOfExam'] ?></td>
-                        <td><?php echo $info['placeOfExam'] ?></td>
-                        <td><?php echo $info['licenseNumber'] ?></td>
-                        <td><?php echo $info['licenseDateOfValidity'] ?></td>
+                        <td><?php echo $info['dateFrom'] ?></td>
+                        <td><?php echo $info['dateTo'] ?></td>
+                        <td><?php echo $info['title'] ?></td>
+                        <td><?php echo $info['department'] ?></td>
+                        <td><?php echo $info['monthSalary'] ?></td>
+                        <td><?php echo $info['salary'] ?></td>
+                        <td><?php echo $info['statusApointment'] ?></td>
+                        <td><?php echo $info['govService'] ?></td>
                         <td>
                             <button class='btn btn-info'>Edit</button>
                             <button class='btn btn-danger'>Delete</button>
@@ -80,7 +84,7 @@
                 <?php }while($info = $list->fetch_assoc()) ?>
             <?php }else{ ?>
                 <tr>
-                    <td colspan='7'>No data</td>
+                    <td colspan='9'>No data</td>
                 </tr>
             <?php } ?>
         </tbody>
