@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 20, 2023 at 08:21 AM
+-- Generation Time: Feb 20, 2023 at 09:19 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -83,21 +83,42 @@ CREATE TABLE `educationalbg` (
   `collegeYear` varchar(250) NOT NULL,
   `graduateYear` varchar(250) NOT NULL,
   `collegeScholar` varchar(250) NOT NULL,
-  `graduateScholar` varchar(250) NOT NULL
+  `graduateScholar` varchar(250) NOT NULL,
+  `elemSchool` varchar(250) NOT NULL,
+  `secSchool` varchar(250) NOT NULL,
+  `vocSchool` varchar(250) NOT NULL,
+  `elemEduc` varchar(250) NOT NULL,
+  `secEduc` varchar(250) NOT NULL,
+  `vocEduc` varchar(250) NOT NULL,
+  `elemFrom` varchar(250) NOT NULL,
+  `secFrom` varchar(250) NOT NULL,
+  `vocFrom` varchar(250) NOT NULL,
+  `elemTo` varchar(250) NOT NULL,
+  `secTo` varchar(250) NOT NULL,
+  `vocTo` varchar(250) NOT NULL,
+  `elemHighLvl` varchar(250) NOT NULL,
+  `secHighLvl` varchar(250) NOT NULL,
+  `vocHighLvl` varchar(250) NOT NULL,
+  `elemGraduate` varchar(250) NOT NULL,
+  `secGraduate` varchar(250) NOT NULL,
+  `vocGraduate` varchar(250) NOT NULL,
+  `elemScholar` varchar(250) NOT NULL,
+  `secScholar` varchar(250) NOT NULL,
+  `vocScholar` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `educationalbg`
 --
 
-INSERT INTO `educationalbg` (`id`, `email`, `schoolCollege`, `graduateStudies`, `collegeCourse`, `graduateCourse`, `collegeFrom`, `collegeTo`, `graduateFrom`, `graduateTo`, `collegeHigh`, `graduateHigh`, `collegeYear`, `graduateYear`, `collegeScholar`, `graduateScholar`) VALUES
-(13, 'renz@i', 'datamex college', '8', 'BSIT', '9', 'JUNE 2021', 'JULY 2022', '10', '1', 'COLLEGE', '11', '2021-2022', '1', 'NONE', '1'),
-(14, 'renz@io', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(15, '9', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(16, '9', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(17, '1', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(18, '2@dwqd', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(19, 'y', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+INSERT INTO `educationalbg` (`id`, `email`, `schoolCollege`, `graduateStudies`, `collegeCourse`, `graduateCourse`, `collegeFrom`, `collegeTo`, `graduateFrom`, `graduateTo`, `collegeHigh`, `graduateHigh`, `collegeYear`, `graduateYear`, `collegeScholar`, `graduateScholar`, `elemSchool`, `secSchool`, `vocSchool`, `elemEduc`, `secEduc`, `vocEduc`, `elemFrom`, `secFrom`, `vocFrom`, `elemTo`, `secTo`, `vocTo`, `elemHighLvl`, `secHighLvl`, `vocHighLvl`, `elemGraduate`, `secGraduate`, `vocGraduate`, `elemScholar`, `secScholar`, `vocScholar`) VALUES
+(13, 'renz@i', 'datamex college', '8', 'BSIT', '9', 'JUNE 2021', 'JULY 2022', '10', '1', 'COLLEGE', '11', '2021-2022', '1', 'NONE', '1', '', '', '', '0', '0', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(14, 'renz@io', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0', '0', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(15, '9', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0', '0', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(16, '9', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0', '0', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(17, '1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0', '0', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(18, '2@dwqd', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0', '0', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(19, 'y', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0', '0', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -170,8 +191,8 @@ CREATE TABLE `profile` (
 
 INSERT INTO `profile` (`id`, `name`, `bday`, `address`, `email`, `contactNo`, `sex`, `yearAsSchoolHead`, `duration`, `learnersPerf`, `teacherPerf`, `financialMng`, `complaints`, `picture`, `school`, `citizenship`, `civil`, `zipcode`, `employeeNo`, `placeBirth`) VALUES
 (1, 'Admin', '01/17/1996', '1225 sta monica subd ugong valenzuela city', 'ikejoseph.lumaad@deped.gov.ph', '09396439742', 'Male', 'n/a', 'n/a', 'n/a', 'n/a', 'n/a', '', 'uploads/profile_pics/bckground.png', '', '', '', '', '', ''),
-(17, 'Jedidiah T. Morales', '2023-02-15', '1225 sta monica subdivision ugong valenzuela city', 'renz@i', '09396439742', 'male', '2020', 'n/a1', '', '', '', '', 'uploads/profile_pics/807ca16b42e5fe7dc8a5794157076559.jpg', 'High School', 'dual_citizenship', 'separated', '2121', '98979', 'Goa camarines sur'),
-(20, '0', '2023-01-29', '0', '0', '0', 'male', '0', '0', '', '', '', '', '', 'High School', 'filipino', 'married', '0', '0', '0'),
+(17, 'Jedidiah T. Morales', '2023-02-15', '1225 sta monica subdivision ugong valenzuela city', 'renz@i', '96439742', 'male', '2020', 'n/a', '', '', '', '', 'uploads/profile_pics/807ca16b42e5fe7dc8a5794157076559.jpg', 'High School', 'filipino', 'separated', '2121', '989797565656', 'Goa camarines sur'),
+(20, '1', '2023-01-01', '1', '1', '1', 'male', '1', '1', '1', '1', '1', '1', '', 'High School', 'filipino', 'married', '1', '1', '1'),
 (23, 'ty', '2023-02-09', 'ty', 'y', 'ty', 'male', 'ty', 'we', 'eqw', 'ew', 'ew', 'we', '', 'High School', 'ty', 'yt', 'yt', '099', 't');
 
 -- --------------------------------------------------------

@@ -63,6 +63,36 @@
         </thead>
         <tbody>
             <tr>
+                <th>Elementary</th>
+                <td>sample1</td>
+                <td>sample2</td>
+                <td>sample3</td>
+                <td>sample4</td>
+                <td>sample5</td>
+                <td>sample6</td>
+                <td>sample7</td>
+            </tr>
+            <tr>
+                <th>Secondary</th>
+                <td>sample1</td>
+                <td>sample2</td>
+                <td>sample3</td>
+                <td>sample4</td>
+                <td>sample5</td>
+                <td>sample6</td>
+                <td>sample7</td>
+            </tr>
+            <tr>
+                <th>Vocational/Trade course</th>
+                <td>sample1</td>
+                <td>sample2</td>
+                <td>sample3</td>
+                <td>sample4</td>
+                <td>sample5</td>
+                <td>sample6</td>
+                <td>sample7</td>
+            </tr>
+            <tr>
                 <th>College</th>
                 <td><?php echo $info['schoolCollege'] ?></td>
                 <td><?php echo $info['collegeCourse'] ?></td>
@@ -71,7 +101,6 @@
                 <td><?php echo $info['collegeHigh'] ?></td>
                 <td><?php echo $info['collegeYear'] ?></td>
                 <td><?php echo $info['collegeScholar'] ?></td>
-                
             </tr>
             <tr>
                 <th>Graduate Studies</th>
