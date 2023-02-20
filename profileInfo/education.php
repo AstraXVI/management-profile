@@ -64,33 +64,33 @@
         <tbody>
             <tr>
                 <th>Elementary</th>
-                <td>sample1</td>
-                <td>sample2</td>
-                <td>sample3</td>
-                <td>sample4</td>
-                <td>sample5</td>
-                <td>sample6</td>
-                <td>sample7</td>
+                <td><?php echo $info['elemSchool'] ?></td>
+                <td><?php echo $info['elemEduc'] ?></td>
+                <td><?php echo $info['elemFrom'] ?></td>
+                <td><?php echo $info['elemTo'] ?></td>
+                <td><?php echo $info['elemHighLvl'] ?></td>
+                <td><?php echo $info['elemGraduate'] ?></td>
+                <td><?php echo $info['elemScholar'] ?></td>
             </tr>
             <tr>
                 <th>Secondary</th>
-                <td>sample1</td>
-                <td>sample2</td>
-                <td>sample3</td>
-                <td>sample4</td>
-                <td>sample5</td>
-                <td>sample6</td>
-                <td>sample7</td>
+                <td><?php echo $info['secSchool'] ?></td>
+                <td><?php echo $info['secEduc'] ?></td>
+                <td><?php echo $info['secFrom'] ?></td>
+                <td><?php echo $info['secTo'] ?></td>
+                <td><?php echo $info['secHighLvl'] ?></td>
+                <td><?php echo $info['secGraduate'] ?></td>
+                <td><?php echo $info['secScholar'] ?></td>
             </tr>
             <tr>
                 <th>Vocational/Trade course</th>
-                <td>sample1</td>
-                <td>sample2</td>
-                <td>sample3</td>
-                <td>sample4</td>
-                <td>sample5</td>
-                <td>sample6</td>
-                <td>sample7</td>
+                <td><?php echo $info['vocSchool'] ?></td>
+                <td><?php echo $info['vocEduc'] ?></td>
+                <td><?php echo $info['vocFrom'] ?></td>
+                <td><?php echo $info['vocTo'] ?></td>
+                <td><?php echo $info['vocHighLvl'] ?></td>
+                <td><?php echo $info['vocGraduate'] ?></td>
+                <td><?php echo $info['vocScholar'] ?></td>
             </tr>
             <tr>
                 <th>College</th>
@@ -115,6 +115,6 @@
         </tbody>
     </table>
     
-    <button class='btn btn-info' data-bs-toggle="modal" data-bs-target="#updateEducationModal">Update data</button>
+    <button class='btn btn-info' data-bs-toggle="modal" data-bs-target="#updateEducationModal" value='<?php echo $id ?>' id='updateProfileEducationButton'>Update data</button>
 </body>
 </html>
