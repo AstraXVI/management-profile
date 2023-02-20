@@ -41,12 +41,7 @@
     $userLists = $con->query($getDataUser);
     $data = $userLists->fetch_assoc();
 
-    // GET EDUCATION UPDATE INFO
-    $q = "SELECT * FROM `educationalbg` WHERE email='$emailNew'";
-    $list = $con->query($q);
-    $educInfo = $list->fetch_assoc();
 
-    // echo $emailNew;
 
 ?>
 <!DOCTYPE html>
@@ -339,42 +334,8 @@
                     <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-            <div class="modal-body" >
-            <table class='table text-center'>
-            <thead>
-                <tr>
-                    <th>Level</th>
-                    <th>Name of School</th>
-                    <th>Basic Education/Degree/Course</th>
-                    <th colspan='2'>Period of attendance</th>
-                    <th>Highest Level/Unit Earned</th>
-                    <th>Year Graduate</th>
-                    <th>Scholarship/Academic Honors Received</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th>College</th>
-                    <td><input value='<?php echo $educInfo['schoolCollege'] ?>' type="text" id='Cschool'></td>
-                    <td><input value='<?php echo $educInfo['collegeCourse'] ?>' type="text" id='CCourse'></td>
-                    <td><input value='<?php echo $educInfo['collegeFrom'] ?>' type="text" id='CFrom'></td>
-                    <td><input value='<?php echo $educInfo['collegeTo'] ?>' type="text" id='CTo'></td>
-                    <td><input value='<?php echo $educInfo['collegeHigh'] ?>' type="text" id='CHigh'></td>
-                    <td><input value='<?php echo $educInfo['collegeYear'] ?>' type="text" id='CYear'></td>
-                    <td><input value='<?php echo $educInfo['collegeScholar'] ?>' type="text" id='CScholar'></td>
-                </tr>
-                <tr>
-                    <th>Graduate Studies</th>
-                    <td><input type="text" value='<?php echo $educInfo['graduateStudies'] ?>' id='Gschool'></td>
-                    <td><input value='<?php echo $educInfo['graduateCourse'] ?>' type="text" id='GCourse'></td>
-                    <td><input value='<?php echo $educInfo['graduateFrom'] ?>' type="text" id='GFrom'></td>
-                    <td><input value='<?php echo $educInfo['graduateTo'] ?>' type="text" id='GTo'></td>
-                    <td><input value='<?php echo $educInfo['graduateHigh'] ?>' type="text" id='GHigh'></td>
-                    <td><input value='<?php echo $educInfo['graduateYear'] ?>' type="text" id='GYear'></td>
-                    <td><input value='<?php echo $educInfo['graduateScholar'] ?>' type="text" id='GScholar'></td>
-                </tr>
-            </tbody>
-            </table>
+            <div class="modal-body" id='modalBodyupdateEducation'>
+                <!-- Modal update education body -->
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -1054,12 +1015,56 @@
                 })
             })
 
-            // Save Education button Database
+            // UPDATE EDUCATION BUTTON MODAL
+            $("#dashBoardBody").on("click","#updateProfileEducationButton",function(){
+                const email = $(this).val();
+
+                $.ajax({
+                    url:"profileInfo/updateEducationModal.php",
+                    method: "post",
+                    data:{
+                        email : email
+                    },
+                    success(e){
+                        $('#modalBodyupdateEducation').html(e)
+                    }
+                })
+            })
+
+            // update Education button Database
             $("#profileSaveButtonEducation").click(function(){
 
                 
                 const email = $("#userEmailProfile").val();
+
+                // elem
+                const es = $('#Eschool').val();
+                const ec = $('#Ecourse').val();
+                const ef = $('#Efrom').val();
+                const et = $('#Eto').val();
+                const eh = $('#Ehigh').val();
+                const ey = $('#Eyear').val();
+                const eSc = $('#Escholar').val();
                 
+                // secondary
+                const ss = $('#Sschool').val();
+                const sc = $('#Scourse').val();
+                const sf = $('#Sfrom').val();
+                const st = $('#Sto').val();
+                const sh = $('#Shigh').val();
+                const sy = $('#Syear').val();
+                const sSc = $('#Sscholar').val();
+
+                // vocational
+                const vs = $('#Vschool').val();
+                const vc = $('#Vcourse').val();
+                const vf = $('#Vfrom').val();
+                const vt = $('#Vto').val();
+                const vh = $('#Vhigh').val();
+                const vy = $('#Vyear').val();
+                const vSc = $('#Vscholar').val();
+                
+                // college
                 const cs =  $("#Cschool").val()
                 const cc = $("#CCourse").val()
                 const cf = $("#CFrom").val()
@@ -1068,6 +1073,7 @@
                 const cy = $("#CYear").val()
                 const cSc = $("#CScholar").val()
                 
+                // graduate
                 const gs =  $("#Gschool").val()
                 const gc = $("#GCourse").val()
                 const gf = $("#GFrom").val()
@@ -1083,6 +1089,34 @@
                     method:"post",
                     data:{
                         email : email,
+                        // elem
+                        es : es,
+                        ec : ec,
+                        ef :ef,
+                        et :et,
+                        eh :eh,
+                        ey :ey,
+                        eSc : eSc,
+                        
+                        // secondary
+                        ss : ss,
+                        sc :sc,
+                        sf :sf,
+                        st :st,
+                        sh :sh,
+                        sy :sy,
+                        sSc :sSc,
+
+                        // vocational
+                        vs : vs,
+                        vc :vc,
+                        vf :vf,
+                        vt :vt,
+                        vh :vh,
+                        vy :vy,
+                        vSc :vSc,
+                        
+                        // college
                         cs : cs,
                         cc : cc,
                         cf : cf,
@@ -1090,6 +1124,7 @@
                         ch : ch,
                         cy : cy,
                         cSc : cSc,
+                        // graduate
                         gs : gs,
                         gc : gc,
                         gf : gf,

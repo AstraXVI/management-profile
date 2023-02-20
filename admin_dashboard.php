@@ -648,6 +648,24 @@
                 </div>
             </div>
         </div>
+    <!-- update education -->
+    <div class="modal fade "  id="updateEducationModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content" >
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+            <div class="modal-body" id='modalBodyupdateEducation'>
+                <!-- Modal update education body -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id='profileSaveButtonEducation' data-bs-dismiss="modal" >Save changes</button>
+            </div>
+            </div>
+        </div>
+    </div>
 
     <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
     <script>
@@ -1534,6 +1552,7 @@
                 })
             })
 
+            // filter district
             $("#dashBoardBody").on("change","#selectDisctrictFilterLevel",function(){
                 const district = $(this).val();
                 const level = $("#inputLevelValue").val();
@@ -1631,12 +1650,56 @@
                 })
             })
 
-            // Save Education button Database
+            // UPDATE EDUCATION BUTTON MODAL
+            $("#dashBoardBody").on("click","#updateProfileEducationButton",function(){
+                const email = $(this).val();
+
+                $.ajax({
+                    url:"profileInfo/updateEducationModal.php",
+                    method: "post",
+                    data:{
+                        email : email
+                    },
+                    success(e){
+                        $('#modalBodyupdateEducation').html(e)
+                    }
+                })
+            })
+
+            // update Education button Database
             $("#profileSaveButtonEducation").click(function(){
 
                 
                 const email = $("#userEmailProfile").val();
 
+                // elem
+                const es = $('#Eschool').val();
+                const ec = $('#Ecourse').val();
+                const ef = $('#Efrom').val();
+                const et = $('#Eto').val();
+                const eh = $('#Ehigh').val();
+                const ey = $('#Eyear').val();
+                const eSc = $('#Escholar').val();
+                
+                // secondary
+                const ss = $('#Sschool').val();
+                const sc = $('#Scourse').val();
+                const sf = $('#Sfrom').val();
+                const st = $('#Sto').val();
+                const sh = $('#Shigh').val();
+                const sy = $('#Syear').val();
+                const sSc = $('#Sscholar').val();
+
+                // vocational
+                const vs = $('#Vschool').val();
+                const vc = $('#Vcourse').val();
+                const vf = $('#Vfrom').val();
+                const vt = $('#Vto').val();
+                const vh = $('#Vhigh').val();
+                const vy = $('#Vyear').val();
+                const vSc = $('#Vscholar').val();
+                
+                // college
                 const cs =  $("#Cschool").val()
                 const cc = $("#CCourse").val()
                 const cf = $("#CFrom").val()
@@ -1645,6 +1708,7 @@
                 const cy = $("#CYear").val()
                 const cSc = $("#CScholar").val()
 
+                // graduate
                 const gs =  $("#Gschool").val()
                 const gc = $("#GCourse").val()
                 const gf = $("#GFrom").val()
@@ -1653,13 +1717,41 @@
                 const gy = $("#GYear").val()
                 const gSc = $("#GScholar").val()
 
-                // alert(cSc)
+                // alert(email)
 
                 $.ajax({
                     url:"profileInfo/updateEducation.php",
                     method:"post",
                     data:{
                         email : email,
+                        // elem
+                        es : es,
+                        ec : ec,
+                        ef :ef,
+                        et :et,
+                        eh :eh,
+                        ey :ey,
+                        eSc : eSc,
+                        
+                        // secondary
+                        ss : ss,
+                        sc :sc,
+                        sf :sf,
+                        st :st,
+                        sh :sh,
+                        sy :sy,
+                        sSc :sSc,
+
+                        // vocational
+                        vs : vs,
+                        vc :vc,
+                        vf :vf,
+                        vt :vt,
+                        vh :vh,
+                        vy :vy,
+                        vSc :vSc,
+
+                        // college
                         cs : cs,
                         cc : cc,
                         cf : cf,
@@ -1675,7 +1767,7 @@
                         gy : gy,
                         gSc : gSc
                     },
-                    success(e){
+                    success(){
                         
                         $.ajax({
                             url:"profileInfo/education.php",
