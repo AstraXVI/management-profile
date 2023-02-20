@@ -84,14 +84,15 @@
         <label for="floatingInput">Residential Address</label>
     </div> -->
 
-    <div class="input-group mb-3">
-        <span class="input-group-text">Residential Address</span>
-        <input type="text" class="form-control" id="inputAddressEdited" value="<?php echo $fetchUserInfo['address'] ?>" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-    </div>
-
-    <div class="input-group mb-3">
-        <span class="input-group-text">Zip Code</span>
-        <input type="text" class="form-control" id="" value="di ayos" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+    <div class="d-flex">
+        <div class="input-group mb-3 w-75">
+            <span class="input-group-text">Residential Address</span>
+            <input type="text" class="form-control" id="inputAddressEdited" value="<?php echo $fetchUserInfo['address'] ?>" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-3 w-25">
+            <span class="input-group-text">Zip Code</span>
+            <input type="text" class="form-control" style="" id="" value="di ayos" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
     </div>
 
     <!-- <div class="form-floating mb-3">
