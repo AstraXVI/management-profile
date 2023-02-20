@@ -166,7 +166,7 @@
         <li class="nav-item" role="presentation" id='profileCivilButton'>
             <a class="nav-link" id="ex1-tab-3" data-mdb-toggle="tab" href="#ex1-tabs-3" role="tab" aria-controls="ex1-tabs-3" aria-selected="false">Civil Service Eligibility</a>
         </li>
-        <li class="nav-item" role="presentation">
+        <li class="nav-item" role="presentation" id='profileWorkExpBtn'>
             <a class="nav-link" id="ex1-tab-4" data-mdb-toggle="tab" href="#ex1-tabs-4" role="tab" aria-controls="ex1-tabs-4" aria-selected="false">Work Experience</a>
         </li>
         <li class="nav-item" role="presentation">

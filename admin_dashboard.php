@@ -591,6 +591,44 @@
         </div>
     </div>
 
+         <!-- ADD CIVIL -->
+         <div class="modal fade" id="civilAddData" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add Civil Service Eligibility</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="civilInputCareer" placeholder="Career Service">
+                        <label>Career Service</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="civilInputRating" placeholder="School Name">
+                        <label>Rating</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="civilDateExam" placeholder="Date of Examination">
+                        <label>Date of Examination</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="civilPlaceExam" placeholder="Place of Examination">
+                        <label>Place of Examination</label>
+                    </div>
+                    <label>License (if applicable)</label>
+                    <br>
+                    <input type="text" id='civilDate' placeholder='Number'>
+                    <input type="text" id='civilNumber' placeholder='Date of Validity'>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id='addCivilServiceButtonDb'>Add Civil Service</button>
+                </div>
+                </div>
+            </div>
+        </div>
+
     <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
     <script>
         $(document).ready(function(){
@@ -1520,6 +1558,23 @@
                 })
             })
 
+            // PROFILE MAIN
+            $("#dashBoardBody").on("click","#profileProfileButton",function(){
+                const email = $("#profileUserEmail").val();
+
+                $.ajax({
+                    url:"profile.php",
+                    method:"post",
+                    data:{
+                        id : email
+                    },
+                    success(e){
+                        $("#dashBoardBody").html(e)
+
+                    }
+                })
+            })
+
             // PROFILE EDUCATION BG
             $("#dashBoardBody").on("click","#profileEducationButton",function(){
                 const email = $("#profileUserEmail").val();
@@ -1535,6 +1590,131 @@
 
                     }
                 })
+            })
+
+            // Save Education button Database
+            $("#profileSaveButtonEducation").click(function(){
+
+                
+                const email = $("#userEmailProfile").val();
+
+                const cs =  $("#Cschool").val()
+                const cc = $("#CCourse").val()
+                const cf = $("#CFrom").val()
+                const ct = $("#CTo").val()
+                const ch =$("#CHigh").val()
+                const cy = $("#CYear").val()
+                const cSc = $("#CScholar").val()
+
+                const gs =  $("#Gschool").val()
+                const gc = $("#GCourse").val()
+                const gf = $("#GFrom").val()
+                const gt = $("#GTo").val()
+                const gh =$("#GHigh").val()
+                const gy = $("#GYear").val()
+                const gSc = $("#GScholar").val()
+
+                // alert(cSc)
+
+                $.ajax({
+                    url:"profileInfo/updateEducation.php",
+                    method:"post",
+                    data:{
+                        email : email,
+                        cs : cs,
+                        cc : cc,
+                        cf : cf,
+                        ct : ct,
+                        ch : ch,
+                        cy : cy,
+                        cSc : cSc,
+                        gs : gs,
+                        gc : gc,
+                        gf : gf,
+                        gt : gt,
+                        gh : gh,
+                        gy : gy,
+                        gSc : gSc
+                    },
+                    success(e){
+                        
+                        $.ajax({
+                            url:"profileInfo/education.php",
+                            method:"post",
+                            data:{
+                                id : email
+                            },
+                            success(e){
+                                $("#dashBoardBody").html(e)
+
+                            }
+                        })
+                    }
+                })
+            })
+
+                // CIVIL BUTTON
+            $("#dashBoardBody").on("click","#profileCivilButton",function(){
+                const email = $("#profileUserEmail").val();
+
+                // alert(email)
+
+                $.ajax({
+                    url:"profileInfo/civil.php",
+                    method:"post",
+                    data:{
+                        email : email
+                    },
+                    success(e){
+                        $("#dashBoardBody").html(e)
+
+                    }
+                })
+            })
+
+                // ADD CIVIL BUTTON DB
+            $("#addCivilServiceButtonDb").click(function(){
+                const email = $("#profileUserEmail").val();
+                const career = $("#civilInputCareer").val();
+                const rating = $("#civilInputRating").val();
+                const dateExam = $("#civilDateExam").val();
+                const placeExam = $("#civilPlaceExam").val();
+                const Ldate = $("#civilDate").val();
+                const Lnumber = $("#civilNumber").val();
+
+                if(career){
+                    $.ajax({
+                        url:"profileInfo/addCivilDb.php",
+                        method:"post",
+                        data:{
+                            email : email,
+                            career : career,
+                            rating : rating,
+                            dateExam : dateExam,
+                            placeExam : placeExam,
+                            Ldate : Ldate,
+                            Lnumber : Lnumber
+                        },
+                        success(){
+                            $.ajax({
+                                url:"profileInfo/civil.php",
+                                method:"post",
+                                data:{
+                                    email : email
+                                },
+                                success(e){
+                                    $("#dashBoardBody").html(e)
+
+                                    confirm("Add Success!")
+
+                                }
+                            })
+                        }
+                    })
+                }else{
+                    confirm("Please add career service!")
+                }
+
             })
         })
 
