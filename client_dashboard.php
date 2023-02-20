@@ -823,6 +823,11 @@
                 const name = $("#inputNameEdited").val();
                 const bday = $("#inputBirthDayEdited").val();
                 const address = $("#inputAddressEdited").val();
+                const inputEmployeeNoEdit = $("#inputEmployeeNoEdit").val();
+                const inputPlaceOfBirthEdit = $("#inputPlaceOfBirthEdit").val();
+                const inputCitizenEdit = $("#inputCitizenEdit").val();
+                const inputCivilStatusEdit = $("#inputCivilStatusEdit").val();
+                const inputZipcodeEdit = $("#inputZipcodeEdit").val();
                 const email = $("#inputEmailEdited").val();
                 const contact = $("#inputContactEdited").val();
                 const sex = $("#inputSexEdited").val();
@@ -842,6 +847,11 @@
                         name : name,
                         bday : bday,
                         address : address,
+                        employeeNoEdit : inputEmployeeNoEdit,
+                        placeOfBirthEdit : inputPlaceOfBirthEdit,
+                        citizenEdit : inputCitizenEdit,
+                        civilStatusEdit : inputCivilStatusEdit,
+                        zipcodeEdit : inputZipcodeEdit,
                         email : email,
                         contact : contact,
                         sex : sex,

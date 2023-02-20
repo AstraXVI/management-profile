@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 19, 2023 at 06:55 AM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.12
+-- Generation Time: Feb 20, 2023 at 08:21 AM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -43,7 +43,11 @@ CREATE TABLE `civil` (
 --
 
 INSERT INTO `civil` (`id`, `email`, `careerService`, `rating`, `dateOfExam`, `placeOfExam`, `licenseNumber`, `licenseDateOfValidity`) VALUES
-(1, 'renz@i', '', '', '', '', '', '');
+(3, 'renz@i', '1', '2', '3', '4', '5', '6'),
+(4, 'renz@i', 'q', 'q', 'q', 'q', 'q', 'q'),
+(5, 'renz@i', 'sample', '', '', '', '', ''),
+(6, 'renz@i', 'sample again', '', '', '', '', ''),
+(7, 'renz@io', '1', '1', '1', '1', '1', '1');
 
 -- --------------------------------------------------------
 
@@ -87,7 +91,13 @@ CREATE TABLE `educationalbg` (
 --
 
 INSERT INTO `educationalbg` (`id`, `email`, `schoolCollege`, `graduateStudies`, `collegeCourse`, `graduateCourse`, `collegeFrom`, `collegeTo`, `graduateFrom`, `graduateTo`, `collegeHigh`, `graduateHigh`, `collegeYear`, `graduateYear`, `collegeScholar`, `graduateScholar`) VALUES
-(13, 'renz@i', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+(13, 'renz@i', 'datamex college', '8', 'BSIT', '9', 'JUNE 2021', 'JULY 2022', '10', '1', 'COLLEGE', '11', '2021-2022', '1', 'NONE', '1'),
+(14, 'renz@io', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(15, '9', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(16, '9', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(17, '1', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(18, '2@dwqd', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(19, 'y', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -107,6 +117,22 @@ CREATE TABLE `equipment` (
   `school` varchar(250) NOT NULL,
   `status` varchar(250) NOT NULL,
   `permission` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `learning`
+--
+
+CREATE TABLE `learning` (
+  `id` int(11) NOT NULL,
+  `title` varchar(250) NOT NULL,
+  `dateFrom` varchar(250) NOT NULL,
+  `dateTo` varchar(250) NOT NULL,
+  `hours` varchar(250) NOT NULL,
+  `typeOfLd` varchar(250) NOT NULL,
+  `conducted` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -134,16 +160,19 @@ CREATE TABLE `profile` (
   `citizenship` varchar(250) NOT NULL,
   `civil` varchar(250) NOT NULL,
   `zipcode` varchar(250) NOT NULL,
-  `employeeNo` varchar(250) NOT NULL
+  `employeeNo` varchar(250) NOT NULL,
+  `placeBirth` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `profile`
 --
 
-INSERT INTO `profile` (`id`, `name`, `bday`, `address`, `email`, `contactNo`, `sex`, `yearAsSchoolHead`, `duration`, `learnersPerf`, `teacherPerf`, `financialMng`, `complaints`, `picture`, `school`, `citizenship`, `civil`, `zipcode`, `employeeNo`) VALUES
-(1, 'Admin', '01/17/1996', '1225 sta monica subd ugong valenzuela city', 'ikejoseph.lumaad@deped.gov.ph', '09396439742', 'Male', 'n/a', 'n/a', 'n/a', 'n/a', 'n/a', '', 'uploads/profile_pics/bckground.png', '', '', '', '', ''),
-(17, 'q', '', '', 'renz@i', '', '', '', '', '', '', '', '', '', 'High School', '', '', '', '');
+INSERT INTO `profile` (`id`, `name`, `bday`, `address`, `email`, `contactNo`, `sex`, `yearAsSchoolHead`, `duration`, `learnersPerf`, `teacherPerf`, `financialMng`, `complaints`, `picture`, `school`, `citizenship`, `civil`, `zipcode`, `employeeNo`, `placeBirth`) VALUES
+(1, 'Admin', '01/17/1996', '1225 sta monica subd ugong valenzuela city', 'ikejoseph.lumaad@deped.gov.ph', '09396439742', 'Male', 'n/a', 'n/a', 'n/a', 'n/a', 'n/a', '', 'uploads/profile_pics/bckground.png', '', '', '', '', '', ''),
+(17, 'Jedidiah T. Morales', '2023-02-15', '1225 sta monica subdivision ugong valenzuela city', 'renz@i', '09396439742', 'male', '2020', 'n/a1', '', '', '', '', 'uploads/profile_pics/807ca16b42e5fe7dc8a5794157076559.jpg', 'High School', 'dual_citizenship', 'separated', '2121', '98979', 'Goa camarines sur'),
+(20, '0', '2023-01-29', '0', '0', '0', 'male', '0', '0', '', '', '', '', '', 'High School', 'filipino', 'married', '0', '0', '0'),
+(23, 'ty', '2023-02-09', 'ty', 'y', 'ty', 'male', 'ty', 'we', 'eqw', 'ew', 'ew', 'we', '', 'High School', 'ty', 'yt', 'yt', '099', 't');
 
 -- --------------------------------------------------------
 
@@ -200,7 +229,42 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `email`, `pass`, `role`, `school`, `picture`) VALUES
 (1, 'admin@1', 'admin', 'Admin', 'none', ''),
-(45, 'renz@i', 'renz', 'Client', '', '');
+(45, 'renz@i', 'renz', 'Client', '', ''),
+(46, 'renz@io', 'pass', 'Client', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `voluntary`
+--
+
+CREATE TABLE `voluntary` (
+  `id` int(11) NOT NULL,
+  `nameAddress` varchar(250) NOT NULL,
+  `dateFrom` varchar(250) NOT NULL,
+  `dateTo` varchar(250) NOT NULL,
+  `hours` varchar(250) NOT NULL,
+  `position` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `work`
+--
+
+CREATE TABLE `work` (
+  `id` int(11) NOT NULL,
+  `email` varchar(250) NOT NULL,
+  `dateFrom` varchar(250) NOT NULL,
+  `dateTo` varchar(250) NOT NULL,
+  `title` varchar(250) NOT NULL,
+  `department` varchar(250) NOT NULL,
+  `monthSalary` varchar(250) NOT NULL,
+  `salary` varchar(250) NOT NULL,
+  `statusApointment` varchar(250) NOT NULL,
+  `govService` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Indexes for dumped tables
@@ -249,6 +313,18 @@ ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `voluntary`
+--
+ALTER TABLE `voluntary`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `work`
+--
+ALTER TABLE `work`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -256,7 +332,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `civil`
 --
 ALTER TABLE `civil`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `dor`
@@ -268,7 +344,7 @@ ALTER TABLE `dor`
 -- AUTO_INCREMENT for table `educationalbg`
 --
 ALTER TABLE `educationalbg`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `equipment`
@@ -280,7 +356,7 @@ ALTER TABLE `equipment`
 -- AUTO_INCREMENT for table `profile`
 --
 ALTER TABLE `profile`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `schools`
@@ -292,7 +368,19 @@ ALTER TABLE `schools`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+
+--
+-- AUTO_INCREMENT for table `voluntary`
+--
+ALTER TABLE `voluntary`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `work`
+--
+ALTER TABLE `work`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
