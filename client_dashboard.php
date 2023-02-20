@@ -138,7 +138,7 @@
             </nav>
         </div>
     
-        <div id='dashBoardBody' class="mx-auto" style="width: 70%; margin-top: 110px;">
+        <div id='dashBoardBody' class="mx-auto" style="width: 76%; margin-top: 70px;">
             <!-- Ilagay dito ang dashboard -->
             <div class=" text-secondary fw-bold p-2 ps-0 mb-3 w-25 h3">Dashboard</div>
             <div class="d-flex py-5 px-5 text-light" style="gap: 120px; background-color: white;">
