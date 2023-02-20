@@ -49,7 +49,7 @@
     </li>
     </ul>
 
-    <table class='table text-center'>
+    <table class='table text-center bg-light table-striped p-2'>
         <thead>
             <tr>
                 <th>Level</th>

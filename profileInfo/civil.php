@@ -49,9 +49,9 @@
     </li>
     </ul>
 
-    <button class="btn btn-primary my-3" data-bs-toggle="modal" data-bs-target="#civilAddData">Add Civil Service Eligibility</button>
+    <button class="btn btn-primary my-3" data-bs-toggle="modal" data-bs-target="#civilAddData"><i class="fa-solid fa-plus text-light me-2"></i>Add Civil Service Eligibility</button>
 
-    <table class='table text-center'>
+    <table class='table text-center table-striped bg-light'>
         <thead>
             <tr>
                 <th>Career Service/RA 1080(Board/Bar) Under special Laws/CES/CSEE Barangay Eligibility / Driver License</th>
@@ -73,8 +73,10 @@
                         <td><?php echo $info['licenseNumber'] ?></td>
                         <td><?php echo $info['licenseDateOfValidity'] ?></td>
                         <td>
-                            <button class='btn btn-info'>Edit</button>
-                            <button class='btn btn-danger'>Delete</button>
+                            <div class="d-flex gap-2">
+                                <button class='btn btn-info btn-sm'><i class="fa-solid fa-pen text-light"></i></button>
+                                <button class='btn btn-danger btn-sm'><i class="fa-solid fa-trash"></i></button>
+                            </div>
                         </td>
                     </tr>
                 <?php }while($info = $list->fetch_assoc()) ?>

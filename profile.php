@@ -248,7 +248,7 @@
                             <span class="text-secondary"><?php echo $info['sex'] ?></span>
                         </div>
                         <span style="border-right: 2px solid lightgrey"></span>
-                        <div class="d-flex align-items-center gap-2">
+                        <div class="d-flex align-items-center gap-2 ms-2">
                             <h6 class="mb-0">Civil Status:</h6>
                             <span class=" text-secondary"><?php echo $info['civil'] ?></span>
                         </div>

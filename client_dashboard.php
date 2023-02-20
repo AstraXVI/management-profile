@@ -124,6 +124,20 @@
                             <!-- <li ><button class="dropdown-item py-2"></button></li> -->
                             </a>
                         </li>
+                        <li id="credentialBtn">
+                            <a id="navBtn3" href="#" class="nav-link link-light">
+                            <span class="bi me-2" width="16" height="16"><i class="fa-solid fa-user"></i></span>
+                            Credentials
+                            <!-- <li ><button class="dropdown-item py-2"></button></li> -->
+                            </a>
+                        </li>
+                        <li id="announcementBtn">
+                            <a id="navBtn4" href="#" class="nav-link link-light">
+                            <span class="bi me-2" width="16" height="16"><i class="fa-solid fa-user"></i></span>
+                            Announcements
+                            <!-- <li ><button class="dropdown-item py-2"></button></li> -->
+                            </a>
+                        </li>
                         <!-- <li>
 
                             <button type="button" class=" btn-sm text-light bg-transparent" style="border: none; padding-right: 130px;" data-bs-toggle="modal" data-bs-target="#fileUplaodsDorModal" id='dorButtonModal' value='<?php echo $fetchUserInfo['school'] ?>'><i class="fa-regular fa-folder-open text-light fs-6 ms-2 me-3"></i>DOR</button>
@@ -457,10 +471,38 @@
     </div>
     </div>
 
+    <div class="modal fade" id="myModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header bg-warning">
+                <h5 class="modal-title">PRIVACY NOTICE</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>The Department of Education Valenzuela recognizes its responsibility under the <i>Republic Act No. 10173</i>, also known as the <i>Data Privacy Act of 2012</i>, to handle appropriately collected, recorded, organized, updated, used, and consolidated information from its personnel. 
+
+                </br></br> Data obtained from this form is entered and stored within the organization's authorized information and communications system and is only accessible to authorized personnel. The administrative team has instituted appropriate organizational, technical, and physical security measures to protect personal data. 
+
+                </br></br>Furthermore, all information will be subject to strict confidentiality. <b>DepEd SDO Valenzuela</b> will not disclose any information without consent.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-bs-dismiss="modal">OK</button>
+                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+            </div>
+            </div>
+        </div>
+    </div>
+
 
     <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
 
     <script>
+        //load privacy
+        $(window).on('load', function() {
+                $('#myModal').modal('show');
+        });
+
         $(document).ready(function(){
             // logout
             $('#dropdownBtn').click(function(){
@@ -479,8 +521,24 @@
 
                 $('#navBtn1').removeClass('active');
                 $('#navBtn2').addClass('active');
-                // $('#navBtn3').removeClass('active');
-                // $('#navBtn4').removeClass('active');
+                $('#navBtn3').removeClass('active');
+                $('#navBtn4').removeClass('active');
+            })
+            $('#credentialBtn').click(function(){
+                // $('#dashBoardBody').load("profile.php");
+
+                $('#navBtn1').removeClass('active');
+                $('#navBtn2').removeClass('active');
+                $('#navBtn3').addClass('active');
+                $('#navBtn4').removeClass('active');
+            })
+            $('#announcementBtn').click(function(){
+                // $('#dashBoardBody').load("profile.php");
+
+                $('#navBtn1').removeClass('active');
+                $('#navBtn2').removeClass('active');
+                $('#navBtn3').removeClass('active');
+                $('#navBtn4').addClass('active');
             })
 
             // ADD EQUIPMENT ON DB
