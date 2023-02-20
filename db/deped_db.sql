@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 17, 2023 at 08:32 AM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- Generation Time: Feb 19, 2023 at 06:55 AM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 8.0.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,30 @@ SET time_zone = "+00:00";
 --
 -- Database: `deped_db`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `civil`
+--
+
+CREATE TABLE `civil` (
+  `id` int(11) NOT NULL,
+  `email` varchar(250) NOT NULL,
+  `careerService` varchar(250) NOT NULL,
+  `rating` varchar(250) NOT NULL,
+  `dateOfExam` varchar(250) NOT NULL,
+  `placeOfExam` varchar(250) NOT NULL,
+  `licenseNumber` varchar(250) NOT NULL,
+  `licenseDateOfValidity` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `civil`
+--
+
+INSERT INTO `civil` (`id`, `email`, `careerService`, `rating`, `dateOfExam`, `placeOfExam`, `licenseNumber`, `licenseDateOfValidity`) VALUES
+(1, 'renz@i', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -63,7 +87,7 @@ CREATE TABLE `educationalbg` (
 --
 
 INSERT INTO `educationalbg` (`id`, `email`, `schoolCollege`, `graduateStudies`, `collegeCourse`, `graduateCourse`, `collegeFrom`, `collegeTo`, `graduateFrom`, `graduateTo`, `collegeHigh`, `graduateHigh`, `collegeYear`, `graduateYear`, `collegeScholar`, `graduateScholar`) VALUES
-(11, 'renz@io', 'renz', '7', '1', '8', '2', '3', '9', '0', '4', '1', '5', '2', '6', 'secret');
+(13, 'renz@i', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -119,7 +143,7 @@ CREATE TABLE `profile` (
 
 INSERT INTO `profile` (`id`, `name`, `bday`, `address`, `email`, `contactNo`, `sex`, `yearAsSchoolHead`, `duration`, `learnersPerf`, `teacherPerf`, `financialMng`, `complaints`, `picture`, `school`, `citizenship`, `civil`, `zipcode`, `employeeNo`) VALUES
 (1, 'Admin', '01/17/1996', '1225 sta monica subd ugong valenzuela city', 'ikejoseph.lumaad@deped.gov.ph', '09396439742', 'Male', 'n/a', 'n/a', 'n/a', 'n/a', 'n/a', '', 'uploads/profile_pics/bckground.png', '', '', '', '', ''),
-(15, 'renz collin capena', 'March 12, 2001', 'renz collin capena', 'renz@io', '', '', '', '', '', '', '', '', '', 'High School', '', '', '', '');
+(17, 'q', '', '', 'renz@i', '', '', '', '', '', '', '', '', '', 'High School', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -176,11 +200,17 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `email`, `pass`, `role`, `school`, `picture`) VALUES
 (1, 'admin@1', 'admin', 'Admin', 'none', ''),
-(40, 'renz@io', 'pass', 'Client', '', '');
+(45, 'renz@i', 'renz', 'Client', '', '');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `civil`
+--
+ALTER TABLE `civil`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `dor`
@@ -223,6 +253,12 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `civil`
+--
+ALTER TABLE `civil`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `dor`
 --
 ALTER TABLE `dor`
@@ -232,7 +268,7 @@ ALTER TABLE `dor`
 -- AUTO_INCREMENT for table `educationalbg`
 --
 ALTER TABLE `educationalbg`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `equipment`
@@ -244,7 +280,7 @@ ALTER TABLE `equipment`
 -- AUTO_INCREMENT for table `profile`
 --
 ALTER TABLE `profile`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `schools`
@@ -256,7 +292,7 @@ ALTER TABLE `schools`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
