@@ -104,7 +104,7 @@
 
     <div class="input-group mb-3">
         <span class="input-group-text">Deped Email</span>
-        <input type="text" class="form-control" id="inputEmailEdited" value="<?php echo $fetchUserInfo['email'] ?>" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        <input type="text" class="form-control" id="inputEmailEdited" value="<?php echo $fetchUserInfo['email'] ?>" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" disabled>
     </div>
 
     <!-- <div class="form-floating mb-3">
