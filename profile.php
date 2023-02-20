@@ -24,7 +24,7 @@
             width: 300px;
             height: 310px;
             /* border: 2px solid red; */
-            padding: 20px;
+            padding-bottom: 17px;
         }
         .profile-img .file {
             position: relative;
@@ -180,8 +180,9 @@
     <!-- Tabs content -->
     <div class="tab-content" id="ex1-content">
         <div class="tab-pane fade show active" id="ex1-tabs-1" role="tabpanel" aria-labelledby="ex1-tab-1">
-            
-        <div class="wrapper d-flex align-items-center justify-content-center gap-3 px-3 position-relative" style=" padding-block: 40px; background-color: #e2f8fb">
+        
+        <!-- Personal info -->
+        <div class="wrapper d-flex align-items-center gap-3 px-3 position-relative" style=" padding-block: 20px 10px; background-color: #e2f8fb">
         
         <!-- <div class="profile-container">
             <p class="profile-title">Change Profile</p>
@@ -208,39 +209,74 @@
                 </div>
             </div>
             <!-- <div class="divider"></div> -->
-            <div class="card mb-3 w-50" style="max-height: 420px; overflow-y: scroll;">
+            <div class="card mb-3 w-75" style="max-height: 490px; overflow-y: scroll;">
                 <div class="card-body">
-                    <div class="row">
-                        <div class="col-sm-3"><h6 class="mb-0">Name</h6></div>
-                        <div class="col-sm-9 text-secondary"><?php echo $info['name'] ?></div>
+                <div class="d-flex gap-2">
+                        <!-- <div class="col-sm-1"><h6 class="mb-0">Employee no.</h6></div>
+                        <div class="col-sm-1 text-secondary">01</div> -->
+                        <h6 class="mb-0">Employee no.</h6>
+                        <span class="text-secondary">01</span>
                     </div>
                     <hr>
-                    <div class="row">
-                        <div class="col-sm-3"><h6 class="mb-0">Birthday</h6></div>
-                        <div class="col-sm-9 text-secondary"><?php echo $info['bday'] ?></div>
+                    <div class="d-flex gap-5">
+                        <div class="d-flex align-items-center gap-2">
+                            <h6 class="mb-0 col-15">Fullname:</h6>
+                            <span class="text-secondary"><?php echo $info['name'] ?></span>
+                        </div>
+                        <span style="border-right: 2px solid lightgrey"></span>
+                        <div class="d-flex align-items-center gap-2">
+                            <h6 class="mb-0">Date of Birth:</h6>
+                            <span class=" text-secondary"><?php echo $info['bday'] ?></span>
+                        </div>
                     </div>
                     <hr>
-                    <div class="row">
-                        <div class="col-sm-3"><h6 class="mb-0">Address</h6></div>
-                        <div class="col-sm-9 text-secondary"><?php echo $info['address'] ?></div>
+                    <div class="d-flex gap-5">
+                        <div class="d-flex align-items-center gap-2">
+                            <h6 class="mb-0">Place of Birth:</h6>
+                            <span class="text-secondary">Quezon City</span>
+                        </div>
+                        <span style="border-right: 2px solid lightgrey"></span>
+                        <div class="d-flex align-items-center gap-2">
+                            <h6 class="mb-0">Citizenship:</h6>
+                            <span class="col-sm-9 text-secondary">Filipino</span>
+                        </div>
                     </div>
                     <hr>
-                    <div class="row">
-                        <div class="col-sm-3"><h6 class="mb-0">Deped Email</h6></div>
-                        <div class="col-sm-9 text-secondary"><?php echo $info['email'] ?></div>
+                    <div class="d-flex gap-5">
+                        <div class="d-flex align-items-center gap-2 pe-5 me-5">
+                            <h6 class="mb-0">Sex:</h6>
+                            <span class="text-secondary"><?php echo $info['sex'] ?></span>
+                        </div>
+                        <span style="border-right: 2px solid lightgrey"></span>
+                        <div class="d-flex align-items-center gap-2">
+                            <h6 class="mb-0">Civil Status:</h6>
+                            <span class=" text-secondary">married</span>
+                        </div>
                     </div>
                     <hr>
-                    <div class="row">
-                        <div class="col-sm-3"><h6 class="mb-0">Contact</h6></div>
-                        <div class="col-sm-9 text-secondary"><?php echo $info['contactNo'] ?></div>
+                    <div class="d-flex gap-5">
+                        <div class="d-flex align-items-center gap-2">
+                            <h6 class="mb-0">Residential Address:</h6>
+                            <span class="text-secondary"><?php echo $info['address'] ?></span>
+                        </div>
+                        <span style="border-right: 2px solid lightgrey"></span>
+                        <div class="d-flex align-items-center gap-2">
+                            <h6 class="mb-0">Zip Code:</h6>
+                            <span class=" text-secondary">1442</span>
+                        </div>
                     </div>
                     <hr>
-                    <div class="row">
-                        <div class="col-sm-3"><h6 class="mb-0">Sex</h6></div>
-                        <div class="col-sm-9 text-secondary"><?php echo $info['sex'] ?></div>
+                    <div class="d-flex gap-2 align-items-center">
+                        <h6 class="mb-0">Deped Email:</h6>
+                        <span class="col-sm-9 text-secondary"><?php echo $info['email'] ?></span>
                     </div>
                     <hr>
-                    <div class="row">
+                    <div class="d-flex gap-2">
+                        <h6 class="mb-0">Contact:</h6>
+                        <span class="col-sm-9 text-secondary"><?php echo $info['contactNo'] ?></span>
+                    </div>
+                    <hr>
+                    <!-- <div class="row">
                         <div class="col-sm-3"><h6 class="mb-0">Year as School Head</h6></div>
                         <div class="col-sm-9 text-secondary"><?php echo $info['yearAsSchoolHead'] ?></div>
                     </div>
@@ -270,7 +306,7 @@
                         <div class="col-sm-9 text-secondary"><?php echo $info['complaints'] ?></div>
                     </div>
     
-                    <hr>
+                    <hr> -->
                     <!-- <div class="row">
                         <div class="col-sm-3"><h6 class="mb-0">Address</h6></div>
                         <div class="col-sm-9 text-secondary">Bay Area, San Francisco, CA</div>
