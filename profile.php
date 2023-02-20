@@ -215,7 +215,7 @@
                         <!-- <div class="col-sm-1"><h6 class="mb-0">Employee no.</h6></div>
                         <div class="col-sm-1 text-secondary">01</div> -->
                         <h6 class="mb-0">Employee no.</h6>
-                        <span class="text-secondary">01</span>
+                        <span class="text-secondary"><?php echo $info['employeeNo'] ?></span>
                     </div>
                     <hr>
                     <div class="d-flex gap-4">
@@ -233,12 +233,12 @@
                     <div class="d-flex gap-4">
                         <div class="d-flex align-items-center gap-2">
                             <h6 class="mb-0">Place of Birth:</h6>
-                            <span class="text-secondary">Quezon City</span>
+                            <span class="text-secondary"><?php echo $info['placeBirth'] ?></span>
                         </div>
                         <span style="border-right: 2px solid lightgrey"></span>
                         <div class="d-flex align-items-center gap-2">
                             <h6 class="mb-0">Citizenship:</h6>
-                            <span class="col-sm-9 text-secondary">Filipino</span>
+                            <span class="col-sm-9 text-secondary"><?php echo $info['citizenship'] ?></span>
                         </div>
                     </div>
                     <hr>
@@ -250,7 +250,7 @@
                         <span style="border-right: 2px solid lightgrey"></span>
                         <div class="d-flex align-items-center gap-2">
                             <h6 class="mb-0">Civil Status:</h6>
-                            <span class=" text-secondary">married</span>
+                            <span class=" text-secondary"><?php echo $info['civil'] ?></span>
                         </div>
                     </div>
                     <hr>
@@ -262,7 +262,7 @@
                         <span style="border-right: 2px solid lightgrey"></span>
                         <div class="d-flex align-items-center gap-2">
                             <h6 class="mb-0">Zip Code:</h6>
-                            <span class=" text-secondary">1442</span>
+                            <span class=" text-secondary"><?php echo $info['zipcode'] ?></span>
                         </div>
                     </div>
                     <hr>
