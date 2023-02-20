@@ -218,7 +218,7 @@
                         <span class="text-secondary">01</span>
                     </div>
                     <hr>
-                    <div class="d-flex gap-5">
+                    <div class="d-flex gap-4">
                         <div class="d-flex align-items-center gap-2">
                             <h6 class="mb-0 col-15">Fullname:</h6>
                             <span class="text-secondary"><?php echo $info['name'] ?></span>
@@ -230,7 +230,7 @@
                         </div>
                     </div>
                     <hr>
-                    <div class="d-flex gap-5">
+                    <div class="d-flex gap-4">
                         <div class="d-flex align-items-center gap-2">
                             <h6 class="mb-0">Place of Birth:</h6>
                             <span class="text-secondary">Quezon City</span>
@@ -242,7 +242,7 @@
                         </div>
                     </div>
                     <hr>
-                    <div class="d-flex gap-5">
+                    <div class="d-flex gap-4">
                         <div class="d-flex align-items-center gap-2 pe-5 me-5">
                             <h6 class="mb-0">Sex:</h6>
                             <span class="text-secondary"><?php echo $info['sex'] ?></span>
@@ -254,7 +254,7 @@
                         </div>
                     </div>
                     <hr>
-                    <div class="d-flex gap-5">
+                    <div class="d-flex gap-4">
                         <div class="d-flex align-items-center gap-2">
                             <h6 class="mb-0">Residential Address:</h6>
                             <span class="text-secondary"><?php echo $info['address'] ?></span>
@@ -266,26 +266,51 @@
                         </div>
                     </div>
                     <hr>
-                    <div class="d-flex gap-2 align-items-center">
-                        <h6 class="mb-0">Deped Email:</h6>
-                        <span class="col-sm-9 text-secondary"><?php echo $info['email'] ?></span>
+                    <div class="d-flex gap-4">
+                        <!-- <div class="d-flex gap-2 align-items-center">
+                            <h6 class="mb-0">Deped Email:</h6>
+                            <span class="col-sm-9 text-secondary"><?php echo $info['email'] ?></span>
+                        </div>
+                        <hr>
+                        <div class="d-flex gap-2">
+                            <h6 class="mb-0">Contact:</h6>
+                            <span class="col-sm-9 text-secondary"><?php echo $info['contactNo'] ?></span>
+                        </div> -->
+
+                        <div class="d-flex align-items-center gap-2">
+                            <h6 class="mb-0">Deped Email:</h6>
+                            <span class="text-secondary"><?php echo $info['email'] ?></span>
+                        </div>
+                        <span style="border-right: 2px solid lightgrey"></span>
+                        <div class="d-flex align-items-center gap-2">
+                            <h6 class="mb-0">Contact:</h6>
+                            <span class=" text-secondary"><?php echo $info['contactNo'] ?></span>
+                        </div>
                     </div>
                     <hr>
-                    <div class="d-flex gap-2">
-                        <h6 class="mb-0">Contact:</h6>
-                        <span class="col-sm-9 text-secondary"><?php echo $info['contactNo'] ?></span>
+                    <div class="d-flex gap-4">
+                        <!-- <div class="row">
+                            <div class="col-sm-3"><h6 class="mb-0">Year as School Head</h6></div>
+                            <div class="col-sm-9 text-secondary"><?php echo $info['yearAsSchoolHead'] ?></div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3"><h6 class="mb-0">Duration year of stay</h6></div>
+                            <div class="col-sm-9 text-secondary"><?php echo $info['duration'] ?></div>
+                        </div> -->
+
+                        <div class="d-flex align-items-center gap-2">
+                            <h6 class="mb-0">Year as School Head:</h6>
+                            <span class="text-secondary"><?php echo $info['yearAsSchoolHead'] ?></span>
+                        </div>
+                        <span style="border-right: 2px solid lightgrey"></span>
+                        <div class="d-flex align-items-center gap-2">
+                            <h6 class="mb-0">Duration year of stay:</h6>
+                            <span class=" text-secondary"><?php echo $info['duration'] ?></span>
+                        </div>
                     </div>
                     <hr>
-                    <!-- <div class="row">
-                        <div class="col-sm-3"><h6 class="mb-0">Year as School Head</h6></div>
-                        <div class="col-sm-9 text-secondary"><?php echo $info['yearAsSchoolHead'] ?></div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col-sm-3"><h6 class="mb-0">Duration year of stay</h6></div>
-                        <div class="col-sm-9 text-secondary"><?php echo $info['duration'] ?></div>
-                    </div>
-                    <hr>
+                    <!-- 
                     <div class="row">
                         <div class="col-sm-3"><h6 class="mb-0">Learners Performance</h6></div>
                         <div class="col-sm-9 text-secondary"><?php echo $info['learnersPerf'] ?></div>
