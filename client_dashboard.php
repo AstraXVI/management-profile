@@ -393,26 +393,56 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            <div class="form-floating mb-3">
+            <!-- <div class="form-floating mb-3">
                 <input type="text" class="form-control" id="civilInputCareer" placeholder="Career Service">
                 <label>Career Service</label>
+            </div> -->
+            <div class="input-group mb-3">
+                <span class="input-group-text">Career Service</span>
+                <input type="text" class="form-control" id="civilInputCareer" value="" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
             </div>
-            <div class="form-floating mb-3">
+
+            <!-- <div class="form-floating mb-3">
                 <input type="text" class="form-control" id="civilInputRating" placeholder="School Name">
                 <label>Rating</label>
+            </div> -->
+
+            <div class="input-group mb-3">
+                <span class="input-group-text">Rating</span>
+                <input type="text" class="form-control" id="civilInputRating" value="" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
             </div>
-            <div class="form-floating mb-3">
+
+            <div class="input-group mb-3">
+                <span class="input-group-text">Date of Examination</span>
+                <input type="text" class="form-control" id="civilDateExam" value="" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+
+            <!-- <div class="form-floating mb-3">
                 <input type="text" class="form-control" id="civilDateExam" placeholder="Date of Examination">
                 <label>Date of Examination</label>
-            </div>
-            <div class="form-floating mb-3">
+            </div> -->
+            <!-- <div class="form-floating mb-3">
                 <input type="text" class="form-control" id="civilPlaceExam" placeholder="Place of Examination">
                 <label>Place of Examination</label>
+            </div> -->
+
+            <div class="input-group mb-3">
+                <span class="input-group-text">Place of Examination</span>
+                <input type="text" class="form-control" id="civilPlaceExam" value="" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
             </div>
-            <label>License (if applicable)</label>
+
+            <label class="d-block text-center text-secondary">License (if applicable)</label>
             <br>
-            <input type="text" id='civilDate' placeholder='Number'>
-            <input type="text" id='civilNumber' placeholder='Date of Validity'>
+            <!-- <input type="text" id='civilDate' placeholder='Number'> -->
+            <div class="input-group mb-3">
+                <span class="input-group-text">Number</span>
+                <input type="text" class="form-control" id="civilDate" value="" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+            <!-- <input type="text" id='civilNumber' placeholder='Date of Validity'> -->
+            <div class="input-group mb-3">
+                <span class="input-group-text">Date of Validity</span>
+                <input type="text" class="form-control" id="civilNumber" value="" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
