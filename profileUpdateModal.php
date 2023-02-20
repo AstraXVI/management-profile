@@ -1,5 +1,6 @@
 <?php
     require "db.php";
+    session_start();
 
     $userId = $_POST['id'];
 
@@ -25,7 +26,7 @@
     </div> -->
     <div class="input-group mb-3">
         <span class="input-group-text">Employee No.</span>
-        <input type="text" class="form-control" id="" value="di ayos" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        <input type="text" class="form-control" id="inputEmployeeNoEdit" value="<?php echo $fetchUserInfo['employeeNo'] ?>" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
     </div>
 
     <div class="d-flex">
@@ -46,12 +47,12 @@
     <div class="d-flex">
         <div class="input-group mb-3">
             <span class="input-group-text">Place of Birth</span>
-            <input type="text" class="form-control" id="" value="di ayos" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            <input type="text" class="form-control" id="inputPlaceOfBirthEdit" value='<?php echo $fetchUserInfo['placeBirth'] ?>' aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
         </div>
         <div class="input-group mb-3">
             <label class="input-group-text" for="">Citizenship</label>
-            <select class="form-select" id="" value="di ayos">
-                <option>di ayos</option>
+            <select class="form-select" id="inputCitizenEdit" value="di ayos">
+                <option value='<?php echo $fetchUserInfo['citizenship'] ?>'><?php echo $fetchUserInfo['citizenship'] ?></option>
                 <option value="filipino">Filipino</option>
                 <option value="dual_citizenship">Dual Citizenship</option>
             </select>
@@ -68,8 +69,8 @@
         </div>
         <div class="input-group mb-3">
         <label class="input-group-text" for="">Civil Status</label>
-            <select class="form-select" id="" value="di ayos">
-                <option> di ayos</option>
+            <select class="form-select" id="inputCivilStatusEdit">
+                <option value='<?php echo $fetchUserInfo['civil'] ?>'><?php echo $fetchUserInfo['civil'] ?></option>
                 <option value="single">Single</option>
                 <option value="married">Married</option>
                 <option value="separated">Separated</option>
@@ -91,7 +92,7 @@
 
     <div class="input-group mb-3">
         <span class="input-group-text">Zip Code</span>
-        <input type="text" class="form-control" id="" value="di ayos" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        <input type="text" class="form-control" id="inputZipcodeEdit" value="<?php echo $fetchUserInfo['zipcode'] ?>" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
     </div>
 
     <!-- <div class="form-floating mb-3">
@@ -138,6 +139,25 @@
         <label for="floatingInput">Duration year of stay</label>
     </div> -->
 
+    <?php if($_SESSION['status'] == 'Admin'){ ?>
+        <div class="input-group mb-3">
+            <span class="input-group-text">Learner Performance</span>
+            <input type="text" class="form-control" id="inputLPerformanceEdit" value="<?php echo $fetchUserInfo['learnersPerf'] ?>" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text">Teacher Performance</span>
+            <input type="text" class="form-control" id="inputTPerformanceEdit" value="<?php echo $fetchUserInfo['teacherPerf'] ?>" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text">Financial Management</span>
+            <input type="text" class="form-control" id="inputFinanceMngEdit" value="<?php echo $fetchUserInfo['financialMng'] ?>" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text">Complaints</span>
+            <input type="text" class="form-control" id="inputComplaintsEdit" value="<?php echo $fetchUserInfo['complaints'] ?>" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+    <?php } ?>
     <div class="input-group mb-3">
         <span class="input-group-text">Duration year of stay</span>
         <input type="text" class="form-control" id="inputDurationYearEdited" value="<?php echo $fetchUserInfo['duration'] ?>" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">

@@ -295,6 +295,26 @@
                     <label for="floatingInput">Address</label>
                 </div>
                 <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="inputCitizen" placeholder="Name">
+                    <label for="floatingInput">Citizenship</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="inputPlaceOfBirth" placeholder="Name">
+                    <label for="floatingInput">Place of Birth</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="inputCivilStatus" placeholder="Name">
+                    <label for="floatingInput">Civil status</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="inputZipcode" placeholder="Name">
+                    <label for="floatingInput">Zip Code</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="inputEmployeeNo" placeholder="Name">
+                    <label for="floatingInput">Employee No.</label>
+                </div>
+                <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="inputEmail" placeholder="Name">
                     <label for="floatingInput">Deped Email</label>
                 </div>
@@ -719,12 +739,17 @@
             //     $('#dashBoardBody').toggleClass('w-100');
             // })
 
-            // ADD SCHOOL
+            // ADD SCHOOL HEAD
             $("#addSchoolBtn").click(function(){
                 
                 const name = $("#inputName").val();
                 const bday = $("#inputBirthDay").val();
                 const address = $("#inputAddress").val();
+                const citizen = $("#inputCitizen").val();
+                const civilStatus = $("#inputCivilStatus").val();
+                const zipcode = $("#inputZipcode").val();
+                const employeeNo = $("#inputEmployeeNo").val();
+                const placeOfBirth = $("#inputPlaceOfBirth").val();
                 const email = $("#inputEmail").val();
                 const contact = $("#inputContact").val();
                 const sex = $("#inputSex").val();
@@ -736,7 +761,6 @@
                 const inputComplaints = $("#inputComplaints").val();
                 const schoolLvl = $("#inputSchoolProfileLvl").val();
                 
-
                 // alert(bday)
                 if(name && email){
                     $.ajax({
@@ -746,6 +770,11 @@
                             name : name,
                             bday : bday,
                             address : address,
+                            citizen : citizen,
+                            civilStatus : civilStatus,
+                            zipcode : zipcode,
+                            employeeNo : employeeNo,
+                            placeOfBirth : placeOfBirth,
                             email : email,
                             contact : contact,
                             sex : sex,
@@ -1285,15 +1314,20 @@
                 const name = $("#inputNameEdited").val();
                 const bday = $("#inputBirthDayEdited").val();
                 const address = $("#inputAddressEdited").val();
+                const inputEmployeeNoEdit = $("#inputEmployeeNoEdit").val();
+                const inputPlaceOfBirthEdit = $("#inputPlaceOfBirthEdit").val();
+                const inputCitizenEdit = $("#inputCitizenEdit").val();
+                const inputCivilStatusEdit = $("#inputCivilStatusEdit").val();
+                const inputZipcodeEdit = $("#inputZipcodeEdit").val();
                 const email = $("#inputEmailEdited").val();
                 const contact = $("#inputContactEdited").val();
                 const sex = $("#inputSexEdited").val();
                 const yearSchoolHead = $("#inputYearAsSchoolHeadEdited").val();
                 const durationYear = $("#inputDurationYearEdited").val();
-                const inputLearningPerformance = $("#inputLearningPerformanceEdited").val();
-                const inputTeacherPerformance = $("#inputTeacherPerformanceEdited").val();
-                const inputFinancialMng = $("#inputFinancialMngEdited").val();
-                const inputComplaints = $("#inputComplaintsEdited").val();
+                const inputLearningPerformance = $("#inputLPerformanceEdit").val();
+                const inputTeacherPerformance = $("#inputTPerformanceEdit").val();
+                const inputFinancialMng = $("#inputFinanceMngEdit").val();
+                const inputComplaints = $("#inputComplaintsEdit").val();
                 
                         
                 $.ajax({
@@ -1304,6 +1338,11 @@
                         name : name,
                         bday : bday,
                         address : address,
+                        employeeNoEdit : inputEmployeeNoEdit,
+                        placeOfBirthEdit : inputPlaceOfBirthEdit,
+                        citizenEdit : inputCitizenEdit,
+                        civilStatusEdit : inputCivilStatusEdit,
+                        zipcodeEdit : inputZipcodeEdit,
                         email : email,
                         contact : contact,
                         sex : sex,
