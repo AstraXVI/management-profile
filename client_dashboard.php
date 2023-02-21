@@ -331,7 +331,7 @@
         <div class="modal-dialog modal-fullscreen">
             <div class="modal-content" >
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Edit Educational Background</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
             <div class="modal-body" id='modalBodyupdateEducation'>
@@ -375,7 +375,7 @@
 
             <div class="input-group mb-3">
                 <span class="input-group-text">Date of Examination</span>
-                <input type="text" class="form-control" id="civilDateExam" value="" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                <input type="date" class="form-control" id="civilDateExam" value="" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
             </div>
 
             <div class="input-group mb-3">
@@ -530,11 +530,14 @@
                 <!-- user email -->
                 <input type="hidden" id='degreeUserEmail' value='<?php echo $emailNew ?>'>
                 <!--  -->
-                <label>Select Degree</label>
-                <select class="form-select mb-2" id='inputDegreeDegree' aria-label="Default select example">
-                    <option value="Masters Degree">Masters Degree</option>
-                    <option value="Post Degree">Post Degree</option>
-                </select>
+                <!-- <label>Select Degree</label> -->
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Select Degree</span>
+                    <select class="form-select" id='inputDegreeDegree' aria-label="Default select example">
+                        <option value="Masters Degree">Masters Degree</option>
+                        <option value="Post Degree">Post Degree</option>
+                    </select>
+                </div>
 
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">Name of School</span>
@@ -546,10 +549,20 @@
                 </div>
                 <label class='mb-2'>Period of attendance</label>
                 <br>
-                <label>From :</label>
+                <!-- <label>From :</label>
                 <input type="date" name="" id='inputDegreeFrom'>
                 <label>To:</label>
-                <input type="date" name="" id='inputDegreeTo'>
+                <input type="date" name="" id='inputDegreeTo'> -->
+                <div class="d-flex gap-4">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-default">From</span>
+                        <input type="date" class="form-control" id="inputDegreeFrom" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-default">To</span>
+                        <input type="date" class="form-control" id="inputDegreeTo" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    </div>
+                </div>
 
                 <div class="input-group my-3">
                     <span class="input-group-text" id="basic-addon1">Highest Level/Unit Earned</span>

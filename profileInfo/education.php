@@ -51,9 +51,12 @@
     </li>
     </ul>
 
-    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addDegreeModalButton">Add master degree</button>
+    <div class="d-flex justify-content-between">
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addDegreeModalButton"><i class="fa-solid fa-plus me-2"></i>Add Degree</button>
+        <button class='btn btn-info' data-bs-toggle="modal" data-bs-target="#updateEducationModal" value='<?php echo $id ?>' id='updateProfileEducationButton'>Update data</button>
+    </div>
 
-    <table class='table text-center bg-light table-striped p-2'>
+    <table class='table text-center table-striped p-2'>
         <thead>
             <tr>
                 <th>Level</th>
@@ -76,8 +79,8 @@
                 <td><?php echo $info['elemHighLvl'] ?></td>
                 <td><?php echo $info['elemGraduate'] ?></td>
                 <td><?php echo $info['elemScholar'] ?></td>
-                <td rowspan='5'>
-                    <button class='btn btn-info' data-bs-toggle="modal" data-bs-target="#updateEducationModal" value='<?php echo $id ?>' id='updateProfileEducationButton'>Update data</button>
+                <td>
+                    <!-- <button class='btn btn-info' data-bs-toggle="modal" data-bs-target="#updateEducationModal" value='<?php echo $id ?>' id='updateProfileEducationButton'>Update data</button> -->
                 </td>
             </tr>
             <tr>
@@ -89,6 +92,7 @@
                 <td><?php echo $info['secHighLvl'] ?></td>
                 <td><?php echo $info['secGraduate'] ?></td>
                 <td><?php echo $info['secScholar'] ?></td>
+                <td></td>
             </tr>
             <tr>
                 <th>Vocational/Trade course</th>
@@ -99,6 +103,7 @@
                 <td><?php echo $info['vocHighLvl'] ?></td>
                 <td><?php echo $info['vocGraduate'] ?></td>
                 <td><?php echo $info['vocScholar'] ?></td>
+                <td></td>
             </tr>
             <tr>
                 <th>College</th>
@@ -109,6 +114,7 @@
                 <td><?php echo $info['collegeHigh'] ?></td>
                 <td><?php echo $info['collegeYear'] ?></td>
                 <td><?php echo $info['collegeScholar'] ?></td>
+                <td></td>
             </tr>
             <tr>
                 <th>Graduate Studies</th>
@@ -119,6 +125,7 @@
                 <td><?php echo $info['graduateHigh'] ?></td>
                 <td><?php echo $info['graduateYear'] ?></td>
                 <td><?php echo $info['graduateScholar'] ?></td>
+                <td></td>
             </tr>
             <?php if($listDegree->num_rows){ ?>
                 <?php do{ ?>
@@ -132,8 +139,10 @@
                         <td><?php echo $fetchDegree['year'] ?></td>
                         <td><?php echo $fetchDegree['scholar'] ?></td>
                         <td>
-                            <button class='btn btn-primary' data-bs-toggle="modal" data-bs-target="#editDegreeModalProfie" value='<?php echo $fetchDegree['id'] ?>' id='editButonDegreeModal'>edit</button>
-                            <button class='btn btn-danger' value='<?php echo $fetchDegree['id'] ?>' id='deleteButonDegreeModal'>delete</button>
+                            <div class="d-flex gap-2">
+                                <button class='btn btn-info text-light btn-sm' data-bs-toggle="modal" data-bs-target="#editDegreeModalProfie" value='<?php echo $fetchDegree['id'] ?>' id='editButonDegreeModal'><i class="fa-solid fa-pen"></i></button>
+                                <button class='btn btn-danger btn-sm' value='<?php echo $fetchDegree['id'] ?>' id='deleteButonDegreeModal'><i class="fa-solid fa-trash"></i></button>
+                            </div>
                         </td>
                     </tr>
                 <?php }while($fetchDegree = $listDegree->fetch_assoc()) ?>
