@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 20, 2023 at 09:19 AM
+-- Generation Time: Feb 21, 2023 at 04:49 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -47,7 +47,8 @@ INSERT INTO `civil` (`id`, `email`, `careerService`, `rating`, `dateOfExam`, `pl
 (4, 'renz@i', 'q', 'q', 'q', 'q', 'q', 'q'),
 (5, 'renz@i', 'sample', '', '', '', '', ''),
 (6, 'renz@i', 'sample again', '', '', '', '', ''),
-(7, 'renz@io', '1', '1', '1', '1', '1', '1');
+(7, 'renz@io', '1', '1', '1', '1', '1', '1'),
+(8, 'renz@123', '1', '1', '1', '1', '1', '1');
 
 -- --------------------------------------------------------
 
@@ -112,13 +113,41 @@ CREATE TABLE `educationalbg` (
 --
 
 INSERT INTO `educationalbg` (`id`, `email`, `schoolCollege`, `graduateStudies`, `collegeCourse`, `graduateCourse`, `collegeFrom`, `collegeTo`, `graduateFrom`, `graduateTo`, `collegeHigh`, `graduateHigh`, `collegeYear`, `graduateYear`, `collegeScholar`, `graduateScholar`, `elemSchool`, `secSchool`, `vocSchool`, `elemEduc`, `secEduc`, `vocEduc`, `elemFrom`, `secFrom`, `vocFrom`, `elemTo`, `secTo`, `vocTo`, `elemHighLvl`, `secHighLvl`, `vocHighLvl`, `elemGraduate`, `secGraduate`, `vocGraduate`, `elemScholar`, `secScholar`, `vocScholar`) VALUES
-(13, 'renz@i', 'datamex college', '8', 'BSIT', '9', 'JUNE 2021', 'JULY 2022', '10', '1', 'COLLEGE', '11', '2021-2022', '1', 'NONE', '1', '', '', '', '0', '0', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(14, 'renz@io', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0', '0', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(13, 'renz@i', 'datamex college', '8', 'BSIT', '9', 'JUNE 2021', 'JULY 2022', '10', '1', 'COLLEGE', '11', '2021-2022', '1', 'NONE', '1', '1', '1', '1', '0', '0', '1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
 (15, '9', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0', '0', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
 (16, '9', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0', '0', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
 (17, '1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0', '0', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
 (18, '2@dwqd', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0', '0', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(19, 'y', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0', '0', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+(19, 'y', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0', '0', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(20, 'renz@123', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'a', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `educationaldegree`
+--
+
+CREATE TABLE `educationaldegree` (
+  `id` int(11) NOT NULL,
+  `email` varchar(250) NOT NULL,
+  `lvl` varchar(250) NOT NULL,
+  `nameSchool` varchar(250) NOT NULL,
+  `education` varchar(250) NOT NULL,
+  `periodFrom` varchar(250) NOT NULL,
+  `periodTo` varchar(250) NOT NULL,
+  `highLvl` varchar(250) NOT NULL,
+  `year` varchar(250) NOT NULL,
+  `scholar` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `educationaldegree`
+--
+
+INSERT INTO `educationaldegree` (`id`, `email`, `lvl`, `nameSchool`, `education`, `periodFrom`, `periodTo`, `highLvl`, `year`, `scholar`) VALUES
+(1, 'renz@i', 'Master Degree', 'sample name school', 'bsit', '2023-02-01', '2023-02-02', 'college', '2023', 'wala'),
+(2, 'renz@i', 'Post Degree', 'vicente', 'bsit', '2023-02-15', '2023-02-13', '2', '2023', 'no'),
+(3, 'renz@123', 'Post Degree', 'Vicente P Trinidad', 'Doctoral', '2023-02-01', '2023-02-04', '4', '2023', 'none2');
 
 -- --------------------------------------------------------
 
@@ -192,8 +221,7 @@ CREATE TABLE `profile` (
 INSERT INTO `profile` (`id`, `name`, `bday`, `address`, `email`, `contactNo`, `sex`, `yearAsSchoolHead`, `duration`, `learnersPerf`, `teacherPerf`, `financialMng`, `complaints`, `picture`, `school`, `citizenship`, `civil`, `zipcode`, `employeeNo`, `placeBirth`) VALUES
 (1, 'Admin', '01/17/1996', '1225 sta monica subd ugong valenzuela city', 'ikejoseph.lumaad@deped.gov.ph', '09396439742', 'Male', 'n/a', 'n/a', 'n/a', 'n/a', 'n/a', '', 'uploads/profile_pics/bckground.png', '', '', '', '', '', ''),
 (17, 'Jedidiah T. Morales', '2023-02-15', '1225 sta monica subdivision ugong valenzuela city', 'renz@i', '96439742', 'male', '2020', 'n/a', '', '', '', '', 'uploads/profile_pics/807ca16b42e5fe7dc8a5794157076559.jpg', 'High School', 'filipino', 'separated', '2121', '989797565656', 'Goa camarines sur'),
-(20, '1', '2023-01-01', '1', '1', '1', 'male', '1', '1', '1', '1', '1', '1', '', 'High School', 'filipino', 'married', '1', '1', '1'),
-(23, 'ty', '2023-02-09', 'ty', 'y', 'ty', 'male', 'ty', 'we', 'eqw', 'ew', 'ew', 'we', '', 'High School', 'ty', 'yt', 'yt', '099', 't');
+(24, 'renz', '', '', 'renz@123', '', '', '', '', '', '', '', '', '', 'High School', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -251,7 +279,7 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `email`, `pass`, `role`, `school`, `picture`) VALUES
 (1, 'admin@1', 'admin', 'Admin', 'none', ''),
 (45, 'renz@i', 'renz', 'Client', '', ''),
-(46, 'renz@io', 'pass', 'Client', '', '');
+(47, 'renz@123', '123', 'Client', '', '');
 
 -- --------------------------------------------------------
 
@@ -310,6 +338,12 @@ ALTER TABLE `educationalbg`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `educationaldegree`
+--
+ALTER TABLE `educationaldegree`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `equipment`
 --
 ALTER TABLE `equipment`
@@ -353,7 +387,7 @@ ALTER TABLE `work`
 -- AUTO_INCREMENT for table `civil`
 --
 ALTER TABLE `civil`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `dor`
@@ -365,7 +399,13 @@ ALTER TABLE `dor`
 -- AUTO_INCREMENT for table `educationalbg`
 --
 ALTER TABLE `educationalbg`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT for table `educationaldegree`
+--
+ALTER TABLE `educationaldegree`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `equipment`
@@ -377,7 +417,7 @@ ALTER TABLE `equipment`
 -- AUTO_INCREMENT for table `profile`
 --
 ALTER TABLE `profile`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `schools`
@@ -389,7 +429,7 @@ ALTER TABLE `schools`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT for table `voluntary`
