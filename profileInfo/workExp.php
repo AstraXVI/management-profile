@@ -77,8 +77,10 @@
                         <td><?php echo $info['statusApointment'] ?></td>
                         <td><?php echo $info['govService'] ?></td>
                         <td>
-                            <button class='btn btn-info' data-bs-toggle="modal" data-bs-target="#editWorkModalButton" value='<?php echo $info['id'] ?>' id='editWorkExpBtnForModal'>Edit</button>
-                            <button class='btn btn-danger' value='<?php echo $info['id'] ?>' id='deleteWorkExpButtonDb'>Delete</button>
+                            <div class="d-flex gap-2">
+                                <button class='btn btn-info btn-sm' data-bs-toggle="modal" data-bs-target="#editWorkModalButton" value='<?php echo $info['id'] ?>' id='editWorkExpBtnForModal'><i class="fa-solid fa-pen text-light"></i></button>
+                                <button class='btn btn-danger btn-sm' value='<?php echo $info['id'] ?>' id='deleteWorkExpButtonDb'><i class="fa-solid fa-trash"></i></button>
+                            </div>
                         </td>
                     </tr>
                 <?php }while($info = $list->fetch_assoc()) ?>

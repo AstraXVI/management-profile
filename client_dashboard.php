@@ -596,7 +596,7 @@
 
     <!-- Modal EDIT WORK EXP -->
     <div class="modal fade" id="editWorkModalButton" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-xl">
             <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Edit Work Experience</h5>
@@ -652,6 +652,12 @@
 
             $('#toEquipment').click(function(){
                 $('#dashBoardBody').load("profile.php");
+
+            });
+
+            //load announcement
+            $('#announcementBtn').click(function(){
+                $('#dashBoardBody').load("announcement.php");
 
             });
 

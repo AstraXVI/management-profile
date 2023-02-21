@@ -20,12 +20,21 @@
     <input type="hidden" id='editDegreeUserEmail' value='<?php echo $id ?>'>
     <input type="hidden" id='editDegreeUserId' value='<?php echo $fetch['email'] ?>'>
     <!--  -->
-    <label>Select Degree</label>
+    <!-- <label>Select Degree</label>
     <select class="form-select mb-2" id='inputEditDegreeDegree' aria-label="Default select example">
         <option class='bg-primary' value="<?php echo $fetch['lvl'] ?>"><?php echo $fetch['lvl'] ?></option>
         <option value="Masters Degree">Masters Degree</option>
         <option value="Post Degree">Post Degree</option>
-    </select>
+    </select> -->
+
+    <div class="input-group mb-3">
+        <span class="input-group-text">Select Degree</span>
+        <select class="form-select" id='inputEditDegreeDegree' aria-label="Default select example">
+            <option class='bg-primary' value="<?php echo $fetch['lvl'] ?>"><?php echo $fetch['lvl'] ?></option>
+            <option value="Masters Degree">Masters Degree</option>
+            <option value="Post Degree">Post Degree</option>
+        </select>
+    </div>
 
     <div class="input-group mb-3">
         <span class="input-group-text" id="basic-addon1">Name of School</span>
@@ -37,10 +46,21 @@
     </div>
     <label class='mb-2'>Period of attendance</label>
     <br>
-    <label>From :</label>
+    <div class="d-flex gap-4">
+        <div class="input-group mb-3">
+            <span class="input-group-text">From</span>
+            <input type="date" class="form-control" value="<?php echo $fetch['periodFrom'] ?>" id='inputEditDegreeFrom' aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-default">To</span>
+            <input type="date" class="form-control" value="<?php echo $fetch['periodTo'] ?>" id='inputEditDegreeTo' aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+    </div>
+
+    <!-- <label>From :</label>
     <input type="date" name="" value="<?php echo $fetch['periodFrom'] ?>" id='inputEditDegreeFrom'>
     <label>To:</label>
-    <input type="date" name="" value="<?php echo $fetch['periodTo'] ?>" id='inputEditDegreeTo'>
+    <input type="date" name="" value="<?php echo $fetch['periodTo'] ?>" id='inputEditDegreeTo'> -->
 
     <div class="input-group my-3">
         <span class="input-group-text" id="basic-addon1">Highest Level/Unit Earned</span>

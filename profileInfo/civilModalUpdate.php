@@ -32,7 +32,7 @@
 
     <div class="input-group mb-3">
         <span class="input-group-text">Date of Examination</span>
-        <input type="text" class="form-control" id="EditcivilDateExam" value="<?php echo $fetch['dateOfExam'] ?>" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        <input type="date" class="form-control" id="EditcivilDateExam" value="<?php echo $fetch['dateOfExam'] ?>" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
     </div>
 
     <div class="input-group mb-3">
