@@ -121,14 +121,14 @@
                         </li>
                         <li id="credentialBtn">
                             <a id="navBtn3" href="#" class="nav-link link-light">
-                            <span class="bi me-2" width="16" height="16"><i class="fa-solid fa-user"></i></span>
+                            <span class="bi me-2" width="16" height="16"><i class="fa-solid fa-id-card"></i></span>
                             Credentials
                             <!-- <li ><button class="dropdown-item py-2"></button></li> -->
                             </a>
                         </li>
                         <li id="announcementBtn">
                             <a id="navBtn4" href="#" class="nav-link link-light">
-                            <span class="bi me-2" width="16" height="16"><i class="fa-solid fa-user"></i></span>
+                            <span class="bi me-2" width="16" height="16"><i class="fa-solid fa-bullhorn"></i></span>
                             Announcements
                             <!-- <li ><button class="dropdown-item py-2"></button></li> -->
                             </a>
@@ -415,7 +415,7 @@
 
     <!-- ADD WORK MODAL -->
     <div class="modal fade" id="workAddData" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-xl">
         <div class="modal-content">
         <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Add Work Experience</h5>
@@ -423,24 +423,66 @@
         </div>
         <div class="modal-body">
 
-            <label>INCLUSIVE DATES (mm/dd/yyy)</label>
+            <label class="mb-2">INCLUSIVE DATES</label>
             <br>
-            <input type="date" id='civilDate' placeholder='From'>
-            <input type="date" id='civilNumber' placeholder='To'>
+            <!-- <input type="date" id='civilDate' placeholder='From'>
+            <input type="date" id='civilNumber' placeholder='To'> -->
+            <div class="d-flex gap-4">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="inputGroup-sizing-default">From</span>
+                    <input type="date" class="form-control" id="workExpDateFrom" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="inputGroup-sizing-default">To</span>
+                    <input type="date" class="form-control" id="workExpDateTo" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                </div>
+            </div>
 
-            <div class="form-floating mb-3">
+            <!-- <div class="form-floating mb-3">
                 <input type="text" class="form-control" id="civilInputCareer" placeholder="Career Service">
                 <label>Position Title (Write in full/ Do not abbreviate)</label>
+            </div> -->
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Position Title (Write in full/ Do not abbreviate)</span>
+                <input type="text" class="form-control" id="workExpPosition" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
             </div>
-            <div class="form-floating mb-3">
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Department/Agency/Office/Company (Write in full/ Do not abbreviate)</span>
+                <input type="text" class="form-control" id="workExpDepartment" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+
+            <!-- <div class="form-floating mb-3">
                 <input type="text" class="form-control" id="civilInputRating" placeholder="School Name">
                 <label>Department/Agency/Office/Company (Write in full/ Do not abbreviate)</label>
-            </div>
-            <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="civilDateExam" placeholder="Date of Examination">
+            </div> -->
+            <!-- <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="WorkExpSalary" placeholder="Date of Examination">
                 <label>Monthly Salary</label>
+            </div> -->
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Monthly Salary</span>
+                <input type="text" class="form-control" id="workExpSalary" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
             </div>
-            <div class="form-floating mb-3">
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Salary/Job/Pay Grade (if applicable)</span>
+                <input type="text" class="form-control" id="workExpJob" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Status of Appointment</span>
+                <input type="text" class="form-control" id="workExpStatus" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Gov't Service (Y/N)</span>
+                <input type="text" class="form-control" id="workExpService" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+
+            <!-- <div class="form-floating mb-3">
                 <input type="text" class="form-control" id="civilPlaceExam" placeholder="Place of Examination">
                 <label>Salary/Job/Pay Grade (if applicable)</label>
             </div>
@@ -451,12 +493,12 @@
             <div class="form-floating mb-3">
                 <input type="text" class="form-control" id="civilPlaceExam" placeholder="Place of Examination">
                 <label>Gov't Service (Y/N)</label>
-            </div>
+            </div> -->
             
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" id='addCivilServiceButtonDb'>Add Civil Service</button>
+            <button type="button" class="btn btn-primary" id='addCivilServiceButtonDb'>Add</button>
         </div>
         </div>
     </div>
@@ -1220,6 +1262,26 @@
 
                             }
                         })
+                    }
+                })
+            })
+
+            //learning and development button
+
+            $("#dashBoardBody").on("click","#profileLearningAndDevelopmentButton",function(){
+                const email = $("#profileUserEmail").val();
+
+                // alert(email)
+
+                $.ajax({
+                    url:"profileInfo/learning_and_development.php",
+                    method:"post",
+                    data:{
+                        email : email
+                    },
+                    success(e){
+                        $("#dashBoardBody").html(e)
+
                     }
                 })
             })
