@@ -77,7 +77,7 @@
                         <td><?php echo $info['statusApointment'] ?></td>
                         <td><?php echo $info['govService'] ?></td>
                         <td>
-                            <button class='btn btn-info'>Edit</button>
+                            <button class='btn btn-info' data-bs-toggle="modal" data-bs-target="#editWorkModalButton" value='<?php echo $info['id'] ?>' id='editWorkExpBtnForModal'>Edit</button>
                             <button class='btn btn-danger'>Delete</button>
                         </td>
                     </tr>
