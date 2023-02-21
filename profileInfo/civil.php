@@ -74,8 +74,8 @@
                         <td><?php echo $info['licenseDateOfValidity'] ?></td>
                         <td>
                             <div class="d-flex gap-2">
-                                <button class='btn btn-info btn-sm'><i class="fa-solid fa-pen text-light"></i></button>
-                                <button class='btn btn-danger btn-sm'><i class="fa-solid fa-trash"></i></button>
+                                <button class='btn btn-info btn-sm' data-bs-toggle="modal" data-bs-target="#civilModalEditModal" value='<?php echo $info['id'] ?>' id='editCivilModalButton'><i class="fa-solid fa-pen text-light"></i></button>
+                                <button value='<?php echo $info['id'] ?>' id='civilDeleteButtonDB' class='btn btn-danger btn-sm'><i class="fa-solid fa-trash"></i></button>
                             </div>
                         </td>
                     </tr>
