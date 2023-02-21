@@ -416,8 +416,6 @@
 
             <label class="mb-2">INCLUSIVE DATES</label>
             <br>
-            <!-- <input type="date" id='civilDate' placeholder='From'>
-            <input type="date" id='civilNumber' placeholder='To'> -->
             <div class="d-flex gap-4">
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="inputGroup-sizing-default">From</span>
@@ -428,12 +426,6 @@
                     <input type="date" class="form-control" id="workExpDateTo" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                 </div>
             </div>
-
-            <!-- <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="civilInputCareer" placeholder="Career Service">
-                <label>Position Title (Write in full/ Do not abbreviate)</label>
-            </div> -->
-
             <div class="input-group mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-default">Position Title (Write in full/ Do not abbreviate)</span>
                 <input type="text" class="form-control" id="workExpPosition" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
@@ -443,15 +435,6 @@
                 <span class="input-group-text" id="inputGroup-sizing-default">Department/Agency/Office/Company (Write in full/ Do not abbreviate)</span>
                 <input type="text" class="form-control" id="workExpDepartment" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
             </div>
-
-            <!-- <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="civilInputRating" placeholder="School Name">
-                <label>Department/Agency/Office/Company (Write in full/ Do not abbreviate)</label>
-            </div> -->
-            <!-- <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="WorkExpSalary" placeholder="Date of Examination">
-                <label>Monthly Salary</label>
-            </div> -->
 
             <div class="input-group mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-default">Monthly Salary</span>
@@ -472,24 +455,11 @@
                 <span class="input-group-text" id="inputGroup-sizing-default">Gov't Service (Y/N)</span>
                 <input type="text" class="form-control" id="workExpService" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
             </div>
-
-            <!-- <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="civilPlaceExam" placeholder="Place of Examination">
-                <label>Salary/Job/Pay Grade (if applicable)</label>
-            </div>
-            <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="civilPlaceExam" placeholder="Place of Examination">
-                <label>Status of Appointment</label>
-            </div>
-            <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="civilPlaceExam" placeholder="Place of Examination">
-                <label>Gov't Service (Y/N)</label>
-            </div> -->
             
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" id='addCivilServiceButtonDb'>Add</button>
+            <button type="button" class="btn btn-primary" id='addWorkServiceButtonDb'>Add</button>
         </div>
         </div>
     </div>
@@ -619,6 +589,25 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-primary" id='civilUpdateButtonDatabase'>Save changes</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal EDIT WORK EXP -->
+    <div class="modal fade" id="editWorkModalButton" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Edit Work Experience</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id='editWorkExpModalBody'>
+                <!-- Modal body edit work exp -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id='updateWorkExpButtonDb'>Save changes</button>
             </div>
             </div>
         </div>
@@ -1627,6 +1616,115 @@
                     })
                 }
                 
+            })
+            
+            // ADD WORKEXP DB
+            $("#addWorkServiceButtonDb").click(function(){
+                
+                const email = $("#profileUserEmail").val();
+                const from = $("#workExpDateFrom").val();
+                const to = $("#workExpDateTo").val();
+                const position = $("#workExpPosition").val();
+                const department = $("#workExpDepartment").val();
+                const salary = $("#workExpSalary").val();
+                const job = $("#workExpJob").val();
+                const status = $("#workExpStatus").val();
+                const service = $("#workExpService").val();
+
+                $.ajax({
+                    url:"profileInfo/addWork.php",
+                    method:"post",
+                    data:{
+                        email:email,
+                        from:from,
+                        to:to,
+                        position:position,
+                        department:department,
+                        salary:salary,
+                        job:job,
+                        status:status,
+                        service:service
+                    },
+                    success(){
+                        $.ajax({
+                            url:"profileInfo/workExp.php",
+                            method:"post",
+                            data:{
+                                email : email
+                            },
+                            success(e){
+                                $("#dashBoardBody").html(e)
+
+                            }
+                        })
+                    }
+                })
+
+            })
+
+            // WORK EXP EDIT BUTTON MODAL UPDATE
+            $("#dashBoardBody").on("click","#editWorkExpBtnForModal",function(){
+                const id = $(this).val();
+
+                $.ajax({
+                    url:"profileInfo/workUpdateModal.php",
+                    method:"post",
+                    data:{
+                        id:id
+                    },
+                    success(e){
+                        $("#editWorkExpModalBody").html(e)
+                    }
+                })
+
+            })
+
+            // WORK UPDATE DB
+            $("#updateWorkExpButtonDb").click(function(){
+
+                const email = $("#profileUserEmail").val();
+                const id = $("#workUserId").val();
+
+                const from = $("#EditworkExpDateFrom").val();
+                const to = $("#EditworkExpDateTo").val();
+                const position = $("#EditworkExpPosition").val();
+                const department = $("#EditworkExpDepartment").val();
+                const salary = $("#EditworkExpSalary").val();
+                const job = $("#EditworkExpJob").val();
+                const status = $("#EditworkExpStatus").val();
+                const service = $("#EditworkExpService").val();
+
+                $.ajax({
+                    url:"profileInfo/workUpdate.php",
+                    method: "post",
+                    data:{
+                        id:id,
+                        from:from,
+                        to:to,
+                        position:position,
+                        department:department,
+                        salary:salary,
+                        job:job,
+                        status:status,
+                        service:service
+                    },
+                    success(){
+
+                        $.ajax({
+                            url:"profileInfo/workExp.php",
+                            method:"post",
+                            data:{
+                                email : email
+                            },
+                            success(e){
+                                $("#dashBoardBody").html(e)
+
+                                confirm("Update success!")
+                            }
+                        })
+
+                    }
+                })
             })
         })
 
