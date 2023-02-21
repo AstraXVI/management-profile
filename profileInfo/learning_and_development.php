@@ -3,13 +3,6 @@
     session_start();
 
     $email = $_POST['email'];
-
-    $q = "SELECT * from work where email='$email'";
-    $list = $con->query($q);
-    $info = $list->fetch_assoc();
-
-    // echo $id;
-    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +13,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h2 class="text-secondary fw-bold mb-3">Work Experience</h2>
+    <h2 class="text-secondary fw-bold mb-3">Learning and development</h2>
 
 
      <!-- get email profile -->
@@ -39,13 +32,13 @@
         <a class="nav-link" id="ex1-tab-3" data-mdb-toggle="tab" href="#ex1-tabs-3" role="tab" aria-controls="ex1-tabs-3" aria-selected="false">Civil Service Eligibility</a>
     </li>
     <li class="nav-item" role="presentation" id='profileWorkExpBtn'>
-        <a class="nav-link active" id="ex1-tab-4" data-mdb-toggle="tab" href="#ex1-tabs-4" role="tab" aria-controls="ex1-tabs-4" aria-selected="false">Work Experience</a>
+        <a class="nav-link" id="ex1-tab-4" data-mdb-toggle="tab" href="#ex1-tabs-4" role="tab" aria-controls="ex1-tabs-4" aria-selected="false">Work Experience</a>
     </li>
     <li class="nav-item" role="presentation">
         <a class="nav-link" id="ex1-tab-5" data-mdb-toggle="tab" href="#ex1-tabs-5" role="tab" aria-controls="ex1-tabs-5" aria-selected="false">Awards</a>
     </li>
     <li class="nav-item" role="presentation" id="profileLearningAndDevelopmentButton">
-        <a class="nav-link" id="ex1-tab-6" data-mdb-toggle="tab" href="#ex1-tabs-6" role="tab" aria-controls="ex1-tabs-6" aria-selected="false">Learning and Development</a>
+        <a class="nav-link active" id="ex1-tab-6" data-mdb-toggle="tab" href="#ex1-tabs-6" role="tab" aria-controls="ex1-tabs-6" aria-selected="false">Learning and Development</a>
     </li>
     </ul>
 
@@ -65,24 +58,24 @@
             </tr>
         </thead>
         <tbody>
-            <?php if($list->num_rows){ ?>
-                <?php do{ ?>
+            <!-- <?php if($list->num_rows){ ?>
+                <?php do{ ?> -->
                     <tr>
-                        <td><?php echo $info['dateFrom'] ?></td>
-                        <td><?php echo $info['dateTo'] ?></td>
-                        <td><?php echo $info['title'] ?></td>
-                        <td><?php echo $info['department'] ?></td>
-                        <td><?php echo $info['monthSalary'] ?></td>
-                        <td><?php echo $info['salary'] ?></td>
-                        <td><?php echo $info['statusApointment'] ?></td>
-                        <td><?php echo $info['govService'] ?></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                         <td>
                             <button class='btn btn-info'>Edit</button>
                             <button class='btn btn-danger'>Delete</button>
                         </td>
                     </tr>
-                <?php }while($info = $list->fetch_assoc()) ?>
-            <?php }else{ ?>
+                <!-- <?php }while($info = $list->fetch_assoc()) ?>
+            <?php }else{ ?> -->
                 <tr>
                     <td colspan='9'>No data</td>
                 </tr>
