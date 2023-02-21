@@ -378,15 +378,6 @@
                 <input type="text" class="form-control" id="civilDateExam" value="" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
             </div>
 
-            <!-- <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="civilDateExam" placeholder="Date of Examination">
-                <label>Date of Examination</label>
-            </div> -->
-            <!-- <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="civilPlaceExam" placeholder="Place of Examination">
-                <label>Place of Examination</label>
-            </div> -->
-
             <div class="input-group mb-3">
                 <span class="input-group-text">Place of Examination</span>
                 <input type="text" class="form-control" id="civilPlaceExam" value="" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
@@ -397,13 +388,13 @@
             <!-- <input type="text" id='civilDate' placeholder='Number'> -->
             <div class="input-group mb-3">
                 <span class="input-group-text">Number</span>
+                <input type="text" class="form-control" id="civilNumber" value="" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text">Date of Validity</span>
                 <input type="text" class="form-control" id="civilDate" value="" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
             </div>
             <!-- <input type="text" id='civilNumber' placeholder='Date of Validity'> -->
-            <div class="input-group mb-3">
-                <span class="input-group-text">Date of Validity</span>
-                <input type="text" class="form-control" id="civilNumber" value="" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-            </div>
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -596,6 +587,25 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-primary" id='updateDegreeDatabaseButton'>Save changes</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal EDIT CIVIL-->
+    <div class="modal fade" id="civilModalEditModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Edit Civil</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id='modalBodyCivilUpdate'>
+                <!-- EDIT CIVIL -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id='civilUpdateButtonDatabase'>Save changes</button>
             </div>
             </div>
         </div>
@@ -1481,6 +1491,7 @@
 
             })
 
+            // delete degree db
             $("#dashBoardBody").on("click","#deleteButonDegreeModal",function(){
                 const id = $(this).val();
                 const email = $("#userEmailProfile").val()
@@ -1508,6 +1519,101 @@
                 })
                 }
                
+            })
+
+            // MODAL EDIT CIVIL BUTTON
+            $("#dashBoardBody").on("click","#editCivilModalButton",function(){
+
+                const id = $(this).val();
+
+                $.ajax({
+                    url:"profileInfo/civilModalUpdate.php",
+                    method:"post",
+                    data:{
+                        id : id
+                    },
+                    success(e){
+                        $("#modalBodyCivilUpdate").html(e)
+                    }
+                })
+            })
+
+            // CIVIL UPDATE DATA BASE
+            $("#civilUpdateButtonDatabase").click(function(){
+                const id = $("#idForCivilUpdate").val();
+                const email = $("#emailForCivilUpdate").val();
+                const career = $("#EditcivilInputCareer").val();
+                const rating = $("#EditcivilInputRating").val();
+                const dateExam = $("#EditcivilDateExam").val();
+                const placeExam = $("#EditcivilPlaceExam").val();
+                const Ldate = $("#EditcivilDate").val();
+                const Lnumber = $("#EditcivilNumber").val();
+
+                $.ajax({
+                    url:"profileInfo/civilUpdate.php",
+                    method:'post',
+                    data:{
+                        id:id,
+                        career:career,
+                        rating:rating,
+                        dateExam:dateExam,
+                        placeExam:placeExam,
+                        Ldate:Ldate,
+                        Lnumber:Lnumber
+                    },
+                    success(e){
+                        // $("#dashBoardBody").html(e)
+
+                        $.ajax({
+                            url:"profileInfo/civil.php",
+                            method:"post",
+                            data:{
+                                email : email
+                            },
+                            success(e){
+                                $("#dashBoardBody").html(e)
+
+                                confirm("Update Success!")
+
+                            }
+                        })
+                    }
+                })
+            })
+
+            // CIVIL DELETE DB
+            $("#dashBoardBody").on('click','#civilDeleteButtonDB',function(){
+                const id = $(this).val();
+                const email = $("#profileUserEmail").val();
+
+                // alert(email)
+
+                if(confirm("Are you sure to delete this?")){
+                    $.ajax({
+                        url:"profileInfo/civilDelete.php",
+                        method:'post',
+                        data:{
+                            id:id
+                        },
+                        success(){
+
+                            $.ajax({
+                                url:"profileInfo/civil.php",
+                                method:"post",
+                                data:{
+                                    email : email
+                                },
+                                success(e){
+                                    $("#dashBoardBody").html(e)
+
+                                    // confirm("Update Success!")
+
+                                }
+                            })
+                        }
+                    })
+                }
+                
             })
         })
 
