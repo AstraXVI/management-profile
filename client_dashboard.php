@@ -485,6 +485,80 @@
         </div>
     </div>
 
+    <!-- Add degree Modal -->
+    <div class="modal fade" id="addDegreeModalButton" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add degree</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- user email -->
+                <input type="hidden" id='degreeUserEmail' value='<?php echo $emailNew ?>'>
+                <!--  -->
+                <label>Select Degree</label>
+                <select class="form-select mb-2" id='inputDegreeDegree' aria-label="Default select example">
+                    <option value="Masters Degree">Masters Degree</option>
+                    <option value="Post Degree">Post Degree</option>
+                </select>
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Name of School</span>
+                    <input type="text" id='inputDegreeSchool' class="form-control"  aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Basic Education/Degree/Course</span>
+                    <input type="text" id='inputDegreeEduc' class="form-control"  aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+                <label class='mb-2'>Period of attendance</label>
+                <br>
+                <label>From :</label>
+                <input type="date" name="" id='inputDegreeFrom'>
+                <label>To:</label>
+                <input type="date" name="" id='inputDegreeTo'>
+
+                <div class="input-group my-3">
+                    <span class="input-group-text" id="basic-addon1">Highest Level/Unit Earned</span>
+                    <input type="text" id='inputDegreeHigh' class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+                <div class="input-group my-3">
+                    <span class="input-group-text" id="basic-addon1">Year Graduate</span>
+                    <input type="text" id='inputDegreeYear' class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+                <div class="input-group my-3">
+                    <span class="input-group-text" id="basic-addon1">Scholarship/Academic Honors Received</span>
+                    <input type="text" id='inputDegreeScholar' class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id='addDegreeButtonDatabase'>Add degree</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal EDIT DEGREE-->
+    <div class="modal fade" id="editDegreeModalProfie" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Edit Degree</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id='modalBodyEditDegree'>
+                    <!-- EDIT DEGREE -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id='updateDegreeDatabaseButton'>Save changes</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
 
     <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
 
@@ -1231,6 +1305,147 @@
 
                     }
                 })
+            })
+
+            // ADD DEGREE DATABASE BUTTON
+            $("#addDegreeButtonDatabase").click(function(){
+                const email = $("#degreeUserEmail").val();
+                const degree = $("#inputDegreeDegree").val();
+                const school = $("#inputDegreeSchool").val();
+                const educ = $("#inputDegreeEduc").val();
+                const from = $("#inputDegreeFrom").val();
+                const to = $("#inputDegreeTo").val();
+                const high = $("#inputDegreeHigh").val();
+                const year = $("#inputDegreeYear").val();
+                const scholar = $("#inputDegreeScholar").val();
+
+                $.ajax({
+                    url:"profileInfo/addDegreeDb.php",
+                    method:"post",
+                    data:{
+                        email : email,
+                        degree : degree,
+                        school : school,
+                        educ : educ,
+                        from : from,
+                        to : to,
+                        high : high,
+                        year : year,
+                        scholar : scholar
+                    },
+                    success(){
+
+                        $.ajax({
+                            url:"profileInfo/education.php",
+                            method:"post",
+                            data:{
+                                id : email
+                            },
+                            success(e){
+                                $("#dashBoardBody").html(e)
+
+                            }
+                        })
+
+                    }
+                })
+            })
+
+            // EDIT DEGREE BUTTON
+            $("#dashBoardBody").on('click','#editButonDegreeModal',function(){
+                const id = $(this).val();
+
+                $.ajax({
+                    url:"profileInfo/editDegreeModal.php",
+                    method:'post',
+                    data:{
+                        id:id
+                    },
+                    success(e){
+                        $("#modalBodyEditDegree").html(e)
+                    }
+                })
+
+            })
+
+            // UPDATE DEGREE DATABASE BUTTON
+            $('#updateDegreeDatabaseButton').click(function(){
+                
+                const email = $("#editDegreeUserId").val()
+                const id = $("#editDegreeUserEmail").val();
+                const degree = $("#inputEditDegreeDegree").val();
+                const school = $("#inputEditDegreeSchool").val();
+                const educ = $("#inputEditDegreeEduc").val();
+                const from = $("#inputEditDegreeFrom").val();
+                const to = $("#inputEditDegreeTo").val();
+                const high = $("#inputEditDegreeHigh").val();
+                const year = $("#inputEditDegreeYear").val();
+                const scholar = $("#inputEditDegreeScholar").val();
+
+                // alert(scholar)
+
+                $.ajax({
+                    url:"profileInfo/updateDegreeDb.php",
+                    method:"post",
+                    data:{
+                        id : id,
+                        degree : degree,
+                        school : school,
+                        educ : educ,
+                        from : from,
+                        to : to,
+                        high : high,
+                        year : year,
+                        scholar : scholar
+                    },
+                    success(e){
+
+                        // $("#dashBoardBody").html(e)
+
+                        $.ajax({
+                            url:"profileInfo/education.php",
+                            method:"post",
+                            data:{
+                                id : email
+                            },
+                            success(e){
+                                $("#dashBoardBody").html(e)
+
+                            }
+                        })
+
+                    }
+                })
+
+            })
+
+            $("#dashBoardBody").on("click","#deleteButonDegreeModal",function(){
+                const id = $(this).val();
+                const email = $("#userEmailProfile").val()
+
+                if(confirm("Are you sure to delete this?")){
+                    $.ajax({
+                    url:"profileInfo/deleteDegree.php",
+                    method:"post",
+                    data:{
+                        id:id
+                    },
+                    success(){
+                        $.ajax({
+                            url:"profileInfo/education.php",
+                            method:"post",
+                            data:{
+                                id : email
+                            },
+                            success(e){
+                                $("#dashBoardBody").html(e)
+
+                            }
+                        })
+                    }
+                })
+                }
+               
             })
         })
 

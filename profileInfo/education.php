@@ -8,7 +8,9 @@
     $list = $con->query($q);
     $info = $list->fetch_assoc();
 
-    // echo $id;
+    $getDegree = "SELECT * FROM educationaldegree WHERE email ='$id'";
+    $listDegree = $con->query($getDegree);
+    $fetchDegree = $listDegree->fetch_assoc();
     
 ?>
 <!DOCTYPE html>
@@ -49,6 +51,8 @@
     </li>
     </ul>
 
+    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addDegreeModalButton">Add master degree</button>
+
     <table class='table text-center bg-light table-striped p-2'>
         <thead>
             <tr>
@@ -59,6 +63,7 @@
                 <th>Highest Level/Unit Earned</th>
                 <th>Year Graduate</th>
                 <th>Scholarship/Academic Honors Received</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -71,6 +76,9 @@
                 <td><?php echo $info['elemHighLvl'] ?></td>
                 <td><?php echo $info['elemGraduate'] ?></td>
                 <td><?php echo $info['elemScholar'] ?></td>
+                <td rowspan='5'>
+                    <button class='btn btn-info' data-bs-toggle="modal" data-bs-target="#updateEducationModal" value='<?php echo $id ?>' id='updateProfileEducationButton'>Update data</button>
+                </td>
             </tr>
             <tr>
                 <th>Secondary</th>
@@ -112,9 +120,26 @@
                 <td><?php echo $info['graduateYear'] ?></td>
                 <td><?php echo $info['graduateScholar'] ?></td>
             </tr>
+            <?php if($listDegree->num_rows){ ?>
+                <?php do{ ?>
+                    <tr>
+                        <th><?php echo $fetchDegree['lvl'] ?></th>
+                        <td><?php echo $fetchDegree['nameSchool'] ?></td>
+                        <td><?php echo $fetchDegree['education'] ?></td>
+                        <td><?php echo $fetchDegree['periodFrom'] ?></td>
+                        <td><?php echo $fetchDegree['periodTo'] ?></td>
+                        <td><?php echo $fetchDegree['highLvl'] ?></td>
+                        <td><?php echo $fetchDegree['year'] ?></td>
+                        <td><?php echo $fetchDegree['scholar'] ?></td>
+                        <td>
+                            <button class='btn btn-primary' data-bs-toggle="modal" data-bs-target="#editDegreeModalProfie" value='<?php echo $fetchDegree['id'] ?>' id='editButonDegreeModal'>edit</button>
+                            <button class='btn btn-danger' value='<?php echo $fetchDegree['id'] ?>' id='deleteButonDegreeModal'>delete</button>
+                        </td>
+                    </tr>
+                <?php }while($fetchDegree = $listDegree->fetch_assoc()) ?>
+            <?php } ?>
         </tbody>
     </table>
     
-    <button class='btn btn-info' data-bs-toggle="modal" data-bs-target="#updateEducationModal" value='<?php echo $id ?>' id='updateProfileEducationButton'>Update data</button>
 </body>
 </html>
