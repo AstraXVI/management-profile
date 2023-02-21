@@ -78,7 +78,7 @@
                         <td><?php echo $info['govService'] ?></td>
                         <td>
                             <button class='btn btn-info' data-bs-toggle="modal" data-bs-target="#editWorkModalButton" value='<?php echo $info['id'] ?>' id='editWorkExpBtnForModal'>Edit</button>
-                            <button class='btn btn-danger'>Delete</button>
+                            <button class='btn btn-danger' value='<?php echo $info['id'] ?>' id='deleteWorkExpButtonDb'>Delete</button>
                         </td>
                     </tr>
                 <?php }while($info = $list->fetch_assoc()) ?>

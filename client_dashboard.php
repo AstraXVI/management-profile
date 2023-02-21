@@ -119,7 +119,7 @@
                             <!-- <li ><button class="dropdown-item py-2"></button></li> -->
                             </a>
                         </li>
-                        <li id="credentialBtn">
+                        <li id="credentialBtn" data-bs-toggle="modal" data-bs-target="#navCredentialsButton">
                             <a id="navBtn3" href="#" class="nav-link link-light">
                             <span class="bi me-2" width="16" height="16"><i class="fa-solid fa-id-card"></i></span>
                             Credentials
@@ -612,7 +612,28 @@
             </div>
         </div>
     </div>
-
+    
+<!-- Modal CREDENTIALS -->
+<div class="modal fade" id="navCredentialsButton" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Credentials</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+            <label for="formFile" class="form-label">Upload Credentials</label>
+            <input class="form-control" type="file" id="formFile">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">UPLOAD</button>
+      </div>
+    </div>
+  </div>
+</div>
 
     <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
 
@@ -1723,6 +1744,34 @@
                             }
                         })
 
+                    }
+                })
+            })
+
+            // WORK DELETE 
+            $("#dashBoardBody").on("click","#deleteWorkExpButtonDb",function(){
+                const id = $(this).val();
+                const email = $("#userEmailProfile").val();
+
+                $.ajax({
+                    url:"profileInfo/workDelete.php",
+                    method:"post",
+                    data:{
+                        id:id
+                    },
+                    success(){
+
+                        $.ajax({
+                            url:"profileInfo/workExp.php",
+                            method:"post",
+                            data:{
+                                email : email
+                            },
+                            success(e){
+                                $("#dashBoardBody").html(e)
+
+                            }
+                        })
                     }
                 })
             })

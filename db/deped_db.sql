@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 21, 2023 at 04:49 AM
+-- Generation Time: Feb 21, 2023 at 11:16 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -43,12 +43,8 @@ CREATE TABLE `civil` (
 --
 
 INSERT INTO `civil` (`id`, `email`, `careerService`, `rating`, `dateOfExam`, `placeOfExam`, `licenseNumber`, `licenseDateOfValidity`) VALUES
-(3, 'renz@i', '1', '2', '3', '4', '5', '6'),
-(4, 'renz@i', 'q', 'q', 'q', 'q', 'q', 'q'),
-(5, 'renz@i', 'sample', '', '', '', '', ''),
-(6, 'renz@i', 'sample again', '', '', '', '', ''),
-(7, 'renz@io', '1', '1', '1', '1', '1', '1'),
-(8, 'renz@123', '1', '1', '1', '1', '1', '1');
+(12, 'renz@123', '1', '', '', '', 'nums', 'date'),
+(15, 'renz@123', '2', '4', '1', '2', '12', '2029');
 
 -- --------------------------------------------------------
 
@@ -147,7 +143,7 @@ CREATE TABLE `educationaldegree` (
 INSERT INTO `educationaldegree` (`id`, `email`, `lvl`, `nameSchool`, `education`, `periodFrom`, `periodTo`, `highLvl`, `year`, `scholar`) VALUES
 (1, 'renz@i', 'Master Degree', 'sample name school', 'bsit', '2023-02-01', '2023-02-02', 'college', '2023', 'wala'),
 (2, 'renz@i', 'Post Degree', 'vicente', 'bsit', '2023-02-15', '2023-02-13', '2', '2023', 'no'),
-(3, 'renz@123', 'Post Degree', 'Vicente P Trinidad', 'Doctoral', '2023-02-01', '2023-02-04', '4', '2023', 'none2');
+(7, 'renz@123', 'Masters Degree', '', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -316,6 +312,13 @@ CREATE TABLE `work` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- Dumping data for table `work`
+--
+
+INSERT INTO `work` (`id`, `email`, `dateFrom`, `dateTo`, `title`, `department`, `monthSalary`, `salary`, `statusApointment`, `govService`) VALUES
+(1, 'renz@i', '2023-02-11', '2023-02-23', '0', '01', '0', '0', '0', '0');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -387,7 +390,7 @@ ALTER TABLE `work`
 -- AUTO_INCREMENT for table `civil`
 --
 ALTER TABLE `civil`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `dor`
@@ -399,13 +402,13 @@ ALTER TABLE `dor`
 -- AUTO_INCREMENT for table `educationalbg`
 --
 ALTER TABLE `educationalbg`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `educationaldegree`
 --
 ALTER TABLE `educationaldegree`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `equipment`
@@ -417,7 +420,7 @@ ALTER TABLE `equipment`
 -- AUTO_INCREMENT for table `profile`
 --
 ALTER TABLE `profile`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `schools`
@@ -429,7 +432,7 @@ ALTER TABLE `schools`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT for table `voluntary`
@@ -441,7 +444,7 @@ ALTER TABLE `voluntary`
 -- AUTO_INCREMENT for table `work`
 --
 ALTER TABLE `work`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
