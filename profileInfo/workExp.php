@@ -54,7 +54,7 @@
     <table class='table text-center bg-light'>
         <thead style="background-color: #dcdcdc;">
             <tr>
-               <th colspan='2'>Inclusive Dates (mm/dd/yyyy)</th>
+               <th colspan='2'>Inclusive Dates (mm/dd/yyyy) <br><span class="me-4 text-primary" style="font-size: 14px">From</span><span class="ms-4 text-primary" style="font-size: 14px">To</span></th>
                <th>Position Title (Write in full/ Do not abbreviate)</th>
                <th>Department/Agency/Office/Company (Write in full/ Do not abbreviate)</th>
                <th>Monthly Salary</th>
