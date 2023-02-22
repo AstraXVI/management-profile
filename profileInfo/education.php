@@ -62,7 +62,7 @@
                 <th>Level</th>
                 <th>Name of School</th>
                 <th>Basic Education/Degree/Course</th>
-                <th colspan='2'>Period of attendance</th>
+                <th colspan='2'>Period of attendance <br><span class="me-4 text-primary" style="font-size: 14px">From</span><span class="ms-4 text-primary" style="font-size: 14px">To</span></th>
                 <th>Highest Level/Unit Earned</th>
                 <th>Year Graduate</th>
                 <th>Scholarship/Academic Honors Received</th>

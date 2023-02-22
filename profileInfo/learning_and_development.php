@@ -42,18 +42,16 @@
     </li>
     </ul>
 
-    <button class="btn btn-primary my-3" data-bs-toggle="modal" data-bs-target="#workAddData"><i class="fa-solid fa-plus me-2"></i>Add Work Experience</button>
+    <button class="btn btn-primary my-3" data-bs-toggle="modal" data-bs-target="#learningAndDevelopmentAddData"><i class="fa-solid fa-plus me-2"></i>Add Learning and Development</button>
 
     <table class='table text-center bg-light'>
         <thead style="background-color: #dcdcdc;">
             <tr>
-               <th colspan='2'>Inclusive Dates (mm/dd/yyyy)</th>
-               <th>Position Title (Write in full/ Do not abbreviate)</th>
-               <th>Department/Agency/Office/Company (Write in full/ Do not abbreviate)</th>
-               <th>Monthly Salary</th>
-               <th>Salary/Job/Pay Grade</th>
-               <th>Status of appointment</th>
-               <th>Gov't Service (Y/N)</th>
+               <th>Title of Learning and Development Intervention/Training Program (Write in full)</th>
+               <th colspan='2'>Inclusive Dates of Attendance (mm/dd/yyyy) <br><span class="me-4 text-primary" style="font-size: 14px">From</span><span class="ms-4 text-primary" style="font-size: 14px">To</span></th>
+               <th>Number of Hours</th>
+               <th>Type of LD (Managerial/supervisory/technical/etc)</th>
+               <th>Conducted/Sponsored by (Write in full)</th>
                <th>Action</th>
             </tr>
         </thead>
@@ -66,12 +64,11 @@
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
                         <td>
-                            <button class='btn btn-info'>Edit</button>
-                            <button class='btn btn-danger'>Delete</button>
+                        <div class="d-flex gap-2">
+                                <button class='btn btn-info btn-sm' data-bs-toggle="modal" data-bs-target="#editWorkModalButton" value='' id=''><i class="fa-solid fa-pen text-light"></i></button>
+                                <button class='btn btn-danger btn-sm' value='' id=''><i class="fa-solid fa-trash"></i></button>
+                            </div>
                         </td>
                     </tr>
                 <!-- <?php }while($info = $list->fetch_assoc()) ?>

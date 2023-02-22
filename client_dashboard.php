@@ -465,6 +465,58 @@
     </div>
     </div>
 
+    <!-- LEARNING AND DEVELOPMENT MODAL -->
+    <div class="modal fade" id="learningAndDevelopmentAddData" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Add Learning and Development</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+    
+            <div class="input-group mb-3">
+                <span class="input-group-text" style="font-size: 14px;" id="inputGroup-sizing-default">Title of Learning and Development Intervention/Training Program (Write in full)</span>
+                <input type="text" class="form-control" id="learningAndDevelopmentTitle" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+            <label class="mb-2">Inclusive Dates of Attendance</label>
+            <br>
+            <div class="d-flex gap-4">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="inputGroup-sizing-default">From</span>
+                    <input type="date" class="form-control" id="learningAndDevelopmentDateFrom" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="inputGroup-sizing-default">To</span>
+                    <input type="date" class="form-control" id="learningAndDevelopmentDateTo" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                </div>
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Number of Hours</span>
+                <input type="text" class="form-control" id="learningAndDevelopmentHours" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Type of LD (Managerial/supervisory/technical/etc)</span>
+                <input type="text" class="form-control" id="learningAndDevelopmentLD" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Conducted/Sponsored by (Write in full)</span>
+                <input type="text" class="form-control" id="learningAndDevelopmentConducted" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+            
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id=''>Add</button>
+            </div>
+            </div>
+    </div>
+    </div>
+
+    <!-- privacy notice modal -->
     <div class="modal fade" id="myModal" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">
