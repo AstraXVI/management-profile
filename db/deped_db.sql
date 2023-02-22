@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 21, 2023 at 11:16 AM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- Generation Time: Feb 22, 2023 at 03:40 AM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 8.0.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,20 @@ SET time_zone = "+00:00";
 --
 -- Database: `deped_db`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `award`
+--
+
+CREATE TABLE `award` (
+  `id` int(11) NOT NULL,
+  `email` varchar(250) NOT NULL,
+  `title` varchar(250) NOT NULL,
+  `lvl` varchar(250) NOT NULL,
+  `date` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -109,7 +123,7 @@ CREATE TABLE `educationalbg` (
 --
 
 INSERT INTO `educationalbg` (`id`, `email`, `schoolCollege`, `graduateStudies`, `collegeCourse`, `graduateCourse`, `collegeFrom`, `collegeTo`, `graduateFrom`, `graduateTo`, `collegeHigh`, `graduateHigh`, `collegeYear`, `graduateYear`, `collegeScholar`, `graduateScholar`, `elemSchool`, `secSchool`, `vocSchool`, `elemEduc`, `secEduc`, `vocEduc`, `elemFrom`, `secFrom`, `vocFrom`, `elemTo`, `secTo`, `vocTo`, `elemHighLvl`, `secHighLvl`, `vocHighLvl`, `elemGraduate`, `secGraduate`, `vocGraduate`, `elemScholar`, `secScholar`, `vocScholar`) VALUES
-(13, 'renz@i', 'datamex college', '8', 'BSIT', '9', 'JUNE 2021', 'JULY 2022', '10', '1', 'COLLEGE', '11', '2021-2022', '1', 'NONE', '1', '1', '1', '1', '0', '0', '1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(13, 'renz@i', 'datamex college', '', 'BSIT', '', '', '', '', '', 'COLLEGE', '', '2021-2022', '', 'NONE', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
 (15, '9', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0', '0', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
 (16, '9', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0', '0', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
 (17, '1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0', '0', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
@@ -312,15 +326,14 @@ CREATE TABLE `work` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `work`
---
-
-INSERT INTO `work` (`id`, `email`, `dateFrom`, `dateTo`, `title`, `department`, `monthSalary`, `salary`, `statusApointment`, `govService`) VALUES
-(1, 'renz@i', '2023-02-11', '2023-02-23', '0', '01', '0', '0', '0', '0');
-
---
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `award`
+--
+ALTER TABLE `award`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `civil`
@@ -387,10 +400,16 @@ ALTER TABLE `work`
 --
 
 --
+-- AUTO_INCREMENT for table `award`
+--
+ALTER TABLE `award`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
 -- AUTO_INCREMENT for table `civil`
 --
 ALTER TABLE `civil`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `dor`
