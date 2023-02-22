@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 22, 2023 at 03:40 AM
+-- Generation Time: Feb 22, 2023 at 04:59 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
@@ -123,13 +123,56 @@ CREATE TABLE `educationalbg` (
 --
 
 INSERT INTO `educationalbg` (`id`, `email`, `schoolCollege`, `graduateStudies`, `collegeCourse`, `graduateCourse`, `collegeFrom`, `collegeTo`, `graduateFrom`, `graduateTo`, `collegeHigh`, `graduateHigh`, `collegeYear`, `graduateYear`, `collegeScholar`, `graduateScholar`, `elemSchool`, `secSchool`, `vocSchool`, `elemEduc`, `secEduc`, `vocEduc`, `elemFrom`, `secFrom`, `vocFrom`, `elemTo`, `secTo`, `vocTo`, `elemHighLvl`, `secHighLvl`, `vocHighLvl`, `elemGraduate`, `secGraduate`, `vocGraduate`, `elemScholar`, `secScholar`, `vocScholar`) VALUES
-(13, 'renz@i', 'datamex college', '', 'BSIT', '', '', '', '', '', 'COLLEGE', '', '2021-2022', '', 'NONE', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(15, '9', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0', '0', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(16, '9', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0', '0', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(17, '1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0', '0', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(18, '2@dwqd', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0', '0', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(19, 'y', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0', '0', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(20, 'renz@123', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'a', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+(1, 'Edithad.baesa@deped.gov.ph', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(2, 'Norlitan.santos@deped.gov.ph', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(3, 'Gloriad.morenos@deped.gov.ph', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(4, 'Marialourdesb.viray@deped.gov.ph', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(5, 'Jeda.camposano@deped.gov.ph', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(6, 'Corazonv.tanfelix@deped.gov.ph', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(7, 'Mariacelinaj.cloa@deped.gov.ph', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(8, 'Darinog.elizaga@deped.gov.ph', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(9, 'Rizzal.escobido@deped.gov.ph', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(10, 'Lovireym.cerna@deped.gov.ph', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(11, 'Elizabethd.roberto@deped.gov.ph', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(12, 'Eufelial.corales@deped.gov.ph', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(13, 'Emilr.mamiit@deped.gov.ph', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(14, 'Ednas.madrid@deped.gov.ph', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(15, 'Roderickd.deleon@deped.gov.ph', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(16, 'Lilibeths.gozo@deped.gov.ph', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(17, 'Azucenap.ocasla@deped.gov.ph', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(18, 'Solimane.rejuso@deped.gov.ph', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(19, 'Marylynp.meliton@deped.gov.ph', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(20, 'Levyj.acuna@deped.gov.ph', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(21, 'Amelitan.ayaton@deped.gv.ph', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(22, 'Rolandog.corales@deped.gov.ph', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(23, 'Arcenoeld.zapatos@deped.gov.ph', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(24, 'Maryjane.gabriel@deped.gov.ph', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(25, 'Nerisaa.espinosa@deped.gov.ph', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(26, 'Edralinoe.nicolas@deped.gov.ph', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(27, 'Jeanfrancisv.delacruz@deped.gov.ph', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(28, 'Editop.fabillar@deped.gov.ph', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(29, 'Rosalindag.quilates@deped.gov.ph', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(30, 'Robertoa.llanita@deped.gov.ph', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(31, 'Luzvimindam.camarista@deped.gov.ph', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(32, 'Emiliedc.rivero@deped.gov.ph', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(33, 'Nolascoh.sablan@deped.gov.ph', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(34, 'Alejandreaa.ylan@deped.gov.ph', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(35, 'Mariapatricias.devera@deped.gov.ph', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(36, 'Ronalda.trono@deped.gov.ph', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(37, 'Odelonb.penaflorida@deped.gov.ph', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(38, 'Cesarc.villareal@deped.gov.ph', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(39, 'Amelitav.yumang@deped.gov.ph', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(40, 'Jonathano.lagdamen@deped.gov.ph', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(41, 'Domingoa.lozande@deped.gov.ph', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(42, 'Eleonors.santos@deped.gov.ph', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(43, 'Rudyf.falcunitin@deped.gov.ph', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(44, 'Liliah.jaime@deped.gov.ph', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(45, 'Edelinai.golloso@deped.gov.ph', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(46, 'Machristinac.salonga@deped.gov.ph', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(47, 'Jaimes.devera@deped.gov.ph', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(48, 'Irenel.pantorillo@deped.gov.ph', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(49, 'Alvinpatrickq.penaflorida@deped.gov.ph', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(50, 'Julianat.alvarez@deped.gov.ph', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -187,6 +230,7 @@ CREATE TABLE `equipment` (
 
 CREATE TABLE `learning` (
   `id` int(11) NOT NULL,
+  `email` varchar(250) NOT NULL,
   `title` varchar(250) NOT NULL,
   `dateFrom` varchar(250) NOT NULL,
   `dateTo` varchar(250) NOT NULL,
@@ -230,8 +274,56 @@ CREATE TABLE `profile` (
 
 INSERT INTO `profile` (`id`, `name`, `bday`, `address`, `email`, `contactNo`, `sex`, `yearAsSchoolHead`, `duration`, `learnersPerf`, `teacherPerf`, `financialMng`, `complaints`, `picture`, `school`, `citizenship`, `civil`, `zipcode`, `employeeNo`, `placeBirth`) VALUES
 (1, 'Admin', '01/17/1996', '1225 sta monica subd ugong valenzuela city', 'ikejoseph.lumaad@deped.gov.ph', '09396439742', 'Male', 'n/a', 'n/a', 'n/a', 'n/a', 'n/a', '', 'uploads/profile_pics/bckground.png', '', '', '', '', '', ''),
-(17, 'Jedidiah T. Morales', '2023-02-15', '1225 sta monica subdivision ugong valenzuela city', 'renz@i', '96439742', 'male', '2020', 'n/a', '', '', '', '', 'uploads/profile_pics/807ca16b42e5fe7dc8a5794157076559.jpg', 'High School', 'filipino', 'separated', '2121', '989797565656', 'Goa camarines sur'),
-(24, 'renz', '', '', 'renz@123', '', '', '', '', '', '', '', '', '', 'High School', '', '', '', '', '');
+(26, 'Editha D. Baesa', '', '', 'Edithad.baesa@deped.gov.ph', '', '', '', '', '', '', '', '', 'uploads/profile_pics/images (12) (1).jpeg', 'Elementary School', '', '', '', '', ''),
+(27, 'Norlita N. Santos', '', '', 'Norlitan.santos@deped.gov.ph', '', '', '', '', '', '', '', '', '', 'Elementary School', '', '', '', '', ''),
+(28, 'Gloria D. Morenos', '', '', 'Gloriad.morenos@deped.gov.ph', '', '', '', '', '', '', '', '', '', 'Elementary School', '', '', '', '', ''),
+(29, 'Maria Lourdes B. Viray', '', '', 'Marialourdesb.viray@deped.gov.ph', '', '', '', '', '', '', '', '', '', 'Elementary School', '', '', '', '', ''),
+(30, 'Jed A. Camposano', '', '', 'Jeda.camposano@deped.gov.ph', '', '', '', '', '', '', '', '', '', 'Elementary School', '', '', '', '', ''),
+(31, 'Corazon V. Tanfelix', '', '', 'Corazonv.tanfelix@deped.gov.ph', '', '', '', '', '', '', '', '', '', 'Elementary School', '', '', '', '', ''),
+(32, 'Maria Celina J. Cloa', '', '', 'Mariacelinaj.cloa@deped.gov.ph', '', '', '', '', '', '', '', '', '', 'Elementary School', '', '', '', '', ''),
+(33, 'Dr. Darino G. Elizaga', '', '', 'Darinog.elizaga@deped.gov.ph', '', '', '', '', '', '', '', '', '', 'Elementary School', '', '', '', '', ''),
+(34, 'Rizza L. Escobido', '', '', 'Rizzal.escobido@deped.gov.ph', '', '', '', '', '', '', '', '', '', 'Elementary School', '', '', '', '', ''),
+(35, 'Lovirey M. Cerna', '', '', 'Lovireym.cerna@deped.gov.ph', '', '', '', '', '', '', '', '', '', 'Elementary School', '', '', '', '', ''),
+(36, 'Elizabeth D. Roberto', '', '', 'Elizabethd.roberto@deped.gov.ph', '', '', '', '', '', '', '', '', '', 'Elementary School', '', '', '', '', ''),
+(37, 'Eufelia L. Corales', '', '', 'Eufelial.corales@deped.gov.ph', '', '', '', '', '', '', '', '', '', 'Elementary School', '', '', '', '', ''),
+(38, 'Emil R. Mamiit', '', '', 'Emilr.mamiit@deped.gov.ph', '', '', '', '', '', '', '', '', '', 'Elementary School', '', '', '', '', ''),
+(39, 'Edna S. Madrid', '', '', 'Ednas.madrid@deped.gov.ph', '', '', '', '', '', '', '', '', '', 'Elementary School', '', '', '', '', ''),
+(40, 'Roderick D. De Leon', '', '', 'Roderickd.deleon@deped.gov.ph', '', '', '', '', '', '', '', '', '', 'Elementary School', '', '', '', '', ''),
+(41, 'Lilibeth S. Gozo', '', '', 'Lilibeths.gozo@deped.gov.ph', '', '', '', '', '', '', '', '', '', 'Elementary School', '', '', '', '', ''),
+(42, 'Azucena P. Ocasla', '', '', 'Azucenap.ocasla@deped.gov.ph', '', '', '', '', '', '', '', '', '', 'Elementary School', '', '', '', '', ''),
+(43, 'Soliman E. Rejuso', '', '', 'Solimane.rejuso@deped.gov.ph', '', '', '', '', '', '', '', '', '', 'Elementary School', '', '', '', '', ''),
+(44, 'Marylyn P. Meliton', '', '', 'Marylynp.meliton@deped.gov.ph', '', '', '', '', '', '', '', '', '', 'Elementary School', '', '', '', '', ''),
+(45, 'Levy J. Acuna', '', '', 'Levyj.acuna@deped.gov.ph', '', '', '', '', '', '', '', '', '', 'Elementary School', '', '', '', '', ''),
+(46, 'Amelita N. Ayaton', '', '', 'Amelitan.ayaton@deped.gv.ph', '', '', '', '', '', '', '', '', '', 'Elementary School', '', '', '', '', ''),
+(47, 'Rolando G. Corales', '', '', 'Rolandog.corales@deped.gov.ph', '', '', '', '', '', '', '', '', '', 'Elementary School', '', '', '', '', ''),
+(48, 'Arcenoel D. Zapatos', '', '', 'Arcenoeld.zapatos@deped.gov.ph', '', '', '', '', '', '', '', '', '', 'Elementary School', '', '', '', '', ''),
+(49, 'Mary Jane Gabriel', '', '', 'Maryjane.gabriel@deped.gov.ph', '', '', '', '', '', '', '', '', '', 'Elementary School', '', '', '', '', ''),
+(50, 'Nerisa A. Espinosa', '', '', 'Nerisaa.espinosa@deped.gov.ph', '', '', '', '', '', '', '', '', '', 'Elementary School', '', '', '', '', ''),
+(51, 'Edralino E. Nicolas', '', '', 'Edralinoe.nicolas@deped.gov.ph', '', '', '', '', '', '', '', '', '', 'Elementary School', '', '', '', '', ''),
+(52, 'Jean Francis V. Dela Cruz', '', '', 'Jeanfrancisv.delacruz@deped.gov.ph', '', '', '', '', '', '', '', '', '', 'Elementary School', '', '', '', '', ''),
+(53, 'Edito P. Fabillar', '', '', 'Editop.fabillar@deped.gov.ph', '', '', '', '', '', '', '', '', '', 'Elementary School', '', '', '', '', ''),
+(54, 'Rosalinda G. Quilates', '', '', 'Rosalindag.quilates@deped.gov.ph', '', '', '', '', '', '', '', '', '', 'Elementary School', '', '', '', '', ''),
+(55, 'Roberto A. Llanita', '', '', 'Robertoa.llanita@deped.gov.ph', '', '', '', '', '', '', '', '', '', 'Elementary School', '', '', '', '', ''),
+(56, 'Luzviminda M. Camarista', '', '', 'Luzvimindam.camarista@deped.gov.ph', '', '', '', '', '', '', '', '', '', 'Elementary School', '', '', '', '', ''),
+(57, 'Emilie DC Rivero', '', '', 'Emiliedc.rivero@deped.gov.ph', '', '', '', '', '', '', '', '', '', 'Elementary School', '', '', '', '', ''),
+(58, 'Nolasco H. Sablan', '', '', 'Nolascoh.sablan@deped.gov.ph', '', '', '', '', '', '', '', '', '', 'High School', '', '', '', '', ''),
+(59, 'Dr. Alejandrea A. Ylan', '', '', 'Alejandreaa.ylan@deped.gov.ph', '', '', '', '', '', '', '', '', '', 'High School', '', '', '', '', ''),
+(60, 'Maria Patricia S. De Vera', '', '', 'Mariapatricias.devera@deped.gov.ph', '', '', '', '', '', '', '', '', '', 'High School', '', '', '', '', ''),
+(61, 'Ronald A. Trono', '', '', 'Ronalda.trono@deped.gov.ph', '', '', '', '', '', '', '', '', '', 'High School', '', '', '', '', ''),
+(62, 'Odelon B. Penaflorida', '', '', 'Odelonb.penaflorida@deped.gov.ph', '', '', '', '', '', '', '', '', '', 'High School', '', '', '', '', ''),
+(63, 'Cesar C. Villareal', '', '', 'Cesarc.villareal@deped.gov.ph', '', '', '', '', '', '', '', '', '', 'High School', '', '', '', '', ''),
+(64, 'Amelita V. Yumang', '', '', 'Amelitav.yumang@deped.gov.ph', '', '', '', '', '', '', '', '', '', 'High School', '', '', '', '', ''),
+(65, 'Jonathan O. Lagdamen', '', '', 'Jonathano.lagdamen@deped.gov.ph', '', '', '', '', '', '', '', '', '', 'High School', '', '', '', '', ''),
+(66, 'Domingo A. Lozande', '', '', 'Domingoa.lozande@deped.gov.ph', '', '', '', '', '', '', '', '', '', 'High School', '', '', '', '', ''),
+(67, 'Eleonor S. Santos', '', '', 'Eleonors.santos@deped.gov.ph', '', '', '', '', '', '', '', '', '', 'High School', '', '', '', '', ''),
+(68, 'Rudy F. Falcunitin', '', '', 'Rudyf.falcunitin@deped.gov.ph', '', '', '', '', '', '', '', '', '', 'High School', '', '', '', '', ''),
+(69, 'Lilia H. Jaime', '', '', 'Liliah.jaime@deped.gov.ph', '', '', '', '', '', '', '', '', '', 'High School', '', '', '', '', ''),
+(70, 'Edelina I. Golloso', '', '', 'Edelinai.golloso@deped.gov.ph', '', '', '', '', '', '', '', '', '', 'High School', '', '', '', '', ''),
+(71, 'Ma. Christina C. Salonga', '', '', 'Machristinac.salonga@deped.gov.ph', '', '', '', '', '', '', '', '', '', 'High School', '', '', '', '', ''),
+(72, 'Jaime S. De Vera Jr.', '', '', 'Jaimes.devera@deped.gov.ph', '', '', '', '', '', '', '', '', '', 'High School', '', '', '', '', ''),
+(73, 'Irene L. Pantorillo', '', '', 'Irenel.pantorillo@deped.gov.ph', '', '', '', '', '', '', '', '', '', 'High School', '', '', '', '', ''),
+(74, 'Alvin Patrick Q. Penaflorida', '', '', 'Alvinpatrickq.penaflorida@deped.gov.ph', '', '', '', '', '', '', '', '', '', 'High School', '', '', '', '', ''),
+(75, 'Juliana T. Alvarez', '', '', 'Julianat.alvarez@deped.gov.ph', '', '', '', '', '', '', '', '', '', 'High School', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -288,8 +380,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `email`, `pass`, `role`, `school`, `picture`) VALUES
 (1, 'admin@1', 'admin', 'Admin', 'none', ''),
-(45, 'renz@i', 'renz', 'Client', '', ''),
-(47, 'renz@123', '123', 'Client', '', '');
+(49, 'Edithad.baesa@deped.gov.ph', 'editha@2023', 'Client', '', '');
 
 -- --------------------------------------------------------
 
@@ -366,6 +457,12 @@ ALTER TABLE `equipment`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `learning`
+--
+ALTER TABLE `learning`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `profile`
 --
 ALTER TABLE `profile`
@@ -403,13 +500,13 @@ ALTER TABLE `work`
 -- AUTO_INCREMENT for table `award`
 --
 ALTER TABLE `award`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `civil`
 --
 ALTER TABLE `civil`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `dor`
@@ -421,7 +518,7 @@ ALTER TABLE `dor`
 -- AUTO_INCREMENT for table `educationalbg`
 --
 ALTER TABLE `educationalbg`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT for table `educationaldegree`
@@ -436,10 +533,16 @@ ALTER TABLE `equipment`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
+-- AUTO_INCREMENT for table `learning`
+--
+ALTER TABLE `learning`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `profile`
 --
 ALTER TABLE `profile`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
 -- AUTO_INCREMENT for table `schools`
@@ -451,7 +554,7 @@ ALTER TABLE `schools`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT for table `voluntary`
@@ -463,7 +566,7 @@ ALTER TABLE `voluntary`
 -- AUTO_INCREMENT for table `work`
 --
 ALTER TABLE `work`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
