@@ -3,6 +3,11 @@
     session_start();
 
     $email = $_POST['email'];
+
+    $q = "SELECT * from `learning` where email='$email'";
+    $list = $con->query($q);
+    $info = $list->fetch_assoc();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -56,23 +61,24 @@
             </tr>
         </thead>
         <tbody>
-            <!-- <?php if($list->num_rows){ ?>
-                <?php do{ ?> -->
+            <?php if($list->num_rows){ ?>
+                <?php do{ ?>
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td><?php echo $info['title'] ?></td>
+                        <td><?php echo $info['dateFrom'] ?></td>
+                        <td><?php echo $info['dateTo'] ?></td>
+                        <td><?php echo $info['hours'] ?></td>
+                        <td><?php echo $info['typeOfLd'] ?></td>
+                        <td><?php echo $info['conducted'] ?></td>
                         <td>
-                        <div class="d-flex gap-2">
-                                <button class='btn btn-info btn-sm' data-bs-toggle="modal" data-bs-target="#editWorkModalButton" value='' id=''><i class="fa-solid fa-pen text-light"></i></button>
-                                <button class='btn btn-danger btn-sm' value='' id=''><i class="fa-solid fa-trash"></i></button>
+                            <div class="d-flex gap-2">
+                                <button class='btn btn-info btn-sm' value='<?php echo $info['id'] ?>' id=''><i class="fa-solid fa-pen text-light"></i></button>
+                                <button class='btn btn-danger btn-sm' value='<?php echo $info['id'] ?>' id=''><i class="fa-solid fa-trash"></i></button>
                             </div>
                         </td>
                     </tr>
-                <!-- <?php }while($info = $list->fetch_assoc()) ?>
-            <?php }else{ ?> -->
+                <?php }while($info = $list->fetch_assoc()) ?>
+            <?php }else{ ?>
                 <tr>
                     <td colspan='9'>No data</td>
                 </tr>
