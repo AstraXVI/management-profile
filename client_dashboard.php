@@ -613,28 +613,83 @@
         </div>
     </div>
     
-<!-- Modal CREDENTIALS -->
-<div class="modal fade" id="navCredentialsButton" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Credentials</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="mb-3">
-            <label for="formFile" class="form-label">Upload Credentials</label>
-            <input class="form-control" type="file" id="formFile">
+    <!-- Modal CREDENTIALS -->
+    <div class="modal fade" id="navCredentialsButton" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Credentials</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="formFile" class="form-label">Upload Credentials</label>
+                    <input class="form-control" type="file" id="formFile">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">UPLOAD</button>
+            </div>
+            </div>
         </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">UPLOAD</button>
-      </div>
     </div>
-  </div>
-</div>
 
+    <!-- Modal Add Award -->
+    <div class="modal fade" id="profileAwardModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Add Award</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="input-group my-3">
+                    <span class="input-group-text" id="basic-addon1">Title of award</span>
+                    <input type="text" id='inputAwardTitle' class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+    
+                <div class="input-group mb-3">
+                    <label class="input-group-text" for="">Level of award</label>
+                    <select class="form-select" id='inputAwardlvl'>
+                        <option value="International">International</option>
+                        <option value="married">Regional</option>
+                        <option value="Division">Division</option>
+                        <option value="School">School</option>
+                    </select>
+                </div>
+
+                <div class="input-group my-3">
+                    <span class="input-group-text" id="basic-addon1">Certificate issue date</span>
+                    <input type="date" id='inputAwardDate' class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id='profileAwardAddBtnDb'>Add award</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal EDIT AWARD-->
+    <div class="modal fade" id="profileAwardModalEdit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Edit award</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id='awardModalBody'>
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id='profileAwardUpdateButtonDb'>Save changes</button>
+            </div>
+            </div>
+        </div>
+    </div>
     <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
 
     <script>
@@ -1781,6 +1836,149 @@
                     }
                 })
             })
+
+            // AWARD BUTTON LOAD
+            $("#dashBoardBody").on("click","#profileAwardExpBtn",function(){
+                const email = $("#profileUserEmail").val();
+
+                $.ajax({
+                    url:"profileInfo/award.php",
+                    method:"post",
+                    data:{
+                        email:email
+                    },
+                    success(e){
+                        $("#dashBoardBody").html(e)
+                    }
+                })
+            })
+
+            // ADD AWARD DB
+            $("#profileAwardAddBtnDb").click(function(){
+
+                const email = $("#profileUserEmail").val();
+                const title = $("#inputAwardTitle").val();
+                const lvl = $("#inputAwardlvl").val();
+                const date = $("#inputAwardDate").val();
+
+
+                if(title){
+                    $.ajax({
+                        url:"profileInfo/addAward.php",
+                        method:"post",
+                        data:{
+                            email : email,
+                            title : title,
+                            lvl : lvl,
+                            date : date
+                        },
+                        success(){
+
+                            $.ajax({
+                                url:"profileInfo/award.php",
+                                method:"post",
+                                data:{
+                                    email:email
+                                },
+                                success(e){
+                                    $("#dashBoardBody").html(e)
+
+                                    confirm("Add award success")
+
+                                }
+                            })
+
+                        }
+                    })
+                }else{
+                    confirm("Please add title!")
+                }
+               
+            })
+
+            // AWARD EDIT BUTTON UPDATE MODAL
+            $("#dashBoardBody").on("click","#profileAwardEditButtonModal",function(){
+                const id = $(this).val();
+
+                $.ajax({
+                    url:"profileInfo/updateAwardModal.php",
+                    method:"post",
+                    data:{
+                        id:id
+                    },
+                    success(e){
+                        $("#awardModalBody").html(e)
+                    }
+                })
+            })
+
+            // UPDATE AWARD DATABASE BUTTON
+            $("#profileAwardUpdateButtonDb").click(function(){
+
+                const id = $("#profileAwardid").val();
+                const email = $("#profileUserEmail").val();
+                const title = $("#EditinputAwardTitle").val();
+                const lvl = $("#EditinputAwardlvl").val();
+                const date = $("#EditinputAwardDate").val();
+
+                // alert(date)
+
+                $.ajax({
+                    url:"profileInfo/updateAward.php",
+                    method:"post",
+                    data:{
+                        id : id,
+                        title : title,
+                        lvl : lvl,
+                        date : date
+                    },
+                    success(){
+
+                        $.ajax({
+                            url:"profileInfo/award.php",
+                            method:"post",
+                            data:{
+                                email:email
+                            },
+                            success(e){
+                                $("#dashBoardBody").html(e)
+
+                                confirm("Update success")
+                            }
+                        })
+
+                    }
+                })
+            })
+
+            // DELETE AWARD DATABASE BUTTON
+            $("#dashBoardBody").on("click","#profileAwardDeleteButton",function(){
+                const id = $(this).val();
+                const email = $("#userEmailProfile").val();
+
+                $.ajax({
+                    url:"profileInfo/awardDelete.php",
+                    method:"post",
+                    data:{
+                        id:id
+                    },
+                    success(){
+
+                        $.ajax({
+                            url:"profileInfo/award.php",
+                            method:"post",
+                            data:{
+                                email:email
+                            },
+                            success(e){
+                                $("#dashBoardBody").html(e)
+                            }
+                        })
+
+                    }
+                })
+            })
+
         })
 
         function exportToExcel() {
