@@ -8,6 +8,11 @@
     $list = $con->query($q);
     $info = $list->fetch_assoc();
 
+    // GET NAME
+    $name = "SELECT * from profile where email='$email'";
+    $listName = $con->query($name);
+    $infoName = $listName->fetch_assoc();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,12 +23,16 @@
     <title>Document</title>
 </head>
 <body>
-    <h2 class="text-secondary fw-bold mb-3">Learning and development</h2>
+    <h2 class="text-secondary fw-bold mb-3">Learning and development <?php if($_SESSION['status'] == 'Admin') echo "| ".$infoName['name'] ?></h2>
 
 
      <!-- get email profile -->
      <input type="hidden" value='<?php echo $email ?>' id='profileUserEmail'>
-        <!--  -->
+    <!--  -->
+
+    <!-- get email profile -->
+    <input type="hidden" value='<?php echo $email ?>' id='userEmailProfile'>
+    <!--  -->
 
     <!-- Tabs navs -->
     <ul class="nav nav-tabs tabsss mb-3" id="ex1" style="font-size: 14px;" role="tablist">
@@ -72,8 +81,8 @@
                         <td><?php echo $info['conducted'] ?></td>
                         <td>
                             <div class="d-flex gap-2">
-                                <button class='btn btn-info btn-sm' value='<?php echo $info['id'] ?>' id=''><i class="fa-solid fa-pen text-light"></i></button>
-                                <button class='btn btn-danger btn-sm' value='<?php echo $info['id'] ?>' id=''><i class="fa-solid fa-trash"></i></button>
+                                <button class='btn btn-info btn-sm' data-bs-toggle="modal" data-bs-target="#profileLearningModalEdit" value='<?php echo $info['id'] ?>' id='editLearnerButoonModal'><i class="fa-solid fa-pen text-light"></i></button>
+                                <button class='btn btn-danger btn-sm' value='<?php echo $info['id'] ?>' id='profileLearningDeleteButton'><i class="fa-solid fa-trash"></i></button>
                             </div>
                         </td>
                     </tr>

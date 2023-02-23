@@ -398,7 +398,7 @@
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" id='addCivilServiceButtonDb'>Add Civil Service</button>
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id='addCivilServiceButtonDb'>Add Civil Service</button>
         </div>
         </div>
     </div>
@@ -459,7 +459,7 @@
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" id='addWorkServiceButtonDb'>Add</button>
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id='addWorkServiceButtonDb'>Add</button>
         </div>
         </div>
     </div>
@@ -510,7 +510,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id='profileAddLearningButtonDb'>Add</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id='profileAddLearningButtonDb'>Add</button>
                 </div>
                 </div>
         </div>
@@ -621,7 +621,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" id='updateDegreeDatabaseButton'>Save changes</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id='updateDegreeDatabaseButton'>Save changes</button>
             </div>
             </div>
         </div>
@@ -640,7 +640,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" id='civilUpdateButtonDatabase'>Save changes</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id='civilUpdateButtonDatabase'>Save changes</button>
             </div>
             </div>
         </div>
@@ -659,7 +659,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" id='updateWorkExpButtonDb'>Save changes</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id='updateWorkExpButtonDb'>Save changes</button>
             </div>
             </div>
         </div>
@@ -718,7 +718,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" id='profileAwardAddBtnDb'>Add award</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id='profileAwardAddBtnDb'>Add award</button>
             </div>
             </div>
         </div>
@@ -737,11 +737,31 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" id='profileAwardUpdateButtonDb'>Save changes</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id='profileAwardUpdateButtonDb'>Save changes</button>
             </div>
             </div>
         </div>
     </div>
+
+    <!-- Modal EDIT learning-->
+    <div class="modal fade" id="profileLearningModalEdit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Edit learning</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id='learningModalBody'>
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id='profileLearningUpdateButtonDb'>Save changes</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
     <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
 
     <script>
@@ -1764,34 +1784,39 @@
                 const status = $("#workExpStatus").val();
                 const service = $("#workExpService").val();
 
-                $.ajax({
-                    url:"profileInfo/addWork.php",
-                    method:"post",
-                    data:{
-                        email:email,
-                        from:from,
-                        to:to,
-                        position:position,
-                        department:department,
-                        salary:salary,
-                        job:job,
-                        status:status,
-                        service:service
-                    },
-                    success(){
-                        $.ajax({
-                            url:"profileInfo/workExp.php",
-                            method:"post",
-                            data:{
-                                email : email
-                            },
-                            success(e){
-                                $("#dashBoardBody").html(e)
+                if(position){
+                    $.ajax({
+                        url:"profileInfo/addWork.php",
+                        method:"post",
+                        data:{
+                            email:email,
+                            from:from,
+                            to:to,
+                            position:position,
+                            department:department,
+                            salary:salary,
+                            job:job,
+                            status:status,
+                            service:service
+                        },
+                        success(){
+                            $.ajax({
+                                url:"profileInfo/workExp.php",
+                                method:"post",
+                                data:{
+                                    email : email
+                                },
+                                success(e){
+                                    $("#dashBoardBody").html(e)
+                                    confirm("Add success!")
 
-                            }
-                        })
-                    }
-                })
+                                }
+                            })
+                        }
+                    })
+                }else{
+                    confirm("Please add Position Title!")
+                }
 
             })
 
@@ -2076,6 +2101,104 @@
                 }
                 
 
+            })
+
+            // edit learner button
+            $("#dashBoardBody").on("click","#editLearnerButoonModal",function(){
+                const id = $(this).val();
+                
+                $.ajax({
+                    url:"profileInfo/updateLearningModal.php",
+                    method:"post",
+                    data:{
+                        id:id
+                    },
+                    success(e){
+                        $("#learningModalBody").html(e)
+                    }
+                })
+
+            })
+
+            // LEARNING UPDATE
+            $("#profileLearningUpdateButtonDb").click(function(){
+                const id = $("#learnerIdUser").val()
+                const email = $("#learnerEmailUser").val()
+
+                const title = $("#EditlearningAndDevelopmentTitle").val();
+                const from = $("#EditlearningAndDevelopmentDateFrom").val();
+                const to = $("#EditlearningAndDevelopmentDateTo").val();
+                const hrs = $("#EditlearningAndDevelopmentHours").val();
+                const typeOfLd = $("#EditlearningAndDevelopmentLD").val();
+                const conducted = $("#EditlearningAndDevelopmentConducted").val();
+
+                // console.log(id,email,title,from,to,hrs,typeOfLd,conducted)
+
+                if(title){
+                    $.ajax({
+                        url:"profileInfo/learningUpdate.php",
+                        method:"post",
+                        data:{
+                            id:id,
+                            title:title,
+                            from:from,
+                            to:to,
+                            hrs:hrs,
+                            typeOfLd:typeOfLd,
+                            conducted:conducted
+                        },
+                        success(){
+                            // $("#dashBoardBody").html(e)
+
+                            $.ajax({
+                                url:"profileInfo/learning_and_development.php",
+                                method:"post",
+                                data:{
+                                    email : email
+                                },
+                                success(e){
+                                    $("#dashBoardBody").html(e)
+
+                                    confirm("Update success!")
+                                }
+                            })
+                        }
+                    })
+                }else{
+                    confirm("Please add Title")
+                }
+            })
+
+            // DELETE LEARNING
+            $("#dashBoardBody").on("click","#profileLearningDeleteButton",function(){
+                const id = $(this).val()
+                const email = $("#userEmailProfile").val()
+
+                if(confirm("Are you sure to delete this?")){
+                    $.ajax({
+                        url:"profileInfo/learnerDelete.php",
+                        method:"post",
+                        data:{
+                            id:id
+                        },
+                        success(){
+
+                            $.ajax({
+                                url:"profileInfo/learning_and_development.php",
+                                method:"post",
+                                data:{
+                                    email : email
+                                },
+                                success(e){
+                                    $("#dashBoardBody").html(e)
+
+                                    // confirm("Update success!")
+                                }
+                            })
+                        }
+                    })
+                }
+                
             })
 
         })

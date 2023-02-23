@@ -12,6 +12,11 @@
     $listDegree = $con->query($getDegree);
     $fetchDegree = $listDegree->fetch_assoc();
     
+    // GET NAME
+    $name = "SELECT * from profile where email='$id'";
+    $listName = $con->query($name);
+    $infoName = $listName->fetch_assoc();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,12 +27,20 @@
     <title>Document</title>
 </head>
 <body>
-    <h2 class="text-secondary fw-bold mb-3">Educational Background</h2>
+    <h2 class="text-secondary fw-bold mb-3">Educational Background <?php if($_SESSION['status'] == 'Admin') echo "| ".$infoName['name'] ?></h2>
 
 
      <!-- get email profile -->
      <input type="hidden" value='<?php echo $info['email'] ?>' id='profileUserEmail'>
-        <!--  -->
+    <!--  -->
+
+    <!-- get user email -->
+    <input type="hidden" value="<?php echo $id ?>" id='userEmailProfile'>
+    <!--  -->
+
+    <!-- get user email -->
+    <input type="hidden" value="<?php echo $id ?>" id='degreeUserEmail'>
+    <!--  -->
 
     <!-- Tabs navs -->
     <ul class="nav nav-tabs tabsss mb-3" id="ex1" style="font-size: 14px;" role="tablist">

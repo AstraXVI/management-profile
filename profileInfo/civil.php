@@ -8,8 +8,11 @@
     $list = $con->query($q);
     $info = $list->fetch_assoc();
 
-    // echo $id;
-    
+
+     // GET NAME
+     $name = "SELECT * from profile where email='$email'";
+     $listName = $con->query($name);
+     $infoName = $listName->fetch_assoc();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,12 +23,16 @@
     <title>Document</title>
 </head>
 <body>
-    <h2 class="text-secondary fw-bold mb-3">Civil Service Eligibility</h2>
+    <h2 class="text-secondary fw-bold mb-3">Civil Service Eligibility <?php if($_SESSION['status'] == 'Admin') echo "| ".$infoName['name'] ?></h2>
 
 
      <!-- get email profile -->
      <input type="hidden" value='<?php echo $email ?>' id='profileUserEmail'>
-        <!--  -->
+    <!--  -->
+
+    <!-- get user email -->
+    <input type="hidden" value="<?php echo $email ?>" id='userEmailProfile'>
+    <!--  -->
 
     <!-- Tabs navs -->
     <ul class="nav nav-tabs tabsss mb-3" id="ex1" style="font-size: 14px;" role="tablist">
