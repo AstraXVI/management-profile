@@ -208,7 +208,39 @@
                             <h4 class="card-title"><i class="fa-solid fa-user-tie me-3"></i><?php echo $p ?> <br> <p class="mt-2">School Head</p></h4>
                             <hr>
                             <!-- Text -->
-                            <p class="card-text">Number of registered School head.</p>
+                            <p class="card-text">Total Number of School head.</p>
+
+                            <div class="d-flex align-items-center justify-content-around">
+                                <div>
+                                    <div class='d-inline p-2 text-dark bg-light' style="border-radius: 100vmax;">30</div>
+                                    <div class="mt-2">Male</div>
+                                </div>
+                                <div>
+                                    <div class='d-inline p-2 text-dark bg-light' style="border-radius: 100vmax; margin-left: 13px;">21</div>
+                                    <div class="mt-2">Female</div>
+                                </div>
+                            </div>
+                            <!-- <button id="toSchoolList" class="btn btn-rounded text-light px-4 btn-md" style="background-color: rgba(0, 0, 0, 0.3);">See more<i class="fa-solid fa-arrow-up-right-from-square ms-2"></i></button> -->
+                        </div>
+                    </div>
+                    <div class="card w-100" style="border: none; max-width: 310px">
+                        <div class="card-body bg-info" style="border-radius: 20px;">
+                            <!-- Title -->
+                            <h4 class="card-title"><i class="fa-solid fa-clipboard-user me-3"></i>17 <br> <p class="mt-2">Assistant Principal</p></h4>
+                            <hr>
+                            <!-- Text -->
+                            <p class="card-text">Total Number of Assistant School principal.</p>
+
+                            <div class="d-flex align-items-center justify-content-around">
+                                <div>
+                                    <div class='d-inline p-2 text-dark bg-light' style="border-radius: 100vmax;">5</div>
+                                    <div class="mt-2">Male</div>
+                                </div>
+                                <div>
+                                    <div class='d-inline p-2 text-dark bg-light' style="border-radius: 100vmax; margin-left: 13px;">12</div>
+                                    <div class="mt-2">Female</div>
+                                </div>
+                            </div>
                             <!-- <button id="toSchoolList" class="btn btn-rounded text-light px-4 btn-md" style="background-color: rgba(0, 0, 0, 0.3);">See more<i class="fa-solid fa-arrow-up-right-from-square ms-2"></i></button> -->
                         </div>
                     </div>
@@ -227,20 +259,20 @@
                     <div class="card w-100" style="border: none; max-width: 350px ">
                         <div class="card-body bg-warning" style="border-radius: 20px;">
                             <!-- Title -->
-                            <h4 class="card-title"><i class="fa-solid fa-school me-3"></i><?php echo $elemSchoolCount ?> <br> <p class="mt-2">Elementary School</p></h4>
+                            <h4 class="card-title"><i class="fa fa-ranking-star me-3"></i><?php echo $elemSchoolCount ?> <br> <p class="mt-2">With Master's Degree</p></h4>
                             <hr>
                             <!-- Text -->
-                            <p class="card-text">Number of registered Elementary School.</p>
+                            <p class="card-text">Total no. of school principal with Master degree.</p>
                             <!-- <button class="btn btn-rounded text-light px-4 btn-md toManageUser" style="background-color: rgba(0, 0, 0, 0.3);">See more<i class="fa-solid fa-arrow-up-right-from-square ms-2"></i></button> -->
                         </div>
                     </div>
                     <div class="card w-100 " style="border: none; max-width: 350px ">
                         <div class="card-body bg-primary" style="border-radius: 20px;">
                             <!-- Title -->
-                            <h4 class="card-title"><i class="fa-solid fa-school-flag me-3"></i><?php echo $highSchoolCount ?> <br> <p class="mt-2">High School</p></h4>
+                            <h4 class="card-title"><i class="fa-solid fa-ranking-star text-dark me-3"></i><?php echo $highSchoolCount ?> <br> <p class="mt-2">With Post Degree</p></h4>
                             <hr>
                             <!-- Text -->
-                            <p class="card-text">Number of registered High School.</p>
+                            <p class="card-text">Total no. of school principal with doctorate degree.</p>
                             <!-- <button class="btn btn-rounded text-light px-4 btn-md toManageUser" style="background-color: rgba(0, 0, 0, 0.3);">See more<i class="fa-solid fa-arrow-up-right-from-square ms-2"></i></button> -->
                         </div>
                     </div>

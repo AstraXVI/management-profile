@@ -41,6 +41,10 @@
     $userLists = $con->query($getDataUser);
     $data = $userLists->fetch_assoc();
 
+    $getEmail = "SELECT * FROM `educationaldegree` WHERE email='$emailNew'";
+    $degreeList = $con->query($getEmail);
+    $fetchSchool = $degreeList->fetch_assoc();
+
 
 
 ?>
@@ -150,15 +154,64 @@
         <div id='dashBoardBody' class="mx-auto" style="width: 76%; margin-top: 70px;">
             <!-- Ilagay dito ang dashboard -->
             <div class=" text-secondary fw-bold p-2 ps-0 mb-3 w-25 h3">Dashboard</div>
-            <div class="d-flex py-5 px-5 text-light" style="gap: 120px; background-color: white;">
+            <div class="d-flex py-5 px-5 text-light" style="gap: 40px; background-color: white;">
+                <?php if($fetchSchool['lvl'] == "Masters Degree"){ ?>
+                    <div class="card w-75" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; max-width: 350px">
+                        <div class="card-body bg-primary rounded-1">
+                            <!-- Title -->
+                            <h4 class="card-title"><p><i class="fa-solid fa-ranking-star me-3"></i>Master Degree</p></h4>
+                            <hr>
+                            <!-- Text -->
+                            <p class="card-text"><?php echo $fetchSchool['nameSchool'] ?></p>
+                            <p class="card-text"><?php echo $fetchSchool['education'] ?></p>
+                            <div class="d-flex gap-3 fs-4">
+                                <span class="fa fa-star text-warning"></span>
+                                <span class="fa fa-star text-warning"></span>
+                                <span class="fa fa-star text-warning"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                            </div>
+                            <!-- <button id="toEquipment" class="btn btn-rounded text-light px-4 btn-md" style="background-color: rgba(0, 0, 0, 0.3);">See Profile<i class="fa-solid fa-arrow-up-right-from-square ms-2"></i></button> -->
+                        </div>
+                    </div>
+                <?php }else{ ?>
+                    <div class="card w-75" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; max-width: 350px">
+                        <div class="card-body bg-danger rounded-1">
+                            <!-- Title -->
+                            <h4 class="card-title"><p><i class="fa-solid fa-ranking-star me-2"></i>Post Degree</p></h4>
+                            <hr>
+                            <!-- Text -->
+                            <p class="card-text"><?php echo $fetchSchool['nameSchool'] ?></p>
+                            <p class="card-text"><?php echo $fetchSchool['education'] ?></p>
+                            <div class="d-flex gap-3 fs-4">
+                            <span class="fa fa-star text-warning"></span>
+                                <span class="fa fa-star text-warning"></span>
+                                <span class="fa fa-star text-warning"></span>
+                                <span class="fa fa-star text-warning"></span>
+                                <span class="fa fa-star text-warning"></span>
+                            </div>
+                            <!-- <button id="toEquipment" class="btn btn-rounded text-light px-4 btn-md" style="background-color: rgba(0, 0, 0, 0.3);">See Profile<i class="fa-solid fa-arrow-up-right-from-square ms-2"></i></button> -->
+                        </div>
+                    </div>
+                <?php } ?>
+                
                 <div class="card w-75" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; max-width: 350px">
-                    <div class="card-body bg-primary rounded-1">
+                    <div class="card-body bg-danger rounded-1">
                         <!-- Title -->
-                        <h4 class="card-title"><i class="fa-solid fa-user me-3"></i>1 <br> <p class="mt-2">My Profile</p></h4>
+                        <h4 class="card-title"><p><i class="fa-solid fa-person-chalkboard me-2"></i>Years as Teaching Personnel</p></h4>
                         <hr>
                         <!-- Text -->
-                        <p class="card-text">Overview.</p>
-                        <button id="toEquipment" class="btn btn-rounded text-light px-4 btn-md" style="background-color: rgba(0, 0, 0, 0.3);">See Profile<i class="fa-solid fa-arrow-up-right-from-square ms-2"></i></button>
+                        <p class="card-text fs-3">5 Years</p>
+                    </div>
+                </div>
+
+                <div class="card w-75" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; max-width: 350px">
+                    <div class="card-body bg-warning rounded-1">
+                        <!-- Title -->
+                        <h4 class="card-title"><p><i class="fa-solid fa-school-lock me-2"></i>Years as School Administration</p></h4>
+                        <hr>
+                        <!-- Text -->
+                        <p class="card-text fs-3">3 Years</p>
                     </div>
                 </div>
             </div>
