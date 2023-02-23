@@ -7,6 +7,8 @@
     $q = "SELECT * from profile where email='$id' OR id='$id'";
     $list = $con->query($q);
     $info = $list->fetch_assoc();
+
+    $emailNew = $info['email'];
     
 ?>
 <!DOCTYPE html>
@@ -53,106 +55,19 @@
             background-size: cover;
             background-repeat: no-repeat;
         }
-        /* .profile-img::before{
-            content: '';
-            width: 380px;
-            height: 300px;
-            background-color: #f5f5f5;
-            position: absolute;
-            top: 0;
-            left: 0;
-        } */
 
-
-        /* .profile-container {
-        position: relative;
-        margin-top: -10px;
-        width: 380px;
-        height: 300px;
-        margin-right: 20px;
-        }
-
-        .profile-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0);
-        transition: background 0.5s ease;
-        }
-
-        .profile-container:hover .profile-overlay {
-        display: block;
-        background: rgba(0, 0, 0, .5);
-        }
-
-        .profile-container img {
-        position: absolute;
-        width: 300px;
-        max-width: 380px;
-        height: 300px;
-        left: 0;
-        right: 0;
-        margin-inline: auto;
-        max-height: 300px;
-        }
-
-        .profile-title {
-        position: absolute;
-        width: 380px;
-        left: 0;
-        bottom: 50px;
-        font-weight: 700;
-        font-size: 30px;
-        text-align: center;
-        text-transform: capitalize;
-        color: white;
-        z-index: 1;
-        transition: bottom .5s ease;
-        }
-
-        .profile-container:hover .profile-title {
-        bottom: 80px;
-        }
-
-        .profile-button {
-        position: absolute;
-        width: 380px;
-        left:0;
-        bottom: 30px;
-        text-align: center;
-        opacity: 0;
-        transition: opacity .35s ease;
-        }
-
-        .profile-button a {
-        width: 200px;
-        padding: 12px 48px;
-        text-align: center;
-        color: white;
-        border: solid 2px white;
-        z-index: 1;
-        text-decoration: none;
-        }
-
-        .profile-container:hover .profile-button {
-        opacity: 1;
-        } */
-
-        /* .tabsss.nav-link, .tabsss.nav-link.active {
-            color: #f5f5f5;
-            background-color: rgba(13, 109, 253, 0.521);
-            border-color: #dee2e6;
-        } */
 
     </style>
 </head>
 <body style="background: url(https://cdn.pixabay.com/photo/2017/07/01/19/48/background-2462431_960_720.jpg) no-repeat; background-size: cover; background-color: #e5e5e5; background-blend-mode: overlay;">
-    <h2 class="text-secondary fw-bold mb-3">Profile</h2>
+    <h2 class="text-secondary fw-bold mb-3">Profile <?php if($_SESSION['status'] == 'Admin') echo "| ".$info['name'] ?></h2>
 
         <!-- get email profile -->
         <input type="hidden" value='<?php echo $info['email'] ?>' id='profileUserEmail'>
+        <!--  -->
+
+        <!-- get user email -->
+        <input type="hidden" value="<?php echo $emailNew ?>" id='userEmailProfile'>
         <!--  -->
 
         <!-- Tabs navs -->

@@ -119,6 +119,11 @@
         </div>
         </div>
     </header>
+
+    <!-- get user email -->
+    <!-- <input type="hidden" value="<?php echo $userEmail ?>" id='userEmailProfile'> -->
+    <!--  -->
+
     <div class='container-fluid m-0 p-0 flex-grow-1 d-flex'>
     <!-- <span class="position-absolute" style="left: 300px; top: 30px;"><i id="menuBtn" class="fa-solid fa-bars text-dark fs-3"></i></span> -->
         <div class='nav_wrapper'>
@@ -148,17 +153,11 @@
                                 <span class="bi me-2" width="16" height="16"><i class="fa-solid fa-user-tie"></i></span>
                                 School Head
                             </a>
-                            <ul id='levelBtnDashboard' style='display:none; padding-left: 13px;'>
+                            <!-- <ul id='levelBtnDashboard' style='display:none; padding-left: 13px;'>
                                 <li><button class='ms-n4 bg-dark text-light' value='High School' style="border:none;" id='navHighSchoolBtn'><i class="fa-solid fa-minus text-secondary me-2"></i>High School</button></li>
                                 <li><button class='bg-dark text-light' value='Elementary School' style="border:none;" id='navElemSchoolBtn'><i class="fa-solid fa-minus text-secondary me-2"></i>Elementary School</button></li>
-                            </ul>
+                            </ul> -->
                         </li>
-                        <!-- <li id='unitHeadBtn'>
-                            <a id='navBtn5' href="#" class="nav-link link-light">
-                                <span class="bi me-2" width="16" height="16"><i class="fa-solid fa-user"></i></span>
-                                Unit Head
-                            </a>
-                        </li> -->
                         <li id='manageUserBtn'>
                             <a id='navBtn3' href="#" class="nav-link link-light">
                                 <span class="bi me-2" width="16" height="16"><i class="fa-solid fa-users"></i></span>
@@ -180,10 +179,6 @@
                         </li> -->
                     </ul>
                 </div>
-                <!-- <ul>
-                    <li><a href="javascript:window.location.reload(true)">Dashboard</a></li>
-                    <li id='schoolBtn'>Schoool</li>
-                </ul> -->
             </nav>
         </div>
     
@@ -636,14 +631,21 @@
                         <input type="text" class="form-control" id="civilPlaceExam" placeholder="Place of Examination">
                         <label>Place of Examination</label>
                     </div>
-                    <label>License (if applicable)</label>
-                    <br>
-                    <input type="text" id='civilDate' placeholder='Number'>
-                    <input type="text" id='civilNumber' placeholder='Date of Validity'>
+
+                    <label class='mb-2'>License (if applicable)</label>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">Number</span>
+                        <input type="text" id='civilNumber' class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">Date of Validity</span>
+                        <input type="date" id='civilDate' class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id='addCivilServiceButtonDb'>Add Civil Service</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id='addCivilServiceButtonDb'>Add Civil Service</button>
                 </div>
                 </div>
             </div>
@@ -662,6 +664,422 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-primary" id='profileSaveButtonEducation' data-bs-dismiss="modal" >Save changes</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+     <!-- ADD CIVIL MODAL-->
+     <div class="modal fade" id="civilAddData" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Add Civil Service Eligibility</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <!-- <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="civilInputCareer" placeholder="Career Service">
+                <label>Career Service</label>
+            </div> -->
+            <div class="input-group mb-3">
+                <span class="input-group-text">Career Service</span>
+                <input type="text" class="form-control" id="civilInputCareer" value="" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+
+            <!-- <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="civilInputRating" placeholder="School Name">
+                <label>Rating</label>
+            </div> -->
+
+            <div class="input-group mb-3">
+                <span class="input-group-text">Rating</span>
+                <input type="text" class="form-control" id="civilInputRating" value="" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text">Date of Examination</span>
+                <input type="date" class="form-control" id="civilDateExam" value="" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text">Place of Examination</span>
+                <input type="text" class="form-control" id="civilPlaceExam" value="" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+
+            <label class="d-block text-center text-secondary">License (if applicable)</label>
+            <br>
+            <!-- <input type="text" id='civilDate' placeholder='Number'> -->
+            <div class="input-group mb-3">
+                <span class="input-group-text">Number</span>
+                <input type="text" class="form-control" id="civilNumber" value="" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text">Date of Validity</span>
+                <input type="text" class="form-control" id="civilDate" value="" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+            <!-- <input type="text" id='civilNumber' placeholder='Date of Validity'> -->
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id='addCivilServiceButtonDb'>Add Civil Service</button>
+        </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- ADD WORK MODAL -->
+    <div class="modal fade" id="workAddData" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Add Work Experience</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <label class="mb-2">INCLUSIVE DATES</label>
+            <br>
+            <div class="d-flex gap-4">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="inputGroup-sizing-default">From</span>
+                    <input type="date" class="form-control" id="workExpDateFrom" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="inputGroup-sizing-default">To</span>
+                    <input type="date" class="form-control" id="workExpDateTo" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                </div>
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Position Title (Write in full/ Do not abbreviate)</span>
+                <input type="text" class="form-control" id="workExpPosition" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Department/Agency/Office/Company (Write in full/ Do not abbreviate)</span>
+                <input type="text" class="form-control" id="workExpDepartment" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Monthly Salary</span>
+                <input type="text" class="form-control" id="workExpSalary" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Salary/Job/Pay Grade (if applicable)</span>
+                <input type="text" class="form-control" id="workExpJob" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Status of Appointment</span>
+                <input type="text" class="form-control" id="workExpStatus" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Gov't Service (Y/N)</span>
+                <input type="text" class="form-control" id="workExpService" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+            
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id='addWorkServiceButtonDb'>Add</button>
+        </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- LEARNING AND DEVELOPMENT MODAL -->
+    <div class="modal fade" id="learningAndDevelopmentAddData" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add Learning and Development</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+        
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" style="font-size: 14px;" id="inputGroup-sizing-default">Title of Learning and Development Intervention/Training Program (Write in full)</span>
+                        <input type="text" class="form-control" id="learningAndDevelopmentTitle" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    </div>
+                    <label class="mb-2">Inclusive Dates of Attendance</label>
+                    <br>
+                    <div class="d-flex gap-4">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="inputGroup-sizing-default">From</span>
+                            <input type="date" class="form-control" id="learningAndDevelopmentDateFrom" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="inputGroup-sizing-default">To</span>
+                            <input type="date" class="form-control" id="learningAndDevelopmentDateTo" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                        </div>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Number of Hours</span>
+                        <input type="text" class="form-control" id="learningAndDevelopmentHours" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Type of LD (Managerial/supervisory/technical/etc)</span>
+                        <input type="text" class="form-control" id="learningAndDevelopmentLD" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Conducted/Sponsored by (Write in full)</span>
+                        <input type="text" class="form-control" id="learningAndDevelopmentConducted" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    </div>
+                
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id='profileAddLearningButtonDb'>Add</button>
+                </div>
+                </div>
+        </div>
+    </div>
+
+    <!-- privacy notice modal -->
+    <!-- <div class="modal fade" id="myModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header bg-warning">
+                <h5 class="modal-title">PRIVACY NOTICE</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>The Department of Education Valenzuela recognizes its responsibility under the <i>Republic Act No. 10173</i>, also known as the <i>Data Privacy Act of 2012</i>, to handle appropriately collected, recorded, organized, updated, used, and consolidated information from its personnel. 
+
+                </br></br> Data obtained from this form is entered and stored within the organization's authorized information and communications system and is only accessible to authorized personnel. The administrative team has instituted appropriate organizational, technical, and physical security measures to protect personal data. 
+
+                </br></br>Furthermore, all information will be subject to strict confidentiality. <b>DepEd SDO Valenzuela</b> will not disclose any information without consent.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-bs-dismiss="modal">OK</button>
+            </div>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- Add degree Modal -->
+    <div class="modal fade" id="addDegreeModalButton" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add degree</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- user email -->
+                <!-- <input type="hidden" id='degreeUserEmail' value='<?php echo $emailNew ?>'> -->
+                <!--  -->
+                <!-- <label>Select Degree</label> -->
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Select Degree</span>
+                    <select class="form-select" id='inputDegreeDegree' aria-label="Default select example">
+                        <option value="Masters Degree">Masters Degree</option>
+                        <option value="Post Degree">Post Degree</option>
+                    </select>
+                </div>
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Name of School</span>
+                    <input type="text" id='inputDegreeSchool' class="form-control"  aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Basic Education/Degree/Course</span>
+                    <input type="text" id='inputDegreeEduc' class="form-control"  aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+                <label class='mb-2'>Period of attendance</label>
+                <br>
+                <!-- <label>From :</label>
+                <input type="date" name="" id='inputDegreeFrom'>
+                <label>To:</label>
+                <input type="date" name="" id='inputDegreeTo'> -->
+                <div class="d-flex gap-4">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-default">From</span>
+                        <input type="date" class="form-control" id="inputDegreeFrom" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-default">To</span>
+                        <input type="date" class="form-control" id="inputDegreeTo" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    </div>
+                </div>
+
+                <div class="input-group my-3">
+                    <span class="input-group-text" id="basic-addon1">Highest Level/Unit Earned</span>
+                    <input type="text" id='inputDegreeHigh' class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+                <div class="input-group my-3">
+                    <span class="input-group-text" id="basic-addon1">Year Graduate</span>
+                    <input type="text" id='inputDegreeYear' class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+                <div class="input-group my-3">
+                    <span class="input-group-text" id="basic-addon1">Scholarship/Academic Honors Received</span>
+                    <input type="text" id='inputDegreeScholar' class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id='addDegreeButtonDatabase'>Add degree</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal EDIT DEGREE-->
+    <div class="modal fade" id="editDegreeModalProfie" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Edit Degree</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id='modalBodyEditDegree'>
+                    <!-- EDIT DEGREE -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id='updateDegreeDatabaseButton'>Save changes</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal EDIT CIVIL-->
+    <div class="modal fade" id="civilModalEditModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Edit Civil</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id='modalBodyCivilUpdate'>
+                <!-- EDIT CIVIL -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id='civilUpdateButtonDatabase'>Save changes</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal EDIT WORK EXP -->
+    <div class="modal fade" id="editWorkModalButton" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Edit Work Experience</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id='editWorkExpModalBody'>
+                <!-- Modal body edit work exp -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id='updateWorkExpButtonDb'>Save changes</button>
+            </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal CREDENTIALS -->
+    <div class="modal fade" id="navCredentialsButton" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Credentials</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="formFile" class="form-label">Upload Credentials</label>
+                    <input class="form-control" type="file" id="formFile">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">UPLOAD</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Add Award -->
+    <div class="modal fade" id="profileAwardModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Add Award</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="input-group my-3">
+                    <span class="input-group-text" id="basic-addon1">Title of award</span>
+                    <input type="text" id='inputAwardTitle' class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+    
+                <div class="input-group mb-3">
+                    <label class="input-group-text" for="">Level of award</label>
+                    <select class="form-select" id='inputAwardlvl'>
+                        <option value="International">International</option>
+                        <option value="married">Regional</option>
+                        <option value="Division">Division</option>
+                        <option value="School">School</option>
+                    </select>
+                </div>
+
+                <div class="input-group my-3">
+                    <span class="input-group-text" id="basic-addon1">Certificate issue date</span>
+                    <input type="date" id='inputAwardDate' class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id='profileAwardAddBtnDb'>Add award</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal EDIT AWARD-->
+    <div class="modal fade" id="profileAwardModalEdit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Edit award</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id='awardModalBody'>
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id='profileAwardUpdateButtonDb'>Save changes</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal EDIT learning-->
+    <div class="modal fade" id="profileLearningModalEdit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Edit learning</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id='learningModalBody'>
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id='profileLearningUpdateButtonDb'>Save changes</button>
             </div>
             </div>
         </div>
@@ -1784,7 +2202,26 @@
                 })
             })
 
-                // CIVIL BUTTON
+            //LEARNING and development button
+            $("#dashBoardBody").on("click","#profileLearningAndDevelopmentButton",function(){
+                const email = $("#profileUserEmail").val();
+
+                // alert(email)
+
+                $.ajax({
+                    url:"profileInfo/learning_and_development.php",
+                    method:"post",
+                    data:{
+                        email : email
+                    },
+                    success(e){
+                        $("#dashBoardBody").html(e)
+
+                    }
+                })
+            })
+
+            // CIVIL BUTTON
             $("#dashBoardBody").on("click","#profileCivilButton",function(){
                 const email = $("#profileUserEmail").val();
 
@@ -1846,6 +2283,699 @@
                     confirm("Please add career service!")
                 }
 
+            })
+
+            // WORK EXPERIENCE BUTTON
+            $("#dashBoardBody").on("click","#profileWorkExpBtn",function(){
+                const email = $("#profileUserEmail").val();
+
+                // alert(email)
+
+                $.ajax({
+                    url:"profileInfo/workExp.php",
+                    method:"post",
+                    data:{
+                        email : email
+                    },
+                    success(e){
+                        $("#dashBoardBody").html(e)
+
+                    }
+                })
+            })
+
+            // ADD DEGREE DATABASE BUTTON
+            $("#addDegreeButtonDatabase").click(function(){
+                const email = $("#degreeUserEmail").val();
+                const degree = $("#inputDegreeDegree").val();
+                const school = $("#inputDegreeSchool").val();
+                const educ = $("#inputDegreeEduc").val();
+                const from = $("#inputDegreeFrom").val();
+                const to = $("#inputDegreeTo").val();
+                const high = $("#inputDegreeHigh").val();
+                const year = $("#inputDegreeYear").val();
+                const scholar = $("#inputDegreeScholar").val();
+
+                $.ajax({
+                    url:"profileInfo/addDegreeDb.php",
+                    method:"post",
+                    data:{
+                        email : email,
+                        degree : degree,
+                        school : school,
+                        educ : educ,
+                        from : from,
+                        to : to,
+                        high : high,
+                        year : year,
+                        scholar : scholar
+                    },
+                    success(){
+
+                        $.ajax({
+                            url:"profileInfo/education.php",
+                            method:"post",
+                            data:{
+                                id : email
+                            },
+                            success(e){
+                                $("#dashBoardBody").html(e)
+
+                            }
+                        })
+
+                    }
+                })
+            })
+
+            // EDIT DEGREE BUTTON
+            $("#dashBoardBody").on('click','#editButonDegreeModal',function(){
+                const id = $(this).val();
+
+                $.ajax({
+                    url:"profileInfo/editDegreeModal.php",
+                    method:'post',
+                    data:{
+                        id:id
+                    },
+                    success(e){
+                        $("#modalBodyEditDegree").html(e)
+                    }
+                })
+
+            })
+
+            // UPDATE DEGREE DATABASE BUTTON
+            $('#updateDegreeDatabaseButton').click(function(){
+                
+                const email = $("#editDegreeUserId").val()
+                const id = $("#editDegreeUserEmail").val();
+                const degree = $("#inputEditDegreeDegree").val();
+                const school = $("#inputEditDegreeSchool").val();
+                const educ = $("#inputEditDegreeEduc").val();
+                const from = $("#inputEditDegreeFrom").val();
+                const to = $("#inputEditDegreeTo").val();
+                const high = $("#inputEditDegreeHigh").val();
+                const year = $("#inputEditDegreeYear").val();
+                const scholar = $("#inputEditDegreeScholar").val();
+
+                // alert(scholar)
+
+                $.ajax({
+                    url:"profileInfo/updateDegreeDb.php",
+                    method:"post",
+                    data:{
+                        id : id,
+                        degree : degree,
+                        school : school,
+                        educ : educ,
+                        from : from,
+                        to : to,
+                        high : high,
+                        year : year,
+                        scholar : scholar
+                    },
+                    success(e){
+
+                        // $("#dashBoardBody").html(e)
+
+                        $.ajax({
+                            url:"profileInfo/education.php",
+                            method:"post",
+                            data:{
+                                id : email
+                            },
+                            success(e){
+                                $("#dashBoardBody").html(e)
+
+                            }
+                        })
+
+                    }
+                })
+
+            })
+
+            // delete degree db
+            $("#dashBoardBody").on("click","#deleteButonDegreeModal",function(){
+                const id = $(this).val();
+                const email = $("#userEmailProfile").val()
+
+                if(confirm("Are you sure to delete this?")){
+                    $.ajax({
+                    url:"profileInfo/deleteDegree.php",
+                    method:"post",
+                    data:{
+                        id:id
+                    },
+                    success(){
+                        $.ajax({
+                            url:"profileInfo/education.php",
+                            method:"post",
+                            data:{
+                                id : email
+                            },
+                            success(e){
+                                $("#dashBoardBody").html(e)
+
+                            }
+                        })
+                    }
+                })
+                }
+               
+            })
+
+            // MODAL EDIT CIVIL BUTTON
+            $("#dashBoardBody").on("click","#editCivilModalButton",function(){
+
+                const id = $(this).val();
+
+                $.ajax({
+                    url:"profileInfo/civilModalUpdate.php",
+                    method:"post",
+                    data:{
+                        id : id
+                    },
+                    success(e){
+                        $("#modalBodyCivilUpdate").html(e)
+                    }
+                })
+            })
+
+            // CIVIL UPDATE DATA BASE
+            $("#civilUpdateButtonDatabase").click(function(){
+                const id = $("#idForCivilUpdate").val();
+                const email = $("#emailForCivilUpdate").val();
+                const career = $("#EditcivilInputCareer").val();
+                const rating = $("#EditcivilInputRating").val();
+                const dateExam = $("#EditcivilDateExam").val();
+                const placeExam = $("#EditcivilPlaceExam").val();
+                const Ldate = $("#EditcivilDate").val();
+                const Lnumber = $("#EditcivilNumber").val();
+
+                $.ajax({
+                    url:"profileInfo/civilUpdate.php",
+                    method:'post',
+                    data:{
+                        id:id,
+                        career:career,
+                        rating:rating,
+                        dateExam:dateExam,
+                        placeExam:placeExam,
+                        Ldate:Ldate,
+                        Lnumber:Lnumber
+                    },
+                    success(e){
+                        // $("#dashBoardBody").html(e)
+
+                        $.ajax({
+                            url:"profileInfo/civil.php",
+                            method:"post",
+                            data:{
+                                email : email
+                            },
+                            success(e){
+                                $("#dashBoardBody").html(e)
+
+                                confirm("Update Success!")
+
+                            }
+                        })
+                    }
+                })
+            })
+
+            // CIVIL DELETE DB
+            $("#dashBoardBody").on('click','#civilDeleteButtonDB',function(){
+                const id = $(this).val();
+                const email = $("#profileUserEmail").val();
+
+                // alert(email)
+
+                if(confirm("Are you sure to delete this?")){
+                    $.ajax({
+                        url:"profileInfo/civilDelete.php",
+                        method:'post',
+                        data:{
+                            id:id
+                        },
+                        success(){
+
+                            $.ajax({
+                                url:"profileInfo/civil.php",
+                                method:"post",
+                                data:{
+                                    email : email
+                                },
+                                success(e){
+                                    $("#dashBoardBody").html(e)
+
+                                    // confirm("Update Success!")
+
+                                }
+                            })
+                        }
+                    })
+                }
+                
+            })
+            
+            // ADD WORKEXP DB
+            $("#addWorkServiceButtonDb").click(function(){
+                
+                const email = $("#profileUserEmail").val();
+                const from = $("#workExpDateFrom").val();
+                const to = $("#workExpDateTo").val();
+                const position = $("#workExpPosition").val();
+                const department = $("#workExpDepartment").val();
+                const salary = $("#workExpSalary").val();
+                const job = $("#workExpJob").val();
+                const status = $("#workExpStatus").val();
+                const service = $("#workExpService").val();
+
+                // alert(position)
+
+                if(position){
+                    $.ajax({
+                        url:"profileInfo/addWork.php",
+                        method:"post",
+                        data:{
+                            email:email,
+                            from:from,
+                            to:to,
+                            position:position,
+                            department:department,
+                            salary:salary,
+                            job:job,
+                            status:status,
+                            service:service
+                        },
+                        success(){
+                            $.ajax({
+                                url:"profileInfo/workExp.php",
+                                method:"post",
+                                data:{
+                                    email : email
+                                },
+                                success(e){
+                                    $("#dashBoardBody").html(e)
+                                    confirm("Add success!")
+
+                                }
+                            })
+                        }
+                    })
+                }else{
+                    confirm("Please add Position Title!")
+                }
+                
+
+            })
+
+            // WORK EXP EDIT BUTTON MODAL UPDATE
+            $("#dashBoardBody").on("click","#editWorkExpBtnForModal",function(){
+                const id = $(this).val();
+
+                $.ajax({
+                    url:"profileInfo/workUpdateModal.php",
+                    method:"post",
+                    data:{
+                        id:id
+                    },
+                    success(e){
+                        $("#editWorkExpModalBody").html(e)
+                    }
+                })
+
+            })
+
+            // WORK UPDATE DB
+            $("#updateWorkExpButtonDb").click(function(){
+
+                const email = $("#profileUserEmail").val();
+                const id = $("#workUserId").val();
+
+                const from = $("#EditworkExpDateFrom").val();
+                const to = $("#EditworkExpDateTo").val();
+                const position = $("#EditworkExpPosition").val();
+                const department = $("#EditworkExpDepartment").val();
+                const salary = $("#EditworkExpSalary").val();
+                const job = $("#EditworkExpJob").val();
+                const status = $("#EditworkExpStatus").val();
+                const service = $("#EditworkExpService").val();
+
+                $.ajax({
+                    url:"profileInfo/workUpdate.php",
+                    method: "post",
+                    data:{
+                        id:id,
+                        from:from,
+                        to:to,
+                        position:position,
+                        department:department,
+                        salary:salary,
+                        job:job,
+                        status:status,
+                        service:service
+                    },
+                    success(){
+
+                        $.ajax({
+                            url:"profileInfo/workExp.php",
+                            method:"post",
+                            data:{
+                                email : email
+                            },
+                            success(e){
+                                $("#dashBoardBody").html(e)
+
+                                confirm("Update success!")
+                            }
+                        })
+
+                    }
+                })
+            })
+
+            // WORK DELETE 
+            $("#dashBoardBody").on("click","#deleteWorkExpButtonDb",function(){
+                const id = $(this).val();
+                const email = $("#userEmailProfile").val();
+
+                if(confirm("Are you sure you want to delete this?")){
+
+                    $.ajax({
+                        url:"profileInfo/workDelete.php",
+                        method:"post",
+                        data:{
+                            id:id
+                        },
+                        success(){
+
+                            $.ajax({
+                                url:"profileInfo/workExp.php",
+                                method:"post",
+                                data:{
+                                    email : email
+                                },
+                                success(e){
+                                    $("#dashBoardBody").html(e)
+
+                                }
+                            })
+                        }
+                    })
+                }
+
+               
+            })
+
+            // AWARD BUTTON LOAD
+            $("#dashBoardBody").on("click","#profileAwardExpBtn",function(){
+                const email = $("#profileUserEmail").val();
+
+                $.ajax({
+                    url:"profileInfo/award.php",
+                    method:"post",
+                    data:{
+                        email:email
+                    },
+                    success(e){
+                        $("#dashBoardBody").html(e)
+                    }
+                })
+            })
+
+            // ADD AWARD DB
+            $("#profileAwardAddBtnDb").click(function(){
+
+                const email = $("#profileUserEmail").val();
+                const title = $("#inputAwardTitle").val();
+                const lvl = $("#inputAwardlvl").val();
+                const date = $("#inputAwardDate").val();
+
+
+                if(title){
+                    $.ajax({
+                        url:"profileInfo/addAward.php",
+                        method:"post",
+                        data:{
+                            email : email,
+                            title : title,
+                            lvl : lvl,
+                            date : date
+                        },
+                        success(){
+
+                            $.ajax({
+                                url:"profileInfo/award.php",
+                                method:"post",
+                                data:{
+                                    email:email
+                                },
+                                success(e){
+                                    $("#dashBoardBody").html(e)
+
+                                    confirm("Add award success")
+
+                                }
+                            })
+
+                        }
+                    })
+                }else{
+                    confirm("Please add title!")
+                }
+               
+            })
+
+            // AWARD EDIT BUTTON UPDATE MODAL
+            $("#dashBoardBody").on("click","#profileAwardEditButtonModal",function(){
+                const id = $(this).val();
+
+                $.ajax({
+                    url:"profileInfo/updateAwardModal.php",
+                    method:"post",
+                    data:{
+                        id:id
+                    },
+                    success(e){
+                        $("#awardModalBody").html(e)
+                    }
+                })
+            })
+
+            // UPDATE AWARD DATABASE BUTTON
+            $("#profileAwardUpdateButtonDb").click(function(){
+
+                const id = $("#profileAwardid").val();
+                const email = $("#profileUserEmail").val();
+                const title = $("#EditinputAwardTitle").val();
+                const lvl = $("#EditinputAwardlvl").val();
+                const date = $("#EditinputAwardDate").val();
+
+                // alert(date)
+
+                $.ajax({
+                    url:"profileInfo/updateAward.php",
+                    method:"post",
+                    data:{
+                        id : id,
+                        title : title,
+                        lvl : lvl,
+                        date : date
+                    },
+                    success(){
+
+                        $.ajax({
+                            url:"profileInfo/award.php",
+                            method:"post",
+                            data:{
+                                email:email
+                            },
+                            success(e){
+                                $("#dashBoardBody").html(e)
+
+                                confirm("Update success")
+                            }
+                        })
+
+                    }
+                })
+            })
+
+            // DELETE AWARD DATABASE BUTTON
+            $("#dashBoardBody").on("click","#profileAwardDeleteButton",function(){
+                const id = $(this).val();
+                const email = $("#userEmailProfile").val();
+
+                $.ajax({
+                    url:"profileInfo/awardDelete.php",
+                    method:"post",
+                    data:{
+                        id:id
+                    },
+                    success(){
+
+                        $.ajax({
+                            url:"profileInfo/award.php",
+                            method:"post",
+                            data:{
+                                email:email
+                            },
+                            success(e){
+                                $("#dashBoardBody").html(e)
+                            }
+                        })
+
+                    }
+                })
+            })
+            
+            // ADD LEARNING BUTTON DB
+            $("#profileAddLearningButtonDb").click(function(){
+
+                const email = $("#userEmailProfile").val();
+                const title = $("#learningAndDevelopmentTitle").val();
+                const from = $("#learningAndDevelopmentDateFrom").val();
+                const to = $("#learningAndDevelopmentDateTo").val();
+                const hrs = $("#learningAndDevelopmentHours").val();
+                const typeOfLd = $("#learningAndDevelopmentLD").val();
+                const conducted = $("#learningAndDevelopmentConducted").val();
+
+                if(title){
+                    $.ajax({
+                        url:"profileInfo/addLearning.php",
+                        method:"post",
+                        data:{
+                            email:email,
+                            title:title,
+                            from:from,
+                            to:to,
+                            hrs:hrs,
+                            typeOfLd:typeOfLd,
+                            conducted:conducted
+                        },
+                        success(e){
+                            // $("#dashBoardBody").html(e)
+
+                            $.ajax({
+                                url:"profileInfo/learning_and_development.php",
+                                method:"post",
+                                data:{
+                                    email : email
+                                },
+                                success(e){
+                                    $("#dashBoardBody").html(e)
+
+                                    confirm("Add success!")
+                                }
+                            })
+                        }
+                    })
+                }else{
+                    confirm("Please add Title")
+                }
+                
+
+            })
+            // edit learner button
+            $("#dashBoardBody").on("click","#editLearnerButoonModal",function(){
+                const id = $(this).val();
+                
+                $.ajax({
+                    url:"profileInfo/updateLearningModal.php",
+                    method:"post",
+                    data:{
+                        id:id
+                    },
+                    success(e){
+                        $("#learningModalBody").html(e)
+                    }
+                })
+
+            })
+
+            // LEARNING UPDATE
+            $("#profileLearningUpdateButtonDb").click(function(){
+                const id = $("#learnerIdUser").val()
+                const email = $("#learnerEmailUser").val()
+
+                const title = $("#EditlearningAndDevelopmentTitle").val();
+                const from = $("#EditlearningAndDevelopmentDateFrom").val();
+                const to = $("#EditlearningAndDevelopmentDateTo").val();
+                const hrs = $("#EditlearningAndDevelopmentHours").val();
+                const typeOfLd = $("#EditlearningAndDevelopmentLD").val();
+                const conducted = $("#EditlearningAndDevelopmentConducted").val();
+
+                // console.log(id,email,title,from,to,hrs,typeOfLd,conducted)
+
+                if(title){
+                    $.ajax({
+                        url:"profileInfo/learningUpdate.php",
+                        method:"post",
+                        data:{
+                            id:id,
+                            title:title,
+                            from:from,
+                            to:to,
+                            hrs:hrs,
+                            typeOfLd:typeOfLd,
+                            conducted:conducted
+                        },
+                        success(){
+                            // $("#dashBoardBody").html(e)
+
+                            $.ajax({
+                                url:"profileInfo/learning_and_development.php",
+                                method:"post",
+                                data:{
+                                    email : email
+                                },
+                                success(e){
+                                    $("#dashBoardBody").html(e)
+
+                                    confirm("Update success!")
+                                }
+                            })
+                        }
+                    })
+                }else{
+                    confirm("Please add Title")
+                }
+            })
+
+            // DELETE LEARNING
+            $("#dashBoardBody").on("click","#profileLearningDeleteButton",function(){
+                const id = $(this).val()
+                const email = $("#userEmailProfile").val()
+
+                if(confirm("Are you sure to delete this?")){
+                    $.ajax({
+                        url:"profileInfo/learnerDelete.php",
+                        method:"post",
+                        data:{
+                            id:id
+                        },
+                        success(){
+
+                            $.ajax({
+                                url:"profileInfo/learning_and_development.php",
+                                method:"post",
+                                data:{
+                                    email : email
+                                },
+                                success(e){
+                                    $("#dashBoardBody").html(e)
+
+                                    // confirm("Update success!")
+                                }
+                            })
+                        }
+                    })
+                }
+                
             })
         })
 

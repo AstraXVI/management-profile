@@ -45,7 +45,7 @@
 
 
 
-    $q = "UPDATE `educationalbg` SET `schoolCollege`='$cs',`graduateStudies`='$gs',`collegeCourse`='$cc',`graduateCourse`='$gc',`collegeFrom`='$cf',`collegeTo`='$ct',`graduateFrom`='$gf',`graduateTo`='$gt',`collegeHigh`='$ch',`graduateHigh`='$gh',`collegeYear`='$cy',`graduateYear`='$gy',`collegeScholar`='$cSc',`graduateScholar`='$gSc',`elemSchool`='$es',`secSchool`='$ss',`vocSchool`='$vs',`elemEduc`='$ec',`secEduc`='$sc',`vocEduc`='$vs',`elemFrom`='$ef',`secFrom`='$sf',`vocFrom`='$vf',`elemTo`='$et',`secTo`='$st',`vocTo`='$vt',`elemHighLvl`='$eh',`secHighLvl`='$sh',`vocHighLvl`='$vh',`elemGraduate`='$ey',`secGraduate`='$sy',`vocGraduate`='$vy',`elemScholar`='$eSc',`secScholar`='$sSh',`vocScholar`='$vSh' WHERE email='$email'";
+    $q = "UPDATE `educationalbg` SET `schoolCollege`='$cs',`graduateStudies`='$gs',`collegeCourse`='$cc',`graduateCourse`='$gc',`collegeFrom`='$cf',`collegeTo`='$ct',`graduateFrom`='$gf',`graduateTo`='$gt',`collegeHigh`='$ch',`graduateHigh`='$gh',`collegeYear`='$cy',`graduateYear`='$gy',`collegeScholar`='$cSc',`graduateScholar`='$gSc',`elemSchool`='$es',`secSchool`='$ss',`vocSchool`='$vs',`elemEduc`='$ec',`secEduc`='$sc',`vocEduc`='$vc',`elemFrom`='$ef',`secFrom`='$sf',`vocFrom`='$vf',`elemTo`='$et',`secTo`='$st',`vocTo`='$vt',`elemHighLvl`='$eh',`secHighLvl`='$sh',`vocHighLvl`='$vh',`elemGraduate`='$ey',`secGraduate`='$sy',`vocGraduate`='$vy',`elemScholar`='$eSc',`secScholar`='$sSh',`vocScholar`='$vSh' WHERE email='$email'";
 
     $con->query($q);
 ?>

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 22, 2023 at 04:59 AM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.12
+-- Generation Time: Feb 23, 2023 at 08:43 AM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -200,7 +200,10 @@ CREATE TABLE `educationaldegree` (
 INSERT INTO `educationaldegree` (`id`, `email`, `lvl`, `nameSchool`, `education`, `periodFrom`, `periodTo`, `highLvl`, `year`, `scholar`) VALUES
 (1, 'renz@i', 'Master Degree', 'sample name school', 'bsit', '2023-02-01', '2023-02-02', 'college', '2023', 'wala'),
 (2, 'renz@i', 'Post Degree', 'vicente', 'bsit', '2023-02-15', '2023-02-13', '2', '2023', 'no'),
-(7, 'renz@123', 'Masters Degree', '', '', '', '', '', '', '');
+(7, 'renz@123', 'Masters Degree', '', '', '', '', '', '', ''),
+(14, '<br />\n<b>Warning</b>:  Undefined variable $emailNew in <b>C:xampphtdocsmanagement-profileadmin_dashboard.php</b> on line <b>879</b><br />\n', 'Post Degree', 'tTt', 'T', '', '', 'T', 'U', 'U'),
+(15, '<br />\n<b>Warning</b>:  Undefined variable $emailNew in <b>C:xampphtdocsmanagement-profileadmin_dashboard.php</b> on line <b>879</b><br />\n', 'Masters Degree', '', '', '', '', '', '', ''),
+(16, 'admin@1', 'Post Degree', '', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -239,6 +242,16 @@ CREATE TABLE `learning` (
   `conducted` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `learning`
+--
+
+INSERT INTO `learning` (`id`, `email`, `title`, `dateFrom`, `dateTo`, `hours`, `typeOfLd`, `conducted`) VALUES
+(4, 'admin@1', 'qq', '', '', 'q', 'q', 'q'),
+(5, '', 'w', '', '', '', '', ''),
+(9, '', 'qq', '2023-02-24', '', '3', '', ''),
+(10, '', 'qq', '2023-02-24', '', '3', '', '');
+
 -- --------------------------------------------------------
 
 --
@@ -275,7 +288,7 @@ CREATE TABLE `profile` (
 INSERT INTO `profile` (`id`, `name`, `bday`, `address`, `email`, `contactNo`, `sex`, `yearAsSchoolHead`, `duration`, `learnersPerf`, `teacherPerf`, `financialMng`, `complaints`, `picture`, `school`, `citizenship`, `civil`, `zipcode`, `employeeNo`, `placeBirth`) VALUES
 (1, 'Admin', '01/17/1996', '1225 sta monica subd ugong valenzuela city', 'ikejoseph.lumaad@deped.gov.ph', '09396439742', 'Male', 'n/a', 'n/a', 'n/a', 'n/a', 'n/a', '', 'uploads/profile_pics/bckground.png', '', '', '', '', '', ''),
 (26, 'Editha D. Baesa', '', '', 'Edithad.baesa@deped.gov.ph', '', '', '', '', '', '', '', '', 'uploads/profile_pics/images (12) (1).jpeg', 'Elementary School', '', '', '', '', ''),
-(27, 'Norlita N. Santos', '', '', 'Norlitan.santos@deped.gov.ph', '', '', '', '', '', '', '', '', '', 'Elementary School', '', '', '', '', ''),
+(27, 'Norlita N. Santos', '', '', 'Norlitan.santos@deped.gov.ph', '', 'male', '', '', '', '', '', '', 'uploads/profile_pics/sign sample crop.png', 'Elementary School', '', '', '', '1231', ''),
 (28, 'Gloria D. Morenos', '', '', 'Gloriad.morenos@deped.gov.ph', '', '', '', '', '', '', '', '', '', 'Elementary School', '', '', '', '', ''),
 (29, 'Maria Lourdes B. Viray', '', '', 'Marialourdesb.viray@deped.gov.ph', '', '', '', '', '', '', '', '', '', 'Elementary School', '', '', '', '', ''),
 (30, 'Jed A. Camposano', '', '', 'Jeda.camposano@deped.gov.ph', '', '', '', '', '', '', '', '', '', 'Elementary School', '', '', '', '', ''),
@@ -417,6 +430,13 @@ CREATE TABLE `work` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- Dumping data for table `work`
+--
+
+INSERT INTO `work` (`id`, `email`, `dateFrom`, `dateTo`, `title`, `department`, `monthSalary`, `salary`, `statusApointment`, `govService`) VALUES
+(21, 'Edithad.baesa@deped.gov.ph', '', '', 'we', '', '', '', '', '');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -500,13 +520,13 @@ ALTER TABLE `work`
 -- AUTO_INCREMENT for table `award`
 --
 ALTER TABLE `award`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `civil`
 --
 ALTER TABLE `civil`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `dor`
@@ -524,7 +544,7 @@ ALTER TABLE `educationalbg`
 -- AUTO_INCREMENT for table `educationaldegree`
 --
 ALTER TABLE `educationaldegree`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `equipment`
@@ -536,7 +556,7 @@ ALTER TABLE `equipment`
 -- AUTO_INCREMENT for table `learning`
 --
 ALTER TABLE `learning`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `profile`
@@ -566,7 +586,7 @@ ALTER TABLE `voluntary`
 -- AUTO_INCREMENT for table `work`
 --
 ALTER TABLE `work`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
