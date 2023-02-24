@@ -46,6 +46,17 @@
     $fetchSchool = $degreeList->fetch_assoc();
 
 
+    // get POST degree
+    $postDegree = "SELECT * FROM `educationaldegree` WHERE lvl='Post Degree' AND email='$emailNew' ORDER BY id DESC";
+    $postList = $con->query($postDegree);
+    $fetchPost = $postList->fetch_assoc();
+
+    // get MASTER degree
+    $mastersDegree = "SELECT * FROM `educationaldegree` WHERE lvl='Masters Degree' AND email='$emailNew' ORDER BY id DESC";
+    $mastersList = $con->query($mastersDegree);
+    $fetchMasters = $mastersList->fetch_assoc();
+    
+
 
 ?>
 <!DOCTYPE html>
@@ -155,40 +166,73 @@
             <!-- Ilagay dito ang dashboard -->
             <div class=" text-secondary fw-bold p-2 ps-0 mb-3 w-25 h3">Dashboard</div>
             <div class="d-flex py-5 px-5 text-light" style="gap: 40px; background-color: white;">
-                <?php if($fetchSchool['lvl'] == "Masters Degree"){ ?>
-                    <div class="card w-75" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; max-width: 350px">
-                        <div class="card-body bg-primary rounded-1">
-                            <!-- Title -->
-                            <h4 class="card-title"><p><i class="fa-solid fa-ranking-star me-3"></i>Master Degree</p></h4>
-                            <hr>
-                            <!-- Text -->
-                            <p class="card-text"><?php echo $fetchSchool['nameSchool'] ?></p>
-                            <p class="card-text"><?php echo $fetchSchool['education'] ?></p>
-                            <div class="d-flex gap-3 fs-4">
-                                <span class="fa fa-star text-warning"></span>
-                                <span class="fa fa-star text-warning"></span>
-                                <span class="fa fa-star text-warning"></span>
-                                <span class="fa fa-star"></span>
-                                <span class="fa fa-star"></span>
+            
+                <?php if(empty($fetchSchool['lvl'])){ ?>
+
+                    <?php 
+                        $checkCollege = "SELECT * FROM educationalbg WHERE email='$emailNew'";
+                        $collegeSchool = $con->query($checkCollege);
+                        $fetchSchoolName = $collegeSchool->fetch_assoc();
+
+                    ?>
+
+                    <?php if(!empty($fetchSchoolName['schoolCollege'])){ ?>
+                        <div class="card w-75" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; max-width: 350px">
+                            <div class="card-body bg-danger rounded-1">
+                                <!-- Title -->
+                                <h4 class="card-title"><p><i class="fa-solid fa-ranking-star me-2"></i>College Degree</p></h4>
+                                <hr>
+                                <!-- Text -->
+                                <p class="card-text"><?php echo $fetchSchoolName['schoolCollege'] ?></p>
+                                <p class="card-text"><?php echo $fetchSchoolName['collegeCourse'] ?></p>
+                                <div class="d-flex gap-3 fs-4">
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                </div>
                             </div>
-                            <!-- <button id="toEquipment" class="btn btn-rounded text-light px-4 btn-md" style="background-color: rgba(0, 0, 0, 0.3);">See Profile<i class="fa-solid fa-arrow-up-right-from-square ms-2"></i></button> -->
                         </div>
-                    </div>
-                <?php }else{ ?>
+                    <?php } ?>
+                        
+                <?php }else if(!empty($fetchPost['lvl'])){ ?>
+
                     <div class="card w-75" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; max-width: 350px">
                         <div class="card-body bg-danger rounded-1">
                             <!-- Title -->
                             <h4 class="card-title"><p><i class="fa-solid fa-ranking-star me-2"></i>Post Degree</p></h4>
                             <hr>
                             <!-- Text -->
-                            <p class="card-text"><?php echo $fetchSchool['nameSchool'] ?></p>
-                            <p class="card-text"><?php echo $fetchSchool['education'] ?></p>
+                            <p class="card-text"><?php echo $fetchPost['nameSchool'] ?></p>
+                            <p class="card-text"><?php echo $fetchPost['education'] ?></p>
                             <div class="d-flex gap-3 fs-4">
                             <span class="fa fa-star text-warning"></span>
                                 <span class="fa fa-star text-warning"></span>
                                 <span class="fa fa-star text-warning"></span>
                                 <span class="fa fa-star text-warning"></span>
                                 <span class="fa fa-star text-warning"></span>
+                            </div>
+                            <!-- <button id="toEquipment" class="btn btn-rounded text-light px-4 btn-md" style="background-color: rgba(0, 0, 0, 0.3);">See Profile<i class="fa-solid fa-arrow-up-right-from-square ms-2"></i></button> -->
+                        </div>
+                    </div>
+
+                <?php }else if(!empty($fetchMasters['lvl'])){ ?>
+
+                    <div class="card w-75" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; max-width: 350px">
+                        <div class="card-body bg-primary rounded-1">
+                            <!-- Title -->
+                            <h4 class="card-title"><p><i class="fa-solid fa-ranking-star me-3"></i>Master Degree</p></h4>
+                            <hr>
+                            <!-- Text -->
+                            <p class="card-text"><?php echo $fetchMasters['nameSchool'] ?></p>
+                            <p class="card-text"><?php echo $fetchMasters['education'] ?></p>
+                            <div class="d-flex gap-3 fs-4">
+                                <span class="fa fa-star text-warning"></span>
+                                <span class="fa fa-star text-warning"></span>
+                                <span class="fa fa-star text-warning"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
                             </div>
                             <!-- <button id="toEquipment" class="btn btn-rounded text-light px-4 btn-md" style="background-color: rgba(0, 0, 0, 0.3);">See Profile<i class="fa-solid fa-arrow-up-right-from-square ms-2"></i></button> -->
                         </div>
@@ -200,8 +244,24 @@
                         <!-- Title -->
                         <h4 class="card-title"><p><i class="fa-solid fa-person-chalkboard me-2"></i>Years as Teaching Personnel</p></h4>
                         <hr>
+                        <!-- Get date to get year experience -->
+                        <?php
+                            // get exp from
+                            $getWorkExpFrom = "SELECT dateFrom FROM work WHERE email='$emailNew' ORDER BY dateFrom ";
+                            $workExpFromList = $con->query($getWorkExpFrom);
+                            $workExpFromFetch = $workExpFromList->fetch_assoc();
+
+                            // get exp to
+                            $getWorkExpTo = "SELECT dateTo FROM work WHERE email='$emailNew' ORDER BY dateTo DESC ";
+                            $workExpToList = $con->query($getWorkExpTo);
+                            $workExpToFetch = $workExpToList->fetch_assoc();
+                        ?>
+
+                        <input type="hidden" value="<?php echo $workExpFromFetch['dateFrom'] ?>" id='getWorkExpFromValue'>
+                        <input type="hidden" value="<?php echo $workExpToFetch['dateTo'] ?>" id='getWorkExpToValue'>
+                        <!--  -->
                         <!-- Text -->
-                        <p class="card-text fs-3">5 Years</p>
+                        <p class="card-text fs-3" id='yearAsTeachingPersonnel'></p>
                     </div>
                 </div>
 
@@ -211,7 +271,7 @@
                         <h4 class="card-title"><p><i class="fa-solid fa-school-lock me-2"></i>Years as School Administration</p></h4>
                         <hr>
                         <!-- Text -->
-                        <p class="card-text fs-3">3 Years</p>
+                        <p class="card-text fs-3" id='yearAsSchoolAdmin'></p>
                     </div>
                 </div>
             </div>
@@ -1943,27 +2003,30 @@
                 const id = $(this).val();
                 const email = $("#userEmailProfile").val();
 
-                $.ajax({
-                    url:"profileInfo/workDelete.php",
-                    method:"post",
-                    data:{
-                        id:id
-                    },
-                    success(){
+                if(confirm("Are you sure to delete this?")){
 
-                        $.ajax({
-                            url:"profileInfo/workExp.php",
-                            method:"post",
-                            data:{
-                                email : email
-                            },
-                            success(e){
-                                $("#dashBoardBody").html(e)
-
-                            }
-                        })
-                    }
-                })
+                    $.ajax({
+                        url:"profileInfo/workDelete.php",
+                        method:"post",
+                        data:{
+                            id:id
+                        },
+                        success(){
+    
+                            $.ajax({
+                                url:"profileInfo/workExp.php",
+                                method:"post",
+                                data:{
+                                    email : email
+                                },
+                                success(e){
+                                    $("#dashBoardBody").html(e)
+    
+                                }
+                            })
+                        }
+                    })
+                }
             })
 
             // AWARD BUTTON LOAD
@@ -2085,27 +2148,29 @@
                 const id = $(this).val();
                 const email = $("#userEmailProfile").val();
 
-                $.ajax({
-                    url:"profileInfo/awardDelete.php",
-                    method:"post",
-                    data:{
-                        id:id
-                    },
-                    success(){
-
-                        $.ajax({
-                            url:"profileInfo/award.php",
-                            method:"post",
-                            data:{
-                                email:email
-                            },
-                            success(e){
-                                $("#dashBoardBody").html(e)
-                            }
-                        })
-
-                    }
-                })
+                if(confirm("Are you sure to delete this?")){
+                    $.ajax({
+                        url:"profileInfo/awardDelete.php",
+                        method:"post",
+                        data:{
+                            id:id
+                        },
+                        success(){
+    
+                            $.ajax({
+                                url:"profileInfo/award.php",
+                                method:"post",
+                                data:{
+                                    email:email
+                                },
+                                success(e){
+                                    $("#dashBoardBody").html(e)
+                                }
+                            })
+    
+                        }
+                    })
+                }
             })
             
             // ADD LEARNING BUTTON DB
@@ -2253,6 +2318,47 @@
                 }
                 
             })
+
+            // Get year experience
+            getYearExperience()
+
+            function getYearExperience(){
+
+                const from = $("#getWorkExpFromValue").val();
+                const to = $("#getWorkExpToValue").val()
+
+                // console.log(from,to)
+
+                var diff = getYearDiff(from, to);
+
+                // console.log(diff.months)
+
+                // console.log(diff)
+                if (diff.years > 0) {
+                    $("#yearAsTeachingPersonnel").text(diff.years + " year(s)");
+                    $("#yearAsSchoolAdmin").text(diff.years + " year(s)");
+                } else {
+                    $("#yearAsTeachingPersonnel").text(diff.months + " month(s)");
+                    $("#yearAsSchoolAdmin").text(diff.months + " month(s)");
+                }
+            }
+
+            function getYearDiff(from, to) {
+
+                // console.log(from,to)
+
+                var d1 = new Date(from);
+                var d2 = new Date(to);
+                var diffMs = d2 - d1;
+                var diffYears = Math.floor(diffMs / 31536000000);
+                var diffMonths = Math.floor(diffMs / 2592000000);
+
+                return {
+                    years: diffYears,
+                    months: diffMonths
+                };
+
+		    }
 
         })
 
