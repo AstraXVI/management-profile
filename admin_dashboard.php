@@ -2842,27 +2842,29 @@
                 const id = $(this).val();
                 const email = $("#userEmailProfile").val();
 
-                $.ajax({
-                    url:"profileInfo/awardDelete.php",
-                    method:"post",
-                    data:{
-                        id:id
-                    },
-                    success(){
-
-                        $.ajax({
-                            url:"profileInfo/award.php",
-                            method:"post",
-                            data:{
-                                email:email
-                            },
-                            success(e){
-                                $("#dashBoardBody").html(e)
-                            }
-                        })
-
-                    }
-                })
+                if(confirm("Are you sure to delete this?")){
+                    $.ajax({
+                        url:"profileInfo/awardDelete.php",
+                        method:"post",
+                        data:{
+                            id:id
+                        },
+                        success(){
+    
+                            $.ajax({
+                                url:"profileInfo/award.php",
+                                method:"post",
+                                data:{
+                                    email:email
+                                },
+                                success(e){
+                                    $("#dashBoardBody").html(e)
+                                }
+                            })
+    
+                        }
+                    })
+                }
             })
             
             // ADD LEARNING BUTTON DB
