@@ -94,11 +94,7 @@
 <body style="background: url(https://cdn.pixabay.com/photo/2017/07/01/19/48/background-2462431_960_720.jpg) no-repeat; background-size: cover; background-color: #e5e5e5; background-blend-mode: overlay; ">
     <header class="d-flex align-items-center py-2 bg-success text-light" style=" position: absolute; top: 20px; right:40px; padding-inline: 20px;  border-radius: 10px;">
         <span id='profileIconHeader'>
-            <?php if(empty($fetchProfileInfoNew['picture'])){ ?>
                 <i class="fa-solid fa-user fs-4 mt-1"></i>
-            <?php }else{ ?>
-                <img src="<?php echo $fetchProfileInfoNew['picture'] ?>" alt="" style='width:30px;height:30px;border: 3px solid white ;border-radius: 100vmax; margin-right: 7px;'>
-            <?php } ?>
         </span>
         <div class="dropdown">
             <a id="dropdownBtn" class="text-decoration-none dropdown-toggle ps-1" style="color: #f5f5f5" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -615,28 +611,31 @@
     </div>
     </div>
 
-    <div class="modal fade" id="myModal" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-            <div class="modal-header bg-warning">
-                <h5 class="modal-title">PRIVACY NOTICE</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p>The Department of Education Valenzuela recognizes its responsibility under the <i>Republic Act No. 10173</i>, also known as the <i>Data Privacy Act of 2012</i>, to handle appropriately collected, recorded, organized, updated, used, and consolidated information from its personnel. 
+    <!-- privacy notice -->
+    <?php if($_SESSION['privacy']){ ?>
+        <div class="modal fade" id="myModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-header bg-warning">
+                    <h5 class="modal-title">PRIVACY NOTICE</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>The Department of Education Valenzuela recognizes its responsibility under the <i>Republic Act No. 10173</i>, also known as the <i>Data Privacy Act of 2012</i>, to handle appropriately collected, recorded, organized, updated, used, and consolidated information from its personnel. 
 
-                </br></br> Data obtained from this form is entered and stored within the organization's authorized information and communications system and is only accessible to authorized personnel. The administrative team has instituted appropriate organizational, technical, and physical security measures to protect personal data. 
+                    </br></br> Data obtained from this form is entered and stored within the organization's authorized information and communications system and is only accessible to authorized personnel. The administrative team has instituted appropriate organizational, technical, and physical security measures to protect personal data. 
 
-                </br></br>Furthermore, all information will be subject to strict confidentiality. <b>DepEd SDO Valenzuela</b> will not disclose any information without consent.
-                </p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-success" data-bs-dismiss="modal">OK</button>
-                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-            </div>
+                    </br></br>Furthermore, all information will be subject to strict confidentiality. <b>DepEd SDO Valenzuela</b> will not disclose any information without consent.
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">OK</button>
+                    <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                </div>
+                </div>
             </div>
         </div>
-    </div>
+    <?php $_SESSION['privacy'] = 0; }?>
 
          <!-- ADD CIVIL -->
          <div class="modal fade" id="civilAddData" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -1748,7 +1747,7 @@
                 const userId = $(this).val()
 
                 $.ajax({
-                    url:"profile.php",
+                    url:"profileAdmin.php",
                     method:"post",
                     data:{
                         id : userId
@@ -1906,6 +1905,47 @@
             
                 
                
+            })
+
+            // ADMIN UPDATE DATA INFO DB
+            $("#dashBoardBody").on('click',"#updateAdminProfileDb",function(){
+                const id = $(this).val();
+                const email = $("#profileInputAdminInfoEmail").val();
+                const nPass = $("#profileInputAdminInfoNewPass").val();
+                const rPass = $("#profileInputAdminInfoRPass").val();
+
+                if(nPass === rPass && email){
+                    $.ajax({
+                        url:"profileInfoAdminUpdate.php",
+                        method:"post",
+                        data:{
+                            id:id,
+                            email:email,
+                            pass:nPass
+                        },
+                        success(){
+                            $.ajax({
+                                url:"profileAdmin.php",
+                                method:"post",
+                                data:{
+                                    id : id
+                                },
+                                success(e){
+                                    $("#dashBoardBody").html(e)
+
+                                    confirm("Update profile Success!")
+                                }
+                            })
+                        }
+                    })
+                }else{
+                    $("#profileInputAdminInfoNewPass").val("");
+                    $("#profileInputAdminInfoRPass").val("")
+
+                    confirm("New match!")
+                }
+
+                
             })
 
             // DOR FILE BUTTON MODAL

@@ -30,6 +30,7 @@
             $_SESSION['id'] = $info['id'];
             $_SESSION['school'] = $info['school'];
             $_SESSION['status'] = $info['role'];
+            $_SESSION['privacy'] = 1;
 
 
             if($info['role'] == 'Admin'){
