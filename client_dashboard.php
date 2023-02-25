@@ -471,9 +471,17 @@
                 <input type="text" class="form-control" id="civilInputCareer" placeholder="Career Service">
                 <label>Career Service</label>
             </div> -->
-            <div class="input-group mb-3">
+            <!-- <div class="input-group mb-3">
                 <span class="input-group-text">Career Service</span>
                 <input type="text" class="form-control" id="civilInputCareer" value="" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div> -->
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Career Service</span>
+                <select class="form-select" id='civilInputCareer' aria-label="Default select example">
+                    <option selected value="CSC - Sub Professional">CSC - Sub Professional</option>
+                    <option value="CSC - Professional">CSC - Professional</option>
+                    <option value="RA - 1080 Bar/Board Eligibility">RA - 1080 Bar/Board Eligibility</option>
+                </select>
             </div>
 
             <!-- <div class="form-floating mb-3">

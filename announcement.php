@@ -8,6 +8,6 @@
 </head>
 <body>
 <div class=" text-secondary fw-bold p-2 ps-0 mb-3 w-50 h3">Announcements</div>
-<div class="bg-light" style="width: 60vw; height: 60vh;"></div>
+<div class="bg-light" style="width: 74vw; height: 60vh;"></div>
 </body>
 </html>
