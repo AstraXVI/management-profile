@@ -65,7 +65,7 @@
                 <th>Rating (if applicable)</th>
                 <th>Date of examination/Conferment</th>
                 <th>Place of Examination/Conferment</th>
-                <th colspan='2'>License (if applicable)</th>
+                <th colspan='2'>License (if applicable) <br><span class="me-4 text-primary" style="font-size: 14px">Number</span><span class="ms-4 text-primary" style="font-size: 14px">Validity</span></th>
                 <th>Action</th>
             </tr>
         </thead>

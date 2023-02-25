@@ -58,8 +58,8 @@
 
     <button class="btn btn-primary my-3" data-bs-toggle="modal" data-bs-target="#learningAndDevelopmentAddData"><i class="fa-solid fa-plus me-2"></i>Add Learning and Development</button>
 
-    <table class='table text-center bg-light'>
-        <thead style="background-color: #dcdcdc;">
+    <table class='table table-striped text-center bg-light'>
+        <thead>
             <tr>
                <th>Title of Learning and Development Intervention/Training Program (Write in full)</th>
                <th colspan='2'>Inclusive Dates of Attendance (mm/dd/yyyy) <br><span class="me-4 text-primary" style="font-size: 14px">From</span><span class="ms-4 text-primary" style="font-size: 14px">To</span></th>

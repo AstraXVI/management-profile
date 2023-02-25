@@ -59,8 +59,8 @@
 
     <button class="btn btn-primary my-3" data-bs-toggle="modal" data-bs-target="#workAddData"><i class="fa-solid fa-plus me-2"></i>Add Work Experience</button>
 
-    <table class='table text-center bg-light'>
-        <thead style="background-color: #dcdcdc;">
+    <table class='table table-striped text-center bg-light'>
+        <thead>
             <tr>
                <th colspan='2'>Inclusive Dates (mm/dd/yyyy) <br><span class="me-4 text-primary" style="font-size: 14px">From</span><span class="ms-4 text-primary" style="font-size: 14px">To</span></th>
                <th>Position Title (Write in full/ Do not abbreviate)</th>

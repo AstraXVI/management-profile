@@ -142,28 +142,31 @@
     </div> -->
 
     <?php if($_SESSION['status'] == 'Admin'){ ?>
-        <div class="input-group mb-3">
-            <span class="input-group-text">Learner Performance</span>
-            <input type="text" class="form-control" id="inputLPerformanceEdit" value="<?php echo $fetchUserInfo['learnersPerf'] ?>" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        <div class="d-flex">
+            <div class="input-group mb-3">
+                <span class="input-group-text">Learner Performance</span>
+                <input type="text" class="form-control" id="inputLPerformanceEdit" value="<?php echo $fetchUserInfo['learnersPerf'] ?>" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text">Teacher Performance</span>
+                <input type="text" class="form-control" id="inputTPerformanceEdit" value="<?php echo $fetchUserInfo['teacherPerf'] ?>" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
         </div>
-
-        <div class="input-group mb-3">
-            <span class="input-group-text">Teacher Performance</span>
-            <input type="text" class="form-control" id="inputTPerformanceEdit" value="<?php echo $fetchUserInfo['teacherPerf'] ?>" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-        </div>
-        <div class="input-group mb-3">
-            <span class="input-group-text">Financial Management</span>
-            <input type="text" class="form-control" id="inputFinanceMngEdit" value="<?php echo $fetchUserInfo['financialMng'] ?>" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        <div class="d-flex">
+            <div class="input-group mb-3">
+                <span class="input-group-text">Financial Management</span>
+                <input type="text" class="form-control" id="inputFinanceMngEdit" value="<?php echo $fetchUserInfo['financialMng'] ?>" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text">Duration year of stay</span>
+                <input type="text" class="form-control" id="inputDurationYearEdited" value="<?php echo $fetchUserInfo['duration'] ?>" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
         </div>
         <div class="input-group mb-3">
             <span class="input-group-text">Complaints</span>
             <input type="text" class="form-control" id="inputComplaintsEdit" value="<?php echo $fetchUserInfo['complaints'] ?>" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
         </div>
     <?php } ?>
-    <div class="input-group mb-3">
-        <span class="input-group-text">Duration year of stay</span>
-        <input type="text" class="form-control" id="inputDurationYearEdited" value="<?php echo $fetchUserInfo['duration'] ?>" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-    </div>
     <!-- <div class="form-floating mb-3">
         <input type="text" class="form-control" id="inputLearningPerformanceEdited" placeholder="Name" value="<?php echo $fetchUserInfo['learnersPerf'] ?>" >
         <label for="floatingInput">Learners Performance</label>

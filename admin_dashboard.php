@@ -160,6 +160,12 @@
                                 Manage Users
                             </a>
                         </li>
+                        <li id='announcementBtn'>
+                            <a id='navBtn4' href="#" class="nav-link link-light">
+                                <span class="bi me-2" width="16" height="16"><i class="fa-solid fa-bullhorn"></i></span>
+                                Announcement
+                            </a>
+                        </li>
                         <!-- <li id='requestBtn'>
                             <a id='navBtn4' href="#" class="nav-link link-light">
                                 <span class="bi me-2" width="16" height="16"><i class="fa-solid fa-calendar-plus"></i></span>
@@ -237,7 +243,7 @@
                     </div>
                 </div>
                 <div class="d-flex flex-row gap-5">
-                    <div class="card w-100" style="border: none; max-width: 350px ">
+                    <div class="card w-100" style="border: none; max-width: 310px ">
                         <div class="card-body bg-danger" style="border-radius: 20px;">
                             <!-- Title -->
                             <h4 class="card-title"><i class="fa-solid fa-users me-3"></i><?php echo $clientCount ?> <br> <p class="mt-2">Users</p></h4>
@@ -247,7 +253,7 @@
                             <!-- <button class="btn btn-rounded text-light px-4 btn-md toManageUser" style="background-color: rgba(0, 0, 0, 0.3);">See more<i class="fa-solid fa-arrow-up-right-from-square ms-2"></i></button> -->
                         </div>
                     </div>
-                    <div class="card w-100" style="border: none; max-width: 350px ">
+                    <div class="card w-100" style="border: none; max-width: 310px ">
                         <div class="card-body bg-warning" style="border-radius: 20px;">
                             <!-- Title -->
                             <h4 class="card-title"><i class="fa fa-ranking-star me-3"></i><?php echo $elemSchoolCount ?> <br> <p class="mt-2">With Master's Degree</p></h4>
@@ -257,7 +263,7 @@
                             <!-- <button class="btn btn-rounded text-light px-4 btn-md toManageUser" style="background-color: rgba(0, 0, 0, 0.3);">See more<i class="fa-solid fa-arrow-up-right-from-square ms-2"></i></button> -->
                         </div>
                     </div>
-                    <div class="card w-100 " style="border: none; max-width: 350px ">
+                    <div class="card w-100 " style="border: none; max-width: 310px ">
                         <div class="card-body bg-primary" style="border-radius: 20px;">
                             <!-- Title -->
                             <h4 class="card-title"><i class="fa-solid fa-ranking-star text-dark me-3"></i><?php echo $highSchoolCount ?> <br> <p class="mt-2">With Post Degree</p></h4>
@@ -268,18 +274,18 @@
                         </div>
                     </div>
                 </div>
-                <!-- <div class="d-flex flex-row gap-5">
+                <!-- <div class="d-flex flex-row gap-5"> -->
                     <div class="card w-100" style=" border: none; max-width: 310px">
-                        <div class="card-body" style="border-radius: 20px; background-color: #87194C"> -->
+                        <div class="card-body" style="border-radius: 20px; background-color: #87194C">
                             <!-- Title -->
-                            <!-- <h4 class="card-title"><i class="fa-solid fa-bullhorn me-3"></i><?php echo $adminCount ?> <br> <p class="mt-2">Announcement</p></h4>
-                            <hr> -->
+                            <h4 class="card-title"><i class="fa fa-ranking-star me-3 text-warning"></i><?php echo $adminCount ?> <br> <p class="mt-2">With International awards</p></h4>
+                            <hr>
                             <!-- Text -->
-                            <!-- <p class="card-text">Number of Announcement.</p> -->
+                            <p class="card-text">Total no. of school principal with International Awards.</p>
                             <!-- <button class="btn btn-rounded text-light px-4 btn-md toManageUser" style="background-color: rgba(0, 0, 0, 0.3);">See more<i class="fa-solid fa-arrow-up-right-from-square ms-2"></i></button> -->
-                        <!-- </div>
+                        </div>
                     </div>
-                    <div class="card w-100" style="border: none; max-width: 310px">
+                    <!-- <div class="card w-100" style="border: none; max-width: 310px">
                         <div class="card-body" style="border-radius: 20px; background-color: #35DCCC;"> -->
                             <!-- Title -->
                             <!-- <h4 class="card-title"><i class="fa-solid fa-calendar-plus me-3"></i><?php echo $schoolCount ?> <br> <p class="mt-2">Request</p></h4>
@@ -528,7 +534,7 @@
     <!-- paturo ka kay renz dito -->
 
     <div class="modal fade" id="EditUserProfile" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog modal-xl">
             <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Edit User</h5>
@@ -638,7 +644,7 @@
     <?php $_SESSION['privacy'] = 0; }?>
 
          <!-- ADD CIVIL -->
-         <div class="modal fade" id="civilAddData" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <!-- <div class="modal fade" id="civilAddData" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                 <div class="modal-header">
@@ -680,13 +686,13 @@
                 </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     <!-- update education -->
     <div class="modal fade "  id="updateEducationModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-fullscreen">
             <div class="modal-content" >
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Update Educational Background</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
             <div class="modal-body" id='modalBodyupdateEducation'>
@@ -713,9 +719,18 @@
                 <input type="text" class="form-control" id="civilInputCareer" placeholder="Career Service">
                 <label>Career Service</label>
             </div> -->
-            <div class="input-group mb-3">
+            <!-- <div class="input-group mb-3">
                 <span class="input-group-text">Career Service</span>
                 <input type="text" class="form-control" id="civilInputCareer" value="" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div> -->
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Career Service</span>
+                <select class="form-select" id='civilInputCareer' aria-label="Default select example">
+                    <option selected value="CSC - Sub Professional">CSC - Sub Professional</option>
+                    <option value="CSC - Professional">CSC - Professional</option>
+                    <option value="RA - 1080 Bar/Board Eligibility">RA - 1080 Bar/Board Eligibility</option>
+                </select>
             </div>
 
             <!-- <div class="form-floating mb-3">
@@ -747,7 +762,7 @@
             </div>
             <div class="input-group mb-3">
                 <span class="input-group-text">Date of Validity</span>
-                <input type="text" class="form-control" id="civilDate" value="" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                <input type="date" class="form-control" id="civilDate" value="" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
             </div>
             <!-- <input type="text" id='civilNumber' placeholder='Date of Validity'> -->
         </div>
@@ -1142,6 +1157,12 @@
                 $('.dropdown-menu').toggleClass('d-block');
             })
 
+            //load announcement
+            $('#announcementBtn').click(function(){
+                $('#dashBoardBody').load("announcement.php");
+
+            });
+
             // NAV
             $('#navBtn2').click(function(){
                 $('#dashBoardBody').load("table.php");
@@ -1196,6 +1217,15 @@
                 $('#navElemSchoolBtn').removeClass('active');
                 $('#navHighSchoolBtn').addClass('active');
 
+            })
+
+            $('#announcementBtn').click(function(){
+                // $('#dashBoardBody').load("profile.php");
+
+                $('#navBtn1').removeClass('active');
+                $('#navBtn2').removeClass('active');
+                $('#navBtn3').removeClass('active');
+                $('#navBtn4').addClass('active');
             })
 
             
