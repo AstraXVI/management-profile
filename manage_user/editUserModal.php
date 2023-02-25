@@ -44,7 +44,7 @@
         
     </select>
 
-    <div class="form-floating mb-3">
+    <div class="form-floating my-3">
         <input type="email" class="form-control" value='<?php echo $fetchUserInfo['pass'] ?>' id="inputPasswordEdit" placeholder="name@example.com">
         <label>Password</label>
     </div>
