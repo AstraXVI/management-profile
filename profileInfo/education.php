@@ -69,99 +69,101 @@
         <button class='btn btn-info' data-bs-toggle="modal" data-bs-target="#updateEducationModal" value='<?php echo $id ?>' id='updateProfileEducationButton'>Update data</button>
     </div>
 
-    <table class='table text-center table-striped p-2 bg-light'>
-        <thead>
-            <tr>
-                <th>Level</th>
-                <th>Name of School</th>
-                <th>Basic Education/Degree/Course</th>
-                <th colspan='2'>Period of attendance <br><span class="me-4 text-primary" style="font-size: 14px">From</span><span class="ms-4 text-primary" style="font-size: 14px">To</span></th>
-                <th>Highest Level/Unit Earned</th>
-                <th>Year Graduate</th>
-                <th>Scholarship/Academic Honors Received</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th>Elementary</th>
-                <td><?php echo $info['elemSchool'] ?></td>
-                <td><?php echo $info['elemEduc'] ?></td>
-                <td><?php echo $info['elemFrom'] ?></td>
-                <td><?php echo $info['elemTo'] ?></td>
-                <td><?php echo $info['elemHighLvl'] ?></td>
-                <td><?php echo $info['elemGraduate'] ?></td>
-                <td><?php echo $info['elemScholar'] ?></td>
-                <td>
-                    <!-- <button class='btn btn-info' data-bs-toggle="modal" data-bs-target="#updateEducationModal" value='<?php echo $id ?>' id='updateProfileEducationButton'>Update data</button> -->
-                </td>
-            </tr>
-            <tr>
-                <th>Secondary</th>
-                <td><?php echo $info['secSchool'] ?></td>
-                <td><?php echo $info['secEduc'] ?></td>
-                <td><?php echo $info['secFrom'] ?></td>
-                <td><?php echo $info['secTo'] ?></td>
-                <td><?php echo $info['secHighLvl'] ?></td>
-                <td><?php echo $info['secGraduate'] ?></td>
-                <td><?php echo $info['secScholar'] ?></td>
-                <td></td>
-            </tr>
-            <tr>
-                <th>Vocational/Trade course</th>
-                <td><?php echo $info['vocSchool'] ?></td>
-                <td><?php echo $info['vocEduc'] ?></td>
-                <td><?php echo $info['vocFrom'] ?></td>
-                <td><?php echo $info['vocTo'] ?></td>
-                <td><?php echo $info['vocHighLvl'] ?></td>
-                <td><?php echo $info['vocGraduate'] ?></td>
-                <td><?php echo $info['vocScholar'] ?></td>
-                <td></td>
-            </tr>
-            <tr>
-                <th>College</th>
-                <td><?php echo $info['schoolCollege'] ?></td>
-                <td><?php echo $info['collegeCourse'] ?></td>
-                <td><?php echo $info['collegeFrom'] ?></td>
-                <td><?php echo $info['collegeTo'] ?></td>
-                <td><?php echo $info['collegeHigh'] ?></td>
-                <td><?php echo $info['collegeYear'] ?></td>
-                <td><?php echo $info['collegeScholar'] ?></td>
-                <td></td>
-            </tr>
-            <tr>
-                <th>Graduate Studies</th>
-                <td><?php echo $info['graduateStudies'] ?></td>
-                <td><?php echo $info['graduateCourse'] ?></td>
-                <td><?php echo $info['graduateFrom'] ?></td>
-                <td><?php echo $info['graduateTo'] ?></td>
-                <td><?php echo $info['graduateHigh'] ?></td>
-                <td><?php echo $info['graduateYear'] ?></td>
-                <td><?php echo $info['graduateScholar'] ?></td>
-                <td></td>
-            </tr>
-            <?php if($listDegree->num_rows){ ?>
-                <?php do{ ?>
-                    <tr>
-                        <th><?php echo $fetchDegree['lvl'] ?></th>
-                        <td><?php echo $fetchDegree['nameSchool'] ?></td>
-                        <td><?php echo $fetchDegree['education'] ?></td>
-                        <td><?php echo $fetchDegree['periodFrom'] ?></td>
-                        <td><?php echo $fetchDegree['periodTo'] ?></td>
-                        <td><?php echo $fetchDegree['highLvl'] ?></td>
-                        <td><?php echo $fetchDegree['year'] ?></td>
-                        <td><?php echo $fetchDegree['scholar'] ?></td>
-                        <td>
-                            <div class="d-flex gap-2">
-                                <button class='btn btn-info text-light btn-sm' data-bs-toggle="modal" data-bs-target="#editDegreeModalProfie" value='<?php echo $fetchDegree['id'] ?>' id='editButonDegreeModal'><i class="fa-solid fa-pen"></i></button>
-                                <button class='btn btn-danger btn-sm' value='<?php echo $fetchDegree['id'] ?>' id='deleteButonDegreeModal'><i class="fa-solid fa-trash"></i></button>
-                            </div>
-                        </td>
-                    </tr>
-                <?php }while($fetchDegree = $listDegree->fetch_assoc()) ?>
-            <?php } ?>
-        </tbody>
-    </table>
+    <div style="max-height: 61vh; overflow-y: scroll">
+        <table class='table text-center table-responsive table-striped p-2 bg-light'>
+            <thead>
+                <tr>
+                    <th>Level</th>
+                    <th>Name of School</th>
+                    <th>Basic Education/Degree/Course</th>
+                    <th colspan='2'>Period of attendance <br><span class="me-4 text-primary" style="font-size: 14px">From</span><span class="ms-4 text-primary" style="font-size: 14px">To</span></th>
+                    <th>Highest Level/Unit Earned</th>
+                    <th>Year Graduate</th>
+                    <th>Scholarship/Academic Honors Received</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>Elementary</th>
+                    <td><?php echo $info['elemSchool'] ?></td>
+                    <td><?php echo $info['elemEduc'] ?></td>
+                    <td><?php echo $info['elemFrom'] ?></td>
+                    <td><?php echo $info['elemTo'] ?></td>
+                    <td><?php echo $info['elemHighLvl'] ?></td>
+                    <td><?php echo $info['elemGraduate'] ?></td>
+                    <td><?php echo $info['elemScholar'] ?></td>
+                    <td>
+                        <!-- <button class='btn btn-info' data-bs-toggle="modal" data-bs-target="#updateEducationModal" value='<?php echo $id ?>' id='updateProfileEducationButton'>Update data</button> -->
+                    </td>
+                </tr>
+                <tr>
+                    <th>Secondary</th>
+                    <td><?php echo $info['secSchool'] ?></td>
+                    <td><?php echo $info['secEduc'] ?></td>
+                    <td><?php echo $info['secFrom'] ?></td>
+                    <td><?php echo $info['secTo'] ?></td>
+                    <td><?php echo $info['secHighLvl'] ?></td>
+                    <td><?php echo $info['secGraduate'] ?></td>
+                    <td><?php echo $info['secScholar'] ?></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>Vocational/Trade course</th>
+                    <td><?php echo $info['vocSchool'] ?></td>
+                    <td><?php echo $info['vocEduc'] ?></td>
+                    <td><?php echo $info['vocFrom'] ?></td>
+                    <td><?php echo $info['vocTo'] ?></td>
+                    <td><?php echo $info['vocHighLvl'] ?></td>
+                    <td><?php echo $info['vocGraduate'] ?></td>
+                    <td><?php echo $info['vocScholar'] ?></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>College</th>
+                    <td><?php echo $info['schoolCollege'] ?></td>
+                    <td><?php echo $info['collegeCourse'] ?></td>
+                    <td><?php echo $info['collegeFrom'] ?></td>
+                    <td><?php echo $info['collegeTo'] ?></td>
+                    <td><?php echo $info['collegeHigh'] ?></td>
+                    <td><?php echo $info['collegeYear'] ?></td>
+                    <td><?php echo $info['collegeScholar'] ?></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>Graduate Studies</th>
+                    <td><?php echo $info['graduateStudies'] ?></td>
+                    <td><?php echo $info['graduateCourse'] ?></td>
+                    <td><?php echo $info['graduateFrom'] ?></td>
+                    <td><?php echo $info['graduateTo'] ?></td>
+                    <td><?php echo $info['graduateHigh'] ?></td>
+                    <td><?php echo $info['graduateYear'] ?></td>
+                    <td><?php echo $info['graduateScholar'] ?></td>
+                    <td></td>
+                </tr>
+                <?php if($listDegree->num_rows){ ?>
+                    <?php do{ ?>
+                        <tr>
+                            <th><?php echo $fetchDegree['lvl'] ?></th>
+                            <td><?php echo $fetchDegree['nameSchool'] ?></td>
+                            <td><?php echo $fetchDegree['education'] ?></td>
+                            <td><?php echo $fetchDegree['periodFrom'] ?></td>
+                            <td><?php echo $fetchDegree['periodTo'] ?></td>
+                            <td><?php echo $fetchDegree['highLvl'] ?></td>
+                            <td><?php echo $fetchDegree['year'] ?></td>
+                            <td><?php echo $fetchDegree['scholar'] ?></td>
+                            <td>
+                                <div class="d-flex gap-2">
+                                    <button class='btn btn-info text-light btn-sm' data-bs-toggle="modal" data-bs-target="#editDegreeModalProfie" value='<?php echo $fetchDegree['id'] ?>' id='editButonDegreeModal'><i class="fa-solid fa-pen"></i></button>
+                                    <button class='btn btn-danger btn-sm' value='<?php echo $fetchDegree['id'] ?>' id='deleteButonDegreeModal'><i class="fa-solid fa-trash"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                    <?php }while($fetchDegree = $listDegree->fetch_assoc()) ?>
+                <?php } ?>
+            </tbody>
+        </table>
+    </div>
     
 </body>
 </html>
