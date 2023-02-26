@@ -178,7 +178,7 @@
 
                     <?php if(!empty($fetchSchoolName['schoolCollege'])){ ?>
                         <div class="card w-75" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; max-width: 350px">
-                            <div class="card-body bg-danger rounded-1">
+                            <div class="card-body bg-primary rounded-1">
                                 <!-- Title -->
                                 <h4 class="card-title"><p><i class="fa-solid fa-ranking-star me-2"></i>College Degree</p></h4>
                                 <hr>
@@ -199,7 +199,7 @@
                 <?php }else if(!empty($fetchPost['lvl'])){ ?>
 
                     <div class="card w-75" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; max-width: 350px">
-                        <div class="card-body bg-danger rounded-1">
+                        <div class="card-body bg-primary rounded-1">
                             <!-- Title -->
                             <h4 class="card-title"><p><i class="fa-solid fa-ranking-star me-2"></i>Post Degree</p></h4>
                             <hr>
