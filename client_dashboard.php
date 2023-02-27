@@ -257,8 +257,13 @@
                             $workExpToFetch = $workExpToList->fetch_assoc();
                         ?>
 
-                        <input type="hidden" value="<?php echo $workExpFromFetch['dateFrom'] ?>" id='getWorkExpFromValue'>
-                        <input type="hidden" value="<?php echo $workExpToFetch['dateTo'] ?>" id='getWorkExpToValue'>
+                        <?php if(empty($workExpFromFetch['dateFrom'])){ ?>
+                            <input type="hidden" value="0" id='getWorkExpFromValue'>
+                            <input type="hidden" value="0" id='getWorkExpToValue'>
+                        <?php }else{ ?>
+                            <input type="hidden" value="<?php echo $workExpFromFetch['dateFrom'] ?>" id='getWorkExpFromValue'>
+                            <input type="hidden" value="<?php echo $workExpToFetch['dateTo'] ?>" id='getWorkExpToValue'>
+                        <?php } ?>
                         <!--  -->
                         <!-- Text -->
                         <p class="card-text fs-3" id='yearAsTeachingPersonnel'></p>
@@ -799,12 +804,12 @@
             <div class="modal-body">
                 <div class="mb-3">
                     <label for="formFile" class="form-label">Upload Credentials</label>
-                    <input class="form-control" type="file" id="formFile">
+                    <input class="form-control" type="file" id="uploadCredentialInput">
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">UPLOAD</button>
+                <button type="button" class="btn btn-primary" id='uploadCredentialButtonDB'>UPLOAD</button>
             </div>
             </div>
         </div>
@@ -2337,7 +2342,7 @@
                 const from = $("#getWorkExpFromValue").val();
                 const to = $("#getWorkExpToValue").val()
 
-                // console.log(from,to)
+                console.log(from,to)
 
                 var diff = getYearDiff(from, to);
 
@@ -2369,6 +2374,54 @@
                 };
 
 		    }
+
+            // UPLOAD Credential button
+            $("#uploadCredentialButtonDB").click(function(){
+                const email = $("#userEmailProfile").val();
+                const file = $("#uploadCredentialInput").prop("files")[0];
+
+                const formData = new FormData();
+                formData.append("file", file);
+                formData.append("email", email);
+
+                if(file){
+
+                    $.ajax({
+                        url: "uploadCredential.php",
+                        type: "POST",
+                        data:formData,
+                        processData: false,
+                        contentType: false,
+                        success: function() {
+
+                            // $.ajax({
+                            //     url:"profile.php",
+                            //     method:"post",
+                            //     data:{
+                            //         id:id
+                            //     },
+                            //     success(e){
+                            //         $("#dashBoardBody").html(e)
+                            //     }
+                            // })
+
+                            // $.ajax({
+                            //     url:"profileHeaderUpdate.php",
+                            //     method:"post",
+                            //     data:{
+                            //         id:id
+                            //     },
+                            //     success(e){
+                            //         $("#profileIconHeader").html(e)
+                            //     }
+                            // })
+
+                        }
+                    });
+                }else{
+                    confirm('Please Select file!');
+                }
+            })
 
         })
 

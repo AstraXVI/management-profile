@@ -63,8 +63,8 @@
         <div class="input-group mb-3">
         <label class="input-group-text" for="inputSexEdited">Sex</label>
             <select class="form-select" id="inputSexEdited" value="<?php echo $fetchUserInfo['sex'] ?>">
-                <option value="male">Male</option>
-                <option value="female">Female</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
             </select>
         </div>
         <div class="input-group mb-3">
