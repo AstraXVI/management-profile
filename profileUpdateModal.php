@@ -51,7 +51,7 @@
         </div>
         <div class="input-group mb-3">
             <label class="input-group-text" for="">Citizenship</label>
-            <select class="form-select" id="inputCitizenEdit" value="di ayos">
+            <select class="form-select" id="inputCitizenEdit">
                 <option value='<?php echo $fetchUserInfo['citizenship'] ?>'><?php echo $fetchUserInfo['citizenship'] ?></option>
                 <option value="filipino">Filipino</option>
                 <option value="dual_citizenship">Dual Citizenship</option>
@@ -62,9 +62,10 @@
     <div class="d-flex">
         <div class="input-group mb-3">
         <label class="input-group-text" for="inputSexEdited">Sex</label>
-            <select class="form-select" id="inputSexEdited" value="<?php echo $fetchUserInfo['sex'] ?>">
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
+            <select class="form-select" id="inputSexEdited">
+                <option class="bg-primary" value="<?php echo $fetchUserInfo['sex'] ?>"><?php echo $fetchUserInfo['sex'] ?></option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
             </select>
         </div>
         <div class="input-group mb-3">
