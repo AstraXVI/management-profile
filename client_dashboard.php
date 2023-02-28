@@ -70,6 +70,7 @@
     <script src="https://code.jquery.com/jquery-3.6.2.min.js" integrity="sha256-2krYZKh//PcchRtd+H+VyyQoZ/e3EcrkxhM8ycwASPA=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/admin_dashboard.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <style>
         .dropdown-menu:hover{
             background-color: #f5f5f5;
@@ -253,19 +254,58 @@
                               $workExpToFetch = $workExpToList->fetch_assoc();
                           ?>
 
-                          <?php if(empty($workExpFromFetch['dateFrom'])){ ?>
+                          <!-- <?php if(empty($workExpFromFetch['dateFrom'])){ ?>
                               <input type="hidden" value="0" id='getWorkExpFromValue'>
                               <input type="hidden" value="0" id='getWorkExpToValue'>
                           <?php }else{ ?>
                               <input type="hidden" value="<?php echo $workExpFromFetch['dateFrom'] ?>" id='getWorkExpFromValue'>
                               <input type="hidden" value="<?php echo $workExpToFetch['dateTo'] ?>" id='getWorkExpToValue'>
-                          <?php } ?>
+                          <?php } ?> -->
+
+                          <?php
+
+                            // GET ALL TEACHING EXP YEARS
+                            $qGetAllFrom = "SELECT dateFrom FROM work WHERE email='$emailNew' AND positionLvl='Teaching Personnel'";
+                            $qListFrom = $con->query($qGetAllFrom);
+                            $qFetchFrom = $qListFrom->fetch_assoc();
+
+                            $qGetAllTo = "SELECT dateTo FROM work WHERE email='$emailNew' AND positionLvl='Teaching Personnel'";
+                            $qListTo = $con->query($qGetAllTo);
+                            $qFetchTo = $qListTo->fetch_assoc();
+
+
+                            // GET ALL SYSTEM ADMIN EXP YEARS
+                            $qGetAllFromAdmin = "SELECT dateFrom FROM work WHERE email='$emailNew' AND positionLvl='School Administrator'";
+                            $qListFromAdmin = $con->query($qGetAllFromAdmin);
+                            $qFetchFromAdmin = $qListFromAdmin->fetch_assoc();
+
+                            $qGetAllToAdmin = "SELECT dateTo FROM work WHERE email='$emailNew' AND positionLvl='School Administrator'";
+                            $qListToAdmin = $con->query($qGetAllToAdmin);
+                            $qFetchToAdmin = $qListToAdmin->fetch_assoc();
+                          ?>
                           <!--  -->
                           <!-- Text -->
                           <p class="card-text fs-3" id='yearAsTeachingPersonnel'></p>
                       </div>
                    
                     </div>
+
+                    <!-- INPUT TEACHING PERSONEL EXP -->
+                    <?php do{ ?>
+                        <input type="hidden" id="allDateFrom" value='<?php echo $qFetchFrom['dateFrom'] ?>'>
+                    <?php }while($qFetchFrom = $qListFrom->fetch_assoc()) ?>
+                    <?php do{ ?>
+                        <input type="hidden" id="allDateTo" value='<?php echo $qFetchTo['dateTo'] ?>'>
+                    <?php }while($qFetchTo = $qListTo->fetch_assoc()) ?>
+
+                    <!-- INPUT SYSTEM ADD -->
+                    <?php do{ ?>
+                        <input type="hidden" id="allDateFromAdmin" value='<?php echo $qFetchFromAdmin['dateFrom'] ?>'>
+                    <?php }while($qFetchFromAdmin = $qListFromAdmin->fetch_assoc()) ?>
+                    <?php do{ ?>
+                        <input type="hidden" id="allDateToAdmin" value='<?php echo $qFetchToAdmin['dateTo'] ?>'>
+                    <?php }while($qFetchToAdmin = $qListToAdmin->fetch_assoc()) ?>
+
                     <div class="card w-75" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; max-width: 350px">
                         <div class="card-body bg-warning rounded-1">
                             <!-- Title -->
@@ -2389,45 +2429,7 @@
             })
 
             // Get year experience
-            getYearExperience()
-
-            function getYearExperience(){
-
-                const from = $("#getWorkExpFromValue").val();
-                const to = $("#getWorkExpToValue").val()
-
-                console.log(from,to)
-
-                var diff = getYearDiff(from, to);
-
-                // console.log(diff.months)
-
-                // console.log(diff)
-                if (diff.years > 0) {
-                    $("#yearAsTeachingPersonnel").text(diff.years + " year(s)");
-                    $("#yearAsSchoolAdmin").text(diff.years + " year(s)");
-                } else {
-                    $("#yearAsTeachingPersonnel").text(diff.months + " month(s)");
-                    $("#yearAsSchoolAdmin").text(diff.months + " month(s)");
-                }
-            }
-
-            function getYearDiff(from, to) {
-
-                // console.log(from,to)
-
-                var d1 = new Date(from);
-                var d2 = new Date(to);
-                var diffMs = d2 - d1;
-                var diffYears = Math.floor(diffMs / 31536000000);
-                var diffMonths = Math.floor(diffMs / 2592000000);
-
-                return {
-                    years: diffYears,
-                    months: diffMonths
-                };
-
-		    }
+            
 
             // UPLOAD Credential button
             $("#uploadCredentialButtonDB").click(function(){
@@ -2476,6 +2478,50 @@
                     confirm('Please Select file!');
                 }
             })
+
+            
+            // GET TEACHING PERSONEL EXP
+            const from = $("[id = 'allDateFrom']").map(function() {
+                return $(this).val();
+            }).get();
+
+            const to = $("[id = 'allDateTo']").map(function() {
+                return $(this).val();
+            }).get();
+
+
+            let totalDiff = 0;
+
+            for (let i = 0; i < from.length; i++) {
+                let startDate = moment(from[i]);
+                let endDate = moment(to[i]);
+                totalDiff += endDate.diff(startDate, 'years');
+            }
+
+            $("#yearAsTeachingPersonnel").html(`${totalDiff} YEAR(S)`)
+            
+
+            // GET SYSTEM AD EXP YEARS
+            const fromAdmin = $("[id = 'allDateFromAdmin']").map(function() {
+                return $(this).val();
+            }).get();
+
+            const toAdmin = $("[id = 'allDateToAdmin']").map(function() {
+                return $(this).val();
+            }).get();
+
+            console.log(fromAdmin)
+            console.log(toAdmin)
+
+            let totalDiffAdmin = 0;
+
+            for (let i = 0; i < fromAdmin.length; i++) {
+                let startDateAdmin = moment(fromAdmin[i]);
+                let endDateAdmin = moment(toAdmin[i]);
+                totalDiffAdmin += endDateAdmin.diff(startDateAdmin, 'years');
+            }
+
+            $("#yearAsSchoolAdmin").html(`${totalDiffAdmin} YEAR(S)`)
 
             // Change dropdown in work experience depend on position titl
             $("#workExpPositionLvl").change(function(){

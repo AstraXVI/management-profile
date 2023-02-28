@@ -82,7 +82,7 @@
     $nPost = $lPost->num_rows;
 
     // count international award
-    $qInternationalAward = "SELECT DISTINCT email,lvl FROM award";
+    $qInternationalAward = "SELECT DISTINCT email,lvl FROM award WHERE lvl LIKE '%international%'";
     $lInternationalAward = $con->query($qInternationalAward);
     $nInternationalAward = $lInternationalAward->num_rows;
 
