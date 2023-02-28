@@ -213,7 +213,7 @@
         <div id='dashBoardBody' class="mx-auto w-75" style=" margin-top: 60px;">
             <!-- Ilagay dito ang dashboard -->
             <div class=" text-secondary fw-bold p-2 ps-0 mb-3 w-25 h3">Dashboard</div>
-            <div class="d-flex flex-column py-5 px-5 text-light" style="gap: 30px; background-color: white; height: 65vh; overflow-y: scroll;">
+            <div class="d-flex flex-column py-5 px-5 text-light" style="gap: 30px; background-color: white; height: 73vh; overflow-y: scroll;">
                 <div class="d-flex flex-row gap-5">
                     <div class="card w-100" style=" border: none; max-width: 310px">
                         <div class="card-body bg-dark" style="border-radius: 20px;">
