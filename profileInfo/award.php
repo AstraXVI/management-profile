@@ -58,7 +58,7 @@
 
     <button class="btn btn-primary my-3" data-bs-toggle="modal" data-bs-target="#profileAwardModal"><i class="fa-solid fa-plus text-light me-2"></i>Add award</button>
 
-    <table class='table text-center table-striped bg-light'>
+    <table class='table text-center table-striped bg-light' style="font-size: 14px;">
         <thead>
             <tr>
                 <th>Title of Award</th>

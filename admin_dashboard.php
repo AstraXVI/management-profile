@@ -1121,7 +1121,9 @@
                 <div class="input-group mb-3">
                     <label class="input-group-text" for="">Level of award</label>
                     <select class="form-select" id='inputAwardlvl'>
-                        <option value="International">International</option>
+                        <option value="International (Managerial)">International (Managerial)</option>
+                        <option value="International (Supervisory)">International (Supervisory)</option>
+                        <option value="International (Technical)">International (Technical)</option>
                         <option value="married">Regional</option>
                         <option value="Division">Division</option>
                         <option value="School">School</option>

@@ -58,7 +58,7 @@
 
     <button class="btn btn-primary my-3" data-bs-toggle="modal" data-bs-target="#learningAndDevelopmentAddData"><i class="fa-solid fa-plus me-2"></i>Add Learning and Development</button>
 
-    <table class='table table-striped text-center bg-light'>
+    <table class='table table-striped text-center bg-light' style="font-size: 14px;">
         <thead>
             <tr>
                <th>Title of Learning and Development Intervention/Training Program (Write in full)</th>

@@ -59,7 +59,7 @@
 
     <button class="btn btn-primary my-3" data-bs-toggle="modal" data-bs-target="#workAddData"><i class="fa-solid fa-plus me-2"></i>Add Work Experience</button>
 
-    <table class='table table-striped text-center bg-light'>
+    <table class='table table-striped text-center bg-light' style="font-size: 14px;">
         <thead>
             <tr>
                <th colspan='2'>Inclusive Dates (mm/dd/yyyy) <br><span class="me-4 text-primary" style="font-size: 14px">From</span><span class="ms-4 text-primary" style="font-size: 14px">To</span></th>
@@ -96,7 +96,7 @@
                 <?php }while($info = $list->fetch_assoc()) ?>
             <?php }else{ ?>
                 <tr>
-                    <td colspan='9'>No data</td>
+                    <td colspan='10'>No data</td>
                 </tr>
             <?php } ?>
         </tbody>
