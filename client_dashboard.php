@@ -117,7 +117,7 @@
                 <div class="d-flex flex-column flex-shrink-0 p-3 bg-dark text-light" style="width: 280px; height:100vh; ">
                     <a href="" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
                     <img class="bi me-2" width="50" height="50" src="https://sdovalenzuelacity.deped.gov.ph/wp-content/uploads/2021/04/New-DO-Logo.png" alt="logo">
-                    <span class="fs-4 text-light">Management Profile</span>
+                    <span class="fs-6 text-light">DepEd Valenzuela Personnel Profile System</span>
                     </a>
                     <hr>
                     <ul class="nav nav-pills flex-column mb-auto">
@@ -165,113 +165,130 @@
         <div id='dashBoardBody' class="mx-auto" style="width: 76%; margin-top: 70px;">
             <!-- Ilagay dito ang dashboard -->
             <div class=" text-secondary fw-bold p-2 ps-0 mb-3 w-25 h3">Dashboard</div>
-            <div class="d-flex py-5 px-5 text-light" style="gap: 40px; background-color: white;">
+            <div class="d-flex flex-column py-5 px-5 text-light" style="gap: 40px; background-color: white;">
             
-                <?php if(empty($fetchSchool['lvl'])){ ?>
-
-                    <?php 
-                        $checkCollege = "SELECT * FROM educationalbg WHERE email='$emailNew'";
-                        $collegeSchool = $con->query($checkCollege);
-                        $fetchSchoolName = $collegeSchool->fetch_assoc();
-
-                    ?>
-
-                    <?php if(!empty($fetchSchoolName['schoolCollege'])){ ?>
+                <div class="d-flex gap-5">
+                    <?php if(empty($fetchSchool['lvl'])){ ?>
+                        <?php
+                            $checkCollege = "SELECT * FROM educationalbg WHERE email='$emailNew'";
+                            $collegeSchool = $con->query($checkCollege);
+                            $fetchSchoolName = $collegeSchool->fetch_assoc();
+                        ?>
+                        <?php if(!empty($fetchSchoolName['schoolCollege'])){ ?>
+                            <div class="card w-75" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; max-width: 350px">
+                                <div class="card-body bg-primary rounded-1">
+                                    <!-- Title -->
+                                    <h4 class="card-title"><p><i class="fa-solid fa-ranking-star me-2"></i>College Degree</p></h4>
+                                    <hr>
+                                    <!-- Text -->
+                                    <p class="card-text"><?php echo $fetchSchoolName['schoolCollege'] ?></p>
+                                    <p class="card-text"><?php echo $fetchSchoolName['collegeCourse'] ?></p>
+                                    <div class="d-flex gap-3 fs-4">
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php } ?>
+                    
+                    <?php }else if(!empty($fetchPost['lvl'])){ ?>
                         <div class="card w-75" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; max-width: 350px">
                             <div class="card-body bg-primary rounded-1">
                                 <!-- Title -->
-                                <h4 class="card-title"><p><i class="fa-solid fa-ranking-star me-2"></i>College Degree</p></h4>
+                                <h4 class="card-title"><p><i class="fa-solid fa-ranking-star me-2"></i>Post Degree</p></h4>
                                 <hr>
                                 <!-- Text -->
-                                <p class="card-text"><?php echo $fetchSchoolName['schoolCollege'] ?></p>
-                                <p class="card-text"><?php echo $fetchSchoolName['collegeCourse'] ?></p>
+                                <p class="card-text"><?php echo $fetchPost['nameSchool'] ?></p>
+                                <p class="card-text"><?php echo $fetchPost['education'] ?></p>
                                 <div class="d-flex gap-3 fs-4">
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star"></span>
+                                <span class="fa fa-star text-warning"></span>
+                                    <span class="fa fa-star text-warning"></span>
+                                    <span class="fa fa-star text-warning"></span>
+                                    <span class="fa fa-star text-warning"></span>
+                                    <span class="fa fa-star text-warning"></span>
+                                </div>
+                                <!-- <button id="toEquipment" class="btn btn-rounded text-light px-4 btn-md" style="background-color: rgba(0, 0, 0, 0.3);">See Profile<i class="fa-solid fa-arrow-up-right-from-square ms-2"></i></button> -->
+                            </div>
+                        </div>
+                    <?php }else if(!empty($fetchMasters['lvl'])){ ?>
+                        <div class="card w-75" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; max-width: 350px">
+                            <div class="card-body bg-primary rounded-1">
+                                <!-- Title -->
+                                <h4 class="card-title"><p><i class="fa-solid fa-ranking-star me-3"></i>Master Degree</p></h4>
+                                <hr>
+                                <!-- Text -->
+                                <p class="card-text"><?php echo $fetchMasters['nameSchool'] ?></p>
+                                <p class="card-text"><?php echo $fetchMasters['education'] ?></p>
+                                <div class="d-flex gap-3 fs-4">
+                                    <span class="fa fa-star text-warning"></span>
+                                    <span class="fa fa-star text-warning"></span>
+                                    <span class="fa fa-star text-warning"></span>
                                     <span class="fa fa-star"></span>
                                     <span class="fa fa-star"></span>
                                 </div>
+                                <!-- <button id="toEquipment" class="btn btn-rounded text-light px-4 btn-md" style="background-color: rgba(0, 0, 0, 0.3);">See Profile<i class="fa-solid fa-arrow-up-right-from-square ms-2"></i></button> -->
                             </div>
                         </div>
                     <?php } ?>
-                        
-                <?php }else if(!empty($fetchPost['lvl'])){ ?>
-
+                    
                     <div class="card w-75" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; max-width: 350px">
-                        <div class="card-body bg-primary rounded-1">
+                        <div class="card-body bg-danger rounded-1">
                             <!-- Title -->
-                            <h4 class="card-title"><p><i class="fa-solid fa-ranking-star me-2"></i>Post Degree</p></h4>
+                            <h4 class="card-title"><p><i class="fa-solid fa-person-chalkboard me-2"></i>Years as Teaching Personnel</p></h4>
                             <hr>
+                            <!-- Get date to get year experience -->
+                            <?php
+                                // get exp from
+                                $getWorkExpFrom = "SELECT dateFrom FROM work WHERE email='$emailNew' ORDER BY dateFrom ";
+                                $workExpFromList = $con->query($getWorkExpFrom);
+                                $workExpFromFetch = $workExpFromList->fetch_assoc();
+                                // get exp to
+                                $getWorkExpTo = "SELECT dateTo FROM work WHERE email='$emailNew' ORDER BY dateTo DESC ";
+                                $workExpToList = $con->query($getWorkExpTo);
+                                $workExpToFetch = $workExpToList->fetch_assoc();
+                            ?>
+                            <input type="hidden" value="<?php echo $workExpFromFetch['dateFrom'] ?>" id='getWorkExpFromValue'>
+                            <input type="hidden" value="<?php echo $workExpToFetch['dateTo'] ?>" id='getWorkExpToValue'>
+                            <!--  -->
                             <!-- Text -->
-                            <p class="card-text"><?php echo $fetchPost['nameSchool'] ?></p>
-                            <p class="card-text"><?php echo $fetchPost['education'] ?></p>
-                            <div class="d-flex gap-3 fs-4">
-                            <span class="fa fa-star text-warning"></span>
-                                <span class="fa fa-star text-warning"></span>
-                                <span class="fa fa-star text-warning"></span>
-                                <span class="fa fa-star text-warning"></span>
-                                <span class="fa fa-star text-warning"></span>
-                            </div>
-                            <!-- <button id="toEquipment" class="btn btn-rounded text-light px-4 btn-md" style="background-color: rgba(0, 0, 0, 0.3);">See Profile<i class="fa-solid fa-arrow-up-right-from-square ms-2"></i></button> -->
+                            <p class="card-text fs-3" id='yearAsTeachingPersonnel'></p>
                         </div>
                     </div>
-
-                <?php }else if(!empty($fetchMasters['lvl'])){ ?>
-
                     <div class="card w-75" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; max-width: 350px">
-                        <div class="card-body bg-primary rounded-1">
+                        <div class="card-body bg-warning rounded-1">
                             <!-- Title -->
-                            <h4 class="card-title"><p><i class="fa-solid fa-ranking-star me-3"></i>Master Degree</p></h4>
+                            <h4 class="card-title"><p><i class="fa-solid fa-school-lock me-2"></i>Years as School Administration</p></h4>
                             <hr>
                             <!-- Text -->
-                            <p class="card-text"><?php echo $fetchMasters['nameSchool'] ?></p>
-                            <p class="card-text"><?php echo $fetchMasters['education'] ?></p>
-                            <div class="d-flex gap-3 fs-4">
-                                <span class="fa fa-star text-warning"></span>
-                                <span class="fa fa-star text-warning"></span>
-                                <span class="fa fa-star text-warning"></span>
-                                <span class="fa fa-star"></span>
-                                <span class="fa fa-star"></span>
-                            </div>
-                            <!-- <button id="toEquipment" class="btn btn-rounded text-light px-4 btn-md" style="background-color: rgba(0, 0, 0, 0.3);">See Profile<i class="fa-solid fa-arrow-up-right-from-square ms-2"></i></button> -->
+                            <p class="card-text fs-3" id='yearAsSchoolAdmin'></p>
                         </div>
-                    </div>
-                <?php } ?>
-                
-                <div class="card w-75" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; max-width: 350px">
-                    <div class="card-body bg-danger rounded-1">
-                        <!-- Title -->
-                        <h4 class="card-title"><p><i class="fa-solid fa-person-chalkboard me-2"></i>Years as Teaching Personnel</p></h4>
-                        <hr>
-                        <!-- Get date to get year experience -->
-                        <?php
-                            // get exp from
-                            $getWorkExpFrom = "SELECT dateFrom FROM work WHERE email='$emailNew' ORDER BY dateFrom ";
-                            $workExpFromList = $con->query($getWorkExpFrom);
-                            $workExpFromFetch = $workExpFromList->fetch_assoc();
-
-                            // get exp to
-                            $getWorkExpTo = "SELECT dateTo FROM work WHERE email='$emailNew' ORDER BY dateTo DESC ";
-                            $workExpToList = $con->query($getWorkExpTo);
-                            $workExpToFetch = $workExpToList->fetch_assoc();
-                        ?>
-
-                        <input type="hidden" value="<?php echo $workExpFromFetch['dateFrom'] ?>" id='getWorkExpFromValue'>
-                        <input type="hidden" value="<?php echo $workExpToFetch['dateTo'] ?>" id='getWorkExpToValue'>
-                        <!--  -->
-                        <!-- Text -->
-                        <p class="card-text fs-3" id='yearAsTeachingPersonnel'></p>
                     </div>
                 </div>
 
-                <div class="card w-75" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; max-width: 350px">
-                    <div class="card-body bg-warning rounded-1">
-                        <!-- Title -->
-                        <h4 class="card-title"><p><i class="fa-solid fa-school-lock me-2"></i>Years as School Administration</p></h4>
-                        <hr>
-                        <!-- Text -->
-                        <p class="card-text fs-3" id='yearAsSchoolAdmin'></p>
+                <div class="d-flex gap-5">
+                    <div class="card w-75" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; max-width: 300px">
+                        <div class="card-body bg-success rounded-1">
+                            <!-- Title -->
+                            <h4 class="card-title"><p>6 <i class="fa-solid fa-award me-2"></i>Awards</p></h4>
+                            <hr>
+                            <!-- Text -->
+                            <!-- <p class="card-text fs-3" id='awards'></p> -->
+                            <p class="card-text mb-1 fs-6" id='awards'><i class="fa-solid fa-medal text-warning"></i> 1 - International Awards</p>
+                            <p class="card-text mb-1 fs-6" id='awards'><i class="fa-solid fa-medal text-warning"></i> 3 - Regional Awards</p>
+                            <p class="card-text mb-1 fs-6" id='awards'><i class="fa-solid fa-medal text-warning"></i> 2 - Division Awards</p>
+                        </div>
+                    </div>
+                    <div class="card w-75" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; max-width: 300px">
+                        <div class="card-body rounded-1" style="background-color: #87194C">
+                            <!-- Title -->
+                            <h4 class="card-title"><p>2 <i class="fa-solid fa-bullhorn me-2"></i>Announcement</p></h4>
+                            <hr>
+                            <!-- Text -->
+                            <p class="card-text fs-3" id='announcement'></p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -827,7 +844,9 @@
                 <div class="input-group mb-3">
                     <label class="input-group-text" for="">Level of award</label>
                     <select class="form-select" id='inputAwardlvl'>
-                        <option value="International">International</option>
+                        <option value="International (Managerial)">International (Managerial)</option>
+                        <option value="International (Supervisory)">International (Supervisory)</option>
+                        <option value="International (Technical)">International (Technical)</option>
                         <option value="married">Regional</option>
                         <option value="Division">Division</option>
                         <option value="School">School</option>
