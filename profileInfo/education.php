@@ -70,7 +70,7 @@
     </div>
 
     <div style="max-height: 61vh; overflow-y: scroll">
-        <table class='table text-center table-responsive table-striped p-2 bg-light'>
+        <table class='table text-center table-responsive table-striped p-2 bg-light' style="font-size: 14px;">
             <thead>
                 <tr>
                     <th>Level</th>

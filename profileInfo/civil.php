@@ -58,7 +58,7 @@
 
     <button class="btn btn-primary my-3" data-bs-toggle="modal" data-bs-target="#civilAddData"><i class="fa-solid fa-plus text-light me-2"></i>Add Civil Service Eligibility</button>
 
-    <table class='table text-center table-striped bg-light'>
+    <table class='table text-center table-striped bg-light' style="font-size: 14px;">
         <thead>
             <tr>
                 <th>Career Service/RA 1080(Board/Bar) Under special Laws/CES/CSEE Barangay Eligibility / Driver License</th>

@@ -614,10 +614,36 @@
                     <input type="date" class="form-control" id="workExpDateTo" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                 </div>
             </div>
+
             <div class="input-group mb-3">
+                <label class="input-group-text" for="">Position Category</label>
+                <select class="form-select" id="workExpPositionLvl">
+                    <option value="School Administrator">School Administrator</option>
+                    <option value="Teaching Personnel">Teaching Personnel</option>
+                </select>
+            </div>
+
+            <div class="input-group mb-3">
+                <label class="input-group-text" for="">Position Title (Write in full/ Do not abbreviate)</label>
+                <select class="form-select" id="workExpPosition">
+                    <!-- Default-->
+                    <option value='Head Teacher I'>Head Teacher I</option>
+                    <option value='Head Teacher II'>Head Teacher II</option>
+                    <option value='Head Teacher II'>Head Teacher III</option>
+                    <option value='Head Teacher IV'>Head Teacher IV</option>
+                    <option value='Head Teacher V'>Head Teacher V</option>
+                    <option value='Head Teacher VI'>Head Teacher VI</option>
+                    <option value='School Head I'>School Head I</option>
+                    <option value='School Head II'>School Head II</option>
+                    <option value='School Head III'>School Head III</option>
+                    <option value='School Head IV'>School Head IV</option>
+                    <option >Other Admin Roles (Please Specify)</option>
+                </select>
+            </div>
+            <!-- <div class="input-group mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-default">Position Title (Write in full/ Do not abbreviate)</span>
                 <input type="text" class="form-control" id="workExpPosition" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-            </div>
+            </div> -->
 
             <div class="input-group mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-default">Department/Agency/Office/Company (Write in full/ Do not abbreviate)</span>
@@ -1969,6 +1995,7 @@
                 const email = $("#profileUserEmail").val();
                 const from = $("#workExpDateFrom").val();
                 const to = $("#workExpDateTo").val();
+                const positionLvl = $("#workExpPositionLvl").val();
                 const position = $("#workExpPosition").val();
                 const department = $("#workExpDepartment").val();
                 const salary = $("#workExpSalary").val();
@@ -1984,6 +2011,7 @@
                             email:email,
                             from:from,
                             to:to,
+                            positionLvl:positionLvl,
                             position:position,
                             department:department,
                             salary:salary,
@@ -2037,6 +2065,7 @@
 
                 const from = $("#EditworkExpDateFrom").val();
                 const to = $("#EditworkExpDateTo").val();
+                const positionLvl = $("#EditworkExpPositionLvl").val();
                 const position = $("#EditworkExpPosition").val();
                 const department = $("#EditworkExpDepartment").val();
                 const salary = $("#EditworkExpSalary").val();
@@ -2051,6 +2080,7 @@
                         id:id,
                         from:from,
                         to:to,
+                        positionLvl:positionLvl,
                         position:position,
                         department:department,
                         salary:salary,
@@ -2450,7 +2480,6 @@
             })
 
             
-            
             // GET TEACHING PERSONEL EXP
             const from = $("[id = 'allDateFrom']").map(function() {
                 return $(this).val();
@@ -2493,6 +2522,29 @@
             }
 
             $("#yearAsSchoolAdmin").html(`${totalDiffAdmin} YEAR(S)`)
+
+            // Change dropdown in work experience depend on position titl
+            $("#workExpPositionLvl").change(function(){
+                const lvl = $(this).val()
+
+                if(lvl == 'School Administrator'){
+                    $("#workExpPosition").html("<option value='Head Teacher I'>Head Teacher I</option><option value='Head Teacher II'>Head Teacher II</option><option value='Head Teacher II'>Head Teacher III</option><option value='Head Teacher IV'>Head Teacher IV</option><option value='Head Teacher V'>Head Teacher V</option><option value='Head Teacher VI'>Head Teacher VI</option><option value='School Head I'>School Head I</option><option value='School Head II'>School Head II</option><option value='School Head III'>School Head III</option><option value='School Head IV'>School Head IV</option><option >Other Admin Roles (Please Specify)</option>")
+                }else{
+                    $("#workExpPosition").html("<option value='Teacher I'>Teacher I</option><option value='Teacher II'>Teacher II</option><option value='Teacher III'>Teacher III</option><option value='Master Teacher I'>Master Teacher I</option><option value='Master Teacher II'>Master Teacher II</option><option value='Master Teacher III'>Master Teacher III</option>")
+
+                }
+            })
+
+            $("#editWorkExpModalBody").on("change","#EditworkExpPositionLvl",function(){
+                const lvl = $(this).val()
+
+                // alert(lvl)
+                if(lvl == 'School Administrator'){
+                    $("#EditworkExpPosition").html("<option value='Head Teacher I'>Head Teacher I</option><option value='Head Teacher II'>Head Teacher II</option><option value='Head Teacher II'>Head Teacher III</option><option value='Head Teacher IV'>Head Teacher IV</option><option value='Head Teacher V'>Head Teacher V</option><option value='Head Teacher VI'>Head Teacher VI</option><option value='School Head I'>School Head I</option><option value='School Head II'>School Head II</option><option value='School Head III'>School Head III</option><option value='School Head IV'>School Head IV</option><option >Other Admin Roles (Please Specify)</option>")
+                }else{
+                    $("#EditworkExpPosition").html("<option value='Teacher I'>Teacher I</option><option value='Teacher II'>Teacher II</option><option value='Teacher III'>Teacher III</option><option value='Master Teacher I'>Master Teacher I</option><option value='Master Teacher II'>Master Teacher II</option><option value='Master Teacher III'>Master Teacher III</option>")
+                }
+            })
 
         })
 
