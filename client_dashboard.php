@@ -232,30 +232,39 @@
                                 <!-- <button id="toEquipment" class="btn btn-rounded text-light px-4 btn-md" style="background-color: rgba(0, 0, 0, 0.3);">See Profile<i class="fa-solid fa-arrow-up-right-from-square ms-2"></i></button> -->
                             </div>
                         </div>
+                        
                     <?php } ?>
-                    
+                
                     <div class="card w-75" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; max-width: 350px">
-                        <div class="card-body bg-danger rounded-1">
-                            <!-- Title -->
-                            <h4 class="card-title"><p><i class="fa-solid fa-person-chalkboard me-2"></i>Years as Teaching Personnel</p></h4>
-                            <hr>
-                            <!-- Get date to get year experience -->
-                            <?php
-                                // get exp from
-                                $getWorkExpFrom = "SELECT dateFrom FROM work WHERE email='$emailNew' ORDER BY dateFrom ";
-                                $workExpFromList = $con->query($getWorkExpFrom);
-                                $workExpFromFetch = $workExpFromList->fetch_assoc();
-                                // get exp to
-                                $getWorkExpTo = "SELECT dateTo FROM work WHERE email='$emailNew' ORDER BY dateTo DESC ";
-                                $workExpToList = $con->query($getWorkExpTo);
-                                $workExpToFetch = $workExpToList->fetch_assoc();
-                            ?>
-                            <input type="hidden" value="<?php echo $workExpFromFetch['dateFrom'] ?>" id='getWorkExpFromValue'>
-                            <input type="hidden" value="<?php echo $workExpToFetch['dateTo'] ?>" id='getWorkExpToValue'>
-                            <!--  -->
-                            <!-- Text -->
-                            <p class="card-text fs-3" id='yearAsTeachingPersonnel'></p>
-                        </div>
+                      <div class="card-body bg-danger rounded-1">
+                          <!-- Title -->
+                          <h4 class="card-title"><p><i class="fa-solid fa-person-chalkboard me-2"></i>Years as Teaching Personnel</p></h4>
+                          <hr>
+                          <!-- Get date to get year experience -->
+                          <?php
+                              // get exp from
+                              $getWorkExpFrom = "SELECT dateFrom FROM work WHERE email='$emailNew' ORDER BY dateFrom ";
+                              $workExpFromList = $con->query($getWorkExpFrom);
+                              $workExpFromFetch = $workExpFromList->fetch_assoc();
+
+                              // get exp to
+                              $getWorkExpTo = "SELECT dateTo FROM work WHERE email='$emailNew' ORDER BY dateTo DESC ";
+                              $workExpToList = $con->query($getWorkExpTo);
+                              $workExpToFetch = $workExpToList->fetch_assoc();
+                          ?>
+
+                          <?php if(empty($workExpFromFetch['dateFrom'])){ ?>
+                              <input type="hidden" value="0" id='getWorkExpFromValue'>
+                              <input type="hidden" value="0" id='getWorkExpToValue'>
+                          <?php }else{ ?>
+                              <input type="hidden" value="<?php echo $workExpFromFetch['dateFrom'] ?>" id='getWorkExpFromValue'>
+                              <input type="hidden" value="<?php echo $workExpToFetch['dateTo'] ?>" id='getWorkExpToValue'>
+                          <?php } ?>
+                          <!--  -->
+                          <!-- Text -->
+                          <p class="card-text fs-3" id='yearAsTeachingPersonnel'></p>
+                      </div>
+                   
                     </div>
                     <div class="card w-75" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; max-width: 350px">
                         <div class="card-body bg-warning rounded-1">
@@ -266,6 +275,7 @@
                             <p class="card-text fs-3" id='yearAsSchoolAdmin'></p>
                         </div>
                     </div>
+
                 </div>
 
                 <div class="d-flex gap-5">
@@ -816,12 +826,12 @@
             <div class="modal-body">
                 <div class="mb-3">
                     <label for="formFile" class="form-label">Upload Credentials</label>
-                    <input class="form-control" type="file" id="formFile">
+                    <input class="form-control" type="file" id="uploadCredentialInput">
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">UPLOAD</button>
+                <button type="button" class="btn btn-primary" id='uploadCredentialButtonDB'>UPLOAD</button>
             </div>
             </div>
         </div>
@@ -2356,7 +2366,7 @@
                 const from = $("#getWorkExpFromValue").val();
                 const to = $("#getWorkExpToValue").val()
 
-                // console.log(from,to)
+                console.log(from,to)
 
                 var diff = getYearDiff(from, to);
 
@@ -2388,6 +2398,54 @@
                 };
 
 		    }
+
+            // UPLOAD Credential button
+            $("#uploadCredentialButtonDB").click(function(){
+                const email = $("#userEmailProfile").val();
+                const file = $("#uploadCredentialInput").prop("files")[0];
+
+                const formData = new FormData();
+                formData.append("file", file);
+                formData.append("email", email);
+
+                if(file){
+
+                    $.ajax({
+                        url: "uploadCredential.php",
+                        type: "POST",
+                        data:formData,
+                        processData: false,
+                        contentType: false,
+                        success: function() {
+
+                            // $.ajax({
+                            //     url:"profile.php",
+                            //     method:"post",
+                            //     data:{
+                            //         id:id
+                            //     },
+                            //     success(e){
+                            //         $("#dashBoardBody").html(e)
+                            //     }
+                            // })
+
+                            // $.ajax({
+                            //     url:"profileHeaderUpdate.php",
+                            //     method:"post",
+                            //     data:{
+                            //         id:id
+                            //     },
+                            //     success(e){
+                            //         $("#profileIconHeader").html(e)
+                            //     }
+                            // })
+
+                        }
+                    });
+                }else{
+                    confirm('Please Select file!');
+                }
+            })
 
         })
 

@@ -55,13 +55,38 @@
     $listRequest = $con->query($getRequest);
     $requestCount = $listRequest->num_rows;
 
-    // 
+    // count head profile
     $y = "SELECT * FROM `profile`";
     $x = $con->query($y);
     $fetchProfileInfoNew = $x->fetch_assoc();
     $p = $x->num_rows;
 
+    // count male
+    $qMale = "SELECT * FROM profile WHERE sex='male'";
+    $lMale = $con->query($qMale);
+    $nMale = $lMale->num_rows;
 
+    // count female
+    $qFemale = "SELECT * FROM profile WHERE sex='female'";
+    $lFemale = $con->query($qFemale);
+    $nFemale = $lFemale->num_rows;
+
+    // count master degree
+    $qMaster = "SELECT DISTINCT email,lvl FROM educationaldegree WHERE lvl='Masters degree'";
+    $lMaster = $con->query($qMaster);
+    $nMaster = $lMaster->num_rows;
+
+    // count post degree
+    $qPost = "SELECT DISTINCT email,lvl FROM educationaldegree WHERE lvl='Post degree'";
+    $lPost = $con->query($qPost);
+    $nPost = $lPost->num_rows;
+
+    // count international award
+    $qInternationalAward = "SELECT DISTINCT email,lvl FROM award";
+    $lInternationalAward = $con->query($qInternationalAward);
+    $nInternationalAward = $lInternationalAward->num_rows;
+
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -93,7 +118,8 @@
 </head>
 <body style="background: url(https://cdn.pixabay.com/photo/2017/07/01/19/48/background-2462431_960_720.jpg) no-repeat; background-size: cover; background-color: #e5e5e5; background-blend-mode: overlay; ">
     <header class="d-flex align-items-center py-2 bg-success text-light" style=" position: absolute; top: 20px; right:40px; padding-inline: 20px;  border-radius: 10px;">
-        <span id='profileIconHeader'>
+        <!-- <span id='profileIconHeader'> -->
+        <span>
                 <i class="fa-solid fa-user fs-4 mt-1"></i>
         </span>
         <div class="dropdown">
@@ -209,11 +235,11 @@
 
                             <div class="d-flex align-items-center justify-content-around">
                                 <div>
-                                    <div class='d-inline p-2 text-dark bg-light' style="border-radius: 100vmax;">30</div>
+                                    <div class='d-inline p-2 text-dark bg-light' style="border-radius: 100vmax;"><?php echo $nMale ?></div>
                                     <div class="mt-2">Male</div>
                                 </div>
                                 <div>
-                                    <div class='d-inline p-2 text-dark bg-light' style="border-radius: 100vmax; margin-left: 13px;">21</div>
+                                    <div class='d-inline p-2 text-dark bg-light' style="border-radius: 100vmax; margin-left: 13px;"><?php echo $nFemale ?></div>
                                     <div class="mt-2">Female</div>
                                 </div>
                             </div>
@@ -256,7 +282,7 @@
                     <div class="card w-100" style="border: none; max-width: 310px ">
                         <div class="card-body bg-warning" style="border-radius: 20px;">
                             <!-- Title -->
-                            <h4 class="card-title"><i class="fa fa-ranking-star me-3"></i><?php echo $elemSchoolCount ?> <br> <p class="mt-2">With Master's Degree</p></h4>
+                            <h4 class="card-title"><i class="fa fa-ranking-star me-3"></i><?php echo $nMaster ?> <br> <p class="mt-2">With Master's Degree</p></h4>
                             <hr>
                             <!-- Text -->
                             <p class="card-text">Total no. of school principal with Master degree.</p>
@@ -266,7 +292,7 @@
                     <div class="card w-100 " style="border: none; max-width: 310px ">
                         <div class="card-body bg-primary" style="border-radius: 20px;">
                             <!-- Title -->
-                            <h4 class="card-title"><i class="fa-solid fa-ranking-star text-dark me-3"></i><?php echo $highSchoolCount ?> <br> <p class="mt-2">With Post Degree</p></h4>
+                            <h4 class="card-title"><i class="fa-solid fa-ranking-star text-dark me-3"></i><?php echo $nPost ?> <br> <p class="mt-2">With Post Degree</p></h4>
                             <hr>
                             <!-- Text -->
                             <p class="card-text">Total no. of school principal with doctorate degree.</p>
@@ -278,7 +304,7 @@
                     <div class="card w-100" style=" border: none; max-width: 310px">
                         <div class="card-body" style="border-radius: 20px; background-color: #87194C">
                             <!-- Title -->
-                            <h4 class="card-title"><i class="fa fa-ranking-star me-3 text-warning"></i><?php echo $adminCount ?> <br> <p class="mt-2">With International awards</p></h4>
+                            <h4 class="card-title"><i class="fa fa-ranking-star me-3 text-warning"></i><?php echo $nInternationalAward ?> <br> <p class="mt-2">With International awards</p></h4>
                             <hr>
                             <!-- Text -->
                             <p class="card-text">Total no. of school principal with International Awards.</p>
@@ -796,9 +822,31 @@
                     <input type="date" class="form-control" id="workExpDateTo" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                 </div>
             </div>
+
             <div class="input-group mb-3">
-                <span class="input-group-text" id="inputGroup-sizing-default">Position Title (Write in full/ Do not abbreviate)</span>
-                <input type="text" class="form-control" id="workExpPosition" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                <label class="input-group-text" for="">Position Category</label>
+                <select class="form-select" id="workExpPositionLvl">
+                    <option value="School Administrator">School Administrator</option>
+                    <option value="Teaching Personnel">Teaching Personnel</option>
+                </select>
+            </div>
+
+            <div class="input-group mb-3">
+                <label class="input-group-text" for="">Position Title (Write in full/ Do not abbreviate)</label>
+                <select class="form-select" id="workExpPosition">
+                    <!-- Default-->
+                    <option value='Head Teacher I'>Head Teacher I</option>
+                    <option value='Head Teacher II'>Head Teacher II</option>
+                    <option value='Head Teacher II'>Head Teacher III</option>
+                    <option value='Head Teacher IV'>Head Teacher IV</option>
+                    <option value='Head Teacher V'>Head Teacher V</option>
+                    <option value='Head Teacher VI'>Head Teacher VI</option>
+                    <option value='School Head I'>School Head I</option>
+                    <option value='School Head II'>School Head II</option>
+                    <option value='School Head III'>School Head III</option>
+                    <option value='School Head IV'>School Head IV</option>
+                    <option >Other Admin Roles (Please Specify)</option>
+                </select>
             </div>
 
             <div class="input-group mb-3">
@@ -1915,16 +1963,16 @@
                                 }
                             })
 
-                            $.ajax({
-                                url:"profileHeaderUpdate.php",
-                                method:"post",
-                                data:{
-                                    id:id
-                                },
-                                success(e){
-                                    $("#profileIconHeader").html(e)
-                                }
-                            })
+                            // $.ajax({
+                            //     url:"profileHeaderUpdate.php",
+                            //     method:"post",
+                            //     data:{
+                            //         id:id
+                            //     },
+                            //     success(e){
+                            //         $("#profileIconHeader").html(e)
+                            //     }
+                            // })
 
                         }
                     });
@@ -2649,6 +2697,7 @@
                 const email = $("#profileUserEmail").val();
                 const from = $("#workExpDateFrom").val();
                 const to = $("#workExpDateTo").val();
+                const positionLvl = $("#workExpPositionLvl").val();
                 const position = $("#workExpPosition").val();
                 const department = $("#workExpDepartment").val();
                 const salary = $("#workExpSalary").val();
@@ -2666,6 +2715,7 @@
                             email:email,
                             from:from,
                             to:to,
+                            positionLvl:positionLvl,
                             position:position,
                             department:department,
                             salary:salary,
@@ -2720,6 +2770,7 @@
 
                 const from = $("#EditworkExpDateFrom").val();
                 const to = $("#EditworkExpDateTo").val();
+                const positionLvl = $("#EditworkExpPositionLvl").val();
                 const position = $("#EditworkExpPosition").val();
                 const department = $("#EditworkExpDepartment").val();
                 const salary = $("#EditworkExpSalary").val();
@@ -2734,6 +2785,7 @@
                         id:id,
                         from:from,
                         to:to,
+                        positionLvl:positionLvl,
                         position:position,
                         department:department,
                         salary:salary,
@@ -3081,6 +3133,30 @@
                 }
                 
             })
+
+            // Change dropdown in work experience depend on position titl
+            $("#workExpPositionLvl").change(function(){
+                const lvl = $(this).val()
+
+                if(lvl == 'School Administrator'){
+                    $("#workExpPosition").html("<option value='Head Teacher I'>Head Teacher I</option><option value='Head Teacher II'>Head Teacher II</option><option value='Head Teacher II'>Head Teacher III</option><option value='Head Teacher IV'>Head Teacher IV</option><option value='Head Teacher V'>Head Teacher V</option><option value='Head Teacher VI'>Head Teacher VI</option><option value='School Head I'>School Head I</option><option value='School Head II'>School Head II</option><option value='School Head III'>School Head III</option><option value='School Head IV'>School Head IV</option><option >Other Admin Roles (Please Specify)</option>")
+                }else{
+                    $("#workExpPosition").html("<option value='Teacher I'>Teacher I</option><option value='Teacher II'>Teacher II</option><option value='Teacher III'>Teacher III</option><option value='Master Teacher I'>Master Teacher I</option><option value='Master Teacher II'>Master Teacher II</option><option value='Master Teacher III'>Master Teacher III</option>")
+
+                }
+            })
+
+            $("#editWorkExpModalBody").on("change","#EditworkExpPositionLvl",function(){
+                const lvl = $(this).val()
+
+                // alert(lvl)
+                if(lvl == 'School Administrator'){
+                    $("#EditworkExpPosition").html("<option value='Head Teacher I'>Head Teacher I</option><option value='Head Teacher II'>Head Teacher II</option><option value='Head Teacher II'>Head Teacher III</option><option value='Head Teacher IV'>Head Teacher IV</option><option value='Head Teacher V'>Head Teacher V</option><option value='Head Teacher VI'>Head Teacher VI</option><option value='School Head I'>School Head I</option><option value='School Head II'>School Head II</option><option value='School Head III'>School Head III</option><option value='School Head IV'>School Head IV</option><option >Other Admin Roles (Please Specify)</option>")
+                }else{
+                    $("#EditworkExpPosition").html("<option value='Teacher I'>Teacher I</option><option value='Teacher II'>Teacher II</option><option value='Teacher III'>Teacher III</option><option value='Master Teacher I'>Master Teacher I</option><option value='Master Teacher II'>Master Teacher II</option><option value='Master Teacher III'>Master Teacher III</option>")
+                }
+            })
+
         })
 
         function exportToExcel() {
