@@ -63,6 +63,7 @@
         <thead>
             <tr>
                <th colspan='2'>Inclusive Dates (mm/dd/yyyy) <br><span class="me-4 text-primary" style="font-size: 14px">From</span><span class="ms-4 text-primary" style="font-size: 14px">To</span></th>
+               <th>Position Category</th>
                <th>Position Title (Write in full/ Do not abbreviate)</th>
                <th>Department/Agency/Office/Company (Write in full/ Do not abbreviate)</th>
                <th>Monthly Salary</th>
@@ -78,6 +79,7 @@
                     <tr>
                         <td><?php echo $info['dateFrom'] ?></td>
                         <td><?php echo $info['dateTo'] ?></td>
+                        <td><?php echo $info['positionLvl'] ?></td>
                         <td><?php echo $info['title'] ?></td>
                         <td><?php echo $info['department'] ?></td>
                         <td><?php echo $info['monthSalary'] ?></td>

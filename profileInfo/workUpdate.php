@@ -5,6 +5,7 @@
 
     $from = $_POST['from'];
     $to = $_POST['to'];
+    $positionLvl = $_POST['positionLvl'];
     $position = $_POST['position'];
     $department = $_POST['department'];
     $salary = $_POST['salary'];
@@ -12,7 +13,7 @@
     $status = $_POST['status'];
     $service = $_POST['service'];
 
-    $q = "UPDATE `work` SET `dateFrom`='$from',`dateTo`='$to',`title`='$position',`department`='$department',`monthSalary`='$salary',`salary`='$job',`statusApointment`='$status',`govService`='$service' WHERE id='$id'";
+    $q = "UPDATE `work` SET `dateFrom`='$from',`dateTo`='$to',`positionLvl`='$positionLvl', `title`='$position',`department`='$department',`monthSalary`='$salary',`salary`='$job',`statusApointment`='$status',`govService`='$service' WHERE id='$id'";
 
     $con->query($q);
 ?>
