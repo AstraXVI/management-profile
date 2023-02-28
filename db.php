@@ -1,3 +1,3 @@
 <?php
-    $con = new mysqli('localhost','root','','deped_db');
+    $con = new mysqli('localhost','root','','deped-db');
 ?>
