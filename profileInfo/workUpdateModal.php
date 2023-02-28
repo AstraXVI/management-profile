@@ -32,9 +32,46 @@
             <input type="date" class="form-control" value='<?php echo $fetch['dateTo'] ?>' id="EditworkExpDateTo" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
         </div>
     </div>
-    <div class="input-group mb-3">
+    <!-- <div class="input-group mb-3">
         <span class="input-group-text" id="inputGroup-sizing-default">Position Title (Write in full/ Do not abbreviate)</span>
         <input type="text" value='<?php echo $fetch['title'] ?>' class="form-control" id="EditworkExpPosition" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+    </div> -->
+    <div class="input-group mb-3">
+        <label class="input-group-text" for="">Position Category</label>
+        <select class="form-select" id="EditworkExpPositionLvl">
+            <option class='bg-primary' value="<?php echo $fetch['positionLvl'] ?>"><?php echo $fetch['positionLvl'] ?></option>
+            <option value="School Administrator">School Administrator</option>
+            <option value="Teaching Personnel">Teaching Personnel</option>
+        </select>
+    </div>
+
+    <div class="input-group mb-3">
+        <label class="input-group-text" for="">Position Title (Write in full/ Do not abbreviate)</label>
+        <select class="form-select" id="EditworkExpPosition">
+           <option class='bg-primary' value="<?php echo $fetch['title'] ?>"><?php echo $fetch['title'] ?></option>
+
+            <?php if($fetch['positionLvl'] == 'School Administrator'){ ?>
+                <option value='Head Teacher I'>Head Teacher I</option>
+                <option value='Head Teacher II'>Head Teacher II</option>
+                <option value='Head Teacher II'>Head Teacher III</option>
+                <option value='Head Teacher IV'>Head Teacher IV</option>
+                <option value='Head Teacher V'>Head Teacher V</option>
+                <option value='Head Teacher VI'>Head Teacher VI</option>
+                <option value='School Head I'>School Head I</option>
+                <option value='School Head II'>School Head II</option>
+                <option value='School Head III'>School Head III</option>
+                <option value='School Head IV'>School Head IV</option>
+                <option >Other Admin Roles (Please Specify)</option>
+            <?php }else{ ?>
+                <option value='Teacher I'>Teacher I</option>
+                <option value='Teacher II'>Teacher II</option>
+                <option value='Teacher III'>Teacher III</option>
+                <option value='Master Teacher I'>Master Teacher I</option>
+                <option value='Master Teacher II'>Master Teacher II</option>
+                <option value='Master Teacher III'>Master Teacher III</option>
+            <?php } ?>
+           
+        </select>
     </div>
 
     <div class="input-group mb-3">

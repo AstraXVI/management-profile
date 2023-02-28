@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 23, 2023 at 08:43 AM
+-- Generation Time: Feb 28, 2023 at 04:17 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -35,6 +35,14 @@ CREATE TABLE `award` (
   `date` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `award`
+--
+
+INSERT INTO `award` (`id`, `email`, `title`, `lvl`, `date`) VALUES
+(23, 'Norlitan.santos@deped.gov.ph', 'we', 'International', ''),
+(24, 'Edithad.baesa@deped.gov.ph', 'qQqq', 'International', '');
+
 -- --------------------------------------------------------
 
 --
@@ -58,7 +66,27 @@ CREATE TABLE `civil` (
 
 INSERT INTO `civil` (`id`, `email`, `careerService`, `rating`, `dateOfExam`, `placeOfExam`, `licenseNumber`, `licenseDateOfValidity`) VALUES
 (12, 'renz@123', '1', '', '', '', 'nums', 'date'),
-(15, 'renz@123', '2', '4', '1', '2', '12', '2029');
+(15, 'renz@123', '2', '4', '1', '2', '12', '2029'),
+(34, 'Norlitan.santos@deped.gov.ph', 'RA - 1080 Bar/Board Eligibility', '0', '', '', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `credential`
+--
+
+CREATE TABLE `credential` (
+  `id` int(11) NOT NULL,
+  `email` varchar(250) NOT NULL,
+  `pic` varchar(500) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `credential`
+--
+
+INSERT INTO `credential` (`id`, `email`, `pic`) VALUES
+(1, 'Edithad.baesa@deped.gov.ph', 'uploads/credentials/bckground.png');
 
 -- --------------------------------------------------------
 
@@ -124,11 +152,9 @@ CREATE TABLE `educationalbg` (
 
 INSERT INTO `educationalbg` (`id`, `email`, `schoolCollege`, `graduateStudies`, `collegeCourse`, `graduateCourse`, `collegeFrom`, `collegeTo`, `graduateFrom`, `graduateTo`, `collegeHigh`, `graduateHigh`, `collegeYear`, `graduateYear`, `collegeScholar`, `graduateScholar`, `elemSchool`, `secSchool`, `vocSchool`, `elemEduc`, `secEduc`, `vocEduc`, `elemFrom`, `secFrom`, `vocFrom`, `elemTo`, `secTo`, `vocTo`, `elemHighLvl`, `secHighLvl`, `vocHighLvl`, `elemGraduate`, `secGraduate`, `vocGraduate`, `elemScholar`, `secScholar`, `vocScholar`) VALUES
 (1, 'Edithad.baesa@deped.gov.ph', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(2, 'Norlitan.santos@deped.gov.ph', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
 (3, 'Gloriad.morenos@deped.gov.ph', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
 (4, 'Marialourdesb.viray@deped.gov.ph', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
 (5, 'Jeda.camposano@deped.gov.ph', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(6, 'Corazonv.tanfelix@deped.gov.ph', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
 (7, 'Mariacelinaj.cloa@deped.gov.ph', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
 (8, 'Darinog.elizaga@deped.gov.ph', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
 (9, 'Rizzal.escobido@deped.gov.ph', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
@@ -172,7 +198,8 @@ INSERT INTO `educationalbg` (`id`, `email`, `schoolCollege`, `graduateStudies`, 
 (47, 'Jaimes.devera@deped.gov.ph', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
 (48, 'Irenel.pantorillo@deped.gov.ph', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
 (49, 'Alvinpatrickq.penaflorida@deped.gov.ph', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(50, 'Julianat.alvarez@deped.gov.ph', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+(50, 'Julianat.alvarez@deped.gov.ph', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(51, 'Norlitan.santos@deped.gov.ph', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -198,12 +225,10 @@ CREATE TABLE `educationaldegree` (
 --
 
 INSERT INTO `educationaldegree` (`id`, `email`, `lvl`, `nameSchool`, `education`, `periodFrom`, `periodTo`, `highLvl`, `year`, `scholar`) VALUES
-(1, 'renz@i', 'Master Degree', 'sample name school', 'bsit', '2023-02-01', '2023-02-02', 'college', '2023', 'wala'),
-(2, 'renz@i', 'Post Degree', 'vicente', 'bsit', '2023-02-15', '2023-02-13', '2', '2023', 'no'),
-(7, 'renz@123', 'Masters Degree', '', '', '', '', '', '', ''),
-(14, '<br />\n<b>Warning</b>:  Undefined variable $emailNew in <b>C:xampphtdocsmanagement-profileadmin_dashboard.php</b> on line <b>879</b><br />\n', 'Post Degree', 'tTt', 'T', '', '', 'T', 'U', 'U'),
-(15, '<br />\n<b>Warning</b>:  Undefined variable $emailNew in <b>C:xampphtdocsmanagement-profileadmin_dashboard.php</b> on line <b>879</b><br />\n', 'Masters Degree', '', '', '', '', '', '', ''),
-(16, 'admin@1', 'Post Degree', '', '', '', '', '', '', '');
+(32, 'Gloriad.morenos@deped.gov.ph', 'Post Degree', '', '', '', '', '', '', ''),
+(33, 'Gloriad.morenos@deped.gov.ph', 'Masters Degree', '', '', '', '', '', '', ''),
+(34, 'Gloriad.morenos@deped.gov.ph', 'Post Degree', '', '', '', '', '', '', ''),
+(35, 'Edithad.baesa@deped.gov.ph', 'Masters Degree', '', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -286,12 +311,11 @@ CREATE TABLE `profile` (
 --
 
 INSERT INTO `profile` (`id`, `name`, `bday`, `address`, `email`, `contactNo`, `sex`, `yearAsSchoolHead`, `duration`, `learnersPerf`, `teacherPerf`, `financialMng`, `complaints`, `picture`, `school`, `citizenship`, `civil`, `zipcode`, `employeeNo`, `placeBirth`) VALUES
-(1, 'Admin', '01/17/1996', '1225 sta monica subd ugong valenzuela city', 'ikejoseph.lumaad@deped.gov.ph', '09396439742', 'Male', 'n/a', 'n/a', 'n/a', 'n/a', 'n/a', '', 'uploads/profile_pics/bckground.png', '', '', '', '', '', ''),
-(26, 'Editha D. Baesa', '', '', 'Edithad.baesa@deped.gov.ph', '', '', '', '', '', '', '', '', 'uploads/profile_pics/images (12) (1).jpeg', 'Elementary School', '', '', '', '', ''),
-(27, 'Norlita N. Santos', '', '', 'Norlitan.santos@deped.gov.ph', '', 'male', '', '', '', '', '', '', 'uploads/profile_pics/sign sample crop.png', 'Elementary School', '', '', '', '1231', ''),
-(28, 'Gloria D. Morenos', '', '', 'Gloriad.morenos@deped.gov.ph', '', '', '', '', '', '', '', '', '', 'Elementary School', '', '', '', '', ''),
-(29, 'Maria Lourdes B. Viray', '', '', 'Marialourdesb.viray@deped.gov.ph', '', '', '', '', '', '', '', '', '', 'Elementary School', '', '', '', '', ''),
-(30, 'Jed A. Camposano', '', '', 'Jeda.camposano@deped.gov.ph', '', '', '', '', '', '', '', '', '', 'Elementary School', '', '', '', '', ''),
+(26, 'Editha D. Baesa', '', '', 'Edithad.baesa@deped.gov.ph', '', 'Female', '', '', '', '', '', '', 'uploads/profile_pics/images (12) (1).jpeg', 'Elementary School', 'filipino', 'single', '', '', ''),
+(27, 'Norlita N. Santos', '', '', 'Norlitan.santos@deped.gov.ph', '', 'Male', '', '', '', '', '', '', 'uploads/profile_pics/GitHub-Mark.png', 'Elementary School', '', '', '', '1231', ''),
+(28, 'Gloria D. Morenos', '', '', 'Gloriad.morenos@deped.gov.ph', '', 'Male', '', '', '', '', '', '', '', 'Elementary School', '', '', '', '', ''),
+(29, 'Maria Lourdes B. Viray', '', '', 'Marialourdesb.viray@deped.gov.ph', '', 'Female', '', '', '', '', '', '', '', 'Elementary School', '', '', '', '', ''),
+(30, 'Jed A. Camposano', '', '', 'Jeda.camposano@deped.gov.ph', '', 'Male', '', '', '', '', '', '', '', 'Elementary School', '', '', '', '', ''),
 (31, 'Corazon V. Tanfelix', '', '', 'Corazonv.tanfelix@deped.gov.ph', '', '', '', '', '', '', '', '', '', 'Elementary School', '', '', '', '', ''),
 (32, 'Maria Celina J. Cloa', '', '', 'Mariacelinaj.cloa@deped.gov.ph', '', '', '', '', '', '', '', '', '', 'Elementary School', '', '', '', '', ''),
 (33, 'Dr. Darino G. Elizaga', '', '', 'Darinog.elizaga@deped.gov.ph', '', '', '', '', '', '', '', '', '', 'Elementary School', '', '', '', '', ''),
@@ -421,6 +445,7 @@ CREATE TABLE `work` (
   `email` varchar(250) NOT NULL,
   `dateFrom` varchar(250) NOT NULL,
   `dateTo` varchar(250) NOT NULL,
+  `positionLvl` varchar(250) NOT NULL,
   `title` varchar(250) NOT NULL,
   `department` varchar(250) NOT NULL,
   `monthSalary` varchar(250) NOT NULL,
@@ -433,8 +458,10 @@ CREATE TABLE `work` (
 -- Dumping data for table `work`
 --
 
-INSERT INTO `work` (`id`, `email`, `dateFrom`, `dateTo`, `title`, `department`, `monthSalary`, `salary`, `statusApointment`, `govService`) VALUES
-(21, 'Edithad.baesa@deped.gov.ph', '', '', 'we', '', '', '', '', '');
+INSERT INTO `work` (`id`, `email`, `dateFrom`, `dateTo`, `positionLvl`, `title`, `department`, `monthSalary`, `salary`, `statusApointment`, `govService`) VALUES
+(32, 'Edithad.baesa@deped.gov.ph', '', '', 'Teaching Personnel', 'Teacher III', '', '', '', '', ''),
+(34, 'Edithad.baesa@deped.gov.ph', '', '', 'School Administrator', 'School Head III', '', '', '', '', ''),
+(35, 'Edithad.baesa@deped.gov.ph', '', '', 'School Administrator', 'Head Teacher II', '', '', '', '', '');
 
 --
 -- Indexes for dumped tables
@@ -450,6 +477,12 @@ ALTER TABLE `award`
 -- Indexes for table `civil`
 --
 ALTER TABLE `civil`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `credential`
+--
+ALTER TABLE `credential`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -520,13 +553,19 @@ ALTER TABLE `work`
 -- AUTO_INCREMENT for table `award`
 --
 ALTER TABLE `award`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `civil`
 --
 ALTER TABLE `civil`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+
+--
+-- AUTO_INCREMENT for table `credential`
+--
+ALTER TABLE `credential`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `dor`
@@ -538,13 +577,13 @@ ALTER TABLE `dor`
 -- AUTO_INCREMENT for table `educationalbg`
 --
 ALTER TABLE `educationalbg`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT for table `educationaldegree`
 --
 ALTER TABLE `educationaldegree`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `equipment`
@@ -574,7 +613,7 @@ ALTER TABLE `schools`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT for table `voluntary`
@@ -586,7 +625,7 @@ ALTER TABLE `voluntary`
 -- AUTO_INCREMENT for table `work`
 --
 ALTER TABLE `work`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
