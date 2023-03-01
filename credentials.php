@@ -22,7 +22,7 @@
 
         <?php do{ ?>
 
-            <img src="<?php echo $fetch['pic'] ?>" alt="<?php echo $fetch['pic'] ?>" width='100%'>
+            <a href='<?php echo $fetch['pic'] ?>' title='Click to download' download><img src="<?php echo $fetch['pic'] ?>" alt="<?php echo $fetch['pic'] ?>" width='100%'></a>
             
         <?php }while($fetch = $list->fetch_assoc()) ?>
 
