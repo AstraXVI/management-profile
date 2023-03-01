@@ -57,6 +57,28 @@
     $fetchMasters = $mastersList->fetch_assoc();
     
 
+    // DASH BOARD award count
+
+    // international
+    $qInternational = "SELECT * FROM award WHERE lvl LIKE '%international%' AND email='$emailNew'";
+    $lInternational = $con->query($qInternational);
+    $fInternational = $lInternational->num_rows;
+
+    // regional
+    $qRegional = "SELECT * FROM award WHERE lvl LIKE '%Regional%' AND email='$emailNew'";
+    $lRegional = $con->query($qRegional);
+    $fRegional = $lRegional->num_rows;
+
+    // division
+    $qDivision = "SELECT * FROM award WHERE lvl LIKE '%Division%' AND email='$emailNew'";
+    $lDivision = $con->query($qDivision);
+    $fDivision = $lDivision->num_rows;
+
+    // school
+    $qSchool = "SELECT * FROM award WHERE lvl LIKE '%School%' AND email='$emailNew'";
+    $lSchool = $con->query($qSchool);
+    $fSchool = $lSchool->num_rows;
+
 
 ?>
 <!DOCTYPE html>
@@ -241,26 +263,8 @@
                           <!-- Title -->
                           <h4 class="card-title"><p><i class="fa-solid fa-person-chalkboard me-2"></i>Years as Teaching Personnel</p></h4>
                           <hr>
+
                           <!-- Get date to get year experience -->
-                          <?php
-                              // get exp from
-                              $getWorkExpFrom = "SELECT dateFrom FROM work WHERE email='$emailNew' ORDER BY dateFrom ";
-                              $workExpFromList = $con->query($getWorkExpFrom);
-                              $workExpFromFetch = $workExpFromList->fetch_assoc();
-
-                              // get exp to
-                              $getWorkExpTo = "SELECT dateTo FROM work WHERE email='$emailNew' ORDER BY dateTo DESC ";
-                              $workExpToList = $con->query($getWorkExpTo);
-                              $workExpToFetch = $workExpToList->fetch_assoc();
-                          ?>
-
-                          <!-- <?php if(empty($workExpFromFetch['dateFrom'])){ ?>
-                              <input type="hidden" value="0" id='getWorkExpFromValue'>
-                              <input type="hidden" value="0" id='getWorkExpToValue'>
-                          <?php }else{ ?>
-                              <input type="hidden" value="<?php echo $workExpFromFetch['dateFrom'] ?>" id='getWorkExpFromValue'>
-                              <input type="hidden" value="<?php echo $workExpToFetch['dateTo'] ?>" id='getWorkExpToValue'>
-                          <?php } ?> -->
 
                           <?php
 
@@ -291,6 +295,7 @@
                     </div>
 
                     <!-- INPUT TEACHING PERSONEL EXP -->
+                    <!-- <?php if(empty($qFetchFrom['dateFrom'])) ?> -->
                     <?php do{ ?>
                         <input type="hidden" id="allDateFrom" value='<?php echo $qFetchFrom['dateFrom'] ?>'>
                     <?php }while($qFetchFrom = $qListFrom->fetch_assoc()) ?>
@@ -326,9 +331,10 @@
                             <hr>
                             <!-- Text -->
                             <!-- <p class="card-text fs-3" id='awards'></p> -->
-                            <p class="card-text mb-1 fs-6" id='awards'><i class="fa-solid fa-medal text-warning"></i> 1 - International Awards</p>
-                            <p class="card-text mb-1 fs-6" id='awards'><i class="fa-solid fa-medal text-warning"></i> 3 - Regional Awards</p>
-                            <p class="card-text mb-1 fs-6" id='awards'><i class="fa-solid fa-medal text-warning"></i> 2 - Division Awards</p>
+                            <p class="card-text mb-1 fs-6" id='awards'><i class="fa-solid fa-medal text-warning"></i> <?php echo $fInternational  ?> - International Awards</p>
+                            <p class="card-text mb-1 fs-6" id='awards'><i class="fa-solid fa-medal text-warning"></i> <?php echo $fRegional ?> - Regional Awards</p>
+                            <p class="card-text mb-1 fs-6" id='awards'><i class="fa-solid fa-medal text-warning"></i> <?php echo $fDivision ?> - Division Awards</p>
+                            <p class="card-text mb-1 fs-6" id='awards'><i class="fa-solid fa-medal text-warning"></i> <?php echo $fSchool ?> - School Awards</p>
                         </div>
                     </div>
                     <div class="card w-75" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; max-width: 300px">
@@ -894,6 +900,30 @@
                     <label for="formFile" class="form-label">Upload Credentials</label>
                     <input class="form-control" type="file" id="uploadCredentialInput">
                 </div>
+
+                <!-- Credentials uploaded -->
+                <div >
+                    <?php
+                        $qGetCredentials = "SELECT * FROM credential WHERE email='$emailNew'";
+                        $lCredentials = $con->query($qGetCredentials);
+                        $fCredentials = $lCredentials->fetch_assoc();
+                    ?>
+
+                    <?php if($lCredentials->num_rows){ ?>
+
+                        <?php do{ ?>
+
+                            <img src="<?php echo $fCredentials['pic'] ?>" alt="<?php echo $fCredentials['pic'] ?>" width='100%'>
+                            
+                        <?php }while($fCredentials = $lCredentials->fetch_assoc()) ?>
+
+                    <?php }else{ ?>
+
+                        <p>No upload yet</p>
+
+                    <?php } ?>
+
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -923,7 +953,7 @@
                         <option value="International (Managerial)">International (Managerial)</option>
                         <option value="International (Supervisory)">International (Supervisory)</option>
                         <option value="International (Technical)">International (Technical)</option>
-                        <option value="married">Regional</option>
+                        <option value="Regional">Regional</option>
                         <option value="Division">Division</option>
                         <option value="School">School</option>
                     </select>
@@ -2436,6 +2466,8 @@
                 const email = $("#userEmailProfile").val();
                 const file = $("#uploadCredentialInput").prop("files")[0];
 
+                // alert()
+
                 const formData = new FormData();
                 formData.append("file", file);
                 formData.append("email", email);
@@ -2450,27 +2482,7 @@
                         contentType: false,
                         success: function() {
 
-                            // $.ajax({
-                            //     url:"profile.php",
-                            //     method:"post",
-                            //     data:{
-                            //         id:id
-                            //     },
-                            //     success(e){
-                            //         $("#dashBoardBody").html(e)
-                            //     }
-                            // })
-
-                            // $.ajax({
-                            //     url:"profileHeaderUpdate.php",
-                            //     method:"post",
-                            //     data:{
-                            //         id:id
-                            //     },
-                            //     success(e){
-                            //         $("#profileIconHeader").html(e)
-                            //     }
-                            // })
+                            
 
                         }
                     });
@@ -2497,8 +2509,13 @@
                 let endDate = moment(to[i]);
                 totalDiff += endDate.diff(startDate, 'years');
             }
-
-            $("#yearAsTeachingPersonnel").html(`${totalDiff} YEAR(S)`)
+            if(totalDiff){
+                // console.log('1')
+                $("#yearAsTeachingPersonnel").html(`${totalDiff} YEAR(S)`)
+            }else{
+                // console.log('2')
+                $("#yearAsTeachingPersonnel").html(`0 YEAR(S)`)
+            }
             
 
             // GET SYSTEM AD EXP YEARS
@@ -2510,8 +2527,8 @@
                 return $(this).val();
             }).get();
 
-            console.log(fromAdmin)
-            console.log(toAdmin)
+            // console.log(fromAdmin)
+            // console.log(toAdmin)
 
             let totalDiffAdmin = 0;
 
@@ -2521,7 +2538,13 @@
                 totalDiffAdmin += endDateAdmin.diff(startDateAdmin, 'years');
             }
 
-            $("#yearAsSchoolAdmin").html(`${totalDiffAdmin} YEAR(S)`)
+            if(totalDiffAdmin){
+                // console.log('1')
+                $("#yearAsSchoolAdmin").html(`${totalDiffAdmin} YEAR(S)`)
+            }else{
+                // console.log('2')
+                $("#yearAsSchoolAdmin").html(`0 YEAR(S)`)
+            }
 
             // Change dropdown in work experience depend on position titl
             $("#workExpPositionLvl").change(function(){
