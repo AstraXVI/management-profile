@@ -1,7 +1,7 @@
 <?php
     require "db.php";
 
-    $q = "SELECT * FROM `profile`";
+    $q = "SELECT * FROM `profile` ORDER BY name ASC";
 
     $list = $con->query($q);
     $fetch = $list->fetch_assoc();
@@ -46,13 +46,14 @@
         <table id='tableToXLS' class='table text-center table-striped'>
             <thead>
                 <tr>
-                    <th>Id</th>
+                    <!-- <th>Id</th> -->
                     <th>School Head</th>
+                    <th>Employee No.</th>
+                    <th>Deped Email</th>
                     <th>Contact No.</th>
-                    <th>Address</th>
-                    <th>School Level</th>
+                    <th>Sex</th>
                     <th>Credentials</th>
-                    <th colspan='3'>Action</th>
+                    <th>Action</th>
                 </tr>
 
             </thead>
@@ -60,11 +61,12 @@
                 <?php if($list->num_rows){ ?>
                     <?php do{ ?>
                         <tr>
-                            <td><?php echo $fetch['id'] ?></td>
+                            <!-- <td><?php echo $fetch['id'] ?></td> -->
                             <td><?php echo $fetch['name'] ?></td>
+                            <td><?php echo $fetch['employeeNo'] ?></td>
+                            <td><?php echo $fetch['email'] ?></td>
                             <td><?php echo $fetch['contactNo'] ?></td>
-                            <td><?php echo $fetch['address'] ?></td>
-                            <td><?php echo $fetch['school'] ?></td>
+                            <td><?php echo $fetch['sex'] ?></td>
                             <td>
                                 <button title="Credentials" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#credentialModal" id='credentialButtonFolder' value='<?php echo $fetch['email'] ?>'><i class="fa-solid fa-folder-open"></i></button>
                             </td>
