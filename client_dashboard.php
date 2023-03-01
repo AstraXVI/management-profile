@@ -327,7 +327,7 @@
                     <div class="card w-75" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; max-width: 300px">
                         <div class="card-body bg-success rounded-1">
                             <!-- Title -->
-                            <h4 class="card-title"><p>6 <i class="fa-solid fa-award me-2"></i>Awards</p></h4>
+                            <h4 class="card-title"><p> <i class="fa-solid fa-award me-2"></i>Awards</p></h4>
                             <hr>
                             <!-- Text -->
                             <!-- <p class="card-text fs-3" id='awards'></p> -->

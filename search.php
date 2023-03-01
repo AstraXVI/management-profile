@@ -12,7 +12,7 @@
 
     // }
 
-    $q = "SELECT * FROM profile WHERE name LIKE '%$searchValue%'";
+    $q = "SELECT * FROM profile WHERE name LIKE '%$searchValue%' ORDER BY name ASC";
 
     $list = $con->query($q);
     $fetch = $list->fetch_assoc();
@@ -29,16 +29,20 @@
 <?php if($list->num_rows){ ?>
     <?php do{ ?>
         <tr>
-            <td><?php echo $fetch['id'] ?></td>
+            <!-- <td><?php echo $fetch['id'] ?></td> -->
             <td><?php echo $fetch['name'] ?></td>
+            <td><?php echo $fetch['employeeNo'] ?></td>
+            <td><?php echo $fetch['email'] ?></td>
             <td><?php echo $fetch['contactNo'] ?></td>
-            <td><?php echo $fetch['address'] ?></td>
-            <td><?php echo $fetch['school'] ?></td>
+            <td><?php echo $fetch['sex'] ?></td>
+            <td>
+                <button title="Credentials" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#credentialModal" id='credentialButtonFolder' value='<?php echo $fetch['email'] ?>'><i class="fa-solid fa-folder-open"></i></button>
+            </td>
             <td>
                 <div class="d-flex gap-1 justify-content-center">
                     <!-- <button title="edit" type="button" id='editBtn' value='<?php echo $fetch['id'] ?>' class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editSchool"><i class="fa-solid fa-pen"></i></button> -->
                     <button title="Delete" class="btn btn-danger btn-sm" id='deleteBtn' value='<?php echo $fetch['id'] ?>'><i class="fa-solid fa-trash"></i></button>
-                    <button title="View Equipment" class="btn btn-success btn-sm" id="viewBtn" value='<?php echo $fetch['id'] ?>'><i class="fa-solid fa-eye"></i></button>
+                    <button title="View Equipment" class="btn btn-success btn-sm" id="viewBtn" value='<?php echo $fetch['email'] ?>'><i class="fa-solid fa-eye"></i></button>
                 </div>
             </td>
         </tr>
