@@ -1,5 +1,5 @@
 <?php
-    
+ 
 
     try{
 
@@ -10,4 +10,5 @@
         // $con = 'error';
         echo "<script>alert('A Database Error Occured')</script>";
     }
+
 ?>

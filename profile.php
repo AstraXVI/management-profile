@@ -31,7 +31,7 @@
         .profile-img .file {
             position: relative;
             overflow: hidden;
-            margin-top: -7%;
+            margin-top: -21%;
             width: 90%;
             border: none;
             border-radius: 0;
@@ -97,7 +97,7 @@
         <div class="tab-pane fade show active" id="ex1-tabs-1" role="tabpanel" aria-labelledby="ex1-tab-1">
         
         <!-- Personal info -->
-        <div class="wrapper d-flex align-items-center gap-3 px-3 position-relative" style=" padding-block: 20px 10px; background-color: #e2f8fb">
+        <div class="wrapper d-flex align-items-center gap-5 px-3 position-relative" style=" padding-block: 20px 10px; background-color: #e2f8fb">
         
         <!-- <div class="profile-container">
             <p class="profile-title">Change Profile</p>
@@ -106,21 +106,27 @@
         </div> -->
         
         
-        <div class="col-md-4">
-                <div class="profile-img">
-                    <!-- <img src="https://cdn.pixabay.com/photo/2016/08/31/11/54/icon-1633249_960_720.png" alt=""> -->
-                    <?php if(empty($info['picture'])){ ?>
-                        <img src="https://cdn.pixabay.com/photo/2016/08/31/11/54/icon-1633249_960_720.png" alt="" />
-                    <?php }else{ ?>
-                        <img src="<?php echo $info['picture'] ?>" alt="" />
-                    <?php } ?>
-    
-                <!-- <span class="px-5 pb-1"><i class="fa-solid fa-user fs-1"></i></span>
-                <hr> -->
-                    <div class="file btn btn-lg btn-primary">
-                    <i class="fa-solid fa-rotate me-2"></i>Change Photo
-                        <div class="profile-button"><button class='btn text-light w-100' data-bs-toggle="modal" data-bs-target="#uploadProfileModal" id='uploadHereButton' value="<?php echo $info['id'] ?>">Upload here</button></div>
+            <div class="d-flex flex-column gap-2" style="width: 300px;">
+                <div class="col-md-4">
+                    <div class="profile-img">
+                        <!-- <img src="https://cdn.pixabay.com/photo/2016/08/31/11/54/icon-1633249_960_720.png" alt=""> -->
+                        <?php if(empty($info['picture'])){ ?>
+                            <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/296344997_586548009673064_9187631585299920607_n.jpg?stp=dst-jpg_p206x206&_nc_cat=108&ccb=1-7&_nc_sid=aee45a&_nc_eui2=AeHAgqD-NN46txOuxTTZ9IBUQMjAV9imIFtAyMBX2KYgW2E6OeEFZVbu6up4jl5fr40qqR8tG-V5VuAQV77jJDE7&_nc_ohc=i72A9GXT7osAX-Gz46l&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdQ2Xiv7KMAW3d4w7QlCA4bu8yhfcigynEHna_EBuvPljw&oe=64262D58" alt="" />
+                        <?php }else{ ?>
+                            <img src="<?php echo $info['picture'] ?>" alt="" />
+                        <?php } ?>
+                        <!-- <span class="px-5 pb-1"><i class="fa-solid fa-user fs-1"></i></span>
+                        <hr> -->
+                        <div class="file btn btn-lg btn-primary" style="width: 300px">
+                        <i class="fa-solid fa-rotate me-2"></i>Change Photo
+                            <div class="profile-button"><button class='btn text-light w-100' data-bs-toggle="modal" data-bs-target="#uploadProfileModal" id='uploadHereButton' value="<?php echo $info['id'] ?>">Upload here</button></div>
+                        </div>
                     </div>
+                </div>
+                <div>
+                    <div class="text-dark fw-bold fs-3"><?php echo $info['name'] ?></div>
+                    <div class="text-dark "><?php echo $info['email'] ?></div>
+                    <span class="fw-bold">Employee no.: </span><span class="text-dark "><?php echo $info['employeeNo'] ?></span>
                 </div>
             </div>
             <!-- <div class="divider"></div> -->
