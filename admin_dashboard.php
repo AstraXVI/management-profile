@@ -1181,6 +1181,25 @@
         </div>
     </div>
 
+    <!-- Credential modal -->
+    <div class="modal fade" id="credentialModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Credentials</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id='credentialModalBody'>
+                <!-- Get data in another file -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+            </div>
+            </div>
+        </div>
+    </div>
+
     <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
     <script>
         $(document).ready(function(){
@@ -3157,6 +3176,24 @@
                 }else{
                     $("#EditworkExpPosition").html("<option value='Teacher I'>Teacher I</option><option value='Teacher II'>Teacher II</option><option value='Teacher III'>Teacher III</option><option value='Master Teacher I'>Master Teacher I</option><option value='Master Teacher II'>Master Teacher II</option><option value='Master Teacher III'>Master Teacher III</option>")
                 }
+            })
+
+            // CREDENTIAL FOLDER IN SCHOOL HEAD
+            $("#dashBoardBody").on("click","#credentialButtonFolder",function(){
+                const email = $(this).val()
+
+                // $("$credentialModalBody").html(email)
+
+                $.ajax({
+                    url:"credentials.php",
+                    method:"post",
+                    data:{
+                        email:email
+                    },
+                    success(e){
+                        $("#credentialModalBody").html(e)
+                    }
+                })
             })
 
         })
