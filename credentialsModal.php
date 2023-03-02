@@ -18,8 +18,6 @@
 <body>
     <h4><?php echo $email ?></h4>
 
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#navCredentialsButton">Upload file</button>
-
     <?php if($list->num_rows){ ?>
 
         <?php do{ ?>

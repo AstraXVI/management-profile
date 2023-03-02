@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 28, 2023 at 04:17 AM
+-- Generation Time: Mar 02, 2023 at 04:12 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -24,6 +24,26 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `announcement`
+--
+
+CREATE TABLE `announcement` (
+  `id` int(11) NOT NULL,
+  `pic` varchar(250) NOT NULL,
+  `name` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `announcement`
+--
+
+INSERT INTO `announcement` (`id`, `pic`, `name`) VALUES
+(1, 'uploads/announcement/GitHub-Mark (3).png', 'GitHub-Mark (3).png'),
+(2, 'uploads/announcement/bckground (1).png', 'bckground (1).png');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `award`
 --
 
@@ -34,14 +54,6 @@ CREATE TABLE `award` (
   `lvl` varchar(250) NOT NULL,
   `date` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `award`
---
-
-INSERT INTO `award` (`id`, `email`, `title`, `lvl`, `date`) VALUES
-(23, 'Norlitan.santos@deped.gov.ph', 'we', 'International', ''),
-(24, 'Edithad.baesa@deped.gov.ph', 'qQqq', 'International', '');
 
 -- --------------------------------------------------------
 
@@ -86,7 +98,10 @@ CREATE TABLE `credential` (
 --
 
 INSERT INTO `credential` (`id`, `email`, `pic`) VALUES
-(1, 'Edithad.baesa@deped.gov.ph', 'uploads/credentials/bckground.png');
+(4, 'Edithad.baesa@deped.gov.ph', 'uploads/credentials/GitHub-Mark.png'),
+(5, 'Edithad.baesa@deped.gov.ph', 'uploads/credentials/bckground.png'),
+(6, 'Edithad.baesa@deped.gov.ph', 'uploads/credentials/Tensorflow_logo.svg.png'),
+(7, 'Edithad.baesa@deped.gov.ph', 'uploads/credentials/bckground (2).png');
 
 -- --------------------------------------------------------
 
@@ -199,7 +214,9 @@ INSERT INTO `educationalbg` (`id`, `email`, `schoolCollege`, `graduateStudies`, 
 (48, 'Irenel.pantorillo@deped.gov.ph', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
 (49, 'Alvinpatrickq.penaflorida@deped.gov.ph', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
 (50, 'Julianat.alvarez@deped.gov.ph', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(51, 'Norlitan.santos@deped.gov.ph', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+(51, 'Norlitan.santos@deped.gov.ph', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(52, 'w', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(53, 'sample', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -228,7 +245,7 @@ INSERT INTO `educationaldegree` (`id`, `email`, `lvl`, `nameSchool`, `education`
 (32, 'Gloriad.morenos@deped.gov.ph', 'Post Degree', '', '', '', '', '', '', ''),
 (33, 'Gloriad.morenos@deped.gov.ph', 'Masters Degree', '', '', '', '', '', '', ''),
 (34, 'Gloriad.morenos@deped.gov.ph', 'Post Degree', '', '', '', '', '', '', ''),
-(35, 'Edithad.baesa@deped.gov.ph', 'Masters Degree', '', '', '', '', '', '', '');
+(36, 'Edithad.baesa@deped.gov.ph', 'Post Degree', '', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -455,17 +472,14 @@ CREATE TABLE `work` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `work`
---
-
-INSERT INTO `work` (`id`, `email`, `dateFrom`, `dateTo`, `positionLvl`, `title`, `department`, `monthSalary`, `salary`, `statusApointment`, `govService`) VALUES
-(32, 'Edithad.baesa@deped.gov.ph', '', '', 'Teaching Personnel', 'Teacher III', '', '', '', '', ''),
-(34, 'Edithad.baesa@deped.gov.ph', '', '', 'School Administrator', 'School Head III', '', '', '', '', ''),
-(35, 'Edithad.baesa@deped.gov.ph', '', '', 'School Administrator', 'Head Teacher II', '', '', '', '', '');
-
---
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `announcement`
+--
+ALTER TABLE `announcement`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `award`
@@ -550,10 +564,16 @@ ALTER TABLE `work`
 --
 
 --
+-- AUTO_INCREMENT for table `announcement`
+--
+ALTER TABLE `announcement`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `award`
 --
 ALTER TABLE `award`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `civil`
@@ -565,7 +585,7 @@ ALTER TABLE `civil`
 -- AUTO_INCREMENT for table `credential`
 --
 ALTER TABLE `credential`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `dor`
@@ -577,13 +597,13 @@ ALTER TABLE `dor`
 -- AUTO_INCREMENT for table `educationalbg`
 --
 ALTER TABLE `educationalbg`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT for table `educationaldegree`
 --
 ALTER TABLE `educationaldegree`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `equipment`
@@ -601,7 +621,7 @@ ALTER TABLE `learning`
 -- AUTO_INCREMENT for table `profile`
 --
 ALTER TABLE `profile`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
 
 --
 -- AUTO_INCREMENT for table `schools`
@@ -625,7 +645,7 @@ ALTER TABLE `voluntary`
 -- AUTO_INCREMENT for table `work`
 --
 ALTER TABLE `work`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

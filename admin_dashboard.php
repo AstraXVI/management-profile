@@ -1201,6 +1201,27 @@
         </div>
     </div>
 
+<!-- Modal -->
+<div class="modal fade" id="announcementModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add Anoouncement</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="input-group mb-3">
+            <input type="file" class="form-control" id="inputAnnouncementFile">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id='addAnnouncementButtonDb'>Add announcement</button>
+      </div>
+    </div>
+  </div>
+</div>
+
     <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
     <script>
         $(document).ready(function(){
@@ -1229,7 +1250,7 @@
 
             //load announcement
             $('#announcementBtn').click(function(){
-                $('#dashBoardBody').load("announcement.php");
+                $('#dashBoardBody').load("announcementAdmin.php");
 
             });
 
@@ -3186,7 +3207,7 @@
                 // $("$credentialModalBody").html(email)
 
                 $.ajax({
-                    url:"credentials.php",
+                    url:"credentialsModal.php",
                     method:"post",
                     data:{
                         email:email
@@ -3195,6 +3216,36 @@
                         $("#credentialModalBody").html(e)
                     }
                 })
+            })
+
+            // ANNOUNCEMENT BUTTON DB
+            $("#addAnnouncementButtonDb").click(function(){
+
+                const file = $("#inputAnnouncementFile").prop("files")[0];
+
+                // alert($("#inputAnnouncementFile").prop("files")[0])
+
+                const formData = new FormData();
+                formData.append("file", file);
+                // formData.append("email", email);
+
+                if(file){
+
+                    $.ajax({
+                        url: "uploadAnnouncement.php",
+                        type: "POST",
+                        data:formData,
+                        processData: false,
+                        contentType: false,
+                        success: function() {
+
+                            $("#announcemenTableTBody").load("announcementTbody.php");
+
+                        }
+                    });
+                }else{
+                    confirm('Please Select file!');
+                }
             })
 
         })
