@@ -35,8 +35,8 @@
                             <td><?php echo $fetch['id'] ?></td>
                             <td><?php echo $fetch['name'] ?></td>
                             <td>
-                                <button class='btn btn-primary text-light' value="<?php echo $fetch['id'] ?>"><i class="fa-solid fa-pen"></i></button>
-                                <button class='btn btn-danger text-light' value="<?php echo $fetch['id'] ?>"><i class="fa-solid fa-trash"></i></button>
+                                <button class='btn btn-primary text-light' value="<?php echo $fetch['id'] ?>" data-bs-toggle="modal" data-bs-target="#editAnnouncementModal" id='editAnnouncementButtonModal'><i class="fa-solid fa-pen"></i></button>
+                                <button class='btn btn-danger text-light' value="<?php echo $fetch['id'] ?>" id='deleteAnnouncementButtonDb'><i class="fa-solid fa-trash"></i></button>
                             </td>
                         </tr>
                     <?php }while($fetch = $list->fetch_assoc()) ?>
