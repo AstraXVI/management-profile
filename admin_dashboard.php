@@ -1201,7 +1201,7 @@
         </div>
     </div>
 
-<!-- Modal -->
+<!-- ADD ANNOUNCEMENT Modal -->
 <div class="modal fade" id="announcementModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -1217,6 +1217,25 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary" id='addAnnouncementButtonDb'>Add announcement</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EDIT ANNOUNCEMENT Modal -->
+<div class="modal fade" id="editAnnouncementModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Update announcement</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id='editAnnouncementModalBody'>
+        <!-- update announcement -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id='updateAnnouncementButtonDB'>Save changes</button>
       </div>
     </div>
   </div>
@@ -3246,6 +3265,78 @@
                 }else{
                     confirm('Please Select file!');
                 }
+            })
+
+            // DELETE ANNOUNCEMENT
+            $("#dashBoardBody").on("click","#deleteAnnouncementButtonDb",function(){
+                const id = $(this).val();
+
+                if(confirm('Are you sure to delete this?')){
+
+                    $.ajax({
+                        url:"deleteAnnouncement.php",
+                        method:"post",
+                        data:{
+                            id:id
+                        },
+                        success(){
+
+                            $("#announcemenTableTBody").load("announcementTbody.php");
+                            // $("#announcemenTableTBody").html(e);
+
+                        }
+                    })
+                }
+                
+            })
+
+            // EDIT ANNOUNCEMENT BUTTON FOR MODAL
+            $("#dashBoardBody").on("click","#editAnnouncementButtonModal",function(){
+                const id = $(this).val();
+
+                $.ajax({
+                    url:"announcementModalupdate.php",
+                    method:"post",
+                    data:{
+                        id:id
+                    },
+                    success(e){
+                        $("#editAnnouncementModalBody").html(e)
+                    }
+                })
+            })
+
+            $("#updateAnnouncementButtonDB").click(function(){
+                const id = $("#announcementId").val();
+                
+                const file = $("#inputEditAnnouncementFile").prop("files")[0];
+
+                // alert(id)
+
+                // alert($("#inputAnnouncementFile").prop("files")[0])
+
+                const formData = new FormData();
+                formData.append("file", file);
+                formData.append("id", id);
+
+                if(file){
+
+                    $.ajax({
+                        url: "updateAnnouncement.php",
+                        type: "POST",
+                        data:formData,
+                        processData: false,
+                        contentType: false,
+                        success: function() {
+
+                            $("#announcemenTableTBody").load("announcementTbody.php");
+
+                        }
+                    });
+                }else{
+                    confirm('Please Select file!');
+                }
+
             })
 
         })
