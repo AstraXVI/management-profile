@@ -20,18 +20,17 @@
 
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#navCredentialsButton">Upload file</button>
 
-    <?php if($list->num_rows){ ?>
-
-        <?php do{ ?>
-
-            <a href='<?php echo $fetch['pic'] ?>' title='Click to download' download><img src="<?php echo $fetch['pic'] ?>" alt="<?php echo $fetch['pic'] ?>" width='100%'></a>
+    <div class="bg-light d-flex align-items-center justify-content-center" style="width: 74vw; height: 68vh;">
+        <div class="d-flex gap-4 flex">
+            <?php if($list->num_rows){ ?>
+                <?php do{ ?>
+                    <a href='<?php echo $fetch['pic'] ?>' title='Click to download' download><img src="<?php echo $fetch['pic'] ?>" alt="<?php echo $fetch['pic'] ?>" width='100%'></a>
             
-        <?php }while($fetch = $list->fetch_assoc()) ?>
-
-    <?php }else{ ?>
-
-        <p>No upload yet</p>
-
-    <?php } ?>
+                <?php }while($fetch = $list->fetch_assoc()) ?>
+            <?php }else{ ?>
+                <p>No upload yet</p>
+            <?php } ?>
+        </div>
+    </div>
 </body>
 </html>
