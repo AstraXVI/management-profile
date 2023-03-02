@@ -157,7 +157,7 @@
                             <!-- <li ><button class="dropdown-item py-2"></button></li> -->
                             </a>
                         </li>
-                        <li id="credentialBtn" data-bs-toggle="modal" data-bs-target="#navCredentialsButton">
+                        <li id="credentialBtn" >
                             <a id="navBtn3" href="#" class="nav-link link-light">
                             <span class="bi me-2" width="16" height="16"><i class="fa-solid fa-id-card"></i></span>
                             Credentials
@@ -899,30 +899,6 @@
                 <div class="mb-3">
                     <label for="formFile" class="form-label">Upload Credentials</label>
                     <input class="form-control" type="file" id="uploadCredentialInput">
-                </div>
-
-                <!-- Credentials uploaded -->
-                <div >
-                    <?php
-                        $qGetCredentials = "SELECT * FROM credential WHERE email='$emailNew'";
-                        $lCredentials = $con->query($qGetCredentials);
-                        $fCredentials = $lCredentials->fetch_assoc();
-                    ?>
-
-                    <?php if($lCredentials->num_rows){ ?>
-
-                        <?php do{ ?>
-
-                            <img src="<?php echo $fCredentials['pic'] ?>" alt="<?php echo $fCredentials['pic'] ?>" width='100%'>
-                            
-                        <?php }while($fCredentials = $lCredentials->fetch_assoc()) ?>
-
-                    <?php }else{ ?>
-
-                        <p>No upload yet</p>
-
-                    <?php } ?>
-
                 </div>
             </div>
             <div class="modal-footer">
@@ -2482,7 +2458,16 @@
                         contentType: false,
                         success: function() {
 
-                            
+                            $.ajax({
+                                url:"credentials.php",
+                                method:"post",
+                                data:{
+                                    email:email
+                                },
+                                success(e){
+                                    $("#dashBoardBody").html(e)
+                                }
+                            })
 
                         }
                     });
@@ -2567,6 +2552,22 @@
                 }else{
                     $("#EditworkExpPosition").html("<option value='Teacher I'>Teacher I</option><option value='Teacher II'>Teacher II</option><option value='Teacher III'>Teacher III</option><option value='Master Teacher I'>Master Teacher I</option><option value='Master Teacher II'>Master Teacher II</option><option value='Master Teacher III'>Master Teacher III</option>")
                 }
+            })
+
+            // NAV CREDENTIAL BUTTON
+            $("#credentialBtn").click(function(){
+                const email = $("#userEmailProfile").val();
+
+                $.ajax({
+                    url:"credentials.php",
+                    method:"post",
+                    data:{
+                        email:email
+                    },
+                    success(e){
+                        $("#dashBoardBody").html(e)
+                    }
+                })
             })
 
         })
