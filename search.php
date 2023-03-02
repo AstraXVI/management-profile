@@ -36,7 +36,7 @@
             <td><?php echo $fetch['contactNo'] ?></td>
             <td><?php echo $fetch['sex'] ?></td>
             <td>
-                <button title="Credentials" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#credentialModal" id='credentialButtonFolder' value='<?php echo $fetch['email'] ?>'><i class="fa-solid fa-folder-open"></i></button>
+                <button title="Credentials" class="btn btn-info btn-sm text-light" data-bs-toggle="modal" data-bs-target="#credentialModal" id='credentialButtonFolder' value='<?php echo $fetch['email'] ?>'><i class="fa-solid fa-folder-open"></i></button>
             </td>
             <td>
                 <div class="d-flex gap-1 justify-content-center">

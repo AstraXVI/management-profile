@@ -16,21 +16,58 @@
     <title>Document</title>
 </head>
 <body>
-    <h4><?php echo $email ?></h4>
+    <!-- <h4><?php echo $email ?></h4> -->
 
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#navCredentialsButton">Upload file</button>
+    <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#navCredentialsButton"><i class="fa-solid fa-plus me-2"></i>Upload file</button>
 
-    <div class="bg-light d-flex align-items-center justify-content-center" style="width: 74vw; height: 68vh;">
-        <div class="d-flex gap-4 flex">
+    <div class="bg-light text-center p-3" style="width: 74vw; height: 68vh; overflow: scroll">
+        <div class="table-responsive md" style="max-height: 480px;">
+            <table class='table text-center table-striped'>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>File Name</th>
+                        <th>Type</th>
+                        <th>Action</th>
+                    </tr>
+
+                </thead>
+                <tbody id="idForSearchOutput">
+                    <?php if($list->num_rows){ ?>
+                        <?php do{ ?>
+                            <tr>
+                                <td><?php echo $fetch['id'] ?></td>
+                                <td>Hula hulang pangalan</td>
+                                <td>Image</td>
+                                <td>
+                                    <div class="d-flex gap-1 justify-content-center">
+                                        <button title="edit" type="button" id='' value='' class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editSchool"><i class="fa-solid fa-pen"></i></button>
+                                        <button title="Delete" class="btn btn-danger btn-sm" id='' value=''><i class="fa-solid fa-trash"></i></button>
+                                        <button title="View Equipment" class="btn btn-success btn-sm" id="" value=''><i class="fa-solid fa-eye"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
+                        <?php }while($fetch = $list->fetch_assoc()) ?>
+                    <?php }else{ ?>
+                        <tr>
+                            <td colspan='12'>No data</td>
+                        </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- <div class="bg-light d-flex align-items-center justify-content-center p-3" style="width: 74vw; height: 68vh; overflow: scroll">
+        <div class="d-flex gap-4 flex-wrap">
             <?php if($list->num_rows){ ?>
                 <?php do{ ?>
-                    <a href='<?php echo $fetch['pic'] ?>' title='Click to download' download><img src="<?php echo $fetch['pic'] ?>" alt="<?php echo $fetch['pic'] ?>" width='100%'></a>
+                    <img src="<?php echo $fetch['pic'] ?>" alt="<?php echo $fetch['pic'] ?>" width='300px'>
             
                 <?php }while($fetch = $list->fetch_assoc()) ?>
             <?php }else{ ?>
                 <p>No upload yet</p>
             <?php } ?>
         </div>
-    </div>
+    </div> -->
 </body>
 </html>

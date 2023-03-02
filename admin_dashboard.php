@@ -2063,7 +2063,7 @@
                     $("#profileInputAdminInfoNewPass").val("");
                     $("#profileInputAdminInfoRPass").val("")
 
-                    confirm("New match!")
+                    confirm("Password did not match! Please try again.")
                 }
 
                 
