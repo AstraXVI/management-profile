@@ -37,13 +37,13 @@
     <div class="carousel-inner">
 
             
-            <div class="carousel-item active" data-bs-interval="2000">
+            <div class="carousel-item active" data-bs-interval="5000">
                 <img src="https://sdovalenzuelacity.deped.gov.ph/wp-content/uploads/slider3/MATATAG.jpeg" class="" alt="...">
             </div>
 
             <?php do{ ?>
 
-                <div class="carousel-item" data-bs-interval="2000">
+                <div class="carousel-item" data-bs-interval="5000">
                     <img src="<?php echo $fetch['pic'] ?>" class="" alt="...">
                 </div>
 
@@ -67,8 +67,9 @@
 </div>
 
 <?php }else{ ?>
-
-<p>No announcement</p>
+    <div class="bg-light d-flex align-items-center justify-content-center" style="width: 74vw; height: 68vh;">
+        <p>No announcement</p>
+    </div>
 
 <?php } ?>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

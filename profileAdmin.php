@@ -72,7 +72,7 @@
                 <div class="profile-img">
     
                     <?php if(empty($info['picture'])){ ?>
-                        <img src="https://cdn.pixabay.com/photo/2016/08/31/11/54/icon-1633249_960_720.png" alt="" />
+                        <img src="https://sdovalenzuelacity.deped.gov.ph/wp-content/uploads/2021/04/New-DO-Logo.png" alt="" />
                     <?php }else{ ?>
                         <img src="<?php echo $info['picture'] ?>" alt="" />
                     <?php } ?>

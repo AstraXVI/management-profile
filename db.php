@@ -3,7 +3,7 @@
 
     try{
 
-        $con = new mysqli('localhost','root','','deped_db');
+        $con = new mysqli('localhost','root','','deped-db');
 
     }catch(Exception $e){
 
