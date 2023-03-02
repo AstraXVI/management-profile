@@ -123,10 +123,10 @@
                         </div>
                     </div>
                 </div>
-                <div>
+                <div class="text-center">
                     <div class="text-dark fw-bold fs-3"><?php echo $info['name'] ?></div>
-                    <div class="text-dark "><?php echo $info['email'] ?></div>
-                    <span class="fw-bold">Employee no.: </span><span class="text-dark "><?php echo $info['employeeNo'] ?></span>
+                    <div class="text-primary "><a href="https://mail.google.com"><?php echo $info['email'] ?></a></div>
+                    <span>Employee no.: </span><span class="text-dark fw-bold"><?php echo $info['employeeNo'] ?></span>
                 </div>
             </div>
             <!-- <div class="divider"></div> -->
