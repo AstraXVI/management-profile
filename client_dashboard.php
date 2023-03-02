@@ -262,7 +262,7 @@
                     <div class="card w-75" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; max-width: 350px">
                       <div class="card-body bg-danger rounded-1">
                           <!-- Title -->
-                          <h4 class="card-title"><p><i class="fa-solid fa-person-chalkboard me-2"></i>Years as Teaching Personnel</p></h4>
+                          <h4 class="card-title"><p><i class="fa-solid fa-person-chalkboard me-2"></i>Years As Teaching Personnel</p></h4>
                           <hr>
 
                           <!-- Get date to get year experience -->
@@ -290,7 +290,7 @@
                           ?>
                           <!--  -->
                           <!-- Text -->
-                          <p class="card-text fs-3" id='yearAsTeachingPersonnel'></p>
+                          <p class="card-text fs-4" id='yearAsTeachingPersonnel'></p>
                       </div>
                    
                     </div>
@@ -315,10 +315,10 @@
                     <div class="card w-75" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; max-width: 350px">
                         <div class="card-body bg-warning rounded-1">
                             <!-- Title -->
-                            <h4 class="card-title"><p><i class="fa-solid fa-school-lock me-2"></i>Years as School Administration</p></h4>
+                            <h4 class="card-title"><p><i class="fa-solid fa-school-lock me-2"></i>Years As School Administration</p></h4>
                             <hr>
                             <!-- Text -->
-                            <p class="card-text fs-3" id='yearAsSchoolAdmin'></p>
+                            <p class="card-text fs-4" id='yearAsSchoolAdmin'></p>
                         </div>
                     </div>
 
