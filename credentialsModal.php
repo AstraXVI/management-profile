@@ -22,7 +22,20 @@
 
         <?php do{ ?>
 
-            <a href='<?php echo $fetch['pic'] ?>' title='Click to download' download><img src="<?php echo $fetch['pic'] ?>" alt="<?php echo $fetch['pic'] ?>" width='100%'></a>
+            <?php if($fetch['type'] == 'Image'){ ?>
+
+                <a href='<?php echo $fetch['pic'] ?>' title='Click to download' download><img src="<?php echo $fetch['pic'] ?>" alt="<?php echo $fetch['pic'] ?>" width='100%'></a>
+
+            <?php }else{ ?>
+
+                <div class='my-3'>
+                    <a href='<?php echo $fetch['pic'] ?>' title='Click to download' download>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/File_alt_font_awesome.svg/1024px-File_alt_font_awesome.svg.png" width='100%'>
+                        <p><?php echo $fetch['name'] ?></p>
+                    </a>
+                </div>
+                
+            <?php } ?>
             
         <?php }while($fetch = $list->fetch_assoc()) ?>
 

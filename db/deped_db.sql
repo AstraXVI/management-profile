@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 02, 2023 at 04:12 AM
+-- Generation Time: Mar 03, 2023 at 05:47 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -32,14 +32,6 @@ CREATE TABLE `announcement` (
   `pic` varchar(250) NOT NULL,
   `name` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `announcement`
---
-
-INSERT INTO `announcement` (`id`, `pic`, `name`) VALUES
-(1, 'uploads/announcement/GitHub-Mark (3).png', 'GitHub-Mark (3).png'),
-(2, 'uploads/announcement/bckground (1).png', 'bckground (1).png');
 
 -- --------------------------------------------------------
 
@@ -90,18 +82,19 @@ INSERT INTO `civil` (`id`, `email`, `careerService`, `rating`, `dateOfExam`, `pl
 CREATE TABLE `credential` (
   `id` int(11) NOT NULL,
   `email` varchar(250) NOT NULL,
-  `pic` varchar(500) NOT NULL
+  `pic` varchar(500) NOT NULL,
+  `name` varchar(500) NOT NULL,
+  `type` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `credential`
 --
 
-INSERT INTO `credential` (`id`, `email`, `pic`) VALUES
-(4, 'Edithad.baesa@deped.gov.ph', 'uploads/credentials/GitHub-Mark.png'),
-(5, 'Edithad.baesa@deped.gov.ph', 'uploads/credentials/bckground.png'),
-(6, 'Edithad.baesa@deped.gov.ph', 'uploads/credentials/Tensorflow_logo.svg.png'),
-(7, 'Edithad.baesa@deped.gov.ph', 'uploads/credentials/bckground (2).png');
+INSERT INTO `credential` (`id`, `email`, `pic`, `name`, `type`) VALUES
+(13, 'Edithad.baesa@deped.gov.ph', 'uploads/credentials/308160417_491670489636305_2880562263675572756_n.jpg', '308160417_491670489636305_2880562263675572756_n.jpg', 'Image'),
+(14, 'Edithad.baesa@deped.gov.ph', 'uploads/credentials/ojt.docx', 'ojt.docx', 'File'),
+(15, 'Edithad.baesa@deped.gov.ph', 'uploads/credentials/330592988_519480886922121_4301420214595789631_n.jpg', '330592988_519480886922121_4301420214595789631_n.jpg', 'Image');
 
 -- --------------------------------------------------------
 
@@ -567,7 +560,7 @@ ALTER TABLE `work`
 -- AUTO_INCREMENT for table `announcement`
 --
 ALTER TABLE `announcement`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `award`
@@ -585,7 +578,7 @@ ALTER TABLE `civil`
 -- AUTO_INCREMENT for table `credential`
 --
 ALTER TABLE `credential`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `dor`
