@@ -135,16 +135,16 @@
                 <div class="d-flex gap-2">
                         <!-- <div class="col-sm-1"><h6 class="mb-0">Employee no.</h6></div>
                         <div class="col-sm-1 text-secondary">01</div> -->
-                        <h6 class="mb-0">Employee no.</h6>
-                        <span class="text-secondary"><?php echo $info['employeeNo'] ?></span>
+                        <!-- <h6 class="mb-0">Employee no.</h6>
+                        <span class="text-secondary"><?php echo $info['employeeNo'] ?></span> -->
                     </div>
-                    <hr>
+                    <!-- <hr> -->
                     <div class="d-flex gap-4">
-                        <div class="d-flex align-items-center gap-2">
+                        <!-- <div class="d-flex align-items-center gap-2">
                             <h6 class="mb-0 col-15">Fullname:</h6>
                             <span class="text-secondary"><?php echo $info['name'] ?></span>
-                        </div>
-                        <span style="border-right: 2px solid lightgrey"></span>
+                        </div> -->
+                        <!-- <span style="border-right: 2px solid lightgrey"></span> -->
                         <div class="d-flex align-items-center gap-2">
                             <h6 class="mb-0">Date of Birth:</h6>
                             <span class=" text-secondary"><?php echo $info['bday'] ?></span>
@@ -198,11 +198,11 @@
                             <span class="col-sm-9 text-secondary"><?php echo $info['contactNo'] ?></span>
                         </div> -->
 
-                        <div class="d-flex align-items-center gap-2">
+                        <!-- <div class="d-flex align-items-center gap-2">
                             <h6 class="mb-0">Deped Email:</h6>
                             <span class="text-secondary"><?php echo $info['email'] ?></span>
-                        </div>
-                        <span style="border-right: 2px solid lightgrey"></span>
+                        </div> -->
+                        <!-- <span style="border-right: 2px solid lightgrey"></span> -->
                         <div class="d-flex align-items-center gap-2">
                             <h6 class="mb-0">Contact:</h6>
                             <span class=" text-secondary"><?php echo $info['contactNo'] ?></span>
