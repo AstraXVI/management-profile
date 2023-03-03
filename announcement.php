@@ -16,7 +16,7 @@
     <title>Document</title>
     <style>
         .carousel-inner img{
-            height: 500px;
+            height: 60vh;
             width: auto;
             display: block;
             margin-inline: auto;
@@ -38,7 +38,7 @@
 
             
             <div class="carousel-item active" data-bs-interval="5000">
-                <img src="https://sdovalenzuelacity.deped.gov.ph/wp-content/uploads/slider3/MATATAG.jpeg" class="" alt="...">
+                <img src="img/announcement.png" class="" alt="...">
             </div>
 
             <?php do{ ?>
@@ -68,7 +68,7 @@
 
 <?php }else{ ?>
     <div class="bg-light d-flex align-items-center justify-content-center" style="width: 74vw; height: 68vh;">
-        <p>No announcement</p>
+        <h4 class="text-secondary" style="opacity: 0.6"><i class="fa-solid fa-bullhorn me-2"></i>No announcement</h4>
     </div>
 
 <?php } ?>

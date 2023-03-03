@@ -16,7 +16,7 @@
 </head>
 <body>
     <div class=" text-secondary fw-bold p-2 ps-0 mb-3 w-50 h3">Announcements</div>
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#announcementModal">Add anouncement</button>
+    <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#announcementModal"><i class="fa-solid fa-plus me-2"></i>Add anouncement</button>
 
     <div class="bg-light" style="width: 74vw; height: 60vh;">
 
@@ -42,7 +42,7 @@
                     <?php }while($fetch = $list->fetch_assoc()) ?>
                 <?php }else{ ?>
                     <tr>
-                        <td colspan='3'>No announcement</td>
+                        <td colspan='3' class="text-secondary" style="opacity: 0.6"><i class="fa-solid fa-bullhorn me-2"></i>No announcement</td>
                     </tr>
                 <?php } ?>
             </tbody>
