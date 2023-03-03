@@ -55,6 +55,11 @@
     $mastersDegree = "SELECT * FROM `educationaldegree` WHERE lvl='Masters Degree' AND email='$emailNew' ORDER BY id DESC";
     $mastersList = $con->query($mastersDegree);
     $fetchMasters = $mastersList->fetch_assoc();
+
+    // announcement
+    $qAnnouncement = "SELECT * FROM `announcement`";
+    $lAnnouncement = $con->query($qAnnouncement);
+    $fAnnouncementCount = $lAnnouncement->num_rows;
     
 
     // DASH BOARD award count
@@ -341,7 +346,7 @@
                     <div class="card w-75" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; max-width: 300px">
                         <div class="card-body rounded-1" style="background-color: #87194C">
                             <!-- Title -->
-                            <h4 class="card-title"><p>2 <i class="fa-solid fa-bullhorn me-2"></i>Announcement</p></h4>
+                            <h4 class="card-title"><p><?php echo $fAnnouncementCount ?> <i class="fa-solid fa-bullhorn me-2"></i>Announcement</p></h4>
                             <hr>
                             <!-- Text -->
                             <p class="card-text fs-3" id='announcement'></p>
@@ -901,6 +906,14 @@
                     <label for="formFile" class="form-label">Upload Credentials</label>
                     <input class="form-control" type="file" id="uploadCredentialInput">
                 </div>
+
+                <div class="input-group mb-3">
+                    <label class="input-group-text" for="">Type</label>
+                    <select class="form-select" id='inputCredentialType'>
+                        <option value="Image">Image</option>
+                        <option value="File">File</option>
+                    </select>
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -986,6 +999,44 @@
             </div>
         </div>
     </div>
+
+    <!-- VIEW CREDENTIAL MODAL -->
+<div class="modal fade" id="viewCredentialModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">View credential</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id='viewCredentialModalBody'>
+        <!--view credential  -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EDIT CREDENTIAL MODAL -->
+<div class="modal fade" id="editCredentialModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit credetial</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id='editCredentialModalBody'>
+        <!-- modal edit credential body -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id='UpdateCredentialButtonDB'>Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 
     <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
 
@@ -2440,14 +2491,17 @@
 
             // UPLOAD Credential button
             $("#uploadCredentialButtonDB").click(function(){
+
                 const email = $("#userEmailProfile").val();
                 const file = $("#uploadCredentialInput").prop("files")[0];
+                const type = $("#inputCredentialType").val();
 
                 // alert()
 
                 const formData = new FormData();
                 formData.append("file", file);
                 formData.append("email", email);
+                formData.append("type", type);
 
                 if(file){
 
@@ -2467,6 +2521,8 @@
                                 },
                                 success(e){
                                     $("#dashBoardBody").html(e)
+
+                                    confirm("Upload success!")
                                 }
                             })
 
@@ -2476,6 +2532,116 @@
                     confirm('Please Select file!');
                 }
             })
+
+            // DELETE CREDENTIAL DB
+            $("#dashBoardBody").on("click","#deleteButonCredentialsDb",function(){
+                const id = $(this).val()
+                const email = $("#userEmailProfile").val();
+                
+                if(confirm('Are you sure to delete this?')){
+                    
+                    $.ajax({
+                        url:"deleteCredentialDb.php",
+                        method:"post",
+                        data:{
+                            id:id
+                        },
+                        success(){
+
+                            $.ajax({
+                                url:"credentials.php",
+                                method:"post",
+                                data:{
+                                    email:email
+                                },
+                                success(e){
+                                    $("#dashBoardBody").html(e)
+                                }
+                            })
+
+                        }
+                    })
+                }
+            })
+
+            // MODAL VIEW CREDENTIAL BUTTON
+            $("#dashBoardBody").on("click","#viewCredentialButtonModal",function(){
+                const id = $(this).val()
+
+                $.ajax({
+                    url:"viewCredentialModal.php",
+                    method:"post",
+                    data:{
+                        id:id
+                    },
+                    success(e){
+                        $("#viewCredentialModalBody").html(e)
+                    }
+                })
+            })
+
+            // MODAL EDIT CREDENTIAL MODAL
+            $("#dashBoardBody").on("click","#editCredentialButtonModal",function(){
+                const id = $(this).val();
+
+                $.ajax({
+                    url:"credentialEditModal.php",
+                    method:"post",
+                    data:{
+                        id:id
+                    },
+                    success(e){
+                        $("#editCredentialModalBody").html(e)
+                    }
+                })
+            })
+
+            // MODAL CREDENTIAL UPDATE DB 
+            $("#UpdateCredentialButtonDB").click(function(){
+                
+                const id = $("#inputCredentialId").val()
+                const email = $("#userEmailProfile").val();
+                const file = $("#EdituploadCredentialInput").prop("files")[0];
+                const type = $("#EditinputCredentialType").val();
+
+                // alert(id)
+
+                const formData = new FormData();
+
+                formData.append("file", file);
+                formData.append("type", type);
+                formData.append("id", id);
+
+
+                $.ajax({
+                    url: "updateCredential.php",
+                    type: "POST",
+                    data:formData,
+                    processData: false,
+                    contentType: false,
+                    success: function(e) {
+
+                        // $("#dashBoardBody").html(e)
+
+
+                        $.ajax({
+                            url:"credentials.php",
+                            method:"post",
+                            data:{
+                                email:email
+                            },
+                            success(e){
+                                $("#dashBoardBody").html(e)
+                            }
+                        })
+
+                    }
+                });
+               
+
+            })
+
+
 
             
             // GET TEACHING PERSONEL EXP
