@@ -346,10 +346,10 @@
                     <div class="card w-75" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; max-width: 300px">
                         <div class="card-body rounded-1" style="background-color: #87194C">
                             <!-- Title -->
-                            <h4 class="card-title"><p><?php echo $fAnnouncementCount ?> <i class="fa-solid fa-bullhorn me-2"></i>Announcement</p></h4>
+                            <h4 class="card-title"><p> <i class="fa-solid fa-bullhorn me-2"></i>Announcement</p></h4>
                             <hr>
                             <!-- Text -->
-                            <p class="card-text fs-3" id='announcement'></p>
+                            <p class="card-text text-center" style="font-size: 55px;" id='announcement'><?php echo $fAnnouncementCount ?></p>
                         </div>
                     </div>
                 </div>
