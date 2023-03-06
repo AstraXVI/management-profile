@@ -29,8 +29,8 @@
             <?php }else{ ?>
 
                 <div class='my-3'>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/File_alt_font_awesome.svg/1024px-File_alt_font_awesome.svg.png" width='100%'>
                     <a href='<?php echo $fetch['pic'] ?>' title='Click to download' download>
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/File_alt_font_awesome.svg/1024px-File_alt_font_awesome.svg.png" width='100%'>
                         <p><?php echo $fetch['name'] ?></p>
                     </a>
                 </div>

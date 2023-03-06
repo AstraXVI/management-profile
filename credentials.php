@@ -43,7 +43,7 @@
                                     <div class="d-flex gap-1 justify-content-center">
                                         <button title="edit" type="button" id='editCredentialButtonModal' value='<?php echo $fetch['id'] ?>' class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editCredentialModal"><i class="fa-solid fa-pen"></i></button>
                                         <button title="Delete" class="btn btn-danger btn-sm" id='deleteButonCredentialsDb' value='<?php echo $fetch['id'] ?>'><i class="fa-solid fa-trash"></i></button>
-                                        <button title="View Equipment" class="btn btn-success btn-sm" id="viewCredentialButtonModal" value='<?php echo $fetch['id'] ?>' data-bs-toggle="modal" data-bs-target="#viewCredentialModal"><i class="fa-solid fa-eye"></i></button>
+                                        <button title="View Credential" class="btn btn-success btn-sm" id="viewCredentialButtonModal" value='<?php echo $fetch['id'] ?>' data-bs-toggle="modal" data-bs-target="#viewCredentialModal"><i class="fa-solid fa-eye"></i></button>
                                     </div>
                                 </td>
                             </tr>
