@@ -64,6 +64,7 @@
                 <th>Title of Award</th>
                 <th>Level of award</th>
                 <th>Certificate issue date</th>
+                <th>Files</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -74,6 +75,9 @@
                         <td><?php echo $info['title'] ?></td>
                         <td><?php echo $info['lvl'] ?></td>
                         <td><?php echo $info['date'] ?></td>
+                        <td>
+                            <button class='btn btn-info btn-sm' data-bs-toggle="modal" data-bs-target="#viewFileRewardAndRecognition" value='<?php echo $info['id'] ?>' id='viewFileButtonNew'><i class="fa-regular fa-folder-open text-light"></i></button>
+                        </td>
                         <td>
                             <div>
                                 <button class='btn btn-info btn-sm' data-bs-toggle="modal" data-bs-target="#profileAwardModalEdit" value='<?php echo $info['id'] ?>' id='profileAwardEditButtonModal'><i class="fa-solid fa-pen text-light"></i></button>
