@@ -1135,6 +1135,11 @@
                     <span class="input-group-text" id="basic-addon1">Certificate issue date</span>
                     <input type="date" id='inputAwardDate' class="form-control" aria-label="Username" aria-describedby="basic-addon1">
                 </div>
+
+                <div class="input-group mb-3">
+                    <input type="file" class="form-control" id="inputAwardFile">
+                    <!-- <label class="input-group-text" for="inputGroupFile02">Upload</label> -->
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -1236,6 +1241,25 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary" id='updateAnnouncementButtonDB'>Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- VIEW FILE REWARDS and RECOGNITION -->
+<div class="modal fade" id="viewFileRewardAndRecognition" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">File</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id='viewFileModal'>
+        <!-- view file modal -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
       </div>
     </div>
   </div>
@@ -2931,38 +2955,82 @@
                 const lvl = $("#inputAwardlvl").val();
                 const date = $("#inputAwardDate").val();
 
+                // file
 
-                if(title){
-                    $.ajax({
-                        url:"profileInfo/addAward.php",
-                        method:"post",
-                        data:{
-                            email : email,
-                            title : title,
-                            lvl : lvl,
-                            date : date
-                        },
-                        success(){
+                const file = $("#inputAwardFile").prop("files")[0];
 
-                            $.ajax({
-                                url:"profileInfo/award.php",
-                                method:"post",
-                                data:{
-                                    email:email
-                                },
-                                success(e){
-                                    $("#dashBoardBody").html(e)
+                // alert(id)
 
-                                    confirm("Add award success")
+                // alert($("#inputAnnouncementFile").prop("files")[0])
 
-                                }
-                            })
+                const formData = new FormData();
+                formData.append("file", file);
+                formData.append("email", email);
+                formData.append("title", title);
+                formData.append("lvl", lvl);
+                formData.append("date", date);
 
-                        }
-                    })
-                }else{
-                    confirm("Please add title!")
-                }
+   
+
+                $.ajax({
+                    url: "profileInfo/addAward.php",
+                    type: "POST",
+                    data:formData,
+                    processData: false,
+                    contentType: false,
+                    success: function() {
+
+                        $.ajax({
+                            url:"profileInfo/award.php",
+                            method:"post",
+                            data:{
+                                email:email
+                            },
+                            success(e){
+                                $("#dashBoardBody").html(e)
+
+                                confirm("Add award success")
+
+                            }
+                        })
+
+                    }
+                });
+         
+                
+
+
+                // if(title){
+                //     $.ajax({
+                //         url:"profileInfo/addAward.php",
+                //         method:"post",
+                //         data:{
+                //             email : email,
+                //             title : title,
+                //             lvl : lvl,
+                //             date : date
+                //         },
+                //         success(){
+
+                //             $.ajax({
+                //                 url:"profileInfo/award.php",
+                //                 method:"post",
+                //                 data:{
+                //                     email:email
+                //                 },
+                //                 success(e){
+                //                     $("#dashBoardBody").html(e)
+
+                //                     confirm("Add award success")
+
+                //                 }
+                //             })
+
+                //         }
+                //     })
+                // }else{
+                //     confirm("Please add title!")
+                // }
                
             })
 
@@ -3306,6 +3374,7 @@
                 })
             })
 
+            // ANNOUNCEMENT
             $("#updateAnnouncementButtonDB").click(function(){
                 const id = $("#announcementId").val();
                 
@@ -3337,6 +3406,22 @@
                     confirm('Please Select file!');
                 }
 
+            })
+
+            // VIEW FILE 
+            $("#dashBoardBody").on("click","#viewFileButtonNew",function(){
+                const id = $(this).val()
+
+                $.ajax({
+                    url:"profileInfo/viewFileModal.php",
+                    method:"post",
+                    data:{
+                        id:id
+                    },
+                    success(e){
+                        $("#viewFileModal").html(e)
+                    }
+                })
             })
 
         })
