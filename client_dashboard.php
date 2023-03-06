@@ -103,6 +103,9 @@
         .dropdown-menu:hover{
             background-color: #f5f5f5;
         }
+        * {
+            /* font-family: Helvetica, sans-serif; */
+        }
     </style>
 </head>
 <body style="background: url(https://cdn.pixabay.com/photo/2017/07/01/19/48/background-2462431_960_720.jpg) no-repeat; background-size: cover; background-color: #e5e5e5; background-blend-mode: overlay;">
@@ -153,7 +156,7 @@
                         <li>
                             <a id="navBtn1" class="nav-link link-light active" href="javascript:window.location.reload(true)">
                             <span class="bi me-2" width="16" height="16"><i class="fa-solid fa-chart-simple"></i></span>
-                            Dashboard
+                            Performance Analytics
                             </a>
                         </li>
                         <li id="profileBtn" value='<?php echo $data['id']  ?>'>
@@ -163,15 +166,29 @@
                             <!-- <li ><button class="dropdown-item py-2"></button></li> -->
                             </a>
                         </li>
-                        <li id="credentialBtn" >
+                        <!-- <li id="credentialBtn" >
                             <a id="navBtn3" href="#" class="nav-link link-light">
                             <span class="bi me-2" width="16" height="16"><i class="fa-solid fa-id-card"></i></span>
                             Credentials
+                            <li ><button class="dropdown-item py-2"></button></li>
+                            </a>
+                        </li> -->
+                        <li id="learningAndDevelopmentBtn" style="font-size: 15px">
+                            <a id="navBtn3" href="#" class="nav-link link-light">
+                            <span class="bi me-2" width="16" height="16"><i class="fa-solid fa-lines-leaning"></i></span>
+                            Learning & Development
+                            <!-- <li ><button class="dropdown-item py-2"></button></li> -->
+                            </a>
+                        </li>
+                        <li id="rewardsAndRecognitionBtn" >
+                            <a id="navBtn4" href="#" class="nav-link link-light">
+                            <span class="bi me-2" width="16" height="16"><i class="fa-solid fa-id-card"></i></span>
+                            Rewards & Recognition
                             <!-- <li ><button class="dropdown-item py-2"></button></li> -->
                             </a>
                         </li>
                         <li id="announcementBtn">
-                            <a id="navBtn4" href="#" class="nav-link link-light">
+                            <a id="navBtn5" href="#" class="nav-link link-light">
                             <span class="bi me-2" width="16" height="16"><i class="fa-solid fa-bullhorn"></i></span>
                             Announcements
                             <!-- <li ><button class="dropdown-item py-2"></button></li> -->
@@ -346,10 +363,12 @@
                     <div class="card w-75" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; max-width: 300px">
                         <div class="card-body rounded-1" style="background-color: #87194C">
                             <!-- Title -->
-                            <h4 class="card-title"><p> <i class="fa-solid fa-bullhorn me-2"></i>Announcement</p></h4>
+                            <h4 class="card-title"><p> <i class="fa-solid fa-dumbbell me-2"></i>Training Hours</p></h4>
                             <hr>
                             <!-- Text -->
-                            <p class="card-text text-center" style="font-size: 55px;" id='announcement'><?php echo $fAnnouncementCount ?></p>
+                            <p class="card-text" id='managerialHours'>Managerial - 80</p>
+                            <p class="card-text" id='supervisoryHours'>Supervisory - 23</p>
+                            <p class="card-text" id='TechnicalHours'>Technical - 43</p>
                         </div>
                     </div>
                 </div>
@@ -677,9 +696,16 @@
                 <input type="text" class="form-control" id="workExpStatus" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
             </div>
 
-            <div class="input-group mb-3">
+            <!-- <div class="input-group mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-default">Gov't Service (Y/N)</span>
                 <input type="text" class="form-control" id="workExpService" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div> -->
+            <div class="input-group mb-3">
+                <label class="input-group-text" for="">Gov't Service (Y/N)</label>
+                <select class="form-select" id="workExpService">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
             </div>
             
         </div>
@@ -943,6 +969,7 @@
                         <option value="International (Managerial)">International (Managerial)</option>
                         <option value="International (Supervisory)">International (Supervisory)</option>
                         <option value="International (Technical)">International (Technical)</option>
+                        <option value="National">National</option>
                         <option value="Regional">Regional</option>
                         <option value="Division">Division</option>
                         <option value="School">School</option>
@@ -1072,14 +1099,25 @@
                 $('#navBtn2').addClass('active');
                 $('#navBtn3').removeClass('active');
                 $('#navBtn4').removeClass('active');
+                $('#navBtn5').removeClass('active');
             })
-            $('#credentialBtn').click(function(){
+            $('#learningAndDevelopmentBtn').click(function(){
                 // $('#dashBoardBody').load("profile.php");
 
                 $('#navBtn1').removeClass('active');
                 $('#navBtn2').removeClass('active');
                 $('#navBtn3').addClass('active');
                 $('#navBtn4').removeClass('active');
+                $('#navBtn5').removeClass('active');
+            })
+            $('#rewardsAndRecognitionBtn').click(function(){
+                // $('#dashBoardBody').load("profile.php");
+
+                $('#navBtn1').removeClass('active');
+                $('#navBtn2').removeClass('active');
+                $('#navBtn3').removeClass('active');
+                $('#navBtn4').addClass('active');
+                $('#navBtn5').removeClass('active');
             })
             $('#announcementBtn').click(function(){
                 // $('#dashBoardBody').load("profile.php");
@@ -1087,7 +1125,8 @@
                 $('#navBtn1').removeClass('active');
                 $('#navBtn2').removeClass('active');
                 $('#navBtn3').removeClass('active');
-                $('#navBtn4').addClass('active');
+                $('#navBtn4').removeClass('active');
+                $('#navBtn5').addClass('active');
             })
 
             // ADD EQUIPMENT ON DB

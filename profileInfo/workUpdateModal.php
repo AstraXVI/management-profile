@@ -94,9 +94,18 @@
         <input type="text" value='<?php echo $fetch['statusApointment'] ?>' class="form-control" id="EditworkExpStatus" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
     </div>
 
-    <div class="input-group mb-3">
+    <!-- <div class="input-group mb-3">
         <span class="input-group-text" id="inputGroup-sizing-default">Gov't Service (Y/N)</span>
         <input type="text" value='<?php echo $fetch['govService'] ?>' class="form-control" id="EditworkExpService" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+    </div> -->
+
+    <div class="input-group mb-3">
+        <label class="input-group-text" for="">Gov't Service (Y/N)</label>
+        <select class="form-select" id="EditworkExpService">
+            <option class="bg-primary" value='<?php echo $fetch['govService'] ?>'><?php echo $fetch['govService'] ?></option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
     </div>
 </body>
 </html>

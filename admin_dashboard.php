@@ -108,7 +108,7 @@
             background-color: #E9ECEF;
         }
         *{
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Montserrat', helvetica,  sans-serif;
             /* font-family: 'Prata', serif;
             font-family: 'Rubik', sans-serif; */
             }
@@ -870,9 +870,16 @@
                 <input type="text" class="form-control" id="workExpStatus" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
             </div>
 
-            <div class="input-group mb-3">
+            <!-- <div class="input-group mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-default">Gov't Service (Y/N)</span>
                 <input type="text" class="form-control" id="workExpService" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div> -->
+            <div class="input-group mb-3">
+                <label class="input-group-text" for="">Gov't Service (Y/N)</label>
+                <select class="form-select" id="workExpService">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
             </div>
             
         </div>

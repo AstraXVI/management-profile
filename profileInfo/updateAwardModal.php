@@ -27,7 +27,10 @@
         <label class="input-group-text" for="">Level of award</label>
         <select class="form-select" id='EditinputAwardlvl'>
             <option class='bg-primary' value="<?php echo $Info['lvl'] ?>"><?php echo $Info['lvl'] ?></option>
-            <option value="International">International</option>
+            <option value="International (Managerial)">International (Managerial)</option>
+            <option value="International (Supervisory)">International (Supervisory)</option>
+            <option value="International (Technical)">International (Technical)</option>
+            <option value="National">National</option>
             <option value="Regional">Regional</option>
             <option value="Division">Division</option>
             <option value="School">School</option>
