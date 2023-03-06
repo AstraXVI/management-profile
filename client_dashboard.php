@@ -173,14 +173,14 @@
                             <li ><button class="dropdown-item py-2"></button></li>
                             </a>
                         </li> -->
-                        <li id="learningAndDevelopmentBtn" style="font-size: 15px">
+                        <li id="profileLearningAndDevelopmentButton" style="font-size: 15px">
                             <a id="navBtn3" href="#" class="nav-link link-light">
                             <span class="bi me-2" width="16" height="16"><i class="fa-solid fa-lines-leaning"></i></span>
                             Learning & Development
                             <!-- <li ><button class="dropdown-item py-2"></button></li> -->
                             </a>
                         </li>
-                        <li id="rewardsAndRecognitionBtn" >
+                        <li id="profileAwardExpBtn" >
                             <a id="navBtn4" href="#" class="nav-link link-light">
                             <span class="bi me-2" width="16" height="16"><i class="fa-solid fa-id-card"></i></span>
                             Rewards & Recognition
@@ -1101,7 +1101,7 @@
                 $('#navBtn4').removeClass('active');
                 $('#navBtn5').removeClass('active');
             })
-            $('#learningAndDevelopmentBtn').click(function(){
+            $('#profileLearningAndDevelopmentButton').click(function(){
                 // $('#dashBoardBody').load("profile.php");
 
                 $('#navBtn1').removeClass('active');
@@ -1110,7 +1110,7 @@
                 $('#navBtn4').removeClass('active');
                 $('#navBtn5').removeClass('active');
             })
-            $('#rewardsAndRecognitionBtn').click(function(){
+            $('#profileAwardExpBtn').click(function(){
                 // $('#dashBoardBody').load("profile.php");
 
                 $('#navBtn1').removeClass('active');
@@ -1748,8 +1748,8 @@
             })
 
             //LEARNING and development button
-            $("#dashBoardBody").on("click","#profileLearningAndDevelopmentButton",function(){
-                const email = $("#profileUserEmail").val();
+            $("#profileLearningAndDevelopmentButton").click(function(){
+                const email = $("#userEmailProfile").val();
 
                 // alert(email)
 
@@ -2236,9 +2236,10 @@
             })
 
             // AWARD BUTTON LOAD
-            $("#dashBoardBody").on("click","#profileAwardExpBtn",function(){
-                const email = $("#profileUserEmail").val();
+            $("#profileAwardExpBtn").click(function(){
+                const email = $("#userEmailProfile").val();
 
+                // alert(email)
                 $.ajax({
                     url:"profileInfo/award.php",
                     method:"post",

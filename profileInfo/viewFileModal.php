@@ -28,18 +28,24 @@
 
 
     <?php if (in_array($file_extension, $image_extensions)) { ?>
-        <p>img</p>
-        <img src="<?php echo $fetch['pic'] ?>" alt="" width='100%'>
+        <!-- <p>img</p> -->
+        <!-- <?php echo $fetch['pic'] ?> -->
+        <img src="profileInfo/<?php echo $fetch['pic'] ?>" alt="" width='100%'>
     <?php } else { ?>
-        <p>file</p>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/File_alt_font_awesome.svg/1024px-File_alt_font_awesome.svg.png" alt="" width='100%'>
         <?php
             $file_location = $fetch['pic'];
             $file_name = str_replace("uploads/", "", $file_location);
+            
+            ?>
 
-        ?>
+        <?php if($fetch['pic'] == 'uploads/credentials'){ ?>
+            <p>No file upload</p>
+        <?php }else{ ?>
 
-        <a href="profileInfo/<?php echo $fetch['pic'] ?>" download><?php echo $file_name ?></a>
+            <!-- <p>file</p> -->
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/File_alt_font_awesome.svg/1024px-File_alt_font_awesome.svg.png" alt="" width='100%'>
+            <a href="profileInfo/<?php echo $fetch['pic'] ?>" download><?php echo $file_name ?></a>
+        <?php } ?>
 
     <?php } ?>
 
