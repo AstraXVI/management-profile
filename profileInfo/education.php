@@ -56,12 +56,15 @@
     <li class="nav-item" role="presentation" id='profileWorkExpBtn'>
         <a class="nav-link" id="ex1-tab-4" data-mdb-toggle="tab" href="#ex1-tabs-4" role="tab" aria-controls="ex1-tabs-4" aria-selected="false">Work Experience</a>
     </li>
-    <li class="nav-item" role="presentation" id='profileAwardExpBtn'>
-        <a class="nav-link" id="ex1-tab-5" data-mdb-toggle="tab" href="#ex1-tabs-5" role="tab" aria-controls="ex1-tabs-5" aria-selected="false">Awards</a>
-    </li>
-    <li class="nav-item" role="presentation" id="profileLearningAndDevelopmentButton">
-        <a class="nav-link" id="ex1-tab-6" data-mdb-toggle="tab" href="#ex1-tabs-6" role="tab" aria-controls="ex1-tabs-6" aria-selected="false">Learning and Development</a>
-    </li>
+    <?php if($_SESSION['status'] == "Admin"){ ?>
+
+        <li class="nav-item" role="presentation" id='profileAwardExpBtn'>
+            <a class="nav-link" id="ex1-tab-5" data-mdb-toggle="tab" href="#ex1-tabs-5" role="tab" aria-controls="ex1-tabs-5" aria-selected="false">Awards</a>
+        </li>
+        <li class="nav-item" role="presentation" id="profileLearningAndDevelopmentButton">
+            <a class="nav-link" id="ex1-tab-6" data-mdb-toggle="tab" href="#ex1-tabs-6" role="tab" aria-controls="ex1-tabs-6" aria-selected="false">Learning and Development</a>
+        </li>
+    <?php } ?>
     </ul>
 
     <div class="d-flex justify-content-between mb-3">
