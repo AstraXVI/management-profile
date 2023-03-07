@@ -302,7 +302,7 @@
                     </div>
                 </div>
                 <!-- <div class="d-flex flex-row gap-5"> -->
-                    <div class="card w-100" style=" border: none; max-width: 310px">
+                    <div class="card w-100" style=" border: none; max-width: 300px">
                         <div class="card-body" style="border-radius: 20px; background-color: #87194C">
                             <!-- Title -->
                             <h4 class="card-title"><i class="fa fa-ranking-star me-3 text-warning"></i><?php echo $nInternationalAward ?> <br> <p class="mt-2">With International awards</p></h4>
@@ -923,9 +923,17 @@
                         <input type="text" class="form-control" id="learningAndDevelopmentHours" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                     </div>
 
-                    <div class="input-group mb-3">
+                    <!-- <div class="input-group mb-3">
                         <span class="input-group-text" id="inputGroup-sizing-default">Type of LD (Managerial/supervisory/technical/etc)</span>
                         <input type="text" class="form-control" id="learningAndDevelopmentLD" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    </div> -->
+                    <div class="input-group mb-3">
+                        <label class="input-group-text" for="">Type of LD (Managerial/supervisory/technical/etc)</label>
+                        <select class="form-select" id='learningAndDevelopmentLD'>
+                            <option value="Managerial">Managerial</option>
+                            <option value="Supervisory">Supervisory</option>
+                            <option value="Technical">Technical</option>
+                        </select>
                     </div>
 
                     <div class="input-group mb-3">
