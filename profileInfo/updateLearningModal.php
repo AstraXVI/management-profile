@@ -44,9 +44,18 @@
         <input type="text" class="form-control" value='<?php echo $Info['hours'] ?>' id="EditlearningAndDevelopmentHours" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
     </div>
 
-    <div class="input-group mb-3">
+    <!-- <div class="input-group mb-3">
         <span class="input-group-text" id="inputGroup-sizing-default">Type of LD (Managerial/supervisory/technical/etc)</span>
         <input type="text" class="form-control" value='<?php echo $Info['typeOfLd'] ?>' id="EditlearningAndDevelopmentLD" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+    </div> -->
+    <div class="input-group mb-3">
+        <label class="input-group-text" for="">Type of LD (Managerial/supervisory/technical/etc)</label>
+        <select class="form-select" id='EditlearningAndDevelopmentLD'>
+            <option class="bg-primary" value='<?php echo $Info['typeOfLd'] ?>'><?php echo $Info['typeOfLd'] ?></option>
+            <option value="Managerial">Managerial</option>
+            <option value="Supervisory">Supervisory</option>
+            <option value="Technical">Technical</option>
+        </select>
     </div>
 
     <div class="input-group mb-3">

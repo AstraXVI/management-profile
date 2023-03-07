@@ -154,7 +154,7 @@
                 <div class="d-flex flex-column flex-shrink-0 p-3 bg-dark text-light" style="min-width: 280px; max-width: 290px; height:100vh; position-relative">
                     <a href="admin_dashboard.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
                     <img class="bi me-2" width="50" height="50" src="https://sdovalenzuelacity.deped.gov.ph/wp-content/uploads/2021/04/New-DO-Logo.png" alt="logo">
-                    <span class="fs-6 text-light">DepEd Valenzuela Personnel Profile System</span>
+                    <span class="fs-6 text-light">DepEd Valenzuela | Personnel Profiling System</span>
                     </a>
                     <!-- lagyan mo id at tawagin mo addevent para lumabas or hindi ang navbar -->
                     <hr>
@@ -162,7 +162,7 @@
                         <li>
                             <a id="navBtn1" class="nav-link link-light active" href="javascript:window.location.reload(true)">
                                 <span class="bi me-2" width="16" height="16"><i class="fa-solid fa-chart-simple"></i></span>
-                                Dashboard
+                                Performance Analytics
                             </a>
                         </li>
                         <!-- <li id='chiefHeadBtn'>
