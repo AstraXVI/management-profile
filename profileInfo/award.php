@@ -23,7 +23,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h2 class="text-secondary fw-bold mb-3">Awards <?php if($_SESSION['status'] == 'Admin') echo "| ".$infoName['name'] ?></h2>
+    <h2 class="text-secondary fw-bold mb-3">Awards and Recognition <?php if($_SESSION['status'] == 'Admin') echo "| ".$infoName['name'] ?></h2>
 
 
     <!-- get email profile -->
@@ -52,7 +52,7 @@
     <?php if($_SESSION['status'] == "Admin"){ ?>
 
         <li class="nav-item" role="presentation" id='profileAwardExpBtn'>
-            <a class="nav-link active" id="ex1-tab-5" data-mdb-toggle="tab" href="#ex1-tabs-5" role="tab" aria-controls="ex1-tabs-5" aria-selected="false">Awards</a>
+            <a class="nav-link active" id="ex1-tab-5" data-mdb-toggle="tab" href="#ex1-tabs-5" role="tab" aria-controls="ex1-tabs-5" aria-selected="false">Awards and Recognition</a>
         </li>
         <li class="nav-item" role="presentation" id="profileLearningAndDevelopmentButton">
             <a class="nav-link" id="ex1-tab-6" data-mdb-toggle="tab" href="#ex1-tabs-6" role="tab" aria-controls="ex1-tabs-6" aria-selected="false">Learning and Development</a>

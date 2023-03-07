@@ -71,7 +71,7 @@
         <!--  -->
 
         <!-- Tabs navs -->
-    <ul class="nav nav-tabs tabsss mb-3" id="ex1" style="font-size: 14px;" role="tablist">
+    <ul class="nav nav-tabs mb-3" id="ex1" style="font-size: 14px;" role="tablist">
         <li class="nav-item" role="presentation">
             <a class="nav-link active" id="ex1-tab-1" data-mdb-toggle="tab" href="#ex1-tabs-1" role="tab" aria-controls="ex1-tabs-1" aria-selected="true">Personal Information</a>
         </li>
@@ -87,7 +87,7 @@
 
         <?php if($_SESSION['status'] == "Admin"){ ?>
             <li class="nav-item" role="presentation" id='profileAwardExpBtn'>
-                <a class="nav-link" id="ex1-tab-5" data-mdb-toggle="tab" href="#ex1-tabs-5" role="tab" aria-controls="ex1-tabs-5" aria-selected="false">Awards</a>
+                <a class="nav-link" id="ex1-tab-5" data-mdb-toggle="tab" href="#ex1-tabs-5" role="tab" aria-controls="ex1-tabs-5" aria-selected="false">Awards and Recognition</a>
             </li>
             <li class="nav-item" role="presentation" id='profileLearningAndDevelopmentButton'>
                 <a class="nav-link" id="ex1-tab-6" data-mdb-toggle="tab" href="#ex1-tabs-6" role="tab" aria-controls="ex1-tabs-6" aria-selected="false">Learning and Development</a>

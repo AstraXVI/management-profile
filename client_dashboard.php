@@ -149,7 +149,7 @@
                 <div class="d-flex flex-column flex-shrink-0 p-3 bg-dark text-light" style="width: 280px; height:100vh; ">
                     <a href="" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
                     <img class="bi me-2" width="50" height="50" src="https://sdovalenzuelacity.deped.gov.ph/wp-content/uploads/2021/04/New-DO-Logo.png" alt="logo">
-                    <span class="fs-6 text-light">DepEd Valenzuela Personnel Profile System</span>
+                    <span class="fs-6 text-light">DepEd Valenzuela | Personnel Profiling System</span>
                     </a>
                     <hr>
                     <ul class="nav nav-pills flex-column mb-auto">
@@ -183,7 +183,7 @@
                         <li id="profileAwardExpBtn" >
                             <a id="navBtn4" href="#" class="nav-link link-light">
                             <span class="bi me-2" width="16" height="16"><i class="fa-solid fa-id-card"></i></span>
-                            Rewards & Recognition
+                            Awards & Recognition
                             <!-- <li ><button class="dropdown-item py-2"></button></li> -->
                             </a>
                         </li>
@@ -275,7 +275,7 @@
                                     <span class="fa fa-star"></span>
                                     <span class="fa fa-star"></span>
                                 </div>
-                                <!-- <button id="toEquipment" class="btn btn-rounded text-light px-4 btn-md" style="background-color: rgba(0, 0, 0, 0.3);">See Profile<i class="fa-solid fa-arrow-up-right-from-square ms-2"></i></button> -->
+                                <!-- <i class="fa-solid fa-ranking-star"></i> -->
                             </div>
                         </div>
                         
