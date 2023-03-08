@@ -106,6 +106,16 @@
         * {
             /* font-family: Helvetica, sans-serif; */
         }
+        .bg-icons{
+            position: absolute;
+            bottom: -10px;
+            right: -10px;
+            font-size: 150px;
+            opacity: 0.2;
+        }
+        .wide-height{
+            font-size: 200px;
+        }
     </style>
 </head>
 <body style="background: url(https://cdn.pixabay.com/photo/2017/07/01/19/48/background-2462431_960_720.jpg) no-repeat; background-size: cover; background-color: #e5e5e5; background-blend-mode: overlay;">
@@ -260,10 +270,10 @@
                             </div>
                         </div>
                     <?php }else if(!empty($fetchMasters['lvl'])){ ?>
-                        <div class="card w-75" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; max-width: 350px">
+                        <div class="card w-75 position-relative" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; max-width: 350px; overflow: hidden;">
                             <div class="card-body bg-primary rounded-1">
                                 <!-- Title -->
-                                <h4 class="card-title"><p><i class="fa-solid fa-ranking-star me-3"></i>Master Degree</p></h4>
+                                <h4 class="card-title"><p>Master Degree</p></h4>
                                 <hr>
                                 <!-- Text -->
                                 <p class="card-text"><?php echo $fetchMasters['nameSchool'] ?></p>
@@ -275,16 +285,16 @@
                                     <span class="fa fa-star"></span>
                                     <span class="fa fa-star"></span>
                                 </div>
-                                <!-- <i class="fa-solid fa-ranking-star"></i> -->
+                                <i class="fa-solid fa-ranking-star bg-icons"></i>
                             </div>
                         </div>
                         
                     <?php } ?>
                 
-                    <div class="card w-75" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; max-width: 350px">
+                    <div class="card w-75 position-relative" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; max-width: 350px; overflow: hidden;">
                       <div class="card-body bg-danger rounded-1">
                           <!-- Title -->
-                          <h4 class="card-title"><p><i class="fa-solid fa-person-chalkboard me-2"></i>Years As Teaching Personnel</p></h4>
+                          <h4 class="card-title"><p>Years As Teaching Personnel</p></h4>
                           <hr>
 
                           <!-- Get date to get year experience -->
@@ -314,6 +324,7 @@
                           <!-- Text -->
                           <p class="card-text fs-4" id='yearAsTeachingPersonnel'></p>
                       </div>
+                      <img class="bg-icons" src="img/icons/teaching.svg" alt="">
                    
                     </div>
 
@@ -334,23 +345,24 @@
                         <input type="hidden" id="allDateToAdmin" value='<?php echo $qFetchToAdmin['dateTo'] ?>'>
                     <?php }while($qFetchToAdmin = $qListToAdmin->fetch_assoc()) ?>
 
-                    <div class="card w-75" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; max-width: 350px">
+                    <div class="card w-75 position-relative" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; max-width: 350px; overflow: hidden">
                         <div class="card-body bg-warning rounded-1">
                             <!-- Title -->
-                            <h4 class="card-title"><p><i class="fa-solid fa-school-lock me-2"></i>Years As School Administration</p></h4>
+                            <h4 class="card-title"><p>Years As School Administration</p></h4>
                             <hr>
                             <!-- Text -->
                             <p class="card-text fs-4" id='yearAsSchoolAdmin'></p>
                         </div>
+                        <i class="fa-solid fa-school-lock bg-icons"></i>
                     </div>
 
                 </div>
 
                 <div class="d-flex gap-5">
-                    <div class="card w-75" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; max-width: 300px">
+                    <div class="card w-75 position-relative" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; max-width: 300px; overflow: hidden;">
                         <div class="card-body bg-success rounded-1">
                             <!-- Title -->
-                            <h4 class="card-title"><p> <i class="fa-solid fa-award me-2"></i>Awards</p></h4>
+                            <h4 class="card-title"><p>Awards</p></h4>
                             <hr>
                             <!-- Text -->
                             <!-- <p class="card-text fs-3" id='awards'></p> -->
@@ -359,17 +371,30 @@
                             <p class="card-text mb-1 fs-6" id='awards'><i class="fa-solid fa-medal text-warning"></i> <?php echo $fDivision ?> - Division Awards</p>
                             <p class="card-text mb-1 fs-6" id='awards'><i class="fa-solid fa-medal text-warning"></i> <?php echo $fSchool ?> - School Awards</p>
                         </div>
+                        <i class="fa-solid fa-award bg-icons wide-height"></i>
                     </div>
-                    <div class="card w-75" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; max-width: 300px">
+                    <div class="card w-75 position-relative" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; max-width: 300px; overflow: hidden;">
                         <div class="card-body rounded-1" style="background-color: #87194C">
                             <!-- Title -->
-                            <h4 class="card-title"><p> <i class="fa-solid fa-dumbbell me-2"></i>Training Hours</p></h4>
+                            <h4 class="card-title"><p>Training Hours</p></h4>
                             <hr>
                             <!-- Text -->
                             <p class="card-text" id='managerialHours'>Managerial - 80</p>
                             <p class="card-text" id='supervisoryHours'>Supervisory - 23</p>
                             <p class="card-text" id='TechnicalHours'>Technical - 43</p>
                         </div>
+                        <i class="fa-solid fa-dumbbell bg-icons" Style="font-size: 170px"></i>
+                    </div>
+                    <div class="card w-75 position-relative" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; max-width: 350px; overflow: hidden">
+                        <div class="card-body bg-primary rounded-1">
+                            <!-- Title -->
+                            <h4 class="card-title"><p>Civil Service Eligibility</p></h4>
+                            <hr>
+                            <!-- Text -->
+                            <p class="card-text fs-4">CSC Professional Rating</p>
+                            <p class="card-text fs-4">5 Years</p>
+                        </div>
+                        <i class="fa-solid fa-school-lock bg-icons"></i>
                     </div>
                 </div>
             </div>
@@ -686,14 +711,53 @@
                 <input type="text" class="form-control" id="workExpSalary" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
             </div>
 
-            <div class="input-group mb-3">
+            <!-- <div class="input-group mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-default">Salary/Job/Pay Grade (if applicable)</span>
                 <input type="text" class="form-control" id="workExpJob" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div> -->
+            <div class="input-group mb-3">
+                <label class="input-group-text" for="">Salary/Job/Pay Grade (if applicable)</label>
+                <select class="form-select" id="workExpJob">
+                    <option value="SG 1">SG 1</option>
+                    <option value="SG 2">SG 2</option>
+                    <option value="SG 3">SG 3</option>
+                    <option value="SG 4">SG 4</option>
+                    <option value="SG 5">SG 5</option>
+                    <option value="SG 6">SG 6</option>
+                    <option value="SG 7">SG 7</option>
+                    <option value="SG 8">SG 8</option>
+                    <option value="SG 9">SG 9</option>
+                    <option value="SG 10">SG 10</option>
+                    <option value="SG 11">SG 11</option>
+                    <option value="SG 12">SG 12</option>
+                    <option value="SG 13">SG 13</option>
+                    <option value="SG 14">SG 14</option>
+                    <option value="SG 15">SG 15</option>
+                    <option value="SG 16">SG 16</option>
+                    <option value="SG 17">SG 17</option>
+                    <option value="SG 18">SG 18</option>
+                    <option value="SG 19">SG 19</option>
+                    <option value="SG 20">SG 20</option>
+                    <option value="SG 21">SG 21</option>
+                    <option value="SG 22">SG 22</option>
+                    <option value="SG 23">SG 23</option>
+                    <option value="SG 24">SG 24</option>
+                    <option value="SG 25">SG 25</option>
+                    <option value="SG 26">SG 26</option>
+                </select>
             </div>
 
-            <div class="input-group mb-3">
+            <!-- <div class="input-group mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-default">Status of Appointment</span>
                 <input type="text" class="form-control" id="workExpStatus" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div> -->
+            <div class="input-group mb-3">
+                <label class="input-group-text" for="">Status of Appointment</label>
+                <select class="form-select" id="workExpStatus">
+                    <option value="Permanent">Permanent</option>
+                    <option value="Contract of Service (CoS)">Contract of Service (CoS)</option>
+                    <option value="Local School Board (LSB)">Local School Board (LSB)</option>
+                </select>
             </div>
 
             <!-- <div class="input-group mb-3">
@@ -807,7 +871,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Add degree</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Add Graduate School</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
