@@ -941,6 +941,9 @@
                         <input type="text" class="form-control" id="learningAndDevelopmentConducted" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                     </div>
                 
+                    <div class="input-group mb-3">
+                        <input type="file" class="form-control" id="inputLearningFile">
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -1272,6 +1275,25 @@
       </div>
       <div class="modal-body" id='viewFileModal'>
         <!-- view file modal -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal VIEW FILE LEARNING -->
+<div class="modal fade" id="viewFileLearningModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">View File</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id='viewFileLearningModalBody'>
+        <!-- View file -->
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -3078,7 +3100,7 @@
                 const file = $("#EditinputAwardFile").prop("files")[0];
 
 
-                alert(file)
+                // alert(file)
                 const formData = new FormData();
 
                 formData.append("id", id);
@@ -3160,39 +3182,48 @@
                 const typeOfLd = $("#learningAndDevelopmentLD").val();
                 const conducted = $("#learningAndDevelopmentConducted").val();
 
-                if(title){
-                    $.ajax({
-                        url:"profileInfo/addLearning.php",
-                        method:"post",
-                        data:{
-                            email:email,
-                            title:title,
-                            from:from,
-                            to:to,
-                            hrs:hrs,
-                            typeOfLd:typeOfLd,
-                            conducted:conducted
-                        },
-                        success(e){
-                            // $("#dashBoardBody").html(e)
+                const file = $("#inputLearningFile").prop("files")[0];
 
-                            $.ajax({
-                                url:"profileInfo/learning_and_development.php",
-                                method:"post",
-                                data:{
-                                    email : email
-                                },
-                                success(e){
-                                    $("#dashBoardBody").html(e)
+                const formData = new FormData();
 
-                                    confirm("Add success!")
-                                }
-                            })
-                        }
-                    })
-                }else{
-                    confirm("Please add Title")
-                }
+                formData.append("email", email);
+                formData.append("title", title);
+                formData.append("from", from);
+                formData.append("to", to);
+                formData.append("hrs", hrs);
+                formData.append("typeOfLd", typeOfLd);
+                formData.append("conducted", conducted);
+                formData.append("file", file);
+
+   
+
+                $.ajax({
+                    url: "profileInfo/addLearning.php",
+                    type: "POST",
+                    data:formData,
+                    processData: false,
+                    contentType: false,
+                    success: function() {
+
+                        // $("#dashBoardBody").html(e)
+
+
+                        $.ajax({
+                            url:"profileInfo/learning_and_development.php",
+                            method:"post",
+                            data:{
+                                email : email
+                            },
+                            success(e){
+                                $("#dashBoardBody").html(e)
+
+                                confirm("Add success!")
+                            }
+                        })
+                       
+                    }
+                });
+
                 
 
             })
@@ -3225,22 +3256,29 @@
                 const typeOfLd = $("#EditlearningAndDevelopmentLD").val();
                 const conducted = $("#EditlearningAndDevelopmentConducted").val();
 
-                // console.log(id,email,title,from,to,hrs,typeOfLd,conducted)
+                const file = $("#inputEditLearningFile").prop("files")[0];
+
+                const formData = new FormData();
+
+                formData.append("id", id);
+                formData.append("title", title);
+                formData.append("from", from);
+                formData.append("to", to);
+                formData.append("hrs", hrs);
+                formData.append("typeOfLd", typeOfLd);
+                formData.append("conducted", conducted);
+                formData.append("file", file);
+
+                // alert($("#inputEditLearningFile").val())
 
                 if(title){
                     $.ajax({
                         url:"profileInfo/learningUpdate.php",
                         method:"post",
-                        data:{
-                            id:id,
-                            title:title,
-                            from:from,
-                            to:to,
-                            hrs:hrs,
-                            typeOfLd:typeOfLd,
-                            conducted:conducted
-                        },
-                        success(){
+                        data:formData,
+                        processData: false,
+                        contentType: false,
+                        success(e){
                             // $("#dashBoardBody").html(e)
 
                             $.ajax({
@@ -3450,6 +3488,21 @@
                     },
                     success(e){
                         $("#viewFileModal").html(e)
+                    }
+                })
+            })
+
+            $("#dashBoardBody").on("click","#viewFileLearningButton",function(){
+                const id = $(this).val()
+
+                $.ajax({
+                    url:"profileInfo/viewFileLearningModal.php",
+                    method:"post",
+                    data:{
+                        id:id
+                    },
+                    success(e){
+                        $("#viewFileLearningModalBody").html(e)
                     }
                 })
             })

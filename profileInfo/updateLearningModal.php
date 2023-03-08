@@ -62,5 +62,9 @@
         <span class="input-group-text" id="inputGroup-sizing-default">Conducted/Sponsored by (Write in full)</span>
         <input type="text" class="form-control" value='<?php echo $Info['conducted'] ?>' id="EditlearningAndDevelopmentConducted" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
     </div>
+
+    <div class="input-group mb-3">
+            <input type="file" class="form-control" id="inputEditLearningFile">
+    </div>
 </body>
 </html>

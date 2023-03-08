@@ -1,15 +1,38 @@
 <?php
     require "../db.php";
 
-    echo $email = $_POST['email'];
-    echo $title = $_POST['title'];
-    echo $from = $_POST['from'];
-    echo $to = $_POST['to'];
-    echo $hrs = $_POST['hrs'];
-    echo $typeOfLd = $_POST['typeOfLd'];
-    echo $conducted = $_POST['conducted'];
+    $email = $_POST['email'];
+    $title = $_POST['title'];
+    $from = $_POST['from'];
+    $to = $_POST['to'];
+    $hrs = $_POST['hrs'];
+    $typeOfLd = $_POST['typeOfLd'];
+    $conducted = $_POST['conducted'];
 
-    $q = "INSERT INTO `learning`(`email`, `title`, `dateFrom`, `dateTo`, `hours`, `typeOfLd`, `conducted`) VALUES ('$email','$title','$from','$to','$hrs','$typeOfLd','$conducted')";
+    if(!empty($_FILES["file"]["name"])){
+        
+        $target_dir = "uploads/learning/";
+        $target_file = $target_dir . basename($_FILES["file"]["name"]);
 
-    $con->query($q);
+        
+        move_uploaded_file($_FILES["file"]["tmp_name"], $target_file);
+
+        $q = "INSERT INTO `learning`(`email`, `title`, `dateFrom`, `dateTo`, `hours`, `typeOfLd`, `conducted`, `pic`) VALUES ('$email','$title','$from','$to','$hrs','$typeOfLd','$conducted','$target_file')";
+        
+        $con->query($q);
+
+        
+        // echo "meron";
+        
+    }else{
+
+        $q = "INSERT INTO `learning`(`email`, `title`, `dateFrom`, `dateTo`, `hours`, `typeOfLd`, `conducted`) VALUES ('$email','$title','$from','$to','$hrs','$typeOfLd','$conducted')";
+        
+        $con->query($q);
+
+        
+        // echo "wala";
+
+
+    }
 ?>
