@@ -70,6 +70,7 @@
                <th>Number of Hours</th>
                <th>Type of LD (Managerial/supervisory/technical/etc)</th>
                <th>Conducted/Sponsored by (Write in full)</th>
+               <th>File</th>
                <th>Action</th>
             </tr>
         </thead>
@@ -83,6 +84,9 @@
                         <td><?php echo $info['hours'] ?></td>
                         <td><?php echo $info['typeOfLd'] ?></td>
                         <td><?php echo $info['conducted'] ?></td>
+                        <td>
+                            <button class='btn btn-primary btn-sm'  value='<?php echo $info['id'] ?>' data-bs-toggle="modal" data-bs-target="#viewFileLearningModal" id='viewFileLearningButton'><i class="fa-regular fa-folder-open text-light"></i></button>
+                        </td>
                         <td>
                             <div class="d-flex gap-2">
                                 <button class='btn btn-info btn-sm' data-bs-toggle="modal" data-bs-target="#profileLearningModalEdit" value='<?php echo $info['id'] ?>' id='editLearnerButoonModal'><i class="fa-solid fa-pen text-light"></i></button>
