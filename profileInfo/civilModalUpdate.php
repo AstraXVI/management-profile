@@ -54,7 +54,7 @@
     </div>
     <div class="input-group mb-3">
         <span class="input-group-text">Date of Validity</span>
-        <input type="text" class="form-control" id="EditcivilDate" value="<?php echo $fetch['licenseDateOfValidity'] ?>" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        <input type="date" class="form-control" id="EditcivilDate" value="<?php echo $fetch['licenseDateOfValidity'] ?>" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
     </div>
     <!-- <input type="text" id='civilNumber' placeholder='Date of Validity'> -->
 </body>

@@ -262,7 +262,7 @@
                     </div>
                     <hr> -->
                     <div class="row">
-                        <div class="col-sm-12"><button type="button" class="btn btn-info d-block mx-auto" data-bs-toggle="modal" data-bs-target="#EditUserProfile" id='editProfileBtnDb' value='<?php echo $info['id'] ?>'>Update Profile</button></div>
+                        <div class="col-sm-12"><button type="button" class="btn btn-info d-block mx-auto" data-bs-toggle="modal" data-bs-target="#EditUserProfile" id='editProfileBtnDb' value='<?php echo $info['id'] ?>'>Update Personal Information</button></div>
                     </div>
                 </div>
             </div>
