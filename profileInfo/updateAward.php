@@ -1,12 +1,38 @@
 <?php
     require "../db.php";
 
-    $id = $_POST['id'];
-    $title = $_POST['title'];
-    $lvl = $_POST['lvl'];
-    $date = $_POST['date'];
+    echo $id = $_POST['id'];
+    echo $title = $_POST['title'];
+    echo $lvl = $_POST['lvl'];
+    echo $date = $_POST['date'];
 
-    $q = "UPDATE `award` SET `title`='$title',`lvl`='$lvl',`date`='$date' WHERE id='$id'";
+    // echo $_FILES["file"]["name"];
 
-    $con->query($q)
+    
+    if(!empty($_FILES["file"]["name"])){
+        
+        $target_dir = "uploads/";
+        $target_file = $target_dir . basename($_FILES["file"]["name"]);
+
+        
+        move_uploaded_file($_FILES["file"]["tmp_name"], $target_file);
+
+        $q = "UPDATE `award` SET `title`='$title',`lvl`='$lvl',`date`='$date',`pic`='$target_file' WHERE id='$id'";
+        
+        $con->query($q);
+
+        
+        // echo "meron";
+        
+    }else{
+
+        $q = "UPDATE `award` SET `title`='$title',`lvl`='$lvl',`date`='$date' WHERE id='$id'";
+        
+        $con->query($q);
+
+        
+        // echo "wala";
+
+
+    }
 ?>
