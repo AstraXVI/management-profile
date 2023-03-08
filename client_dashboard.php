@@ -111,14 +111,14 @@
             bottom: -10px;
             right: -10px;
             /* font-size: 150px; */
-            opacity: 0.4;
+            opacity: 0.3;
             width: 200px;
         }
-        .card{
+        .card-dashboard{
             height: 200px;
         }
         .card-text, .card-title{
-            text-shadow: 1px 1px #1a1a1a;
+            text-shadow: 2px 1px 3px #1a1a1a;
         }
     </style>
 </head>
@@ -196,7 +196,7 @@
                         </li>
                         <li id="profileAwardExpBtn" >
                             <a id="navBtn4" href="#" class="nav-link link-light">
-                            <span class="bi me-2" width="16" height="16"><i class="fa-solid fa-id-card"></i></span>
+                            <span class="bi me-2" width="16" height="16"><i class="fa-solid fa-award"></i></span>
                             Awards & Recognition
                             <!-- <li ><button class="dropdown-item py-2"></button></li> -->
                             </a>
@@ -235,7 +235,7 @@
                             $fetchSchoolName = $collegeSchool->fetch_assoc();
                         ?>
                         <?php if(!empty($fetchSchoolName['schoolCollege'])){ ?>
-                            <div class="card w-75 position-relative" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; max-width: 350px: overflow: hidden;">
+                            <div class="card card-dashboard w-75 position-relative" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; width: 300px; max-width: 350px: overflow: hidden;">
                                 <div class="card-body bg-primary rounded-1">
                                     <!-- Title -->
                                     <h4 class="card-title"><p><i class="fa-solid fa-ranking-star me-2"></i>College Degree</p></h4>
@@ -256,7 +256,7 @@
                         <?php } ?>
                     
                     <?php }else if(!empty($fetchPost['lvl'])){ ?>
-                        <div class="card w-75 position-relative" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; max-width: 350px; overflow: hidden;">
+                        <div class="card card-dashboard w-75 position-relative" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; width: 300px; max-width: 350px; overflow: hidden;">
                             <div class="card-body bg-primary rounded-1">
                                 <!-- Title -->
                                 <h4 class="card-title"><p><i class="fa-solid fa-ranking-star me-2"></i>Post Degree</p></h4>
@@ -265,17 +265,17 @@
                                 <p class="card-text"><?php echo $fetchPost['nameSchool'] ?></p>
                                 <p class="card-text"><?php echo $fetchPost['education'] ?></p>
                                 <div class="d-flex gap-3 fs-4">
-                                <span class="fa fa-star text-warning"></span>
-                                    <span class="fa fa-star text-warning"></span>
-                                    <span class="fa fa-star text-warning"></span>
-                                    <span class="fa fa-star text-warning"></span>
-                                    <span class="fa fa-star text-warning"></span>
+                                <span class="fa fa-star"style="color: #ffff21;" ></span>
+                                    <span class="fa fa-star"style="color: #ffff21;"></span>
+                                    <span class="fa fa-star" style="color: #ffff21;"></span>
+                                    <span class="fa fa-star" style="color: #ffff21;"></span>
+                                    <span class="fa fa-star" style="color: #ffff21;"></span>
                                 </div>
                                 <img class="bg-icons" src="img/icons/degree.svg" alt="card-bg">
                             </div>
                         </div>
                     <?php }else if(!empty($fetchMasters['lvl'])){ ?>
-                        <div class="card w-75 position-relative" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; max-width: 350px; overflow: hidden;">
+                        <div class="card card-dashboard w-75 position-relative" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; width: 300px; max-width: 350px; overflow: hidden;">
                             <div class="card-body bg-primary rounded-1">
                                 <!-- Title -->
                                 <h4 class="card-title"><p>Master Degree</p></h4>
@@ -284,9 +284,9 @@
                                 <p class="card-text"><?php echo $fetchMasters['nameSchool'] ?></p>
                                 <p class="card-text"><?php echo $fetchMasters['education'] ?></p>
                                 <div class="d-flex gap-3 fs-4">
-                                    <span class="fa fa-star text-warning"></span>
-                                    <span class="fa fa-star text-warning"></span>
-                                    <span class="fa fa-star text-warning"></span>
+                                    <span class="fa fa-star" style="color: #ffff21;"></span>
+                                    <span class="fa fa-star" style="color: #ffff21;"></span>
+                                    <span class="fa fa-star" style="color: #ffff21;"></span>
                                     <span class="fa fa-star"></span>
                                     <span class="fa fa-star"></span>
                                 </div>
@@ -296,7 +296,7 @@
                         
                     <?php } ?>
                 
-                    <div class="card w-75 position-relative" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; max-width: 350px; overflow: hidden;">
+                    <div class="card card-dashboard w-75 position-relative" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; width: 300px; max-width: 350px; overflow: hidden;">
                       <div class="card-body bg-danger rounded-1">
                           <!-- Title -->
                           <h4 class="card-title"><p>Years As Teaching Personnel</p></h4>
@@ -350,21 +350,21 @@
                         <input type="hidden" id="allDateToAdmin" value='<?php echo $qFetchToAdmin['dateTo'] ?>'>
                     <?php }while($qFetchToAdmin = $qListToAdmin->fetch_assoc()) ?>
 
-                    <div class="card w-75 position-relative" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; max-width: 350px; overflow: hidden">
-                        <div class="card-body bg-warning rounded-1">
+                    <div class="card card-dashboard w-75 position-relative" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; width: 300px; max-width: 350px; overflow: hidden">
+                        <div class="card-body rounded-1" style="background-color: #edb100;">
                             <!-- Title -->
                             <h4 class="card-title"><p>Years As School Administration</p></h4>
                             <hr>
                             <!-- Text -->
                             <p class="card-text fs-4" id='yearAsSchoolAdmin'></p>
                         </div>
-                        <img class="bg-icons" src="img/icons/school-admin.svg" alt="card-bg">
+                        <img class="bg-icons" style="width: 190px;" src="img/icons/school-admin.svg" alt="card-bg">
                     </div>
 
                 </div>
 
                 <div class="d-flex gap-5">
-                    <div class="card w-75 position-relative" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; max-width: 300px; overflow: hidden;">
+                    <div class="card card-dashboard w-75 position-relative" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; width: 300px; max-width: 300px; overflow: hidden;">
                         <div class="card-body bg-success rounded-1">
                             <!-- Title -->
                             <h4 class="card-title"><p>Awards</p></h4>
@@ -378,7 +378,7 @@
                         </div>
                         <img class="bg-icons " src="img/icons/awards.svg" alt="card-bg">
                     </div>
-                    <div class="card w-75 position-relative" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; max-width: 300px; overflow: hidden;">
+                    <div class="card card-dashboard w-75 position-relative" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; width: 300px; max-width: 300px; overflow: hidden;">
                         <div class="card-body rounded-1" style="background-color: #87194C">
                             <!-- Title -->
                             <h4 class="card-title"><p>Training Hours</p></h4>
@@ -390,7 +390,7 @@
                         </div>
                         <img class="bg-icons " src="img/icons/training.svg" alt="card-bg">
                     </div>
-                    <div class="card w-75 position-relative" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; max-width: 350px; overflow: hidden">
+                    <div class="card card-dashboard w-75 position-relative" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; width: 300px; max-width: 350px; overflow: hidden">
                         <div class="card-body bg-primary rounded-1">
                             <!-- Title -->
                             <h4 class="card-title"><p>Civil Service Eligibility</p></h4>
@@ -399,7 +399,7 @@
                             <p class="card-text fs-4">CSC Professional Rating</p>
                             <p class="card-text fs-4">5 Years</p>
                         </div>
-                        <img class="bg-icons" src="img/icons/cse.svg" alt="card-bg">
+                        <img class="bg-icons" style="width: 150px;" src="img/icons/cse.svg" alt="card-bg">
                     </div>
                 </div>
             </div>

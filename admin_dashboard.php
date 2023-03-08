@@ -217,7 +217,7 @@
             <div class="d-flex flex-column py-5 px-5 text-light" style="gap: 30px; background-color: white; height: 73vh; overflow-y: scroll;">
                 <div class="d-flex flex-row gap-5">
                     <div class="card w-100" style=" border: none; max-width: 310px">
-                        <div class="card-body bg-dark" style="border-radius: 20px;">
+                        <div class="card-body bg-danger" style="border-radius: 20px;">
                             <!-- Title -->
                             <h4 class="card-title"><i class="fa-solid fa-users-gear me-3"></i><?php echo $adminCount ?> <br> <p class="mt-2">System Admin</p></h4>
                             <hr>
@@ -301,7 +301,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- <div class="d-flex flex-row gap-5"> -->
+                <div class="d-flex flex-row gap-5">
                     <div class="card w-100" style=" border: none; max-width: 300px">
                         <div class="card-body" style="border-radius: 20px; background-color: #87194C">
                             <!-- Title -->
@@ -312,17 +312,17 @@
                             <!-- <button class="btn btn-rounded text-light px-4 btn-md toManageUser" style="background-color: rgba(0, 0, 0, 0.3);">See more<i class="fa-solid fa-arrow-up-right-from-square ms-2"></i></button> -->
                         </div>
                     </div>
-                    <!-- <div class="card w-100" style="border: none; max-width: 310px">
-                        <div class="card-body" style="border-radius: 20px; background-color: #35DCCC;"> -->
+                    <div class="card w-100" style="border: none; max-width: 300px;">
+                        <div class="card-body" style="border-radius: 20px; background-color: #87194C">
                             <!-- Title -->
-                            <!-- <h4 class="card-title"><i class="fa-solid fa-calendar-plus me-3"></i><?php echo $schoolCount ?> <br> <p class="mt-2">Request</p></h4>
-                            <hr> -->
+                            <h4 class="card-title"><i class="fa-solid fa-scale-balanced me-3"></i><?php echo $schoolCount ?> <br> <p class="mt-2">With civil service eligibility</p></h4>
+                            <hr>
                             <!-- Text -->
-                            <!-- <p class="card-text">Number of request that need to approve.</p> -->
+                            <p class="card-text">Total no. of school principal with civil service eligibility.</p>
                             <!-- <button id="toSchoolList" class="btn btn-rounded text-light px-4 btn-md" style="background-color: rgba(0, 0, 0, 0.3);">See more<i class="fa-solid fa-arrow-up-right-from-square ms-2"></i></button> -->
-                        <!-- </div>
+                        </div>
                     </div>
-                </div> -->
+                </div>
             </div>
         </div>
     </div>
