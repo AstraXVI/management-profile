@@ -386,7 +386,7 @@
                         </div>
                         <img class="bg-icons " src="img/icons/awards.svg" alt="card-bg">
                     </div>
-                    <div class="card card-dashboard w-75 position-relative" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; width: 300px; max-width: 300px; overflow: hidden;">
+                    <div class="card card-dashboard w-75 position-relative" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; width: 300px; max-width: 300px">
                         <div class="card-body rounded-1" style="background-color: #87194C">
                             <!-- Title -->
                             <h4 class="card-title"><p>Training Hours</p></h4>
@@ -396,19 +396,22 @@
                             <!-- ///////////////// -->
                             <?php
 
+
                                 $qCountManagerial = "SELECT * FROM `learning` WHERE typeOfLd='Managerial' AND email='$emailNew' ";
                                 $qListManagerial = $con->query($qCountManagerial);
                                 $qFetchManagerial = $qListManagerial->fetch_assoc();
 
                                 $managerialCount = 0;
 
-                                // if($qListManagerial->num_rows > 0){
+                                if($qListManagerial->num_rows > 0){
                                     
-                                //     do{
-                                //         $managerialCount += $qFetchManagerial['hours'];
-                                //     }while($qFetchManagerial = $qListManagerial->fetch_assoc());
+                                    do{
 
-                                // }
+                                        $managerialCount += $qFetchManagerial['hours'];
+
+                                    }while($qFetchManagerial = $qListManagerial->fetch_assoc());
+
+                                }
 
 
                                 $qCountSupervisory = "SELECT * FROM `learning` WHERE typeOfLd='Supervisory' AND email='$emailNew' ";
@@ -417,13 +420,13 @@
 
                                 $SupervisoryCount = 0;
 
-                                // if($qListSupervisory->num_rows > 0){
+                                if($qListSupervisory->num_rows > 0){
 
-                                //     do{
-                                //         $SupervisoryCount += $qFetchSupervisory['hours'];
-                                //     }while($qFetchSupervisory = $qListSupervisory->fetch_assoc());
+                                    do{
+                                        $SupervisoryCount += $qFetchSupervisory['hours'];
+                                    }while($qFetchSupervisory = $qListSupervisory->fetch_assoc());
 
-                                // }
+                                }
 
 
 
@@ -433,13 +436,13 @@
 
                                 $TechnicalCount = 0;
 
-                                // if($qListTechnical->num_rows > 0){
+                                if($qListTechnical->num_rows > 0){
 
-                                //     do{
-                                //         $TechnicalCount += $qFetchTechnical['hours'];
-                                //     }while($qFetchTechnical = $qListTechnical->fetch_assoc());
+                                    do{
+                                        $TechnicalCount += $qFetchTechnical['hours'];
+                                    }while($qFetchTechnical = $qListTechnical->fetch_assoc());
 
-                                // }
+                                }
 
 
                                 
