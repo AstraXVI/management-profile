@@ -391,6 +391,8 @@
                             <h4 class="card-title"><p>Training Hours</p></h4>
                             <hr>
                             <!-- Text -->
+
+                            <!-- ///////////////// -->
                             <?php
 
                                 $qCountManagerial = "SELECT * FROM `learning` WHERE typeOfLd='Managerial' AND email='$emailNew' ";
@@ -399,7 +401,7 @@
 
                                 $managerialCount = 0;
 
-                                if($qListManagerial->num_rows){
+                                if($qListManagerial->num_rows > 0){
                                     
                                     do{
                                         $managerialCount += $qFetchManagerial['hours'];
@@ -414,7 +416,7 @@
 
                                 $SupervisoryCount = 0;
 
-                                if($qListSupervisory->num_rows){
+                                if($qListSupervisory->num_rows > 0){
 
                                     do{
                                         $SupervisoryCount += $qFetchSupervisory['hours'];
@@ -430,7 +432,7 @@
 
                                 $TechnicalCount = 0;
 
-                                if($qListTechnical->num_rows){
+                                if($qListTechnical->num_rows > 0){
 
                                     do{
                                         $TechnicalCount += $qFetchTechnical['hours'];
@@ -446,6 +448,7 @@
                             <p class="card-text" id='managerialHours'>Managerial - <?php echo $managerialCount ?> hour(s) </p>
                             <p class="card-text" id='supervisoryHours'>Supervisory - <?php echo $SupervisoryCount ?> hour(s)</p>
                             <p class="card-text" id='TechnicalHours'>Technical - <?php echo $TechnicalCount ?> hour(s)</p>
+                            <!-- ///////////// -->
                         </div>
                         <img class="bg-icons " src="img/icons/training.svg" alt="card-bg">
                     </div>
