@@ -69,6 +69,11 @@
     $lInternational = $con->query($qInternational);
     $fInternational = $lInternational->num_rows;
 
+    // national
+    $qNational = "SELECT * FROM award WHERE lvl LIKE '%National%' AND email='$emailNew'";
+    $lNational = $con->query($qNational);
+    $fNational = $lNational->num_rows;
+
     // regional
     $qRegional = "SELECT * FROM award WHERE lvl LIKE '%Regional%' AND email='$emailNew'";
     $lRegional = $con->query($qRegional);
@@ -83,6 +88,7 @@
     $qSchool = "SELECT * FROM award WHERE lvl LIKE '%School%' AND email='$emailNew'";
     $lSchool = $con->query($qSchool);
     $fSchool = $lSchool->num_rows;
+
 
 
 ?>
@@ -364,7 +370,8 @@
                 </div>
 
                 <div class="d-flex gap-5">
-                    <div class="card card-dashboard w-75 position-relative" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; width: 300px; max-width: 300px; overflow: hidden;">
+
+                    <div class="card card-dashboard w-75 position-relative" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; width: 300px; max-width: 300px">
                         <div class="card-body bg-success rounded-1">
                             <!-- Title -->
                             <h4 class="card-title"><p>Awards</p></h4>
@@ -372,6 +379,7 @@
                             <!-- Text -->
                             <!-- <p class="card-text fs-3" id='awards'></p> -->
                             <p class="card-text mb-1 fs-6" id='awards'><i class="fa-solid fa-medal text-warning"></i> <?php echo $fInternational  ?> - International Awards</p>
+                            <p class="card-text mb-1 fs-6" id='awards'><i class="fa-solid fa-medal text-warning"></i> <?php echo $fNational  ?> - National Awards</p>
                             <p class="card-text mb-1 fs-6" id='awards'><i class="fa-solid fa-medal text-warning"></i> <?php echo $fRegional ?> - Regional Awards</p>
                             <p class="card-text mb-1 fs-6" id='awards'><i class="fa-solid fa-medal text-warning"></i> <?php echo $fDivision ?> - Division Awards</p>
                             <p class="card-text mb-1 fs-6" id='awards'><i class="fa-solid fa-medal text-warning"></i> <?php echo $fSchool ?> - School Awards</p>
@@ -384,9 +392,64 @@
                             <h4 class="card-title"><p>Training Hours</p></h4>
                             <hr>
                             <!-- Text -->
-                            <p class="card-text" id='managerialHours'>Managerial - 80</p>
-                            <p class="card-text" id='supervisoryHours'>Supervisory - 23</p>
-                            <p class="card-text" id='TechnicalHours'>Technical - 43</p>
+
+                            <!-- ///////////////// -->
+                            <?php
+
+                                $qCountManagerial = "SELECT * FROM `learning` WHERE typeOfLd='Managerial' AND email='$emailNew' ";
+                                $qListManagerial = $con->query($qCountManagerial);
+                                $qFetchManagerial = $qListManagerial->fetch_assoc();
+
+                                $managerialCount = 0;
+
+                                if($qListManagerial->num_rows > 0){
+                                    
+                                    do{
+                                        $managerialCount += $qFetchManagerial['hours'];
+                                    }while($qFetchManagerial = $qListManagerial->fetch_assoc());
+
+                                }
+
+
+                                $qCountSupervisory = "SELECT * FROM `learning` WHERE typeOfLd='Supervisory' AND email='$emailNew' ";
+                                $qListSupervisory = $con->query($qCountSupervisory);
+                                $qFetchSupervisory = $qListSupervisory->fetch_assoc();
+
+                                $SupervisoryCount = 0;
+
+                                if($qListSupervisory->num_rows > 0){
+
+                                    do{
+                                        $SupervisoryCount += $qFetchSupervisory['hours'];
+                                    }while($qFetchSupervisory = $qListSupervisory->fetch_assoc());
+
+                                }
+
+
+
+                                $qCountTechnical = "SELECT * FROM `learning` WHERE typeOfLd='Technical' AND email='$emailNew' ";
+                                $qListTechnical = $con->query($qCountTechnical);
+                                $qFetchTechnical = $qListTechnical->fetch_assoc();
+
+                                $TechnicalCount = 0;
+
+                                if($qListTechnical->num_rows > 0){
+
+                                    do{
+                                        $TechnicalCount += $qFetchTechnical['hours'];
+                                    }while($qFetchTechnical = $qListTechnical->fetch_assoc());
+
+                                }
+
+
+                                
+                                
+
+                            ?>
+                            <p class="card-text" id='managerialHours'>Managerial - <?php echo $managerialCount ?> hour(s) </p>
+                            <p class="card-text" id='supervisoryHours'>Supervisory - <?php echo $SupervisoryCount ?> hour(s)</p>
+                            <p class="card-text" id='TechnicalHours'>Technical - <?php echo $TechnicalCount ?> hour(s)</p>
+                            <!-- ///////////// -->
                         </div>
                         <img class="bg-icons " src="img/icons/training.svg" alt="card-bg">
                     </div>
@@ -396,8 +459,21 @@
                             <h4 class="card-title"><p>Civil Service Eligibility</p></h4>
                             <hr>
                             <!-- Text -->
-                            <p class="card-text fs-4">CSC Professional Rating</p>
-                            <p class="card-text fs-4">5 Years</p>
+                            <?php
+                                $qCivilDashboard = "SELECT * FROM `civil` WHERE email='$emailNew' ORDER BY id DESC";
+                                $listCivilDashBoard = $con->query($qCivilDashboard);
+                                $fetchCivilDashBoard = $listCivilDashBoard->fetch_assoc();
+
+                            ?>
+                            <?php if($listCivilDashBoard->num_rows){ ?>
+                                <p class="card-text">Career Service : <?php echo $fetchCivilDashBoard['careerService'] ?></p>
+                                <p class="card-text">Rating : <?php echo $fetchCivilDashBoard['rating'] ?></p>
+                                <p class="card-text">Date of Validity : <?php echo $fetchCivilDashBoard['licenseDateOfValidity'] ?></p>
+                            <?php }else{ ?>
+                                <p class="card-text">Career Service : </p>
+                                <p class="card-text">Rating : </p>
+                                <p class="card-text">Date of Validity : </p>
+                            <?php } ?>
                         </div>
                         <img class="bg-icons" style="width: 150px;" src="img/icons/cse.svg" alt="card-bg">
                     </div>
@@ -834,6 +910,10 @@
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="inputGroup-sizing-default">Conducted/Sponsored by (Write in full)</span>
                     <input type="text" class="form-control" id="learningAndDevelopmentConducted" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                </div>
+
+                <div class="input-group mb-3">
+                    <input type="file" class="form-control" id="inputLearningFile">
                 </div>
                 
                 </div>
@@ -2466,21 +2546,31 @@
                 const typeOfLd = $("#learningAndDevelopmentLD").val();
                 const conducted = $("#learningAndDevelopmentConducted").val();
 
-                if(title){
-                    $.ajax({
-                    url:"profileInfo/addLearning.php",
-                    method:"post",
-                    data:{
-                        email:email,
-                        title:title,
-                        from:from,
-                        to:to,
-                        hrs:hrs,
-                        typeOfLd:typeOfLd,
-                        conducted:conducted
-                    },
-                    success(e){
+                const file = $("#inputLearningFile").prop("files")[0];
+
+                const formData = new FormData();
+
+                formData.append("email", email);
+                formData.append("title", title);
+                formData.append("from", from);
+                formData.append("to", to);
+                formData.append("hrs", hrs);
+                formData.append("typeOfLd", typeOfLd);
+                formData.append("conducted", conducted);
+                formData.append("file", file);
+
+   
+
+                $.ajax({
+                    url: "profileInfo/addLearning.php",
+                    type: "POST",
+                    data:formData,
+                    processData: false,
+                    contentType: false,
+                    success: function() {
+
                         // $("#dashBoardBody").html(e)
+
 
                         $.ajax({
                             url:"profileInfo/learning_and_development.php",
@@ -2494,11 +2584,9 @@
                                 confirm("Add success!")
                             }
                         })
+                       
                     }
-                    })
-                }else{
-                    confirm("Please add Title")
-                }
+                });
                 
 
             })
