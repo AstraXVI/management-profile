@@ -68,8 +68,8 @@
     </ul>
 
     <div class="d-flex justify-content-between mb-3">
-        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addDegreeModalButton"><i class="fa-solid fa-plus me-2"></i>Add Degree</button>
-        <button class='btn btn-info' data-bs-toggle="modal" data-bs-target="#updateEducationModal" value='<?php echo $id ?>' id='updateProfileEducationButton'>Update data</button>
+        <button class='btn btn-info' data-bs-toggle="modal" data-bs-target="#updateEducationModal" value='<?php echo $id ?>' id='updateProfileEducationButton'>Update Education Data</button>
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addDegreeModalButton"><i class="fa-solid fa-plus me-2"></i>Add Graduate School</button>
     </div>
 
     <div style="max-height: 61vh; overflow-y: scroll">

@@ -1140,7 +1140,8 @@
                         <option value="International (Managerial)">International (Managerial)</option>
                         <option value="International (Supervisory)">International (Supervisory)</option>
                         <option value="International (Technical)">International (Technical)</option>
-                        <option value="married">Regional</option>
+                        <option value="National">National</option>
+                        <option value="Regional">Regional</option>
                         <option value="Division">Division</option>
                         <option value="School">School</option>
                     </select>
