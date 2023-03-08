@@ -84,14 +84,55 @@
         <input type="text" value='<?php echo $fetch['monthSalary'] ?>' class="form-control" id="EditworkExpSalary" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
     </div>
 
-    <div class="input-group mb-3">
+    <!-- <div class="input-group mb-3">
         <span class="input-group-text" id="inputGroup-sizing-default">Salary/Job/Pay Grade (if applicable)</span>
         <input type="text" value='<?php echo $fetch['salary'] ?>' class="form-control" id="EditworkExpJob" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-    </div>
-
+    </div> -->
     <div class="input-group mb-3">
+                <label class="input-group-text" for="">Salary/Job/Pay Grade (if applicable)</label>
+                <select class="form-select" id="EditworkExpJob">
+                    <option class="bg-primary" value='<?php echo $fetch['salary'] ?>'><?php echo $fetch['salary'] ?></option>
+                    <option value="SG 1">SG 1</option>
+                    <option value="SG 2">SG 2</option>
+                    <option value="SG 3">SG 3</option>
+                    <option value="SG 4">SG 4</option>
+                    <option value="SG 5">SG 5</option>
+                    <option value="SG 6">SG 6</option>
+                    <option value="SG 7">SG 7</option>
+                    <option value="SG 8">SG 8</option>
+                    <option value="SG 9">SG 9</option>
+                    <option value="SG 10">SG 10</option>
+                    <option value="SG 11">SG 11</option>
+                    <option value="SG 12">SG 12</option>
+                    <option value="SG 13">SG 13</option>
+                    <option value="SG 14">SG 14</option>
+                    <option value="SG 15">SG 15</option>
+                    <option value="SG 16">SG 16</option>
+                    <option value="SG 17">SG 17</option>
+                    <option value="SG 18">SG 18</option>
+                    <option value="SG 19">SG 19</option>
+                    <option value="SG 20">SG 20</option>
+                    <option value="SG 21">SG 21</option>
+                    <option value="SG 22">SG 22</option>
+                    <option value="SG 23">SG 23</option>
+                    <option value="SG 24">SG 24</option>
+                    <option value="SG 25">SG 25</option>
+                    <option value="SG 26">SG 26</option>
+                </select>
+            </div>
+
+    <!-- <div class="input-group mb-3">
         <span class="input-group-text" id="inputGroup-sizing-default">Status of Appointment</span>
         <input type="text" value='<?php echo $fetch['statusApointment'] ?>' class="form-control" id="EditworkExpStatus" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+    </div> -->
+    <div class="input-group mb-3">
+        <label class="input-group-text" for="">Status of Appointment</label>
+        <select class="form-select" id="EditworkExpStatus">
+            <option class="bg-primary" value='<?php echo $fetch['statusApointment'] ?>'><?php echo $fetch['statusApointment'] ?></option>
+            <option value="Permanent">Permanent</option>
+            <option value="Contract of Service (CoS)">Contract of Service (CoS)</option>
+            <option value="Local School Board (LSB)">Local School Board (LSB)</option>
+        </select>
     </div>
 
     <!-- <div class="input-group mb-3">

@@ -860,14 +860,53 @@
                 <input type="text" class="form-control" id="workExpSalary" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
             </div>
 
-            <div class="input-group mb-3">
+            <!-- <div class="input-group mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-default">Salary/Job/Pay Grade (if applicable)</span>
                 <input type="text" class="form-control" id="workExpJob" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div> -->
+            <div class="input-group mb-3">
+                <label class="input-group-text" for="">Salary/Job/Pay Grade (if applicable)</label>
+                <select class="form-select" id="workExpJob">
+                    <option value="SG 1">SG 1</option>
+                    <option value="SG 2">SG 2</option>
+                    <option value="SG 3">SG 3</option>
+                    <option value="SG 4">SG 4</option>
+                    <option value="SG 5">SG 5</option>
+                    <option value="SG 6">SG 6</option>
+                    <option value="SG 7">SG 7</option>
+                    <option value="SG 8">SG 8</option>
+                    <option value="SG 9">SG 9</option>
+                    <option value="SG 10">SG 10</option>
+                    <option value="SG 11">SG 11</option>
+                    <option value="SG 12">SG 12</option>
+                    <option value="SG 13">SG 13</option>
+                    <option value="SG 14">SG 14</option>
+                    <option value="SG 15">SG 15</option>
+                    <option value="SG 16">SG 16</option>
+                    <option value="SG 17">SG 17</option>
+                    <option value="SG 18">SG 18</option>
+                    <option value="SG 19">SG 19</option>
+                    <option value="SG 20">SG 20</option>
+                    <option value="SG 21">SG 21</option>
+                    <option value="SG 22">SG 22</option>
+                    <option value="SG 23">SG 23</option>
+                    <option value="SG 24">SG 24</option>
+                    <option value="SG 25">SG 25</option>
+                    <option value="SG 26">SG 26</option>
+                </select>
             </div>
 
-            <div class="input-group mb-3">
+            <!-- <div class="input-group mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-default">Status of Appointment</span>
                 <input type="text" class="form-control" id="workExpStatus" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div> -->
+            <div class="input-group mb-3">
+                <label class="input-group-text" for="">Status of Appointment</label>
+                <select class="form-select" id="workExpStatus">
+                    <option value="Permanent">Permanent</option>
+                    <option value="Contract of Service (CoS)">Contract of Service (CoS)</option>
+                    <option value="Local School Board (LSB)">Local School Board (LSB)</option>
+                </select>
             </div>
 
             <!-- <div class="input-group mb-3">
@@ -1133,18 +1172,16 @@
             </div>
             <div class="modal-body">
                 <div class="input-group my-3">
-                    <span class="input-group-text" id="basic-addon1">Title of award</span>
+                    <span class="input-group-text" id="basic-addon1">Title of Award/Recognitions</span>
                     <input type="text" id='inputAwardTitle' class="form-control" aria-label="Username" aria-describedby="basic-addon1">
                 </div>
     
                 <div class="input-group mb-3">
                     <label class="input-group-text" for="">Level of award</label>
                     <select class="form-select" id='inputAwardlvl'>
-                        <option value="International (Managerial)">International (Managerial)</option>
-                        <option value="International (Supervisory)">International (Supervisory)</option>
-                        <option value="International (Technical)">International (Technical)</option>
+                        <option value="International">International</option>
                         <option value="National">National</option>
-                        <option value="Regional">Regional</option>
+                        <option value="Region">Region</option>
                         <option value="Division">Division</option>
                         <option value="School">School</option>
                     </select>

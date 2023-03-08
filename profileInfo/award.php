@@ -23,7 +23,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h2 class="text-secondary fw-bold mb-3">Awards and Recognition <?php if($_SESSION['status'] == 'Admin') echo "| ".$infoName['name'] ?></h2>
+    <h2 class="text-secondary fw-bold mb-3">Awards and Recognitions <?php if($_SESSION['status'] == 'Admin') echo "| ".$infoName['name'] ?></h2>
 
 
     <!-- get email profile -->
@@ -36,7 +36,7 @@
 
     <!-- Tabs navs -->
     <ul class="nav nav-tabs tabsss mb-3" id="ex1" style="font-size: 14px;" role="tablist">
-    <li class="nav-item" role="presentation" id='profileProfileButton'>
+    <!-- <li class="nav-item" role="presentation" id='profileProfileButton'>
         <a class="nav-link" id="ex1-tab-1" data-mdb-toggle="tab" href="#ex1-tabs-1" role="tab" aria-controls="ex1-tabs-1" aria-selected="true">Personal Information</a>
     </li>
     <li class="nav-item" role="presentation" id='profileEducationButton'>
@@ -47,7 +47,7 @@
     </li>
     <li class="nav-item" role="presentation" id='profileWorkExpBtn'>
         <a class="nav-link" id="ex1-tab-4" data-mdb-toggle="tab" href="#ex1-tabs-4" role="tab" aria-controls="ex1-tabs-4" aria-selected="false">Work Experience</a>
-    </li>
+    </li> -->
 
     <?php if($_SESSION['status'] == "Admin"){ ?>
 
@@ -60,7 +60,7 @@
     <?php } ?>
     </ul>
 
-    <button class="btn btn-primary my-3" data-bs-toggle="modal" data-bs-target="#profileAwardModal"><i class="fa-solid fa-plus text-light me-2"></i>Add award</button>
+    <button class="btn btn-primary my-3" data-bs-toggle="modal" data-bs-target="#profileAwardModal"><i class="fa-solid fa-plus text-light me-2"></i>Add Awards and Recognitions</button>
 
     <table class='table text-center table-striped bg-light' style="font-size: 14px;">
         <thead>

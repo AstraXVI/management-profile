@@ -110,11 +110,15 @@
             position: absolute;
             bottom: -10px;
             right: -10px;
-            font-size: 150px;
-            opacity: 0.2;
+            /* font-size: 150px; */
+            opacity: 0.4;
+            width: 200px;
         }
-        .wide-height{
-            font-size: 200px;
+        .card{
+            height: 200px;
+        }
+        .card-text, .card-title{
+            text-shadow: 1px 1px #1a1a1a;
         }
     </style>
 </head>
@@ -231,7 +235,7 @@
                             $fetchSchoolName = $collegeSchool->fetch_assoc();
                         ?>
                         <?php if(!empty($fetchSchoolName['schoolCollege'])){ ?>
-                            <div class="card w-75" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; max-width: 350px">
+                            <div class="card w-75 position-relative" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; max-width: 350px: overflow: hidden;">
                                 <div class="card-body bg-primary rounded-1">
                                     <!-- Title -->
                                     <h4 class="card-title"><p><i class="fa-solid fa-ranking-star me-2"></i>College Degree</p></h4>
@@ -246,12 +250,13 @@
                                         <span class="fa fa-star"></span>
                                         <span class="fa fa-star"></span>
                                     </div>
+                                    <img class="bg-icons" src="img/icons/degree.svg" alt="card-bg">
                                 </div>
                             </div>
                         <?php } ?>
                     
                     <?php }else if(!empty($fetchPost['lvl'])){ ?>
-                        <div class="card w-75" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; max-width: 350px">
+                        <div class="card w-75 position-relative" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; max-width: 350px; overflow: hidden;">
                             <div class="card-body bg-primary rounded-1">
                                 <!-- Title -->
                                 <h4 class="card-title"><p><i class="fa-solid fa-ranking-star me-2"></i>Post Degree</p></h4>
@@ -266,7 +271,7 @@
                                     <span class="fa fa-star text-warning"></span>
                                     <span class="fa fa-star text-warning"></span>
                                 </div>
-                                <!-- <button id="toEquipment" class="btn btn-rounded text-light px-4 btn-md" style="background-color: rgba(0, 0, 0, 0.3);">See Profile<i class="fa-solid fa-arrow-up-right-from-square ms-2"></i></button> -->
+                                <img class="bg-icons" src="img/icons/degree.svg" alt="card-bg">
                             </div>
                         </div>
                     <?php }else if(!empty($fetchMasters['lvl'])){ ?>
@@ -285,7 +290,7 @@
                                     <span class="fa fa-star"></span>
                                     <span class="fa fa-star"></span>
                                 </div>
-                                <i class="fa-solid fa-ranking-star bg-icons"></i>
+                                <img class="bg-icons" src="img/icons/degree.svg" alt="card-bg">
                             </div>
                         </div>
                         
@@ -324,7 +329,7 @@
                           <!-- Text -->
                           <p class="card-text fs-4" id='yearAsTeachingPersonnel'></p>
                       </div>
-                      <img class="bg-icons" src="img/icons/teaching.svg" alt="">
+                      <img class="bg-icons" src="img/icons/teaching.svg" alt="card-bg">
                    
                     </div>
 
@@ -353,7 +358,7 @@
                             <!-- Text -->
                             <p class="card-text fs-4" id='yearAsSchoolAdmin'></p>
                         </div>
-                        <i class="fa-solid fa-school-lock bg-icons"></i>
+                        <img class="bg-icons" src="img/icons/school-admin.svg" alt="card-bg">
                     </div>
 
                 </div>
@@ -371,7 +376,7 @@
                             <p class="card-text mb-1 fs-6" id='awards'><i class="fa-solid fa-medal text-warning"></i> <?php echo $fDivision ?> - Division Awards</p>
                             <p class="card-text mb-1 fs-6" id='awards'><i class="fa-solid fa-medal text-warning"></i> <?php echo $fSchool ?> - School Awards</p>
                         </div>
-                        <i class="fa-solid fa-award bg-icons wide-height"></i>
+                        <img class="bg-icons " src="img/icons/awards.svg" alt="card-bg">
                     </div>
                     <div class="card w-75 position-relative" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; max-width: 300px; overflow: hidden;">
                         <div class="card-body rounded-1" style="background-color: #87194C">
@@ -383,7 +388,7 @@
                             <p class="card-text" id='supervisoryHours'>Supervisory - 23</p>
                             <p class="card-text" id='TechnicalHours'>Technical - 43</p>
                         </div>
-                        <i class="fa-solid fa-dumbbell bg-icons" Style="font-size: 170px"></i>
+                        <img class="bg-icons " src="img/icons/training.svg" alt="card-bg">
                     </div>
                     <div class="card w-75 position-relative" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; max-width: 350px; overflow: hidden">
                         <div class="card-body bg-primary rounded-1">
@@ -394,7 +399,7 @@
                             <p class="card-text fs-4">CSC Professional Rating</p>
                             <p class="card-text fs-4">5 Years</p>
                         </div>
-                        <i class="fa-solid fa-school-lock bg-icons"></i>
+                        <img class="bg-icons" src="img/icons/cse.svg" alt="card-bg">
                     </div>
                 </div>
             </div>
@@ -481,7 +486,7 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Edit User</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Edit Personal Information</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div id='profileModalBody' class="modal-body">
@@ -636,7 +641,7 @@
             </div>
             <div class="input-group mb-3">
                 <span class="input-group-text">Date of Validity</span>
-                <input type="text" class="form-control" id="civilDate" value="" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                <input type="date" class="form-control" id="civilDate" value="" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
             </div>
             <!-- <input type="text" id='civilNumber' placeholder='Date of Validity'> -->
         </div>
@@ -1031,18 +1036,16 @@
             </div>
             <div class="modal-body">
                 <div class="input-group my-3">
-                    <span class="input-group-text" id="basic-addon1">Title of award</span>
+                    <span class="input-group-text" id="basic-addon1">Title of Award/Recognitions</span>
                     <input type="text" id='inputAwardTitle' class="form-control" aria-label="Username" aria-describedby="basic-addon1">
                 </div>
     
                 <div class="input-group mb-3">
                     <label class="input-group-text" for="">Level of award</label>
                     <select class="form-select" id='inputAwardlvl'>
-                        <option value="International (Managerial)">International (Managerial)</option>
-                        <option value="International (Supervisory)">International (Supervisory)</option>
-                        <option value="International (Technical)">International (Technical)</option>
+                        <option value="International">International</option>
                         <option value="National">National</option>
-                        <option value="Regional">Regional</option>
+                        <option value="Region">Region</option>
                         <option value="Division">Division</option>
                         <option value="School">School</option>
                     </select>
