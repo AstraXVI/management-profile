@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 06, 2023 at 07:47 AM
+-- Generation Time: Mar 08, 2023 at 06:33 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -80,7 +80,8 @@ CREATE TABLE `civil` (
 INSERT INTO `civil` (`id`, `email`, `careerService`, `rating`, `dateOfExam`, `placeOfExam`, `licenseNumber`, `licenseDateOfValidity`) VALUES
 (12, 'renz@123', '1', '', '', '', 'nums', 'date'),
 (15, 'renz@123', '2', '4', '1', '2', '12', '2029'),
-(34, 'Norlitan.santos@deped.gov.ph', 'RA - 1080 Bar/Board Eligibility', '0', '', '', '', '');
+(34, 'Norlitan.santos@deped.gov.ph', 'RA - 1080 Bar/Board Eligibility', '0', '', '', '', ''),
+(37, 'Edithad.baesa@deped.gov.ph', 'CSC - Sub Professional', '2', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -237,18 +238,16 @@ CREATE TABLE `learning` (
   `dateTo` varchar(250) NOT NULL,
   `hours` varchar(250) NOT NULL,
   `typeOfLd` varchar(250) NOT NULL,
-  `conducted` varchar(250) NOT NULL
+  `conducted` varchar(250) NOT NULL,
+  `pic` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `learning`
 --
 
-INSERT INTO `learning` (`id`, `email`, `title`, `dateFrom`, `dateTo`, `hours`, `typeOfLd`, `conducted`) VALUES
-(4, 'admin@1', 'qq', '', '', 'q', 'q', 'q'),
-(5, '', 'w', '', '', '', '', ''),
-(9, '', 'qq', '2023-02-24', '', '3', '', ''),
-(10, '', 'qq', '2023-02-24', '', '3', '', '');
+INSERT INTO `learning` (`id`, `email`, `title`, `dateFrom`, `dateTo`, `hours`, `typeOfLd`, `conducted`, `pic`) VALUES
+(33, 'Edithad.baesa@deped.gov.ph', '', '', '', '2', 'Managerial', '', '');
 
 -- --------------------------------------------------------
 
@@ -383,6 +382,13 @@ CREATE TABLE `work` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- Dumping data for table `work`
+--
+
+INSERT INTO `work` (`id`, `email`, `dateFrom`, `dateTo`, `positionLvl`, `title`, `department`, `monthSalary`, `salary`, `statusApointment`, `govService`) VALUES
+(47, 'Edithad.baesa@deped.gov.ph', '', '', 'School Administrator', 'Head Teacher I', '', '', '', '', 'Yes');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -484,13 +490,13 @@ ALTER TABLE `announcement`
 -- AUTO_INCREMENT for table `award`
 --
 ALTER TABLE `award`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `civil`
 --
 ALTER TABLE `civil`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `credential`
@@ -526,7 +532,7 @@ ALTER TABLE `equipment`
 -- AUTO_INCREMENT for table `learning`
 --
 ALTER TABLE `learning`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `profile`
@@ -556,7 +562,7 @@ ALTER TABLE `voluntary`
 -- AUTO_INCREMENT for table `work`
 --
 ALTER TABLE `work`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
