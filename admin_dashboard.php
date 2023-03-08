@@ -3074,19 +3074,31 @@
                 const title = $("#EditinputAwardTitle").val();
                 const lvl = $("#EditinputAwardlvl").val();
                 const date = $("#EditinputAwardDate").val();
+                // const file = $("#EditinputAwardFile").val();
+                const file = $("#EditinputAwardFile").prop("files")[0];
 
-                // alert(date)
+
+                alert(file)
+                const formData = new FormData();
+
+                formData.append("id", id);
+                formData.append("file", file);
+                formData.append("title", title);
+                formData.append("lvl", lvl);
+                formData.append("date", date);
+
+   
 
                 $.ajax({
-                    url:"profileInfo/updateAward.php",
-                    method:"post",
-                    data:{
-                        id : id,
-                        title : title,
-                        lvl : lvl,
-                        date : date
-                    },
-                    success(){
+                    url: "profileInfo/updateAward.php",
+                    type: "POST",
+                    data:formData,
+                    processData: false,
+                    contentType: false,
+                    success: function(e) {
+
+                        // $("#dashBoardBody").html(e)
+
 
                         $.ajax({
                             url:"profileInfo/award.php",
@@ -3097,12 +3109,14 @@
                             success(e){
                                 $("#dashBoardBody").html(e)
 
-                                confirm("Update success")
+                                confirm("Update award success")
+
                             }
                         })
 
                     }
-                })
+                });
+
             })
 
             // DELETE AWARD DATABASE BUTTON
