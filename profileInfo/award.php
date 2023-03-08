@@ -23,7 +23,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h2 class="text-secondary fw-bold mb-3">Awards and Recognitions <?php if($_SESSION['status'] == 'Admin') echo "| ".$infoName['name'] ?></h2>
+    <h2 class="text-secondary fw-bold mb-3">Rewards and Recognitions <?php if($_SESSION['status'] == 'Admin') echo "| ".$infoName['name'] ?></h2>
 
 
     <!-- get email profile -->
@@ -36,23 +36,24 @@
 
     <!-- Tabs navs -->
     <ul class="nav nav-tabs tabsss mb-3" id="ex1" style="font-size: 14px;" role="tablist">
-    <!-- <li class="nav-item" role="presentation" id='profileProfileButton'>
-        <a class="nav-link" id="ex1-tab-1" data-mdb-toggle="tab" href="#ex1-tabs-1" role="tab" aria-controls="ex1-tabs-1" aria-selected="true">Personal Information</a>
-    </li>
-    <li class="nav-item" role="presentation" id='profileEducationButton'>
-        <a class="nav-link" id="ex1-tab-2" data-mdb-toggle="tab" href="#ex1-tabs-2" role="tab" aria-controls="ex1-tabs-2" aria-selected="false">Educational Background</a>
-    </li>
-    <li class="nav-item" role="presentation" id='profileCivilButton'>
-        <a class="nav-link" id="ex1-tab-3" data-mdb-toggle="tab" href="#ex1-tabs-3" role="tab" aria-controls="ex1-tabs-3" aria-selected="false">Civil Service Eligibility</a>
-    </li>
-    <li class="nav-item" role="presentation" id='profileWorkExpBtn'>
-        <a class="nav-link" id="ex1-tab-4" data-mdb-toggle="tab" href="#ex1-tabs-4" role="tab" aria-controls="ex1-tabs-4" aria-selected="false">Work Experience</a>
-    </li> -->
+   
 
     <?php if($_SESSION['status'] == "Admin"){ ?>
+        <li class="nav-item" role="presentation" id='profileProfileButton'>
+        <a class="nav-link" id="ex1-tab-1" data-mdb-toggle="tab" href="#ex1-tabs-1" role="tab" aria-controls="ex1-tabs-1" aria-selected="true">Personal Information</a>
+        </li>
+        <li class="nav-item" role="presentation" id='profileEducationButton'>
+            <a class="nav-link" id="ex1-tab-2" data-mdb-toggle="tab" href="#ex1-tabs-2" role="tab" aria-controls="ex1-tabs-2" aria-selected="false">Educational Background</a>
+        </li>
+        <li class="nav-item" role="presentation" id='profileCivilButton'>
+            <a class="nav-link" id="ex1-tab-3" data-mdb-toggle="tab" href="#ex1-tabs-3" role="tab" aria-controls="ex1-tabs-3" aria-selected="false">Civil Service Eligibility</a>
+        </li>
+        <li class="nav-item" role="presentation" id='profileWorkExpBtn'>
+            <a class="nav-link" id="ex1-tab-4" data-mdb-toggle="tab" href="#ex1-tabs-4" role="tab" aria-controls="ex1-tabs-4" aria-selected="false">Work Experience</a>
+        </li>
 
         <li class="nav-item" role="presentation" id='profileAwardExpBtn'>
-            <a class="nav-link active" id="ex1-tab-5" data-mdb-toggle="tab" href="#ex1-tabs-5" role="tab" aria-controls="ex1-tabs-5" aria-selected="false">Awards and Recognition</a>
+            <a class="nav-link active" id="ex1-tab-5" data-mdb-toggle="tab" href="#ex1-tabs-5" role="tab" aria-controls="ex1-tabs-5" aria-selected="false">Rewards and Recognition</a>
         </li>
         <li class="nav-item" role="presentation" id="profileLearningAndDevelopmentButton">
             <a class="nav-link" id="ex1-tab-6" data-mdb-toggle="tab" href="#ex1-tabs-6" role="tab" aria-controls="ex1-tabs-6" aria-selected="false">Learning and Development</a>
@@ -60,7 +61,7 @@
     <?php } ?>
     </ul>
 
-    <button class="btn btn-primary my-3" data-bs-toggle="modal" data-bs-target="#profileAwardModal"><i class="fa-solid fa-plus text-light me-2"></i>Add Awards and Recognitions</button>
+    <button class="btn btn-primary my-3" data-bs-toggle="modal" data-bs-target="#profileAwardModal"><i class="fa-solid fa-plus text-light me-2"></i>Add Rewards and Recognitions</button>
 
     <table class='table text-center table-striped bg-light' style="font-size: 14px;">
         <thead>

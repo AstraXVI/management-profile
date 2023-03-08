@@ -315,7 +315,15 @@
                     <div class="card w-100" style="border: none; max-width: 300px;">
                         <div class="card-body" style="border-radius: 20px; background-color: #87194C">
                             <!-- Title -->
-                            <h4 class="card-title"><i class="fa-solid fa-scale-balanced me-3"></i><?php echo $schoolCount ?> <br> <p class="mt-2">With civil service eligibility</p></h4>
+                            <?php
+                                $countCivilNumber = "SELECT DISTINCT email FROM civil";
+                                $listCivilNumber = $con->query($countCivilNumber);
+                                $fetchCivilNumberCount = $listCivilNumber->fetch_assoc();
+                                $civilNumberCount = $listCivilNumber->num_rows;
+
+                                
+                            ?>
+                            <h4 class="card-title"><i class="fa-solid fa-scale-balanced me-3"></i><?php  echo $civilNumberCount ?> <br> <p class="mt-2">With civil service eligibility</p></h4>
                             <hr>
                             <!-- Text -->
                             <p class="card-text">Total no. of school principal with civil service eligibility.</p>
