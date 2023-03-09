@@ -2480,31 +2480,47 @@
                 formData.append("date", date);
 
    
+                if(title && lvl && date){
 
-                $.ajax({
-                    url: "profileInfo/addAward.php",
-                    type: "POST",
-                    data:formData,
-                    processData: false,
-                    contentType: false,
-                    success: function() {
 
-                        $.ajax({
-                            url:"profileInfo/award.php",
-                            method:"post",
-                            data:{
-                                email:email
-                            },
-                            success(e){
-                                $("#dashBoardBody").html(e)
 
-                                confirm("Add award success")
+                    $.ajax({
+                        url: "profileInfo/addAward.php",
+                        type: "POST",
+                        data:formData,
+                        processData: false,
+                        contentType: false,
+                        success: function() {
 
-                            }
-                        })
+                            $.ajax({
+                                url:"profileInfo/award.php",
+                                method:"post",
+                                data:{
+                                    email:email
+                                },
+                                success(e){
+                                    $("#dashBoardBody").html(e)
 
-                    }
-                });
+                                    // confirm("Add award success")
+                                    Swal.fire({
+                                        icon: 'success',
+                                        title: 'Success',
+                                        text: 'Reward and Learning Added Successfully'
+                                    })
+
+                                }
+                            })
+
+                        }
+                    });
+                }else{
+                    Swal.fire({
+                    icon: 'warning',
+                    title: 'Oops...',
+                    text: 'Please fill up all fields',
+                    })
+                }
+                
             })
 
             // AWARD EDIT BUTTON UPDATE MODAL
@@ -2632,25 +2648,21 @@
                 // alert(title);
    
 
-                if(title){
+
+                if(title && from && to && hrs && typeOfLd && conducted){
 
                     $.ajax({
-                        url: "profileInfo/addLearning.php",
-                        type: "POST",
-                        data:formData,
-                        processData: false,
-                        contentType: false,
+                    url: "profileInfo/addLearning.php",
+                    type: "POST",
+                    data:formData,
+                    processData: false,
+                    contentType: false,
                         success: function() {
-    
+
                             // $("#dashBoardBody").html(e)
-                            Swal.fire({
-                                icon: 'Success',
-                                title: 'Success add',
-                                text: 'Sample text',
-                                // footer: '<a href="">Why do I have this issue?</a>'
-                            })
-    
-    
+
+
+
                             $.ajax({
                                 url:"profileInfo/learning_and_development.php",
                                 method:"post",
@@ -2659,22 +2671,27 @@
                                 },
                                 success(e){
                                     $("#dashBoardBody").html(e)
-    
+
+
                                     // confirm("Add success!")
+                                    Swal.fire({
+                                        icon: 'success',
+                                        title: 'Success',
+                                        text: 'Learning and Development Added Successfully'
+                                    })
                                 }
                             })
-                           
+                        
                         }
                     });
-
                 }else{
                     Swal.fire({
-                        icon: 'error',
-                        title: 'Oops...',
-                        text: 'Something went wrong!',
-                        // footer: '<a href="">Why do I have this issue?</a>'
+                    icon: 'warning',
+                    title: 'Oops...',
+                    text: 'Please fill up all fields',
                     })
                 }
+                
                 
 
             })
