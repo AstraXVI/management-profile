@@ -11,4 +11,6 @@
         echo "<script>alert('A Database Error Occured')</script>";
     }
 
+    // echo
+
 ?>
