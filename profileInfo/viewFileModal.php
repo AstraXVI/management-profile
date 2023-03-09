@@ -38,7 +38,7 @@
             
             ?>
 
-        <?php if($fetch['pic'] == 'uploads/credentials'){ ?>
+        <?php if($fetch['pic'] == 'uploads/'){ ?>
             <p>No file upload</p>
         <?php }else{ ?>
 

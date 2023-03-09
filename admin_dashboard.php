@@ -3081,39 +3081,6 @@
                 });
          
                 
-
-
-                // if(title){
-                //     $.ajax({
-                //         url:"profileInfo/addAward.php",
-                //         method:"post",
-                //         data:{
-                //             email : email,
-                //             title : title,
-                //             lvl : lvl,
-                //             date : date
-                //         },
-                //         success(){
-
-                //             $.ajax({
-                //                 url:"profileInfo/award.php",
-                //                 method:"post",
-                //                 data:{
-                //                     email:email
-                //                 },
-                //                 success(e){
-                //                     $("#dashBoardBody").html(e)
-
-                //                     confirm("Add award success")
-
-                //                 }
-                //             })
-
-                //         }
-                //     })
-                // }else{
-                //     confirm("Please add title!")
-                // }
                
             })
 

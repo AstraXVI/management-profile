@@ -402,14 +402,14 @@
 
                                 $managerialCount = 0;
 
-                                // if($qListManagerial->num_rows > 0){
-                                    
-                                //     do{
-                                //         $managerialCount += $qFetchManagerial['hours'];
-                                //     }while($qFetchManagerial = $qListManagerial->fetch_assoc());
+                                if($qListManagerial->num_rows > 0){
 
-                                // }
 
+                                    do{
+                                        $managerialCount += (int)$qFetchManagerial['hours'];
+                                    }while($qFetchManagerial = $qListManagerial->fetch_assoc());
+
+                                }
 
                                 $qCountSupervisory = "SELECT * FROM `learning` WHERE typeOfLd='Supervisory' AND email='$emailNew' ";
                                 $qListSupervisory = $con->query($qCountSupervisory);
@@ -417,13 +417,14 @@
 
                                 $SupervisoryCount = 0;
 
-                                // if($qListSupervisory->num_rows > 0){
+                                if($qListSupervisory->num_rows > 0){
 
-                                //     do{
-                                //         $SupervisoryCount += $qFetchSupervisory['hours'];
-                                //     }while($qFetchSupervisory = $qListSupervisory->fetch_assoc());
+                                    
+                                    do{
+                                        $SupervisoryCount += (int)$qFetchSupervisory['hours'];
+                                    }while($qFetchSupervisory = $qListSupervisory->fetch_assoc());
 
-                                // }
+                                }
 
 
 
@@ -433,13 +434,17 @@
 
                                 $TechnicalCount = 0;
 
-                                // if($qListTechnical->num_rows > 0){
 
-                                //     do{
-                                //         $TechnicalCount += $qFetchTechnical['hours'];
-                                //     }while($qFetchTechnical = $qListTechnical->fetch_assoc());
+                                if($qListTechnical->num_rows > 0){
 
-                                // }
+
+                                    do{
+
+                                        $TechnicalCount += (int)$qFetchTechnical['hours'];
+
+                                    }while($qFetchTechnical = $qListTechnical->fetch_assoc());
+
+                                }
 
 
                                 
@@ -1135,6 +1140,11 @@
                     <span class="input-group-text" id="basic-addon1">Certificate issue date</span>
                     <input type="date" id='inputAwardDate' class="form-control" aria-label="Username" aria-describedby="basic-addon1">
                 </div>
+
+                <div class="input-group mb-3">
+                    <input type="file" class="form-control" id="inputAwardFile">
+                    <!-- <label class="input-group-text" for="inputGroupFile02">Upload</label> -->
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -1215,6 +1225,44 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id='UpdateCredentialButtonDB'>Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- VIEW FILE REWARDS and RECOGNITION -->
+<div class="modal fade" id="viewFileRewardAndRecognition" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">File</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id='viewFileModal'>
+        <!-- view file modal -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal VIEW FILE LEARNING -->
+<div class="modal fade" id="viewFileLearningModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">View File</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id='viewFileLearningModalBody'>
+        <!-- View file -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
       </div>
     </div>
   </div>
@@ -2415,39 +2463,47 @@
                 const lvl = $("#inputAwardlvl").val();
                 const date = $("#inputAwardDate").val();
 
+                // file
 
-                if(title){
-                    $.ajax({
-                        url:"profileInfo/addAward.php",
-                        method:"post",
-                        data:{
-                            email : email,
-                            title : title,
-                            lvl : lvl,
-                            date : date
-                        },
-                        success(){
+                const file = $("#inputAwardFile").prop("files")[0];
 
-                            $.ajax({
-                                url:"profileInfo/award.php",
-                                method:"post",
-                                data:{
-                                    email:email
-                                },
-                                success(e){
-                                    $("#dashBoardBody").html(e)
+                // alert(id)
 
-                                    confirm("Add award success")
+                // alert($("#inputAnnouncementFile").prop("files")[0])
 
-                                }
-                            })
+                const formData = new FormData();
+                formData.append("file", file);
+                formData.append("email", email);
+                formData.append("title", title);
+                formData.append("lvl", lvl);
+                formData.append("date", date);
 
-                        }
-                    })
-                }else{
-                    confirm("Please add title!")
-                }
-               
+   
+
+                $.ajax({
+                    url: "profileInfo/addAward.php",
+                    type: "POST",
+                    data:formData,
+                    processData: false,
+                    contentType: false,
+                    success: function() {
+
+                        $.ajax({
+                            url:"profileInfo/award.php",
+                            method:"post",
+                            data:{
+                                email:email
+                            },
+                            success(e){
+                                $("#dashBoardBody").html(e)
+
+                                confirm("Add award success")
+
+                            }
+                        })
+
+                    }
+                });
             })
 
             // AWARD EDIT BUTTON UPDATE MODAL
@@ -2474,19 +2530,31 @@
                 const title = $("#EditinputAwardTitle").val();
                 const lvl = $("#EditinputAwardlvl").val();
                 const date = $("#EditinputAwardDate").val();
+                // const file = $("#EditinputAwardFile").val();
+                const file = $("#EditinputAwardFile").prop("files")[0];
 
-                // alert(date)
+
+                // alert(file)
+                const formData = new FormData();
+
+                formData.append("id", id);
+                formData.append("file", file);
+                formData.append("title", title);
+                formData.append("lvl", lvl);
+                formData.append("date", date);
+
+   
 
                 $.ajax({
-                    url:"profileInfo/updateAward.php",
-                    method:"post",
-                    data:{
-                        id : id,
-                        title : title,
-                        lvl : lvl,
-                        date : date
-                    },
-                    success(){
+                    url: "profileInfo/updateAward.php",
+                    type: "POST",
+                    data:formData,
+                    processData: false,
+                    contentType: false,
+                    success: function(e) {
+
+                        // $("#dashBoardBody").html(e)
+
 
                         $.ajax({
                             url:"profileInfo/award.php",
@@ -2497,12 +2565,13 @@
                             success(e){
                                 $("#dashBoardBody").html(e)
 
-                                confirm("Update success")
+                                confirm("Update award success")
+
                             }
                         })
 
                     }
-                })
+                });
             })
 
             // DELETE AWARD DATABASE BUTTON
@@ -2620,22 +2689,29 @@
                 const typeOfLd = $("#EditlearningAndDevelopmentLD").val();
                 const conducted = $("#EditlearningAndDevelopmentConducted").val();
 
-                // console.log(id,email,title,from,to,hrs,typeOfLd,conducted)
+                const file = $("#inputEditLearningFile").prop("files")[0];
+
+                const formData = new FormData();
+
+                formData.append("id", id);
+                formData.append("title", title);
+                formData.append("from", from);
+                formData.append("to", to);
+                formData.append("hrs", hrs);
+                formData.append("typeOfLd", typeOfLd);
+                formData.append("conducted", conducted);
+                formData.append("file", file);
+
+                // alert($("#inputEditLearningFile").val())
 
                 if(title){
                     $.ajax({
                         url:"profileInfo/learningUpdate.php",
                         method:"post",
-                        data:{
-                            id:id,
-                            title:title,
-                            from:from,
-                            to:to,
-                            hrs:hrs,
-                            typeOfLd:typeOfLd,
-                            conducted:conducted
-                        },
-                        success(){
+                        data:formData,
+                        processData: false,
+                        contentType: false,
+                        success(e){
                             // $("#dashBoardBody").html(e)
 
                             $.ajax({
@@ -2936,6 +3012,37 @@
                     },
                     success(e){
                         $("#dashBoardBody").html(e)
+                    }
+                })
+            })
+
+            // VIEW FILE 
+            $("#dashBoardBody").on("click","#viewFileButtonNew",function(){
+                const id = $(this).val()
+
+                $.ajax({
+                    url:"profileInfo/viewFileModal.php",
+                    method:"post",
+                    data:{
+                        id:id
+                    },
+                    success(e){
+                        $("#viewFileModal").html(e)
+                    }
+                })
+            })
+
+            $("#dashBoardBody").on("click","#viewFileLearningButton",function(){
+                const id = $(this).val()
+
+                $.ajax({
+                    url:"profileInfo/viewFileLearningModal.php",
+                    method:"post",
+                    data:{
+                        id:id
+                    },
+                    success(e){
+                        $("#viewFileLearningModalBody").html(e)
                     }
                 })
             })
