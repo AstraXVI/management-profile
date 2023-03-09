@@ -375,7 +375,7 @@
                     <div class="card card-dashboard w-75 position-relative" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; width: 300px; max-width: 300px">
                         <div class="card-body bg-success rounded-1">
                             <!-- Title -->
-                            <h4 class="card-title"><p>Awards</p></h4>
+                            <h4 class="card-title fs-5"><p>Rewards and Recognitions</p></h4>
                             <hr>
                             <!-- Text -->
                             <!-- <p class="card-text fs-3" id='awards'></p> -->
@@ -387,7 +387,7 @@
                         </div>
                         <img class="bg-icons " src="img/icons/awards.svg" alt="card-bg">
                     </div>
-                    <div class="card card-dashboard w-75 position-relative" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; width: 300px; max-width: 300px; overflow: hidden;">
+                    <div class="card card-dashboard w-75 position-relative" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; width: 300px; max-width: 300px; height: 230px; overflow: hidden;">
                         <div class="card-body rounded-1" style="background-color: #87194C">
                             <!-- Title -->
                             <h4 class="card-title"><p>Training Hours</p></h4>
@@ -2505,7 +2505,7 @@
                                     Swal.fire({
                                         icon: 'success',
                                         title: 'Success',
-                                        text: 'Reward and Learning Added Successfully'
+                                        text: 'Reward and Recognitions Added Successfully'
                                     })
 
                                 }
