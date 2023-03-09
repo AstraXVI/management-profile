@@ -1630,10 +1630,10 @@
                 const inputFinancialMng = $("#inputFinancialMngEdited").val();
                 const inputComplaints = $("#inputComplaintsEdited").val();
                 
-                        
+               
                 $.ajax({
                     url:"profileUpdateDb.php",
-                    method:"post",
+                    method:"post",                    
                     data:{
                         id : id,
                         name : name,
@@ -1654,21 +1654,28 @@
                         inputFinancialMng : inputFinancialMng,
                         inputComplaints : inputComplaints
                     },
+                 
                     success(){
-
+                       
                         $.ajax({
                             url:"profile.php",
-                            method:"post",
+                            method:"post",                       
                             data:{
                                 id : id
                             },
+                           
                             success(e){
-                                confirm("Update profile successful!");
+                                  Swal.fire({
+                                        icon: 'success',
+                                        title: 'Success',
+                                        text: 'Profile Updated Successfully'
+                                    })
                                 $("#dashBoardBody").html(e)
                             }
                         })
                     }
                 })
+            
             })
 
 
@@ -1944,7 +1951,11 @@
                             },
                             success(e){
                                 $("#dashBoardBody").html(e)
-
+                                Swal.fire({
+                                        icon: 'success',
+                                        title: 'Success',
+                                        text: 'Education Updated Successfully'
+                                    })
                             }
                         })
                     }
@@ -2089,7 +2100,11 @@
                             },
                             success(e){
                                 $("#dashBoardBody").html(e)
-
+                                Swal.fire({
+                                        icon: 'success',
+                                        title: 'Success',
+                                        text: 'Degree Added Successfully'
+                                    })
                             }
                         })
 
@@ -2186,7 +2201,11 @@
                             },
                             success(e){
                                 $("#dashBoardBody").html(e)
-
+                                Swal.fire({
+                                        icon: 'success',
+                                        title: 'Success',
+                                        text: 'Deleted Successfully'
+                                    })
                             }
                         })
                     }
@@ -2208,6 +2227,7 @@
                     },
                     success(e){
                         $("#modalBodyCivilUpdate").html(e)
+                        
                     }
                 })
             })
@@ -2246,9 +2266,11 @@
                             },
                             success(e){
                                 $("#dashBoardBody").html(e)
-
-                                confirm("Update Success!")
-
+                                Swal.fire({
+                                        icon: 'success',
+                                        title: 'Success',
+                                        text: 'Updated Successfully'
+                                    })
                             }
                         })
                     }
@@ -2281,7 +2303,11 @@
                                     $("#dashBoardBody").html(e)
 
                                     // confirm("Update Success!")
-
+                                    Swal.fire({
+                                        icon: 'success',
+                                        title: 'Success',
+                                        text: 'Deleted Successfully'
+                                    })
                                 }
                             })
                         }
@@ -2329,8 +2355,11 @@
                                 },
                                 success(e){
                                     $("#dashBoardBody").html(e)
-                                    confirm("Add success!")
-
+                                    Swal.fire({
+                                        icon: 'success',
+                                        title: 'Success',
+                                        text: 'Added Successfully'
+                                    })
                                 }
                             })
                         }
@@ -2353,6 +2382,11 @@
                     },
                     success(e){
                         $("#editWorkExpModalBody").html(e)
+                        Swal.fire({
+                                        icon: 'success',
+                                        title: 'Success',
+                                        text: 'Updated Successfully'
+                                    })
                     }
                 })
 
@@ -2400,7 +2434,11 @@
                             success(e){
                                 $("#dashBoardBody").html(e)
 
-                                confirm("Update success!")
+                                Swal.fire({
+                                        icon: 'success',
+                                        title: 'Success',
+                                        text: 'Updated Successfully'
+                                    })
                             }
                         })
 
@@ -2431,7 +2469,11 @@
                                 },
                                 success(e){
                                     $("#dashBoardBody").html(e)
-    
+                                    Swal.fire({
+                                        icon: 'success',
+                                        title: 'Success',
+                                        text: 'Deleted Successfully'
+                                    })
                                 }
                             })
                         }
@@ -2582,7 +2624,11 @@
                             success(e){
                                 $("#dashBoardBody").html(e)
 
-                                confirm("Update award success")
+                                Swal.fire({
+                                        icon: 'success',
+                                        title: 'Success',
+                                        text: 'Updated Successfully'
+                                    })
 
                             }
                         })
@@ -2613,6 +2659,11 @@
                                 },
                                 success(e){
                                     $("#dashBoardBody").html(e)
+                                    Swal.fire({
+                                        icon: 'success',
+                                        title: 'Success',
+                                        text: 'Deleted Successfully'
+                                    })
                                 }
                             })
     
@@ -2674,7 +2725,7 @@
 
 
                                     // confirm("Add success!")
-                                    Swal.fire({
+                                        Swal.fire({
                                         icon: 'success',
                                         title: 'Success',
                                         text: 'Learning and Development Added Successfully'
@@ -2740,7 +2791,7 @@
 
                 // alert($("#inputEditLearningFile").val())
 
-                if(title){
+                if(title && from && to && hrs && typeOfLd && conducted){
                     $.ajax({
                         url:"profileInfo/learningUpdate.php",
                         method:"post",
@@ -2759,13 +2810,23 @@
                                 success(e){
                                     $("#dashBoardBody").html(e)
 
-                                    confirm("Update success!")
+                                   // confirm("update success!")
+                                   Swal.fire({
+                                        icon: 'success',
+                                        title: 'Success',
+                                        text: 'Learning and Development Updated Successfully'
+                                    })
                                 }
                             })
                         }
                     })
                 }else{
-                    confirm("Please add Title")
+                    // warning
+                    Swal.fire({
+                    icon: 'warning',
+                    title: 'Warning',
+                    text: 'Please fill up all fields.',
+                    })
                 }
             })
 
@@ -2793,6 +2854,11 @@
                                     $("#dashBoardBody").html(e)
 
                                     // confirm("Update success!")
+                                        Swal.fire({
+                                        icon: 'success',
+                                        title: 'Success',
+                                        text: 'Successfully Deleted'
+                                    })
                                 }
                             })
                         }
