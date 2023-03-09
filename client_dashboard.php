@@ -2645,7 +2645,9 @@
                 formData.append("conducted", conducted);
                 formData.append("file", file);
 
+                // alert(title);
    
+
 
                 if(title && from && to && hrs && typeOfLd && conducted){
 
@@ -2660,6 +2662,7 @@
                             // $("#dashBoardBody").html(e)
 
 
+
                             $.ajax({
                                 url:"profileInfo/learning_and_development.php",
                                 method:"post",
@@ -2668,6 +2671,7 @@
                                 },
                                 success(e){
                                     $("#dashBoardBody").html(e)
+
 
                                     // confirm("Add success!")
                                     Swal.fire({
