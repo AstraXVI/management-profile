@@ -105,6 +105,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="shortcut icon" href="https://sdovalenzuelacity.deped.gov.ph/wp-content/uploads/2021/04/New-DO-Logo.png" type="image/x-icon">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
         .dropdown-menu:hover{
             background-color: #f5f5f5;
@@ -2479,31 +2480,47 @@
                 formData.append("date", date);
 
    
+                if(title && lvl && date){
 
-                $.ajax({
-                    url: "profileInfo/addAward.php",
-                    type: "POST",
-                    data:formData,
-                    processData: false,
-                    contentType: false,
-                    success: function() {
 
-                        $.ajax({
-                            url:"profileInfo/award.php",
-                            method:"post",
-                            data:{
-                                email:email
-                            },
-                            success(e){
-                                $("#dashBoardBody").html(e)
 
-                                confirm("Add award success")
+                    $.ajax({
+                        url: "profileInfo/addAward.php",
+                        type: "POST",
+                        data:formData,
+                        processData: false,
+                        contentType: false,
+                        success: function() {
 
-                            }
-                        })
+                            $.ajax({
+                                url:"profileInfo/award.php",
+                                method:"post",
+                                data:{
+                                    email:email
+                                },
+                                success(e){
+                                    $("#dashBoardBody").html(e)
 
-                    }
-                });
+                                    // confirm("Add award success")
+                                    Swal.fire({
+                                        icon: 'success',
+                                        title: 'Success',
+                                        text: 'Reward and Learning Added Successfully'
+                                    })
+
+                                }
+                            })
+
+                        }
+                    });
+                }else{
+                    Swal.fire({
+                    icon: 'warning',
+                    title: 'Oops...',
+                    text: 'Please fill up all fields',
+                    })
+                }
+                
             })
 
             // AWARD EDIT BUTTON UPDATE MODAL
@@ -2630,32 +2647,47 @@
 
    
 
-                $.ajax({
+                if(title && from && to && hrs && typeOfLd && conducted){
+
+                    $.ajax({
                     url: "profileInfo/addLearning.php",
                     type: "POST",
                     data:formData,
                     processData: false,
                     contentType: false,
-                    success: function() {
+                        success: function() {
 
-                        // $("#dashBoardBody").html(e)
+                            // $("#dashBoardBody").html(e)
 
 
-                        $.ajax({
-                            url:"profileInfo/learning_and_development.php",
-                            method:"post",
-                            data:{
-                                email : email
-                            },
-                            success(e){
-                                $("#dashBoardBody").html(e)
+                            $.ajax({
+                                url:"profileInfo/learning_and_development.php",
+                                method:"post",
+                                data:{
+                                    email : email
+                                },
+                                success(e){
+                                    $("#dashBoardBody").html(e)
 
-                                confirm("Add success!")
-                            }
-                        })
-                       
-                    }
-                });
+                                    // confirm("Add success!")
+                                    Swal.fire({
+                                        icon: 'success',
+                                        title: 'Success',
+                                        text: 'Learning and Development Added Successfully'
+                                    })
+                                }
+                            })
+                        
+                        }
+                    });
+                }else{
+                    Swal.fire({
+                    icon: 'warning',
+                    title: 'Oops...',
+                    text: 'Please fill up all fields',
+                    })
+                }
+                
                 
 
             })

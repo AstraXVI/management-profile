@@ -103,6 +103,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Prata&family=Rubik:wght@400;500&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="https://sdovalenzuelacity.deped.gov.ph/wp-content/uploads/2021/04/New-DO-Logo.png" type="image/x-icon">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
     <style>
         body > header > div > ul > li:nth-child(2):hover{
             background-color: #E9ECEF;
@@ -214,6 +215,71 @@
         <div id='dashBoardBody' class="mx-auto w-75" style=" margin-top: 60px;">
             <!-- Ilagay dito ang dashboard -->
             <div class=" text-secondary fw-bold p-2 ps-0 mb-3 w-25 h3">Dashboard</div>
+            
+
+            <div>
+                <button class='btn btn-primary' id='subProfessionalDashBoardButton'>SUB-PROFESSIONAL</button>
+                <button class='btn btn-primary' id='professionalDashBoardBtn'>PROFESSIONAL</button>
+                <button class='btn btn-primary' id='barDashBoardBtn'>RA - 1080 BAR</button>
+            </div>
+            <!-- CHARTTTT -->
+            <div  id='chartWrapper'>
+                <!-- CHART NI RENZ -->
+
+                <div>
+
+                    <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+
+                </div>
+                    <!-- GET NUMBER OF THAT USERS -->
+                        <?php
+                            // 80-85
+                            $qGetUsersNumber = "SELECT * FROM civil WHERE rating > 80 AND rating < 85 AND careerService='CSC - Sub Professional'";
+                            $lUserNumber = $con->query($qGetUsersNumber);
+                            $fUserNumber = $lUserNumber->num_rows;
+
+                            // 85-90
+                            $qGetUsersNumber85_90 = "SELECT * FROM civil WHERE rating > 85 AND rating < 90 AND careerService='CSC - Sub Professional'";
+                            $lUserNumber85_90 = $con->query($qGetUsersNumber85_90);
+                            $fUserNumber85_90 = $lUserNumber85_90->num_rows;
+                            
+                            // 90-95
+                            $qGetUsersNumber90_95 = "SELECT * FROM civil WHERE rating > 90 AND rating < 95 AND careerService='CSC - Sub Professional'";
+                            $lUserNumber90_95 = $con->query($qGetUsersNumber90_95);
+                            $fUserNumber90_95 = $lUserNumber90_95->num_rows;
+
+                            // 95-100
+                            $qGetUsersNumber95_100 = "SELECT * FROM civil WHERE rating > 95 AND rating < 100 AND careerService='CSC - Sub Professional'";
+                            $lUserNumber95_100 = $con->query($qGetUsersNumber95_100);
+                            $fUserNumber95_100 = $lUserNumber95_100->num_rows;
+                        ?>
+                    <!--  -->
+
+                    <script>
+                        var xValues = ["80-85", "85-90", "90-95", "95-100"];
+                        var yValues = [<?php echo $fUserNumber ?>,<?php echo $fUserNumber85_90 ?>,<?php echo $fUserNumber90_95 ?>,<?php echo $fUserNumber95_100 ?>];
+                        var barColors = ["red", "green","blue","orange","brown"];
+
+                        new Chart("myChart", {
+                        type: "bar",
+                        data: {
+                            labels: xValues,
+                            datasets: [{
+                            backgroundColor: barColors,
+                            data: yValues
+                            }]
+                        },
+                        options: {
+                            legend: {display: false},
+                            title: {
+                            display: true,
+                            text: "SUB PROFESSIONAL"
+                            }
+                        }
+                        });
+                    </script>
+            </div>
+            
             <div class="d-flex flex-column py-5 px-5 text-light" style="gap: 30px; background-color: white; height: 73vh; overflow-y: scroll;">
                 <div class="d-flex flex-row gap-5">
                     <div class="card w-100" style=" border: none; max-width: 310px">
@@ -3517,6 +3583,18 @@
                         $("#viewFileLearningModalBody").html(e)
                     }
                 })
+            })
+
+            // CHANGE CHART DASHBOARD
+            $("#subProfessionalDashBoardButton").click(function(){
+                $("#chartWrapper").load("dashBoardCivilChart/subPro.php");
+            })
+            $("#professionalDashBoardBtn").click(function(){
+                $("#chartWrapper").load("dashBoardCivilChart/professional.php");
+            })
+
+            $("#barDashBoardBtn").click(function(){
+                $("#chartWrapper").load("dashBoardCivilChart/bar.php");
             })
 
         })
