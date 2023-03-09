@@ -103,6 +103,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Prata&family=Rubik:wght@400;500&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="https://sdovalenzuelacity.deped.gov.ph/wp-content/uploads/2021/04/New-DO-Logo.png" type="image/x-icon">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <style>
         body > header > div > ul > li:nth-child(2):hover{
             background-color: #E9ECEF;
@@ -213,25 +214,25 @@
     
         <div id='dashBoardBody' class="mx-auto w-75" style=" margin-top: 60px;">
             <!-- Ilagay dito ang dashboard -->
-            <div class=" text-secondary fw-bold p-2 ps-0 mb-3 w-25 h3">Dashboard</div>
-            <div class="d-flex flex-column py-5 px-5 text-light" style="gap: 30px; background-color: white; height: 73vh; overflow-y: scroll;">
+            <div class=" text-secondary fw-bold p-2 ps-0 mb-3 w-50 h3">Performance Analytics</div>
+            <!-- <div class="d-flex flex-column py-5 px-5 text-light" style="gap: 30px; background-color: white; height: 73vh; overflow-y: scroll;">
                 <div class="d-flex flex-row gap-5">
                     <div class="card w-100" style=" border: none; max-width: 310px">
                         <div class="card-body bg-danger" style="border-radius: 20px;">
-                            <!-- Title -->
+                            
                             <h4 class="card-title"><i class="fa-solid fa-users-gear me-3"></i><?php echo $adminCount ?> <br> <p class="mt-2">System Admin</p></h4>
                             <hr>
-                            <!-- Text -->
+                            
                             <p class="card-text">Number of People who have more control to the system.</p>
-                            <!-- <button class="btn btn-rounded text-light px-4 btn-md toManageUser" style="background-color: rgba(0, 0, 0, 0.3);">See more<i class="fa-solid fa-arrow-up-right-from-square ms-2"></i></button> -->
+                            
                         </div>
                     </div>
                     <div class="card w-100" style="border: none; max-width: 310px">
                         <div class="card-body bg-success" style="border-radius: 20px;">
-                            <!-- Title -->
+                            
                             <h4 class="card-title"><i class="fa-solid fa-user-tie me-3"></i><?php echo $p ?> <br> <p class="mt-2">School Head</p></h4>
                             <hr>
-                            <!-- Text -->
+                            
                             <p class="card-text">Total Number of School head.</p>
 
                             <div class="d-flex align-items-center justify-content-around">
@@ -244,15 +245,15 @@
                                     <div class="mt-2">Female</div>
                                 </div>
                             </div>
-                            <!-- <button id="toSchoolList" class="btn btn-rounded text-light px-4 btn-md" style="background-color: rgba(0, 0, 0, 0.3);">See more<i class="fa-solid fa-arrow-up-right-from-square ms-2"></i></button> -->
+                            
                         </div>
                     </div>
                     <div class="card w-100" style="border: none; max-width: 310px">
                         <div class="card-body bg-info" style="border-radius: 20px;">
-                            <!-- Title -->
+                            
                             <h4 class="card-title"><i class="fa-solid fa-clipboard-user me-3"></i>17 <br> <p class="mt-2">Assistant Principal</p></h4>
                             <hr>
-                            <!-- Text -->
+                            
                             <p class="card-text">Total Number of Assistant School principal.</p>
 
                             <div class="d-flex align-items-center justify-content-around">
@@ -265,56 +266,56 @@
                                     <div class="mt-2">Female</div>
                                 </div>
                             </div>
-                            <!-- <button id="toSchoolList" class="btn btn-rounded text-light px-4 btn-md" style="background-color: rgba(0, 0, 0, 0.3);">See more<i class="fa-solid fa-arrow-up-right-from-square ms-2"></i></button> -->
+       
                         </div>
                     </div>
                 </div>
                 <div class="d-flex flex-row gap-5">
                     <div class="card w-100" style="border: none; max-width: 310px ">
                         <div class="card-body bg-danger" style="border-radius: 20px;">
-                            <!-- Title -->
+                            
                             <h4 class="card-title"><i class="fa-solid fa-users me-3"></i><?php echo $clientCount ?> <br> <p class="mt-2">Users</p></h4>
                             <hr>
-                            <!-- Text -->
+                            
                             <p class="card-text">Number of registered users.</p>
-                            <!-- <button class="btn btn-rounded text-light px-4 btn-md toManageUser" style="background-color: rgba(0, 0, 0, 0.3);">See more<i class="fa-solid fa-arrow-up-right-from-square ms-2"></i></button> -->
+                            
                         </div>
                     </div>
                     <div class="card w-100" style="border: none; max-width: 310px ">
                         <div class="card-body bg-warning" style="border-radius: 20px;">
-                            <!-- Title -->
+                            
                             <h4 class="card-title"><i class="fa fa-ranking-star me-3"></i><?php echo $nMaster ?> <br> <p class="mt-2">With Master's Degree</p></h4>
                             <hr>
-                            <!-- Text -->
+                            
                             <p class="card-text">Total no. of school principal with Master degree.</p>
-                            <!-- <button class="btn btn-rounded text-light px-4 btn-md toManageUser" style="background-color: rgba(0, 0, 0, 0.3);">See more<i class="fa-solid fa-arrow-up-right-from-square ms-2"></i></button> -->
+                            
                         </div>
                     </div>
                     <div class="card w-100 " style="border: none; max-width: 310px ">
                         <div class="card-body bg-primary" style="border-radius: 20px;">
-                            <!-- Title -->
+                            
                             <h4 class="card-title"><i class="fa-solid fa-ranking-star text-dark me-3"></i><?php echo $nPost ?> <br> <p class="mt-2">With Post Degree</p></h4>
                             <hr>
-                            <!-- Text -->
+                            
                             <p class="card-text">Total no. of school principal with doctorate degree.</p>
-                            <!-- <button class="btn btn-rounded text-light px-4 btn-md toManageUser" style="background-color: rgba(0, 0, 0, 0.3);">See more<i class="fa-solid fa-arrow-up-right-from-square ms-2"></i></button> -->
+                            
                         </div>
                     </div>
                 </div>
                 <div class="d-flex flex-row gap-5">
                     <div class="card w-100" style=" border: none; max-width: 300px">
                         <div class="card-body" style="border-radius: 20px; background-color: #87194C">
-                            <!-- Title -->
+                            
                             <h4 class="card-title"><i class="fa fa-ranking-star me-3 text-warning"></i><?php echo $nInternationalAward ?> <br> <p class="mt-2">With International awards</p></h4>
                             <hr>
-                            <!-- Text -->
+                            
                             <p class="card-text">Total no. of school principal with International Awards.</p>
-                            <!-- <button class="btn btn-rounded text-light px-4 btn-md toManageUser" style="background-color: rgba(0, 0, 0, 0.3);">See more<i class="fa-solid fa-arrow-up-right-from-square ms-2"></i></button> -->
+                            
                         </div>
                     </div>
                     <div class="card w-100" style="border: none; max-width: 300px;">
                         <div class="card-body" style="border-radius: 20px; background-color: #87194C">
-                            <!-- Title -->
+                            
                             <?php
                                 $countCivilNumber = "SELECT DISTINCT email FROM civil";
                                 $listCivilNumber = $con->query($countCivilNumber);
@@ -325,13 +326,14 @@
                             ?>
                             <h4 class="card-title"><i class="fa-solid fa-scale-balanced me-3"></i><?php  echo $civilNumberCount ?> <br> <p class="mt-2">With civil service eligibility</p></h4>
                             <hr>
-                            <!-- Text -->
+                            
                             <p class="card-text">Total no. of school principal with civil service eligibility.</p>
-                            <!-- <button id="toSchoolList" class="btn btn-rounded text-light px-4 btn-md" style="background-color: rgba(0, 0, 0, 0.3);">See more<i class="fa-solid fa-arrow-up-right-from-square ms-2"></i></button> -->
+                            
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
+            <canvas id="myChart" style="width:100%; max-width:900px"></canvas>
         </div>
     </div>
 
@@ -3551,6 +3553,45 @@
             XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
             XLSX.writeFile(wb, "ExportedTable.xlsx");
         }
+    </script>
+    <script>
+        var xValues = ["System Admin (<?php echo $adminCount ?>)", "School Head (<?php echo $p ?>)", "Users (<?php echo $clientCount ?>)", "School head with Master's Degree (<?php echo $nMaster ?>)", "School head with Post Degree (<?php echo $nPost ?>)", "School head with International Awards (<?php echo $nInternationalAward ?>)"];
+        var yValues = [<?php echo $adminCount ?>, <?php echo $p ?>, <?php echo $clientCount ?>, <?php echo $nMaster ?>, <?php echo $nPost ?>, <?php echo $nInternationalAward ?>];
+        var barColors = [
+        "#b91d47",
+        "#00aba9",
+        "#2b5797",
+        "#e8c3b9",
+        "#1e7145",
+        "#87194c",
+        ];
+
+        new Chart("myChart", {
+        type: "pie",
+        data: {
+            labels: xValues,
+            datasets: [{
+            backgroundColor: barColors,
+            data: yValues
+            }]
+        },
+        options: {
+            title: {
+            display: false,
+            text: "Performance Analytics"
+            },
+            legend: {
+                display: true,
+                position: 'right',
+                labels: {
+                    font: {
+                        size: 20
+                    }
+                }
+            }
+        }
+        
+        });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>            <?php include 'footer.php' ?>
