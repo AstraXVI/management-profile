@@ -105,6 +105,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="shortcut icon" href="https://sdovalenzuelacity.deped.gov.ph/wp-content/uploads/2021/04/New-DO-Logo.png" type="image/x-icon">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
         .dropdown-menu:hover{
             background-color: #f5f5f5;
@@ -2559,34 +2560,52 @@
                 formData.append("conducted", conducted);
                 formData.append("file", file);
 
+                // alert(title);
    
 
-                $.ajax({
-                    url: "profileInfo/addLearning.php",
-                    type: "POST",
-                    data:formData,
-                    processData: false,
-                    contentType: false,
-                    success: function() {
+                if(title){
 
-                        // $("#dashBoardBody").html(e)
+                    $.ajax({
+                        url: "profileInfo/addLearning.php",
+                        type: "POST",
+                        data:formData,
+                        processData: false,
+                        contentType: false,
+                        success: function() {
+    
+                            // $("#dashBoardBody").html(e)
+                            Swal.fire({
+                                icon: 'Success',
+                                title: 'Success add',
+                                text: 'Sample text',
+                                // footer: '<a href="">Why do I have this issue?</a>'
+                            })
+    
+    
+                            $.ajax({
+                                url:"profileInfo/learning_and_development.php",
+                                method:"post",
+                                data:{
+                                    email : email
+                                },
+                                success(e){
+                                    $("#dashBoardBody").html(e)
+    
+                                    // confirm("Add success!")
+                                }
+                            })
+                           
+                        }
+                    });
 
-
-                        $.ajax({
-                            url:"profileInfo/learning_and_development.php",
-                            method:"post",
-                            data:{
-                                email : email
-                            },
-                            success(e){
-                                $("#dashBoardBody").html(e)
-
-                                confirm("Add success!")
-                            }
-                        })
-                       
-                    }
-                });
+                }else{
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Something went wrong!',
+                        // footer: '<a href="">Why do I have this issue?</a>'
+                    })
+                }
                 
 
             })
