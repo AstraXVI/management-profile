@@ -104,6 +104,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Prata&family=Rubik:wght@400;500&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="https://sdovalenzuelacity.deped.gov.ph/wp-content/uploads/2021/04/New-DO-Logo.png" type="image/x-icon">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
         body > header > div > ul > li:nth-child(2):hover{
             background-color: #E9ECEF;
@@ -1590,9 +1591,16 @@
                         }
                     })
                     // alert("success")
+                    Swal.fire({
+                                        icon: 'success',
+                                        title: 'Success',
+                                        text: 'Added Successfully'
+                                    })
                 }else{
-                    confirm(`Please fill up Name , Email and Year Level!`)
-
+                    Swal.fire({
+                    icon: 'warning',
+                    title: 'Warning',
+                    text: 'Please fill up all fields.'})
                 }
 
 
@@ -2147,7 +2155,11 @@
                                 id : id
                             },
                             success(e){
-                                confirm("Update profile successful!");
+                                Swal.fire({
+                                        icon: 'success',
+                                        title: 'Success',
+                                        text: 'Updated Successfully'
+                                    })
                                 $("#dashBoardBody").html(e)
                             }
                         })
@@ -2663,7 +2675,11 @@
                                 success(e){
                                     $("#dashBoardBody").html(e)
 
-                                    confirm("Add Success!")
+                                    Swal.fire({
+                                        icon: 'success',
+                                        title: 'Success',
+                                        text: 'Addded Successfully'
+                                    })
 
                                 }
                             })
@@ -2730,7 +2746,11 @@
                             },
                             success(e){
                                 $("#dashBoardBody").html(e)
-
+                                Swal.fire({
+                                        icon: 'success',
+                                        title: 'Success',
+                                        text: 'Added Successfully'
+                                    })
                             }
                         })
 
@@ -2797,7 +2817,11 @@
                             },
                             success(e){
                                 $("#dashBoardBody").html(e)
-
+                                Swal.fire({
+                                        icon: 'success',
+                                        title: 'Success',
+                                        text: 'Degree Updated Successfully'
+                                    })
                             }
                         })
 
@@ -2827,7 +2851,11 @@
                             },
                             success(e){
                                 $("#dashBoardBody").html(e)
-
+                                Swal.fire({
+                                        icon: 'success',
+                                        title: 'Success',
+                                        text: 'Deleted Successfully'
+                                    })
                             }
                         })
                     }
@@ -2888,7 +2916,11 @@
                             success(e){
                                 $("#dashBoardBody").html(e)
 
-                                confirm("Update Success!")
+                                Swal.fire({
+                                        icon: 'success',
+                                        title: 'Success',
+                                        text: 'Updated Successfully'
+                                    })
 
                             }
                         })
@@ -2922,7 +2954,11 @@
                                     $("#dashBoardBody").html(e)
 
                                     // confirm("Update Success!")
-
+                                    Swal.fire({
+                                        icon: 'success',
+                                        title: 'Success',
+                                        text: 'Deleted Successfully'
+                                    })
                                 }
                             })
                         }
@@ -2972,14 +3008,22 @@
                                 },
                                 success(e){
                                     $("#dashBoardBody").html(e)
-                                    confirm("Add success!")
+                                    Swal.fire({
+                                        icon: 'success',
+                                        title: 'Success',
+                                        text: 'Added Successfully'
+                                    })
 
                                 }
                             })
                         }
                     })
                 }else{
-                    confirm("Please add Position Title!")
+                    Swal.fire({
+                    icon: 'warning',
+                    title: 'Warning',
+                    text: 'Please add position title.',
+                    })
                 }
                 
 
@@ -2996,7 +3040,12 @@
                         id:id
                     },
                     success(e){
-                        $("#editWorkExpModalBody").html(e)
+                        $("#editWorkExpModalBody").html(e) 
+                        Swal.fire({
+                                        icon: 'success',
+                                        title: 'Success',
+                                        text: 'Updated Successfully'
+                                    })                          
                     }
                 })
 
@@ -3044,7 +3093,11 @@
                             success(e){
                                 $("#dashBoardBody").html(e)
 
-                                confirm("Update success!")
+                                Swal.fire({
+                                        icon: 'success',
+                                        title: 'Success',
+                                        text: 'Updated Successfully'
+                                    })
                             }
                         })
 
@@ -3075,6 +3128,11 @@
                                 },
                                 success(e){
                                     $("#dashBoardBody").html(e)
+                                    Swal.fire({
+                                        icon: 'success',
+                                        title: 'Success',
+                                        text: 'Deleted Successfully'
+                                    })
 
                                 }
                             })
@@ -3143,7 +3201,11 @@
                             success(e){
                                 $("#dashBoardBody").html(e)
 
-                                confirm("Add award success")
+                                Swal.fire({
+                                        icon: 'success',
+                                        title: 'Success',
+                                        text: 'Added Successfully'
+                                    })
 
                             }
                         })
@@ -3214,8 +3276,11 @@
                             success(e){
                                 $("#dashBoardBody").html(e)
 
-                                confirm("Update award success")
-
+                                Swal.fire({
+                                        icon: 'success',
+                                        title: 'Success',
+                                        text: 'Updated Successfully'
+                                    })
                             }
                         })
 
