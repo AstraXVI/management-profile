@@ -218,13 +218,32 @@
 
             <!-- <div class=" text-secondary fw-bold p-2 ps-0 mb-3 w-25 h3">Dashboard</div> -->
 
+            <div class=" text-secondary fw-bold p-2 ps-0 w-50 h3">Performance Analytics</div>
             
-            
-            <div class="d-flex flex-column py-3 px-5 text-light mt-5" style="gap: 30px; background-color: white; height: 73vh; overflow-y: scroll;">
-                <div class=" text-secondary fw-bold p-2 ps-0 mb-3 w-50 h3">Performance Analytics</div>
-                <canvas id="pieChart" style="width:100%; max-width:900px"></canvas>
-                <div class=" text-secondary fw-bold p-2 pt-5 ps-0 w-50 h3">Civil Service Eligibility Ratings</div>
-                <div>
+            <div class="d-flex flex-column gap-5 py-3 px-5 text-light mt-3" style="gap: 30px; background-color: white; height: 73vh; overflow-y: scroll;">
+                <div class="d-flex gap-5">
+                    <div class="d-flex flex-column w-100">
+                        <div class="text-center text-secondary fw-bold ps-0 mb-4 w-100 h5">No. of School Head</div>
+                        <canvas id="pieChart" style="width:100%; width: 420px; max-width:450px"></canvas>
+                    </div>
+                    <div class="d-flex flex-column w-100">
+                        <div class="text-center text-secondary fw-bold ps-0 mb-4 w-100 h5">No. of School Head with Degree</div>
+                        <canvas id="degreeChart" style="width:100%; width: 420px; max-width:450px"></canvas>
+                    </div>
+                </div>
+                <div class="d-flex gap-5">
+                    <div class="d-flex flex-column w-100">
+                        <div class="text-center text-secondary fw-bold ps-0 mb-4 w-100 h5">No. of School head with Training</div>
+                        <canvas id="trainingChart" style="width:100%; width: 420px; max-width:450px"></canvas>
+                    </div>
+                    <div class="d-flex flex-column w-100">
+                        <div class="text-center text-secondary fw-bold ps-0 mb-4 w-100 h5">School Head Rewards & Recognition Analytics</div>
+                        <canvas id="RaRChart" style="width:100%; width: 420px; max-width:450px"></canvas>
+                    </div>
+                </div>
+                
+                <div class="text-center text-secondary fw-bold ps-0 w-50 h5">Civil Service Eligibility Ratings</div>
+                <div style="margin-top: -30px;">
                     <button class='btn btn-primary' id='subProfessionalDashBoardButton'>SUB-PROFESSIONAL</button>
                     <button class='btn btn-primary' id='professionalDashBoardBtn'>PROFESSIONAL</button>
                     <button class='btn btn-primary' id='barDashBoardBtn'>RA - 1080 BAR</button>
@@ -233,7 +252,7 @@
                 <div  id='chartWrapper'>
                     <!-- CHART NI RENZ -->
                     <div>
-                        <canvas id="myChart" style="width:100%;max-width:900px"></canvas>
+                        <canvas id="myChart" style="width:100%; width: 420px; max-width:450px"></canvas>
                     </div>
                         <!-- GET NUMBER OF THAT USERS -->
                             <?php
@@ -3698,6 +3717,7 @@
             XLSX.writeFile(wb, "ExportedTable.xlsx");
         }
     </script>
+    <!-- copy lang -->
     <script>
         var xValues = ["System Admin (<?php echo $adminCount ?>)", "School Head (<?php echo $p ?>)", "Users (<?php echo $clientCount ?>)", "School head with Master's Degree (<?php echo $nMaster ?>)", "School head with Post Degree (<?php echo $nPost ?>)", "School head with International Awards (<?php echo $nInternationalAward ?>)"];
         var yValues = [<?php echo $adminCount ?>, <?php echo $p ?>, <?php echo $clientCount ?>, <?php echo $nMaster ?>, <?php echo $nPost ?>, <?php echo $nInternationalAward ?>];
@@ -3708,6 +3728,44 @@
         "#e8c3b9",
         "#1e7145",
         "#87194c",
+        ];
+
+        new Chart("copyChart", {
+        type: "pie",
+        data: {
+            labels: xValues,
+            datasets: [{
+            backgroundColor: barColors,
+            data: yValues
+            }]
+        },
+        options: {
+            title: {
+            display: false,
+            text: "Performance Analytics"
+            },
+            legend: {
+                display: true,
+                position: 'right',
+                labels: {
+                    font: {
+                        size: 20
+                    }
+                }
+            }
+        }
+        
+        });
+    </script>
+
+    <!-- User chart -->
+    <script>
+        var xValues = ["System Admin (<?php echo $adminCount ?>)", "School Head (<?php echo $p ?>)", "Users (<?php echo $clientCount ?>)"];
+        var yValues = [<?php echo $adminCount ?>, <?php echo $p ?>, <?php echo $clientCount ?>];
+        var barColors = [
+        "#b91d47",
+        "#00aba9",
+        "#2b5797",
         ];
 
         new Chart("pieChart", {
@@ -3732,6 +3790,137 @@
                         size: 20
                     }
                 }
+            }
+        }
+        
+        });
+    </script>
+
+    <!-- Degree Chart -->
+    <script>
+        var xValues = ["Master's Degree (<?php echo $nMaster ?>)", "Post Degree (<?php echo $nPost ?>)"];
+        var yValues = [ <?php echo $nMaster ?>, <?php echo $nPost ?>];
+        var barColors = [
+        "#e8c3b9",
+        "#1e7145",
+        ];
+
+        new Chart("degreeChart", {
+        type: "bar",
+        data: {
+            labels: xValues,
+            datasets: [{
+            backgroundColor: barColors,
+            data: yValues
+            }]
+        },
+        options: {
+            title: {
+            display: false,
+            text: "Performance Analytics"
+            },
+            legend: {
+                display: false,
+                position: 'right',
+                labels: {
+                    font: {
+                        size: 20
+                    }
+                }
+            },
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+
+        }
+        
+        });
+    </script>
+
+    <!-- Rewards and Recognition -->
+    <script>
+        var xValues = ["International (2)", "National (7)", "Regional (7)", "Division (30)", "School (40)"];
+        var yValues = [2,7,7,39,40];
+        var barColors = [
+        // "#b91d47",
+        "#00aba9",
+        "#2b5797",
+        "#e8c3b9",
+        "#1e7145",
+        "#87194c",
+        ];
+
+        new Chart("RaRChart", {
+        type: "doughnut",
+        data: {
+            labels: xValues,
+            datasets: [{
+            backgroundColor: barColors,
+            data: yValues
+            }]
+        },
+        options: {
+            title: {
+            display: false,
+            text: "Performance Analytics"
+            },
+            legend: {
+                display: true,
+                position: 'right',
+                labels: {
+                    font: {
+                        size: 20
+                    }
+                }
+            }
+        }
+        
+        });
+    </script>
+
+    <!-- Training Chart -->
+    <script>
+        var xValues = ["Managerial (43)", "Supervisory (66)", "Technical (85)"];
+        var yValues = [ 43, 66, 85];
+        var barColors = [
+        "#e8c3b9",
+        "#1e7145",
+        "#1e7145",
+        ];
+
+        new Chart("trainingChart", {
+        type: "bar",
+        data: {
+            labels: xValues,
+            datasets: [{
+            backgroundColor: barColors,
+            data: yValues
+            }]
+        },
+        options: {
+            title: {
+            display: false,
+            text: "Performance Analytics"
+            },
+            legend: {
+                display: false,
+                position: 'right',
+                labels: {
+                    font: {
+                        size: 20
+                    }
+                }
+            },
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
             }
         }
         
