@@ -257,8 +257,8 @@
                             ?>
                         <!--  -->
                         <script>
-                            var xValues = ["80-85", "86-90", "91-95", "96-100"];
-                            var yValues = [<?php echo $fUserNumber ?>,<?php echo $fUserNumber85_90 ?>,<?php echo $fUserNumber90_95 ?>,<?php echo $fUserNumber95_100 ?>];
+                            var xValues = [0,"80-85", "86-90", "91-95", "96-100"];
+                            var yValues = [0,<?php echo $fUserNumber ?>,<?php echo $fUserNumber85_90 ?>,<?php echo $fUserNumber90_95 ?>,<?php echo $fUserNumber95_100 ?>];
                             var barColors = ["red", "green","blue","orange","brown"];
                             new Chart("myChart", {
                             type: "bar",
