@@ -15,7 +15,7 @@
 
 <div>
 
-    <canvas id="myChart" style="width:100%;max-width:900px"></canvas>
+    <canvas id="myChart" style="width:100%;width: 420px; max-width:450px"></canvas>
     <!-- CSC - Professional -->
 </div>
     <!-- GET NUMBER OF THAT USERS -->
