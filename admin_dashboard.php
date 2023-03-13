@@ -241,6 +241,9 @@
                     <div class="d-flex flex-column w-100">
                         <div class="text-center text-secondary fw-bold ps-0 mt-3 mb-5 w-100 h5">Number of School Principal with Training</div>
                         <canvas id="trainingChart" style="width:100%; width: 420px; max-width:450px"></canvas>
+                        <button class='btn btn-primary' value='Managerial' id='viewManagerialButtonDashboard'>Managerial</button>
+                        <button class='btn btn-primary' value='Supervisory' id='viewSupervisoryButtonDashboard'>Supervisory</button>
+                        <button class='btn btn-primary' value='Technical' id='viewTechnicalButtonDashBoard'>Technical</button>
                     </div>
                     <div class="d-flex flex-column w-100">
                         <div class="text-center text-secondary fw-bold ps-0 mt-3 mb-5 w-100 h5">Number of School Principal with Rewards and Recognitions</div>
@@ -4235,6 +4238,7 @@
                 $("#chartWrapper").load("dashBoardCivilChart/bar.php");
             })
 
+            // VIEW BUTTON DASHBOARD SHORTCUTS
             $('#viewAllPostDegreeBtn').click(function(){
                 const degree = $(this).val();
 
@@ -4259,6 +4263,52 @@
                     method:'post',
                     data:{
                         degree : degree
+                    },
+                    success(e){
+                        $("#dashBoardBody").html(e)
+                    }
+                })
+            })
+
+            $("#viewManagerialButtonDashboard").click(function(){
+                const learning = $(this).val();
+
+                $.ajax({
+                    url:"Learning.php",
+                    method:'post',
+                    data:{
+                        learning : learning
+                    },
+                    success(e){
+                        $("#dashBoardBody").html(e)
+                    }
+                })
+            })
+
+            $("#viewSupervisoryButtonDashboard").click(function(){
+                const learning = $(this).val();
+
+                $.ajax({
+                    url:"Learning.php",
+                    method:'post',
+                    data:{
+                        learning : learning
+                    },
+                    success(e){
+                        $("#dashBoardBody").html(e)
+                    }
+                })
+            })
+            
+
+            $("#viewTechnicalButtonDashBoard").click(function(){
+                const learning = $(this).val();
+
+                $.ajax({
+                    url:"Learning.php",
+                    method:'post',
+                    data:{
+                        learning : learning
                     },
                     success(e){
                         $("#dashBoardBody").html(e)

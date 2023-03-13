@@ -1,9 +1,9 @@
 <?php
     require "db.php";
 
-    $degree = $_POST['degree'];
+    $learning = $_POST['learning'];
 
-    $q = "SELECT DISTINCT email,lvl FROM `educationaldegree` WHERE lvl='$degree'";
+    $q = "SELECT DISTINCT email,typeOfLd FROM `learning` WHERE typeOfLd='$learning'";
 
     $list = $con->query($q);
     $fetch = $list->fetch_assoc();
@@ -19,7 +19,7 @@
     <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
 </head>
 <body>
-    <div class=" text-secondary fw-bold p-2 ps-0 mb-3 w-50 h3"><?php echo $degree ?></div>
+    <div class=" text-secondary fw-bold p-2 ps-0 mb-3 w-50 h3"><?php echo $learning ?></div>
 
     
     <div class="table-responsive md" style="max-height: 480px;">
@@ -57,7 +57,7 @@
                     <?php }while($fetch = $list->fetch_assoc()) ?>
                 <?php }else{ ?>
                     <tr>
-                        <td colspan='6' >No data</td>
+                        <td colspan='6'>No user</td>
                     </tr>
                 <?php } ?>
             </tbody>
