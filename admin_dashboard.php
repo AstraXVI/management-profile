@@ -220,11 +220,16 @@
 
             <div class=" text-secondary fw-bold p-2 ps-0 w-50 h3">Performance Analytics</div>
             
-            <div class="d-flex flex-column gap-5 py-3 px-5 text-light mt-3" style="gap: 70px; background-color: white; height: 73vh; overflow-y: scroll;">
-                <div class="d-flex gap-5">
+            <div class="d-flex flex-column py-3 px-5 text-light mt-3" style=" background-color: white; height: 73vh; overflow-y: scroll;">
+                <div class="d-flex gap-5 my-5">
                     <div class="d-flex flex-column w-100">
                         <div class="text-center text-secondary fw-bold ps-0 mt-3 mb-5 w-100 h5">Number of School Principal / Admin & Users</div>
                         <canvas id="pieChart" style="width:100%; width: 420px; max-width:450px"></canvas>
+                        <div class="d-flex justify-content-around mt-4">
+                            <button class='btn btn-primary btn-sm' id="loadSchoolHead" style="background-color: #00aba9; border:none;" id='viewManagerialButtonDashboard'>School Head</button>
+                            <button class='btn btn-primary btn-sm' id="loadAdminProfile" value='<?php echo $fetchUserInfo['id'] ?>' style="background-color: #b91d47; border:none;" id='viewSupervisoryButtonDashboard'>System Admin</button>
+                            <button class='btn btn-primary btn-sm' id="loadUser" style="background-color: #2b5797; border:none;" id='viewTechnicalButtonDashBoard'>Users</button>
+                        </div>
                     </div>
                     <div class="d-flex flex-column w-100">
 
@@ -237,7 +242,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="d-flex gap-5">
+                <div class="d-flex gap-5 mt-5">
                     <div class="d-flex flex-column w-100">
                         <div class="text-center text-secondary fw-bold ps-0 mt-3 mb-5 w-100 h5">Number of School Principal with Training</div>
                         <canvas id="trainingChart" style="width:100%; width: 420px; max-width:450px"></canvas>
@@ -261,7 +266,7 @@
                     </div>
                 </div>
                 
-                <div class="text-center text-secondary fw-bold ps-0 w-100 h5">Number of School Principal with Civil Service Eligibility Ratings</div>
+                <div class="text-center text-secondary fw-bold ps-0 w-100 h5 mb-3" style="margin-top: 150px">Number of School Principal with Civil Service Eligibility Ratings</div>
                 <!-- <div style="margin-top: -30px;">
                     <button class='btn btn-primary' id='subProfessionalDashBoardButton'>SUB-PROFESSIONAL</button>
                     <button class='btn btn-primary' id='professionalDashBoardBtn'>PROFESSIONAL</button>
@@ -271,7 +276,12 @@
                 <div  id='chartWrapper'>
                     <!-- CHART NI RENZ -->
                     <div>
-                        <canvas id="myChart" style="width:100%; width: 500px; max-width:100%"></canvas>
+                        <canvas id="myChart" style="width:100%; width: 500px; max-width:80%; margin-inline: auto;"></canvas>
+                        <div class="d-flex justify-content-center gap-5 mt-4">
+                            <button class='btn btn-primary btn-sm' style="background-color: red; border:none" value='CSC - Sub Professional' id='viewAllSubProfessionalButton'>Sub professional</button>
+                            <button class='btn btn-primary btn-sm' style="background-color: blue; border:none" value='CSC - Professional' id='viewAllProfessionalButton'>Professional</button>
+                            <button class='btn btn-primary btn-sm' style="background-color: green; border:none" value='RA - 1080 Bar/Board Eligibility' id='viewAllBarButton'>RA - 1080 Bar/Board Eligibility</button>
+                        </div>
                     </div>
                         <!-- GET NUMBER OF THAT USERS -->
                             <?php
@@ -1804,6 +1814,32 @@
     <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
     <script>
         $(document).ready(function(){
+
+            $('#loadSchoolHead').click(function(){
+                $('#dashBoardBody').load("table.php");
+            })
+
+            $("#loadUser").click(function(){
+
+                $("#dashBoardBody").load("manage_user/manageUser.php")
+            })
+
+
+            $("#loadAdminProfile").click(function(){
+
+                const userId = $(this).val()
+
+                $.ajax({
+                    url:"profileAdmin.php",
+                    method:"post",
+                    data:{
+                        id : userId
+                    },
+                    success(e){
+                        $("#dashBoardBody").html(e)
+                    }
+                })
+            })
 
             //load privacy notice
             $(window).on('load', function() {
@@ -4403,6 +4439,51 @@
                     method:'post',
                     data:{
                         lvl : lvl
+                    },
+                    success(e){
+                        $("#dashBoardBody").html(e)
+                    }
+                })
+            })
+
+            $("#viewAllSubProfessionalButton").click(function(){
+                const service =  $(this).val();
+                
+                $.ajax({
+                    url:"civilServiceShortcut.php",
+                    method:"post",
+                    data:{
+                        service : service
+                    },
+                    success(e){
+                        $("#dashBoardBody").html(e)
+                    }
+                })
+            })
+
+            $("#viewAllProfessionalButton").click(function(){
+                const service =  $(this).val();
+                
+                $.ajax({
+                    url:"civilServiceShortcut.php",
+                    method:"post",
+                    data:{
+                        service : service
+                    },
+                    success(e){
+                        $("#dashBoardBody").html(e)
+                    }
+                })
+            })
+
+            $("#viewAllBarButton").click(function(){
+                const service =  $(this).val();
+                
+                $.ajax({
+                    url:"civilServiceShortcut.php",
+                    method:"post",
+                    data:{
+                        service : service
                     },
                     success(e){
                         $("#dashBoardBody").html(e)
