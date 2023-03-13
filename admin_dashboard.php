@@ -228,13 +228,13 @@
                     </div>
                     <div class="d-flex flex-column w-100">
 
-                        <div class="text-center text-secondary fw-bold ps-0 mb-4 w-100 h5"></div>
-
-                        <div class="text-center text-secondary fw-bold ps-0 mt-3 mb-5 w-100 h5">No. of School Head with Masters Degree / Doctoral Degree</div>
+                        <div class="text-center text-secondary fw-bold ps-0 mt-3 mb-5 w-100 h5">Number of School Principal with Masters Degree / Doctoral Degree</div>
 
                         <canvas id="degreeChart" style="width:100%; width: 420px; max-width:450px"></canvas>
-                        <button class='btn btn-primary' id='viewAllPostDegreeBtn' value='Post Degree'>POST</button>
-                        <button class='btn btn-primary' id='viewAllMasterDegreeBtn' value='Masters Degree'>MASTER</button>
+                        <div class="d-flex justify-content-around">
+                            <button class='btn btn-primary btn-sm' style="background-color: #2b5797;" id='viewAllMasterDegreeBtn' value='Masters Degree'>Master's Degree</button>
+                            <button class='btn btn-primary btn-sm' style="background-color: #1e7145;" id='viewAllPostDegreeBtn' value='Post Degree'>Post Degree</button>
+                        </div>
                     </div>
                 </div>
                 <div class="d-flex gap-5">
@@ -245,6 +245,13 @@
                     <div class="d-flex flex-column w-100">
                         <div class="text-center text-secondary fw-bold ps-0 mt-3 mb-5 w-100 h5">Number of School Principal with Rewards and Recognitions</div>
                         <canvas id="RaRChart" style="width:100%; width: 420px; max-width:450px"></canvas>
+                        <div class="d-flex justify-content-around mt-4">
+                            <button class='btn btn-primary btn-sm' style="background-color: #00aba9;" id='viewAllInternationalBtn' value='Masters Degree'>International</button>
+                            <button class='btn btn-primary btn-sm' style="background-color: #2b5797;" id='viewAllNationalBtn' value='National'>National</button>
+                            <button class='btn btn-primary btn-sm' style="background-color: #e8c3b9" id='viewAllRegionalBtn' value='Regional'>Regional</button>
+                            <button class='btn btn-primary btn-sm' style="background-color: #1e7145;" id='viewAllDivisionBtn' value='Division'>Division</button>
+                            <button class='btn btn-primary btn-sm' style="background-color: #87194c;" id='viewAllSchoolBtn' value='School'>School</button>
+                        </div>
                     </div>
                 </div>
                 
@@ -4383,7 +4390,7 @@
         var xValues = ["Master's Degree (<?php echo $nMaster ?>)", "Post Degree (<?php echo $nPost ?>)"];
         var yValues = [ <?php echo $nMaster ?>, <?php echo $nPost ?>];
         var barColors = [
-        "#e8c3b9",
+        "#2b5797",
         "#1e7145",
         ];
 
