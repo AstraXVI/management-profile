@@ -251,11 +251,12 @@
                         <div class="text-center text-secondary fw-bold ps-0 mt-3 mb-5 w-100 h5">Number of School Principal with Rewards and Recognitions</div>
                         <canvas id="RaRChart" style="width:100%; width: 420px; max-width:450px"></canvas>
                         <div class="d-flex justify-content-around mt-4">
-                            <button class='btn btn-primary btn-sm' style="background-color: #00aba9; border:none;" id='viewAllInternationalBtn' value='Masters Degree'>International</button>
-                            <button class='btn btn-primary btn-sm' style="background-color: #2b5797; border:none;" id='viewAllNationalBtn' value='National'>National</button>
-                            <button class='btn btn-primary btn-sm' style="background-color: #e8c3b9; border:none;" id='viewAllRegionalBtn' value='Regional'>Regional</button>
-                            <button class='btn btn-primary btn-sm' style="background-color: #1e7145; border:none;" id='viewAllDivisionBtn' value='Division'>Division</button>
-                            <button class='btn btn-primary btn-sm' style="background-color: #87194c; border:none;" id='viewAllSchoolBtn' value='School'>School</button>
+
+                            <button class='btn btn-primary btn-sm' style="background-color: #00aba9; border:none" id='viewAllInternationalBtn' value='International'>International</button>
+                            <button class='btn btn-primary btn-sm' style="background-color: #2b5797; border:none" id='viewAllNationalBtn' value='National'>National</button>
+                            <button class='btn btn-primary btn-sm' style="background-color: #e8c3b9; border:none" id='viewAllRegionalBtn' value='Region'>Regional</button>
+                            <button class='btn btn-primary btn-sm' style="background-color: #1e7145; border:none" id='viewAllDivisionBtn' value='Division'>Division</button>
+                            <button class='btn btn-primary btn-sm' style="background-color: #87194c; border:none" id='viewAllSchoolBtn' value='School'>School</button>
                         </div>
                     </div>
                 </div>
@@ -3285,7 +3286,16 @@
                 const id = $(this).val();
                 const email = $("#userEmailProfile").val()
 
-                if(confirm("Are you sure to delete this?")){
+                Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                if (result.isConfirmed) {
                     $.ajax({
                     url:"profileInfo/deleteDegree.php",
                     method:"post",
@@ -3309,9 +3319,9 @@
                             }
                         })
                     }
-                })
+                })                   
                 }
-               
+                })              
             })
 
             // MODAL EDIT CIVIL BUTTON
@@ -4318,6 +4328,81 @@
                     method:'post',
                     data:{
                         learning : learning
+                    },
+                    success(e){
+                        $("#dashBoardBody").html(e)
+                    }
+                })
+            })
+
+            $("#viewAllInternationalBtn").click(function(){
+                const lvl = $(this).val();
+
+                $.ajax({
+                    url:"UsersWithAward.php",
+                    method:'post',
+                    data:{
+                        lvl : lvl
+                    },
+                    success(e){
+                        $("#dashBoardBody").html(e)
+                    }
+                })
+            })
+
+            $("#viewAllNationalBtn").click(function(){
+                const lvl = $(this).val();
+
+                $.ajax({
+                    url:"UsersWithAward.php",
+                    method:'post',
+                    data:{
+                        lvl : lvl
+                    },
+                    success(e){
+                        $("#dashBoardBody").html(e)
+                    }
+                })
+            })
+
+            $("#viewAllRegionalBtn").click(function(){
+                const lvl = $(this).val();
+
+                $.ajax({
+                    url:"UsersWithAward.php",
+                    method:'post',
+                    data:{
+                        lvl : lvl
+                    },
+                    success(e){
+                        $("#dashBoardBody").html(e)
+                    }
+                })
+            })
+
+            $("#viewAllDivisionBtn").click(function(){
+                const lvl = $(this).val();
+
+                $.ajax({
+                    url:"UsersWithAward.php",
+                    method:'post',
+                    data:{
+                        lvl : lvl
+                    },
+                    success(e){
+                        $("#dashBoardBody").html(e)
+                    }
+                })
+            })
+
+            $("#viewAllSchoolBtn").click(function(){
+                const lvl = $(this).val();
+
+                $.ajax({
+                    url:"UsersWithAward.php",
+                    method:'post',
+                    data:{
+                        lvl : lvl
                     },
                     success(e){
                         $("#dashBoardBody").html(e)
