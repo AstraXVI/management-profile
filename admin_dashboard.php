@@ -227,8 +227,14 @@
                         <canvas id="pieChart" style="width:100%; width: 420px; max-width:450px"></canvas>
                     </div>
                     <div class="d-flex flex-column w-100">
-                        <div class="text-center text-secondary fw-bold ps-0 mt-3 mb-5 w-100 h5">No. of School Head with Degree</div>
+
+                        <div class="text-center text-secondary fw-bold ps-0 mb-4 w-100 h5"></div>
+
+                        <div class="text-center text-secondary fw-bold ps-0 mt-3 mb-5 w-100 h5">No. of School Head with Masters Degree / Doctoral Degree</div>
+
                         <canvas id="degreeChart" style="width:100%; width: 420px; max-width:450px"></canvas>
+                        <button class='btn btn-primary' id='viewAllPostDegreeBtn' value='Post Degree'>POST</button>
+                        <button class='btn btn-primary' id='viewAllMasterDegreeBtn' value='Masters Degree'>MASTER</button>
                     </div>
                 </div>
                 <div class="d-flex gap-5">
@@ -4229,6 +4235,37 @@
                 $("#chartWrapper").load("dashBoardCivilChart/bar.php");
             })
 
+            $('#viewAllPostDegreeBtn').click(function(){
+                const degree = $(this).val();
+
+                $.ajax({
+                    url:"Degree.php",
+                    method:'post',
+                    data:{
+                        degree : degree
+                    },
+                    success(e){
+                        $("#dashBoardBody").html(e)
+                    }
+                })
+            })
+
+
+            $('#viewAllMasterDegreeBtn').click(function(){
+                const degree = $(this).val();
+
+                $.ajax({
+                    url:"Degree.php",
+                    method:'post',
+                    data:{
+                        degree : degree
+                    },
+                    success(e){
+                        $("#dashBoardBody").html(e)
+                    }
+                })
+            })
+
         })
 
         function exportToExcel() {
@@ -4387,9 +4424,32 @@
     </script>
 
     <!-- Rewards and Recognition -->
+    <?php 
+
+        $getInternational = "SELECT DISTINCT email,lvl FROM award WHERE lvl='International'";
+        $lInternational = $con->query($getInternational);
+        $international = $lInternational->num_rows;
+
+        $getNational = "SELECT DISTINCT email,lvl FROM award WHERE lvl='National'";
+        $lNational = $con->query($getNational);
+        $National = $lNational->num_rows;
+
+        $getRegion = "SELECT DISTINCT email,lvl FROM award WHERE lvl='Region'";
+        $lRegion = $con->query($getRegion);
+        $Region = $lRegion->num_rows;
+
+        $getDivision = "SELECT DISTINCT email,lvl FROM award WHERE lvl='Division'";
+        $lDivision = $con->query($getDivision);
+        $Division = $lDivision->num_rows;
+
+        $getSchool = "SELECT DISTINCT email,lvl FROM award WHERE lvl='School'";
+        $lSchool = $con->query($getSchool);
+        $School = $lSchool->num_rows;
+
+    ?>
     <script>
-        var xValues = ["International (2)", "National (7)", "Regional (7)", "Division (30)", "School (40)"];
-        var yValues = [2,7,7,39,40];
+        var xValues = ["International (<?php echo $international ?>)", "National (<?php echo $National ?>)", "Regional (<?php echo $Region ?>)", "Division (<?php echo $Division ?>)", "School (<?php echo $School ?>)"];
+        var yValues = [<?php echo $international ?>,<?php echo $National ?>,<?php echo $Region ?>,<?php echo $Division ?>,<?php echo $School ?>];
         var barColors = [
         // "#b91d47",
         "#00aba9",
@@ -4428,9 +4488,22 @@
     </script>
 
     <!-- Training Chart -->
+    <?php
+        $getManagerial = "SELECT DISTINCT email,typeOfLd FROM learning WHERE typeOfLd='Managerial'";
+        $lManegerial = $con -> query($getManagerial);
+        $managerial = $lManegerial->num_rows;
+
+        $getSupervisory = "SELECT DISTINCT email,typeOfLd FROM learning WHERE typeOfLd='Supervisory'";
+        $lSupervisory = $con -> query($getSupervisory);
+        $Supervisory = $lSupervisory->num_rows;
+
+        $getTechnical = "SELECT DISTINCT email,typeOfLd FROM learning WHERE typeOfLd='Technical'";
+        $lTechnical = $con -> query($getTechnical);
+        $Technical = $lTechnical->num_rows;
+    ?>
     <script>
-        var xValues = ["Managerial (43)", "Supervisory (66)", "Technical (85)"];
-        var yValues = [ 43, 66, 85];
+        var xValues = ["Managerial (<?php echo $managerial ?>)", "Supervisory (<?php echo $Supervisory ?>)", "Technical (<?php echo $Technical ?>)"];
+        var yValues = [ <?php echo $managerial ?>, <?php echo $Supervisory ?>, <?php echo $Technical ?>];
         var barColors = [
         "#e8c3b9",
         "#1e7145",
