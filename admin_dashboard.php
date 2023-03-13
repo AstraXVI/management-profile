@@ -232,8 +232,8 @@
 
                         <canvas id="degreeChart" style="width:100%; width: 420px; max-width:450px"></canvas>
                         <div class="d-flex justify-content-around">
-                            <button class='btn btn-primary btn-sm' style="background-color: #2b5797;" id='viewAllMasterDegreeBtn' value='Masters Degree'>Master's Degree</button>
-                            <button class='btn btn-primary btn-sm' style="background-color: #1e7145;" id='viewAllPostDegreeBtn' value='Post Degree'>Post Degree</button>
+                            <button class='btn btn-primary btn-sm' style="background-color: #2b5797; border:none;" id='viewAllMasterDegreeBtn' value='Masters Degree'>Master's Degree</button>
+                            <button class='btn btn-primary btn-sm' style="background-color: #1e7145; border:none;" id='viewAllPostDegreeBtn' value='Post Degree'>Post Degree</button>
                         </div>
                     </div>
                 </div>
@@ -241,19 +241,22 @@
                     <div class="d-flex flex-column w-100">
                         <div class="text-center text-secondary fw-bold ps-0 mt-3 mb-5 w-100 h5">Number of School Principal with Training</div>
                         <canvas id="trainingChart" style="width:100%; width: 420px; max-width:450px"></canvas>
-                        <button class='btn btn-primary' value='Managerial' id='viewManagerialButtonDashboard'>Managerial</button>
-                        <button class='btn btn-primary' value='Supervisory' id='viewSupervisoryButtonDashboard'>Supervisory</button>
-                        <button class='btn btn-primary' value='Technical' id='viewTechnicalButtonDashBoard'>Technical</button>
+                        <div class="d-flex justify-content-around mt-4">
+                            <button class='btn btn-primary btn-sm' style="background-color: #e8c3b9; border:none;" value='Managerial' id='viewManagerialButtonDashboard'>Managerial</button>
+                            <button class='btn btn-primary btn-sm' style="background-color: #1e7145; border:none;" value='Supervisory' id='viewSupervisoryButtonDashboard'>Supervisory</button>
+                            <button class='btn btn-primary btn-sm' style="background-color: #2b5797; border:none;" value='Technical' id='viewTechnicalButtonDashBoard'>Technical</button>
+                        </div>
                     </div>
                     <div class="d-flex flex-column w-100">
                         <div class="text-center text-secondary fw-bold ps-0 mt-3 mb-5 w-100 h5">Number of School Principal with Rewards and Recognitions</div>
                         <canvas id="RaRChart" style="width:100%; width: 420px; max-width:450px"></canvas>
                         <div class="d-flex justify-content-around mt-4">
-                            <button class='btn btn-primary btn-sm' style="background-color: #00aba9;" id='viewAllInternationalBtn' value='International'>International</button>
-                            <button class='btn btn-primary btn-sm' style="background-color: #2b5797;" id='viewAllNationalBtn' value='National'>National</button>
-                            <button class='btn btn-primary btn-sm' style="background-color: #e8c3b9" id='viewAllRegionalBtn' value='Region'>Regional</button>
-                            <button class='btn btn-primary btn-sm' style="background-color: #1e7145;" id='viewAllDivisionBtn' value='Division'>Division</button>
-                            <button class='btn btn-primary btn-sm' style="background-color: #87194c;" id='viewAllSchoolBtn' value='School'>School</button>
+
+                            <button class='btn btn-primary btn-sm' style="background-color: #00aba9; border:none" id='viewAllInternationalBtn' value='International'>International</button>
+                            <button class='btn btn-primary btn-sm' style="background-color: #2b5797; border:none" id='viewAllNationalBtn' value='National'>National</button>
+                            <button class='btn btn-primary btn-sm' style="background-color: #e8c3b9; border:none" id='viewAllRegionalBtn' value='Region'>Regional</button>
+                            <button class='btn btn-primary btn-sm' style="background-color: #1e7145; border:none" id='viewAllDivisionBtn' value='Division'>Division</button>
+                            <button class='btn btn-primary btn-sm' style="background-color: #87194c; border:none" id='viewAllSchoolBtn' value='School'>School</button>
                         </div>
                     </div>
                 </div>
