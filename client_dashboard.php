@@ -2687,7 +2687,7 @@
                 formData.append("lvl", lvl);
                 formData.append("date", date);
 
-   
+                if (title && lvl && date){
 
                 $.ajax({
                     url: "profileInfo/updateAward.php",
@@ -2720,6 +2720,12 @@
 
                     }
                 });
+            }else{(Swal.fire({
+                    icon: 'warning',
+                    title: 'Warning',
+                    text: 'Please Fill All Fields.'
+                })
+    )}
             })
 
             // DELETE AWARD DATABASE BUTTON
@@ -2727,7 +2733,17 @@
                 const id = $(this).val();
                 const email = $("#userEmailProfile").val();
 
-                if(confirm("Are you sure to delete this?")){
+                Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                if (result.isConfirmed) {
+
                     $.ajax({
                         url:"profileInfo/awardDelete.php",
                         method:"post",
@@ -2754,7 +2770,9 @@
     
                         }
                     })
+                    
                 }
+                })
             })
             
             // ADD LEARNING BUTTON DB
@@ -2920,7 +2938,16 @@
                 const id = $(this).val()
                 const email = $("#userEmailProfile").val()
 
-                if(confirm("Are you sure to delete this?")){
+                Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                if (result.isConfirmed) {
                     $.ajax({
                         url:"profileInfo/learnerDelete.php",
                         method:"post",
@@ -2948,8 +2975,10 @@
                             })
                         }
                     })
+
+                   
                 }
-                
+                })    
             })
 
             // Get year experience
