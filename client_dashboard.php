@@ -1630,7 +1630,7 @@
                 const inputFinancialMng = $("#inputFinancialMngEdited").val();
                 const inputComplaints = $("#inputComplaintsEdited").val();
                 
-               
+               if (name && bday && address && inputEmployeeNoEdit && inputPlaceOfBirthEdit && inputCitizenEdit && inputCivilStatusEdit && inputZipcodeEdit && email && contact && sex && yearSchoolHead && durationYear && inputLearningPerformance && inputTeacherPerformance && inputFinancialMng && inputComplaints){
                 $.ajax({
                     url:"profileUpdateDb.php",
                     method:"post",                    
@@ -1675,6 +1675,11 @@
                         })
                     }
                 })
+            }else{(Swal.fire({
+                    icon: 'warning',
+                    title: 'Warning',
+                    text: 'Profile Updated Successfully'
+                }))}
             
             })
 
@@ -2010,7 +2015,7 @@
                 const Ldate = $("#civilDate").val();
                 const Lnumber = $("#civilNumber").val();
 
-                if(career){
+                if(career && rating && dateExam && placeExam && Ldate && Lnumber){
                     $.ajax({
                         url:"profileInfo/addCivilDb.php",
                         method:"post",
@@ -2033,14 +2038,22 @@
                                 success(e){
                                     $("#dashBoardBody").html(e)
 
-                                    confirm("Add Success!")
+                                        Swal.fire({
+                                        icon: 'success',
+                                        title: 'Success',
+                                        text: 'Added Successfully'
+                                    })
 
                                 }
                             })
                         }
                     })
                 }else{
-                    confirm("Please add career service!")
+                    Swal.fire({
+                    icon: 'warning',
+                    title: 'Warning',
+                    text: 'Please Fill All Fields.'
+                })
                 }
                 
             })
@@ -2076,6 +2089,8 @@
                 const year = $("#inputDegreeYear").val();
                 const scholar = $("#inputDegreeScholar").val();
 
+                if (degree && school && educ && from && to && high && year && scholar){
+
                 $.ajax({
                     url:"profileInfo/addDegreeDb.php",
                     method:"post",
@@ -2110,7 +2125,13 @@
 
                     }
                 })
+            }else{(Swal.fire({
+                    icon: 'warning',
+                    title: 'Warning',
+                    text: 'Please Fill All Fields.'
+                }))}
             })
+        
 
             // EDIT DEGREE BUTTON
             $("#dashBoardBody").on('click','#editButonDegreeModal',function(){
@@ -2145,6 +2166,8 @@
 
                 // alert(scholar)
 
+                if (degree && school && educ && from && to && high && year && scholar){
+
                 $.ajax({
                     url:"profileInfo/updateDegreeDb.php",
                     method:"post",
@@ -2171,12 +2194,21 @@
                             },
                             success(e){
                                 $("#dashBoardBody").html(e)
-
+                                Swal.fire({
+                                        icon: 'success',
+                                        title: 'Success',
+                                        text: 'Updated Successfully'
+                                    })
                             }
                         })
 
                     }
                 })
+            }else{(Swal.fire({
+                    icon: 'warning',
+                    title: 'Warning',
+                    text: 'Please Fill All Fields.'
+                }))}
 
             })
 
@@ -2185,7 +2217,16 @@
                 const id = $(this).val();
                 const email = $("#userEmailProfile").val()
 
-                if(confirm("Are you sure to delete this?")){
+                Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                if (result.isConfirmed) {
                     $.ajax({
                     url:"profileInfo/deleteDegree.php",
                     method:"post",
@@ -2201,17 +2242,18 @@
                             },
                             success(e){
                                 $("#dashBoardBody").html(e)
-                                Swal.fire({
-                                        icon: 'success',
-                                        title: 'Success',
-                                        text: 'Deleted Successfully'
-                                    })
+                                Swal.fire(
+                                'Deleted!',
+                                'Your file has been deleted.',
+                                'success'
+                            )
                             }
                         })
                     }
                 })
-                }
                
+                }
+                })              
             })
 
             // MODAL EDIT CIVIL BUTTON
@@ -2243,6 +2285,8 @@
                 const Ldate = $("#EditcivilDate").val();
                 const Lnumber = $("#EditcivilNumber").val();
 
+                if (career && rating && dateExam && placeExam && Ldate && Lnumber){
+
                 $.ajax({
                     url:"profileInfo/civilUpdate.php",
                     method:'post',
@@ -2267,14 +2311,19 @@
                             success(e){
                                 $("#dashBoardBody").html(e)
                                 Swal.fire({
-                                        icon: 'success',
-                                        title: 'Success',
-                                        text: 'Updated Successfully'
-                                    })
+                                icon: 'success',
+                                title: 'Success',
+                                text: 'Updated Successfully'
+                            })
                             }
                         })
                     }
                 })
+            }else{( Swal.fire({
+                    icon: 'warning',
+                    title: 'Warning',
+                    text: 'Please Fill All Fields.'
+                }))}
             })
 
             // CIVIL DELETE DB
@@ -2284,7 +2333,16 @@
 
                 // alert(email)
 
-                if(confirm("Are you sure to delete this?")){
+                Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                if (result.isConfirmed) {
                     $.ajax({
                         url:"profileInfo/civilDelete.php",
                         method:'post',
@@ -2312,7 +2370,13 @@
                             })
                         }
                     })
+
                 }
+                })
+
+               
+                    
+                
                 
             })
             
@@ -2330,7 +2394,7 @@
                 const status = $("#workExpStatus").val();
                 const service = $("#workExpService").val();
 
-                if(position){
+                if(from && to && positionLvl && position && department && salary && job && status && service){
                     $.ajax({
                         url:"profileInfo/addWork.php",
                         method:"post",
@@ -2356,16 +2420,20 @@
                                 success(e){
                                     $("#dashBoardBody").html(e)
                                     Swal.fire({
-                                        icon: 'success',
-                                        title: 'Success',
-                                        text: 'Added Successfully'
+                                    icon: 'success',
+                                    title: 'Success',
+                                    text: 'Added Successfully'
                                     })
                                 }
                             })
                         }
                     })
                 }else{
-                    confirm("Please add Position Title!")
+                    Swal.fire({
+                    icon: 'warning',
+                    title: 'Warning',
+                    text: 'Please Fill All Fields.'
+                    })
                 }
 
             })
@@ -2382,11 +2450,7 @@
                     },
                     success(e){
                         $("#editWorkExpModalBody").html(e)
-                        Swal.fire({
-                                        icon: 'success',
-                                        title: 'Success',
-                                        text: 'Updated Successfully'
-                                    })
+                       
                     }
                 })
 
@@ -2407,6 +2471,8 @@
                 const job = $("#EditworkExpJob").val();
                 const status = $("#EditworkExpStatus").val();
                 const service = $("#EditworkExpService").val();
+
+                if (from && to && positionLvl && position && department && salary && job && status && service){
 
                 $.ajax({
                     url:"profileInfo/workUpdate.php",
@@ -2435,15 +2501,20 @@
                                 $("#dashBoardBody").html(e)
 
                                 Swal.fire({
-                                        icon: 'success',
-                                        title: 'Success',
-                                        text: 'Updated Successfully'
+                                icon: 'success',
+                                title: 'Success',
+                                text: 'Updated Successfully'
                                     })
                             }
                         })
 
                     }
                 })
+            }else{(Swal.fire({
+            icon: 'warning',
+            title: 'Warning',
+            text: 'Please Fill All Fields.'
+                }))}
             })
 
             // WORK DELETE 
@@ -2451,9 +2522,17 @@
                 const id = $(this).val();
                 const email = $("#userEmailProfile").val();
 
-                if(confirm("Are you sure to delete this?")){
-
-                    $.ajax({
+                Swal.fire({
+  title: 'Are you sure?',
+  text: "You won't be able to revert this!",
+  icon: 'warning',
+  showCancelButton: true,
+  confirmButtonColor: '#3085d6',
+  cancelButtonColor: '#d33',
+  confirmButtonText: 'Yes, delete it!'
+}).then((result) => {
+  if (result.isConfirmed) {
+    $.ajax({
                         url:"profileInfo/workDelete.php",
                         method:"post",
                         data:{
@@ -2478,7 +2557,13 @@
                             })
                         }
                     })
-                }
+    
+  }
+})
+
+                
+                    
+                
             })
 
             // AWARD BUTTON LOAD
