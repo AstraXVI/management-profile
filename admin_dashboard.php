@@ -220,64 +220,326 @@
 
             <div class=" text-secondary fw-bold p-2 ps-0 w-50 h3">Performance Analytics</div>
             
-            <div class="d-flex flex-column gap-5 py-3 px-5 text-light mt-3" style="gap: 30px; background-color: white; height: 73vh; overflow-y: scroll;">
+            <div class="d-flex flex-column gap-5 py-3 px-5 text-light mt-3" style="gap: 70px; background-color: white; height: 73vh; overflow-y: scroll;">
                 <div class="d-flex gap-5">
                     <div class="d-flex flex-column w-100">
-                        <div class="text-center text-secondary fw-bold ps-0 mb-4 w-100 h5">No. of School Head</div>
+                        <div class="text-center text-secondary fw-bold ps-0 mt-3 mb-5 w-100 h5">Number of School Principal / Admin & Users</div>
                         <canvas id="pieChart" style="width:100%; width: 420px; max-width:450px"></canvas>
                     </div>
                     <div class="d-flex flex-column w-100">
-                        <div class="text-center text-secondary fw-bold ps-0 mb-4 w-100 h5">No. of School Head with Degree</div>
+                        <div class="text-center text-secondary fw-bold ps-0 mt-3 mb-5 w-100 h5">No. of School Head with Degree</div>
                         <canvas id="degreeChart" style="width:100%; width: 420px; max-width:450px"></canvas>
                     </div>
                 </div>
                 <div class="d-flex gap-5">
                     <div class="d-flex flex-column w-100">
-                        <div class="text-center text-secondary fw-bold ps-0 mb-4 w-100 h5">No. of School head with Training</div>
+                        <div class="text-center text-secondary fw-bold ps-0 mt-3 mb-5 w-100 h5">Number of School Principal with Training</div>
                         <canvas id="trainingChart" style="width:100%; width: 420px; max-width:450px"></canvas>
                     </div>
                     <div class="d-flex flex-column w-100">
-                        <div class="text-center text-secondary fw-bold ps-0 mb-4 w-100 h5">School Head Rewards & Recognition Analytics</div>
+                        <div class="text-center text-secondary fw-bold ps-0 mt-3 mb-5 w-100 h5">Number of School Principal with Rewards and Recognitions</div>
                         <canvas id="RaRChart" style="width:100%; width: 420px; max-width:450px"></canvas>
                     </div>
                 </div>
                 
-                <div class="text-center text-secondary fw-bold ps-0 w-50 h5">Civil Service Eligibility Ratings</div>
-                <div style="margin-top: -30px;">
+                <div class="text-center text-secondary fw-bold ps-0 w-100 h5">Number of School Principal with Civil Service Eligibility Ratings</div>
+                <!-- <div style="margin-top: -30px;">
                     <button class='btn btn-primary' id='subProfessionalDashBoardButton'>SUB-PROFESSIONAL</button>
                     <button class='btn btn-primary' id='professionalDashBoardBtn'>PROFESSIONAL</button>
                     <button class='btn btn-primary' id='barDashBoardBtn'>RA - 1080 BAR</button>
-                </div>
+                </div> -->
                 <!-- CHARTTTT -->
                 <div  id='chartWrapper'>
                     <!-- CHART NI RENZ -->
                     <div>
-                        <canvas id="myChart" style="width:100%; width: 420px; max-width:450px"></canvas>
+                        <canvas id="myChart" style="width:100%; width: 500px; max-width:100%"></canvas>
                     </div>
                         <!-- GET NUMBER OF THAT USERS -->
                             <?php
-                                // 80-85
-                                $qGetUsersNumber = "SELECT * FROM civil WHERE rating >= 80 AND rating <= 85.99 AND careerService='CSC - Sub Professional'";
-                                $lUserNumber = $con->query($qGetUsersNumber);
-                                $fUserNumber = $lUserNumber->num_rows;
-                                // 85-90
-                                $qGetUsersNumber85_90 = "SELECT * FROM civil WHERE rating >= 86 AND rating <= 90.99 AND careerService='CSC - Sub Professional'";
-                                $lUserNumber85_90 = $con->query($qGetUsersNumber85_90);
-                                $fUserNumber85_90 = $lUserNumber85_90->num_rows;
+
+                                //CSC - Sub Professional
+
+                                // 80
+                                $qGetUsersNumber80 = "SELECT * FROM civil WHERE rating >= 80 AND rating <= 80.99 AND careerService='CSC - Sub Professional'";
+                                $lUserNumber80 = $con->query($qGetUsersNumber80);
+                                $fUserNumber80 = $lUserNumber80->num_rows;
+                                // 81
+                                $qGetUsersNumber81 = "SELECT * FROM civil WHERE rating >= 81 AND rating <= 81.99 AND careerService='CSC - Sub Professional'";
+                                $lUserNumber81 = $con->query($qGetUsersNumber81);
+                                $fUserNumber81 = $lUserNumber81->num_rows;
+                                // 82
+                                $qGetUsersNumber82 = "SELECT * FROM civil WHERE rating >= 82 AND rating <= 82.99 AND careerService='CSC - Sub Professional'";
+                                $lUserNumber82 = $con->query($qGetUsersNumber82);
+                                $fUserNumber82 = $lUserNumber82->num_rows;
+                                // 83
+                                $qGetUsersNumber83 = "SELECT * FROM civil WHERE rating >= 83 AND rating <= 83.99 AND careerService='CSC - Sub Professional'";
+                                $lUserNumber83 = $con->query($qGetUsersNumber83);
+                                $fUserNumber83 = $lUserNumber83->num_rows;
+                                // 84
+                                $qGetUsersNumber84 = "SELECT * FROM civil WHERE rating >= 84 AND rating <= 84.99 AND careerService='CSC - Sub Professional'";
+                                $lUserNumber84 = $con->query($qGetUsersNumber84);
+                                $fUserNumber84 = $lUserNumber84->num_rows;
+                                // 85
+                                $qGetUsersNumber85 = "SELECT * FROM civil WHERE rating >= 85 AND rating <= 85.99 AND careerService='CSC - Sub Professional'";
+                                $lUserNumber85 = $con->query($qGetUsersNumber85);
+                                $fUserNumber85 = $lUserNumber85->num_rows;
+                                // 86
+                                $qGetUsersNumber86 = "SELECT * FROM civil WHERE rating >= 86 AND rating <= 86.99 AND careerService='CSC - Sub Professional'";
+                                $lUserNumber86 = $con->query($qGetUsersNumber86);
+                                $fUserNumber86 = $lUserNumber86->num_rows;
+                                // 87
+                                $qGetUsersNumber87 = "SELECT * FROM civil WHERE rating >= 87 AND rating <= 87.99 AND careerService='CSC - Sub Professional'";
+                                $lUserNumber87 = $con->query($qGetUsersNumber87);
+                                $fUserNumber87 = $lUserNumber87->num_rows;
+                                // 88
+                                $qGetUsersNumber88 = "SELECT * FROM civil WHERE rating >= 88 AND rating <= 88.99 AND careerService='CSC - Sub Professional'";
+                                $lUserNumber88 = $con->query($qGetUsersNumber88);
+                                $fUserNumber88 = $lUserNumber88->num_rows;
+                                // 89
+                                $qGetUsersNumber89 = "SELECT * FROM civil WHERE rating >= 89 AND rating <= 89.99 AND careerService='CSC - Sub Professional'";
+                                $lUserNumber89 = $con->query($qGetUsersNumber89);
+                                $fUserNumber89 = $lUserNumber89->num_rows;
+                                // 90
+                                $qGetUsersNumber90 = "SELECT * FROM civil WHERE rating >= 90 AND rating <= 90.99 AND careerService='CSC - Sub Professional'";
+                                $lUserNumber90 = $con->query($qGetUsersNumber90);
+                                $fUserNumber90 = $lUserNumber90->num_rows;
+                                // 91
+                                $qGetUsersNumber91 = "SELECT * FROM civil WHERE rating >= 91 AND rating <= 91.99 AND careerService='CSC - Sub Professional'";
+                                $lUserNumber91 = $con->query($qGetUsersNumber91);
+                                $fUserNumber91 = $lUserNumber91->num_rows;
+                                // 92
+                                $qGetUsersNumber92 = "SELECT * FROM civil WHERE rating >= 92 AND rating <= 92.99 AND careerService='CSC - Sub Professional'";
+                                $lUserNumber92 = $con->query($qGetUsersNumber92);
+                                $fUserNumber92 = $lUserNumber92->num_rows;
+                                // 93
+                                $qGetUsersNumber93 = "SELECT * FROM civil WHERE rating >= 93 AND rating <= 93.99 AND careerService='CSC - Sub Professional'";
+                                $lUserNumber93 = $con->query($qGetUsersNumber93);
+                                $fUserNumber93 = $lUserNumber93->num_rows;
+                                // 94
+                                $qGetUsersNumber94 = "SELECT * FROM civil WHERE rating >= 94 AND rating <= 94.99 AND careerService='CSC - Sub Professional'";
+                                $lUserNumber94 = $con->query($qGetUsersNumber94);
+                                $fUserNumber94 = $lUserNumber94->num_rows;
+                                // 95
+                                $qGetUsersNumber95 = "SELECT * FROM civil WHERE rating >= 95 AND rating <= 95.99 AND careerService='CSC - Sub Professional'";
+                                $lUserNumber95 = $con->query($qGetUsersNumber95);
+                                $fUserNumber95 = $lUserNumber95->num_rows;
+                                // 96
+                                $qGetUsersNumber96 = "SELECT * FROM civil WHERE rating >= 96 AND rating <= 96.99 AND careerService='CSC - Sub Professional'";
+                                $lUserNumber96 = $con->query($qGetUsersNumber96);
+                                $fUserNumber96 = $lUserNumber96->num_rows;
+                                // 97
+                                $qGetUsersNumber97 = "SELECT * FROM civil WHERE rating >= 97 AND rating <= 97.99 AND careerService='CSC - Sub Professional'";
+                                $lUserNumber97 = $con->query($qGetUsersNumber97);
+                                $fUserNumber97 = $lUserNumber97->num_rows;
+                                // 98
+                                $qGetUsersNumber98 = "SELECT * FROM civil WHERE rating >= 98 AND rating <= 98.99 AND careerService='CSC - Sub Professional'";
+                                $lUserNumber98 = $con->query($qGetUsersNumber98);
+                                $fUserNumber98 = $lUserNumber98->num_rows;
+                                // 99
+                                $qGetUsersNumber99 = "SELECT * FROM civil WHERE rating >= 99 AND rating <= 99.99 AND careerService='CSC - Sub Professional'";
+                                $lUserNumber99 = $con->query($qGetUsersNumber99);
+                                $fUserNumber99 = $lUserNumber99->num_rows;
+                                // 100
+                                $qGetUsersNumber100 = "SELECT * FROM civil WHERE rating >= 100 AND careerService='CSC - Sub Professional'";
+                                $lUserNumber100 = $con->query($qGetUsersNumber100);
+                                $fUserNumber100 = $lUserNumber100->num_rows;
+
+
+                                //CSC - Professional
+
+                                // 80
+                                $qGetUsersNumber80_pro = "SELECT * FROM civil WHERE rating >= 80 AND rating <= 80.99 AND careerService='CSC - Professional'";
+                                $lUserNumber80_pro = $con->query($qGetUsersNumber80_pro);
+                                $fUserNumber80_pro = $lUserNumber80_pro->num_rows;
+                                // 81
+                                $qGetUsersNumber81_pro = "SELECT * FROM civil WHERE rating >= 81 AND rating <= 81.99 AND careerService='CSC - Professional'";
+                                $lUserNumber81_pro = $con->query($qGetUsersNumber81_pro);
+                                $fUserNumber81_pro = $lUserNumber81_pro->num_rows;
+                                // 82
+                                $qGetUsersNumber82_pro = "SELECT * FROM civil WHERE rating >= 82 AND rating <= 82.99 AND careerService='CSC - Professional'";
+                                $lUserNumber82_pro = $con->query($qGetUsersNumber82_pro);
+                                $fUserNumber82_pro = $lUserNumber82_pro->num_rows;
+                                // 83
+                                $qGetUsersNumber83_pro = "SELECT * FROM civil WHERE rating >= 83 AND rating <= 83.99 AND careerService='CSC - Professional'";
+                                $lUserNumber83_pro = $con->query($qGetUsersNumber83_pro);
+                                $fUserNumber83_pro = $lUserNumber83_pro->num_rows;
+                                // 84
+                                $qGetUsersNumber84_pro = "SELECT * FROM civil WHERE rating >= 84 AND rating <= 84.99 AND careerService='CSC - Professional'";
+                                $lUserNumber84_pro = $con->query($qGetUsersNumber84_pro);
+                                $fUserNumber84_pro = $lUserNumber84_pro->num_rows;
+                                // 85
+                                $qGetUsersNumber85_pro = "SELECT * FROM civil WHERE rating >= 85 AND rating <= 85.99 AND careerService='CSC - Professional'";
+                                $lUserNumber85_pro = $con->query($qGetUsersNumber85_pro);
+                                $fUserNumber85_pro = $lUserNumber85_pro->num_rows;
+                                // 86
+                                $qGetUsersNumber86_pro = "SELECT * FROM civil WHERE rating >= 86 AND rating <= 86.99 AND careerService='CSC - Professional'";
+                                $lUserNumber86_pro = $con->query($qGetUsersNumber86_pro);
+                                $fUserNumber86_pro = $lUserNumber86->num_rows;
+                                // 87
+                                $qGetUsersNumber87_pro = "SELECT * FROM civil WHERE rating >= 87 AND rating <= 87.99 AND careerService='CSC - Professional'";
+                                $lUserNumber87_pro = $con->query($qGetUsersNumber87_pro);
+                                $fUserNumber87_pro = $lUserNumber87_pro->num_rows;
+                                // 88
+                                $qGetUsersNumber88_pro = "SELECT * FROM civil WHERE rating >= 88 AND rating <= 88.99 AND careerService='CSC - Professional'";
+                                $lUserNumber88_pro = $con->query($qGetUsersNumber88_pro);
+                                $fUserNumber88_pro = $lUserNumber88_pro->num_rows;
+                                // 89
+                                $qGetUsersNumber89_pro = "SELECT * FROM civil WHERE rating >= 89 AND rating <= 89.99 AND careerService='CSC - Professional'";
+                                $lUserNumber89_pro = $con->query($qGetUsersNumber89_pro);
+                                $fUserNumber89_pro = $lUserNumber89_pro->num_rows;
+                                // 90
+                                $qGetUsersNumber90_pro = "SELECT * FROM civil WHERE rating >= 90 AND rating <= 90.99 AND careerService='CSC - Professional'";
+                                $lUserNumber90_pro = $con->query($qGetUsersNumber90_pro);
+                                $fUserNumber90_pro = $lUserNumber90_pro->num_rows;
+                                // 91
+                                $qGetUsersNumber91_pro = "SELECT * FROM civil WHERE rating >= 91 AND rating <= 91.99 AND careerService='CSC - Professional'";
+                                $lUserNumber91_pro = $con->query($qGetUsersNumber91_pro);
+                                $fUserNumber91_pro = $lUserNumber91_pro->num_rows;
+                                // 92
+                                $qGetUsersNumber92_pro = "SELECT * FROM civil WHERE rating >= 92 AND rating <= 92.99 AND careerService='CSC - Professional'";
+                                $lUserNumber92_pro = $con->query($qGetUsersNumber92_pro);
+                                $fUserNumber92_pro = $lUserNumber92_pro->num_rows;
+                                // 93
+                                $qGetUsersNumber93_pro = "SELECT * FROM civil WHERE rating >= 93 AND rating <= 93.99 AND careerService='CSC - Professional'";
+                                $lUserNumber93_pro = $con->query($qGetUsersNumber93_pro);
+                                $fUserNumber93_pro = $lUserNumber93_pro->num_rows;
+                                // 94
+                                $qGetUsersNumber94_pro = "SELECT * FROM civil WHERE rating >= 94 AND rating <= 94.99 AND careerService='CSC - Professional'";
+                                $lUserNumber94_pro = $con->query($qGetUsersNumber94_pro);
+                                $fUserNumber94_pro = $lUserNumber94_pro->num_rows;
+                                // 95
+                                $qGetUsersNumber95_pro = "SELECT * FROM civil WHERE rating >= 95 AND rating <= 95.99 AND careerService='CSC - Professional'";
+                                $lUserNumber95_pro = $con->query($qGetUsersNumber95_pro);
+                                $fUserNumber95_pro = $lUserNumber95_pro->num_rows;
+                                // 96
+                                $qGetUsersNumber96_pro = "SELECT * FROM civil WHERE rating >= 96 AND rating <= 96.99 AND careerService='CSC - Professional'";
+                                $lUserNumber96_pro = $con->query($qGetUsersNumber96_pro);
+                                $fUserNumber96_pro = $lUserNumber96_pro->num_rows;
+                                // 97
+                                $qGetUsersNumber97_pro = "SELECT * FROM civil WHERE rating >= 97 AND rating <= 97.99 AND careerService='CSC - Professional'";
+                                $lUserNumber97_pro = $con->query($qGetUsersNumber97_pro);
+                                $fUserNumber97_pro = $lUserNumber97_pro->num_rows;
+                                // 98
+                                $qGetUsersNumber98_pro = "SELECT * FROM civil WHERE rating >= 98 AND rating <= 98.99 AND careerService='CSC - Professional'";
+                                $lUserNumber98_pro = $con->query($qGetUsersNumber98_pro);
+                                $fUserNumber98_pro = $lUserNumber98_pro->num_rows;
+                                // 99
+                                $qGetUsersNumber99_pro = "SELECT * FROM civil WHERE rating >= 99 AND rating <= 99.99 AND careerService='CSC - Professional'";
+                                $lUserNumber99_pro = $con->query($qGetUsersNumber99_pro);
+                                $fUserNumber99_pro = $lUserNumber99_pro->num_rows;
+                                // 100
+                                $qGetUsersNumber100_pro = "SELECT * FROM civil WHERE rating >= 100 AND careerService='CSC - Professional'";
+                                $lUserNumber100_pro = $con->query($qGetUsersNumber100_pro);
+                                $fUserNumber100_pro = $lUserNumber100_pro->num_rows;
+
+                                
+                                //RA - 1080 Bar/Board Eligibility
+
+                                $qGetUsersNumber80_RA = "SELECT * FROM civil WHERE rating >= 80 AND rating <= 80.99 AND careerService='RA - 1080 Bar/Board Eligibility'";
+                                $lUserNumber80_RA = $con->query($qGetUsersNumber80_RA);
+                                $fUserNumber80_RA = $lUserNumber80_RA->num_rows;
+                                // 81
+                                $qGetUsersNumber81_RA = "SELECT * FROM civil WHERE rating >= 81 AND rating <= 81.99 AND careerService='RA - 1080 Bar/Board Eligibility'";
+                                $lUserNumber81_RA = $con->query($qGetUsersNumber81_RA);
+                                $fUserNumber81_RA = $lUserNumber81_RA->num_rows;
+                                // 82
+                                $qGetUsersNumber82_RA = "SELECT * FROM civil WHERE rating >= 82 AND rating <= 82.99 AND careerService='RA - 1080 Bar/Board Eligibility'";
+                                $lUserNumber82_RA = $con->query($qGetUsersNumber82_RA);
+                                $fUserNumber82_RA = $lUserNumber82_RA->num_rows;
+                                // 83
+                                $qGetUsersNumber83_RA = "SELECT * FROM civil WHERE rating >= 83 AND rating <= 83.99 AND careerService='RA - 1080 Bar/Board Eligibility'";
+                                $lUserNumber83_RA = $con->query($qGetUsersNumber83_RA);
+                                $fUserNumber83_RA = $lUserNumber83_RA->num_rows;
+                                // 84
+                                $qGetUsersNumber84_RA = "SELECT * FROM civil WHERE rating >= 84 AND rating <= 84.99 AND careerService='RA - 1080 Bar/Board Eligibility'";
+                                $lUserNumber84_RA = $con->query($qGetUsersNumber84_RA);
+                                $fUserNumber84_RA = $lUserNumber84_RA->num_rows;
+                                // 85
+                                $qGetUsersNumber85_RA = "SELECT * FROM civil WHERE rating >= 85 AND rating <= 85.99 AND careerService='RA - 1080 Bar/Board Eligibility'";
+                                $lUserNumber85_RA = $con->query($qGetUsersNumber85_RA);
+                                $fUserNumber85_RA = $lUserNumber85_RA->num_rows;
+                                // 86
+                                $qGetUsersNumber86_RA = "SELECT * FROM civil WHERE rating >= 86 AND rating <= 86.99 AND careerService='RA - 1080 Bar/Board Eligibility'";
+                                $lUserNumber86_RA = $con->query($qGetUsersNumber86_RA);
+                                $fUserNumber86_RA = $lUserNumber86_RA->num_rows;
+                                // 87
+                                $qGetUsersNumber87_RA = "SELECT * FROM civil WHERE rating >= 87 AND rating <= 87.99 AND careerService='RA - 1080 Bar/Board Eligibility'";
+                                $lUserNumber87_RA = $con->query($qGetUsersNumber87_RA);
+                                $fUserNumber87_RA = $lUserNumber87_RA->num_rows;
+                                // 88
+                                $qGetUsersNumber88_RA = "SELECT * FROM civil WHERE rating >= 88 AND rating <= 88.99 AND careerService='RA - 1080 Bar/Board Eligibility'";
+                                $lUserNumber88_RA = $con->query($qGetUsersNumber88_RA);
+                                $fUserNumber88_RA = $lUserNumber88_RA->num_rows;
+                                // 89
+                                $qGetUsersNumber89_RA = "SELECT * FROM civil WHERE rating >= 89 AND rating <= 89.99 AND careerService='RA - 1080 Bar/Board Eligibility'";
+                                $lUserNumber89_RA = $con->query($qGetUsersNumber89_RA);
+                                $fUserNumber89_RA = $lUserNumber89_RA->num_rows;
+                                // 90
+                                $qGetUsersNumber90_RA = "SELECT * FROM civil WHERE rating >= 90 AND rating <= 90.99 AND careerService='RA - 1080 Bar/Board Eligibility'";
+                                $lUserNumber90_RA = $con->query($qGetUsersNumber90_RA);
+                                $fUserNumber90_RA = $lUserNumber90_RA->num_rows;
+                                // 91
+                                $qGetUsersNumber91_RA = "SELECT * FROM civil WHERE rating >= 91 AND rating <= 91.99 AND careerService='RA - 1080 Bar/Board Eligibility'";
+                                $lUserNumber91_RA = $con->query($qGetUsersNumber91_RA);
+                                $fUserNumber91_RA = $lUserNumber91_RA->num_rows;
+                                // 92
+                                $qGetUsersNumber92_RA = "SELECT * FROM civil WHERE rating >= 92 AND rating <= 92.99 AND careerService='RA - 1080 Bar/Board Eligibility'";
+                                $lUserNumber92_RA = $con->query($qGetUsersNumber92_RA);
+                                $fUserNumber92_RA = $lUserNumber92_RA->num_rows;
+                                // 93
+                                $qGetUsersNumber93_RA = "SELECT * FROM civil WHERE rating >= 93 AND rating <= 93.99 AND careerService='RA - 1080 Bar/Board Eligibility'";
+                                $lUserNumber93_RA = $con->query($qGetUsersNumber93_RA);
+                                $fUserNumber93_RA = $lUserNumber93_RA->num_rows;
+                                // 94
+                                $qGetUsersNumber94_RA = "SELECT * FROM civil WHERE rating >= 94 AND rating <= 94.99 AND careerService='RA - 1080 Bar/Board Eligibility'";
+                                $lUserNumber94_RA = $con->query($qGetUsersNumber94_RA);
+                                $fUserNumber94_RA = $lUserNumber94_RA->num_rows;
+                                // 95
+                                $qGetUsersNumber95_RA = "SELECT * FROM civil WHERE rating >= 95 AND rating <= 95.99 AND careerService='RA - 1080 Bar/Board Eligibility'";
+                                $lUserNumber95_RA = $con->query($qGetUsersNumber95_RA);
+                                $fUserNumber95_RA = $lUserNumber95_RA->num_rows;
+                                // 96
+                                $qGetUsersNumber96_RA = "SELECT * FROM civil WHERE rating >= 96 AND rating <= 96.99 AND careerService='RA - 1080 Bar/Board Eligibility'";
+                                $lUserNumber96_RA = $con->query($qGetUsersNumber96_RA);
+                                $fUserNumber96_RA = $lUserNumber96_RA->num_rows;
+                                // 97
+                                $qGetUsersNumber97_RA = "SELECT * FROM civil WHERE rating >= 97 AND rating <= 97.99 AND careerService='RA - 1080 Bar/Board Eligibility'";
+                                $lUserNumber97_RA = $con->query($qGetUsersNumber97_RA);
+                                $fUserNumber97_RA = $lUserNumber97_RA->num_rows;
+                                // 98
+                                $qGetUsersNumber98_RA = "SELECT * FROM civil WHERE rating >= 98 AND rating <= 98.99 AND careerService='RA - 1080 Bar/Board Eligibility'";
+                                $lUserNumber98_RA = $con->query($qGetUsersNumber98_RA);
+                                $fUserNumber98_RA = $lUserNumber98_RA->num_rows;
+                                // 99
+                                $qGetUsersNumber99_RA = "SELECT * FROM civil WHERE rating >= 99 AND rating <= 99.99 AND careerService='RA - 1080 Bar/Board Eligibility'";
+                                $lUserNumber99_RA = $con->query($qGetUsersNumber99_RA);
+                                $fUserNumber99_RA = $lUserNumber99_RA->num_rows;
+                                // 100
+                                $qGetUsersNumber100_RA = "SELECT * FROM civil WHERE rating >= 100 AND careerService='RA - 1080 Bar/Board Eligibility'";
+                                $lUserNumber100_RA = $con->query($qGetUsersNumber100_RA);
+                                $fUserNumber100_RA = $lUserNumber100_RA->num_rows;
+
+
+
+
+
+                                // $qGetUsersNumber85_90 = "SELECT * FROM civil WHERE rating >= 86 AND rating <= 90.99 AND careerService='CSC - Sub Professional'";
+                                // $lUserNumber85_90 = $con->query($qGetUsersNumber85_90);
+                                // $fUserNumber85_90 = $lUserNumber85_90->num_rows;
                 
                                 // 90-95
-                                $qGetUsersNumber90_95 = "SELECT * FROM civil WHERE rating >= 91 AND rating <= 95.99 AND careerService='CSC - Sub Professional'";
-                                $lUserNumber90_95 = $con->query($qGetUsersNumber90_95);
-                                $fUserNumber90_95 = $lUserNumber90_95->num_rows;
+                                // $qGetUsersNumber90_95 = "SELECT * FROM civil WHERE rating >= 91 AND rating <= 95.99 AND careerService='CSC - Sub Professional'";
+                                // $lUserNumber90_95 = $con->query($qGetUsersNumber90_95);
+                                // $fUserNumber90_95 = $lUserNumber90_95->num_rows;
                                 // 95-100
-                                $qGetUsersNumber95_100 = "SELECT * FROM civil WHERE rating >= 96 AND rating <= 100 AND careerService='CSC - Sub Professional'";
-                                $lUserNumber95_100 = $con->query($qGetUsersNumber95_100);
-                                $fUserNumber95_100 = $lUserNumber95_100->num_rows;
+                                // $qGetUsersNumber95_100 = "SELECT * FROM civil WHERE rating >= 96 AND rating <= 100 AND careerService='CSC - Sub Professional'";
+                                // $lUserNumber95_100 = $con->query($qGetUsersNumber95_100);
+                                // $fUserNumber95_100 = $lUserNumber95_100->num_rows;
                             ?>
                         <!--  -->
-                        <script>
-                            var xValues = [0,"80-85", "86-90", "91-95", "96-100"];
-                            var yValues = [0,<?php echo $fUserNumber ?>,<?php echo $fUserNumber85_90 ?>,<?php echo $fUserNumber90_95 ?>,<?php echo $fUserNumber95_100 ?>];
+                        <!-- <script>
+                            var xValues = ["80-85", "86-90", "91-95", "96-100"];
+                            var yValues = [<?php echo $fUserNumber ?>,<?php echo $fUserNumber85_90 ?>,<?php echo $fUserNumber90_95 ?>,<?php echo $fUserNumber95_100 ?>];
                             var barColors = ["red", "green","blue","orange","brown"];
                             new Chart("myChart", {
                             type: "bar",
@@ -293,10 +555,93 @@
                                 title: {
                                 display: true,
                                 text: "SUB PROFESSIONAL"
+                                },
+                                scales: {
+                                    yAxes: [{
+                                        ticks: {
+                                            beginAtZero: true
+                                        }
+                                    }]
                                 }
                             }
                             });
-                        </script>
+                        </script> -->
+
+                        <script>
+                        var ctx = document.getElementById("myChart").getContext("2d");
+
+                        // create the chart data
+                        var data = {
+                        labels: ["80", "81", "82", "83", "84", "85", "86", "87", "88", "89", "90", "91", "92", "93", "94", "95", "96", "97", "98", "99", "100"],
+                        datasets: [
+                            {
+                            label: "Sub Professional",
+                            data: [<?php echo $fUserNumber80 ?>, <?php echo $fUserNumber81 ?>, <?php echo $fUserNumber82 ?>, <?php echo $fUserNumber83 ?>, <?php echo $fUserNumber84 ?>, <?php echo $fUserNumber85 ?>, <?php echo $fUserNumber86 ?>, <?php echo $fUserNumber87 ?>, <?php echo $fUserNumber88 ?>, <?php echo $fUserNumber89 ?>, <?php echo $fUserNumber90 ?>, <?php echo $fUserNumber91 ?>, <?php echo $fUserNumber92 ?>, <?php echo $fUserNumber93 ?>, <?php echo $fUserNumber94 ?>, <?php echo $fUserNumber95 ?>, <?php echo $fUserNumber96 ?>, <?php echo $fUserNumber97 ?>, <?php echo $fUserNumber98 ?>, <?php echo $fUserNumber99 ?>, <?php echo $fUserNumber100 ?>],
+                            borderColor: "red",
+                            fill: false
+                            },
+                            {
+                            label: "Professional",
+                            data: [<?php echo $fUserNumber80_pro ?>, <?php echo $fUserNumber81_pro ?>, <?php echo $fUserNumber82_pro ?>, <?php echo $fUserNumber83_pro ?>, <?php echo $fUserNumber84_pro ?>, <?php echo $fUserNumber85_pro ?>, <?php echo $fUserNumber86_pro ?>, <?php echo $fUserNumber87_pro ?>, <?php echo $fUserNumber88_pro ?>, <?php echo $fUserNumber89_pro ?>, <?php echo $fUserNumber90_pro ?>, <?php echo $fUserNumber91_pro ?>, <?php echo $fUserNumber92_pro ?>, <?php echo $fUserNumber93_pro ?>, <?php echo $fUserNumber94_pro ?>, <?php echo $fUserNumber95_pro ?>, <?php echo $fUserNumber96_pro ?>, <?php echo $fUserNumber97_pro ?>, <?php echo $fUserNumber98_pro ?>, <?php echo $fUserNumber99_pro ?>, <?php echo $fUserNumber100_pro ?>],
+                            borderColor: "blue",
+                            fill: false
+                            },
+                            {
+                            label: "RA - 1080 Bar/Board Eligibility",
+                            data: [<?php echo $fUserNumber80_RA ?>, <?php echo $fUserNumber81_RA ?>, <?php echo $fUserNumber82_RA ?>, <?php echo $fUserNumber83_RA ?>, <?php echo $fUserNumber84_RA ?>, <?php echo $fUserNumber85_RA ?>, <?php echo $fUserNumber86_RA ?>, <?php echo $fUserNumber87_RA ?>, <?php echo $fUserNumber88_RA ?>, <?php echo $fUserNumber89_RA ?>, <?php echo $fUserNumber90_RA ?>, <?php echo $fUserNumber91_RA ?>, <?php echo $fUserNumber92_RA ?>, <?php echo $fUserNumber93_RA ?>, <?php echo $fUserNumber94_RA ?>, <?php echo $fUserNumber95_RA ?>, <?php echo $fUserNumber96_RA ?>, <?php echo $fUserNumber97_RA ?>, <?php echo $fUserNumber98_RA ?>, <?php echo $fUserNumber99_RA ?>, <?php echo $fUserNumber100_RA ?>],
+                            borderColor: "green",
+                            fill: false
+                            }
+                        ]
+                        };
+
+                        // create the chart options
+                        var options = {
+                        responsive: true,
+                        title: {
+                            display: false,
+                            text: "Civil"
+                        },
+                        tooltips: {
+                            mode: "index",
+                            intersect: false
+                        },
+                        hover: {
+                            mode: "nearest",
+                            intersect: true
+                        },
+                        scales: {
+                            xAxes: [
+                            {
+                                display: true,
+                                scaleLabel: {
+                                display: true,
+                                labelString: "Ratings"
+                                }
+                            }
+                            ],
+                            yAxes: [
+                            {
+                                display: true,
+                                ticks: {
+                                    beginAtZero: true
+                                        },
+                                scaleLabel: {
+                                display: true,
+                                labelString: "Counts"
+                                }
+                            }
+                            ]
+                        }
+                        };
+
+                        // create the chart
+                        var myChart = new Chart(ctx, {
+                        type: "line",
+                        data: data,
+                        options: options
+                        });
+                    </script>
                 </div>
             </div>
 
@@ -3889,7 +4234,7 @@
         var barColors = [
         "#e8c3b9",
         "#1e7145",
-        "#1e7145",
+        "#2b5797",
         ];
 
         new Chart("trainingChart", {
